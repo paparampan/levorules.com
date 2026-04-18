@@ -42,7 +42,6 @@ function ServitorsPage({ setRoute }) {
               <p style={{ fontSize: 20, lineHeight: 1.5, color: 'var(--bone)', maxWidth: 640 }}>
                 Полный курс: от теории (Спейр, Кэрролл, Хайн, Уайт) до инженерного протокола
                 создания, эксплуатации и завершения собственного сервитора.
-                <b> Без ангелов и без кармической пени.</b>
               </p>
               <div style={{ marginTop: 22, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
                 <Tag accent={purple}>▸ 11 модулей</Tag>
@@ -251,16 +250,11 @@ function ServitorsPage({ setRoute }) {
 
       {/* CTA */}
       <section style={{ background: purple, color: 'var(--void)', position: 'relative', overflow: 'hidden' }}>
-        <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '80px 32px', textAlign: 'center' }}>
-          <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(40px, 6vw, 88px)', lineHeight: 0.9, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
-            ПОДПИШИСЬ, КОГДА<br/>БУДЕШЬ ГОТОВ.
-          </div>
-          <div style={{ marginTop: 32 }}>
-            <Btn href="https://t.me/levorules" style={{
-              background: 'var(--void)', color: 'var(--bone)',
-              borderColor: 'var(--void)',
-            }}>@levorules →</Btn>
-          </div>
+        <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '56px 32px', textAlign: 'center' }}>
+          <Btn href="https://t.me/levorules" style={{
+            background: 'var(--void)', color: 'var(--bone)',
+            borderColor: 'var(--void)',
+          }}>@levorules →</Btn>
         </div>
       </section>
     </div>
