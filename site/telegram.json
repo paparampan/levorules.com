@@ -1,7 +1,17 @@
 {
-  "updated": "2026-04-18T15:14:05Z",
+  "updated": "2026-04-18T17:41:50Z",
   "channel": "https://t.me/levorules",
   "items": [
+    {
+      "id": 118,
+      "url": "https://t.me/levorules/118",
+      "title": "САМЫЙ ПОЛНЫЙ КУРС ПО СЕРВИТОРАМ",
+      "body": "Готов. И - да, он бесплатный. Мы тут не эзоцыганский канал, где что ни пост, то продажа. Инфу собирал долго, переваривал еще дольше. Получилось хорошо. А если получилось хорошо, то почему бы не поделиться. Считаю, что это самый полный и исчерпывающий матери…",
+      "photo": "https://cdn4.telesco.pe/file/JGsRjBvpDdCfGn8Lhc8bNuqqWBS5-JHHXtni4IJcHQdr049e-AtshPG_IEKsRdJ9C7J8rSgXHzgDCDRE-K8_iZGSfjf5spOA1bDG056gZEBGTOCL8LhIMmAQX_GBhNQYGymb2Z7lUQW5JRmuYMId2WlOnEAgjwn4mvrGX2vgxhx4N_X0Vy04_lhMl76DVkTl6gjICKSQTasa64H5hF1dF42OR5xvQl5j13Nrfa0nvPyGBuWyCETC7mVLNdX0OJgzy75-O_mH-BhfgJk1BkRYolvb1EX2V58FX25rz9P58riOrQlOeDqLCBYTP9f8zQeh7PjFIG2P8Qjzf8m2xSMgIQ.jpg",
+      "date": "2026-04-18T17:39:24+00:00",
+      "views": "2",
+      "acc": "var(--cyber-cyan)"
+    },
     {
       "id": 117,
       "url": "https://t.me/levorules/117",
@@ -10,56 +20,46 @@
       "photo": null,
       "date": "2026-04-16T15:40:46+00:00",
       "views": "34",
-      "acc": "var(--cyber-cyan)"
+      "acc": "var(--magenta)"
     },
     {
       "id": 116,
       "url": "https://t.me/levorules/116",
       "title": "СИГИЛА НАМЕРЕНИЯ НА ПЛАНЕТАРНОМ КВАДРАТЕ",
       "body": "Никогда особо с планетарными квадратами (камеями) не работал. Знал, что штука древняя, красивая, Агриппа-Парацельс-все дела... Но как именно ими пользоваться, в подробности не вдавался. И вот на днях в очередной раз на них наткнулся и честно затупил. Каждый…",
-      "photo": "https://cdn4.telesco.pe/file/Lde5ClesKaKJtPqBwXEkGe7I_8i3cswa2ibyS607y8HyhNj1JhbmIZx3FxRU8E_ow0Fv2KzfzOUGqctH4ZRBzlEKSXAyvqf2OgqzSubK39poLZY5YsiRTSnxhzGo00ZCXn0hxQY7808jAlv3SfQFeRrTf4Vm3B6SD2FnFBXZ8NndcKjAam5MtRREuMuNjfBm24bd7v7zSPrOfEp9-yBQORZ7CigNxf8fVjI0364ZRVU41bO_4p6jDcwdLoUGPB1-Y2OjDzvZpQpdTKsNsGAXNyW3vnq0Fi7NWnKg_p_wFlpRSO98kordM6r8WpLT_w1m2SbFWhGm1u71OqLrbmlQjg.jpg",
+      "photo": "https://cdn4.telesco.pe/file/PqN1JIqtX0nTT7LusFjmLxrjfpgItKFoQWD2I2iKYeWpHbGnuWZxHh5VKkufV0UY4JE8pJolB95qYemvgoxWSlcXKfKpe5-_AysOLJenkqmvnV16J8JdBWN-xzJltjKOOFkCp6ZYKbs-WMeRTg0gNy1ys-BKhOpVMUlz9t4Gb95YdR-vV5LxSgPX2JdUMjcLm99ebY9e54r7Tj_S7bEXkfXXdkqjtlXztq-OnhXWMv4gMGLakJk41zpZ0SBi9_41Xe6xPuGKo1r9ftHYXfSrtT-vBDY30u8sQAdPB-c-wX6HohCmFriyn4rm2h1qOGuP8rUKvRbSVrURVYxZI6fQ9w.jpg",
       "date": "2026-04-08T04:59:47+00:00",
-      "views": "115",
-      "acc": "var(--magenta)"
+      "views": "116",
+      "acc": "var(--acid-green)"
     },
     {
       "id": 115,
       "url": "https://t.me/levorules/115",
       "title": "СИГИЛИЗАЦИЯ ПО СПЕЙРУ: СВОБОДУ ГЛАСНЫМ",
       "body": "Открой какой-нибудь гайд по сигилам. Наверняка ты увидишь там следующее: \"запиши намерение, убери гласные, убери повторяющиеся согласные и из оставшихся согласных собери символ\". И обязательное упоминание: \"метод Остина Османа Спейра\". Но дело в том, что Сп…",
-      "photo": "https://cdn4.telesco.pe/file/ftYOQoh0V1LTZnbeIYpdQCPnrW0T0ZoHdri87r2wC3ipZGvtFUUCpxH0ZuFmcsgtzL7M5WaJ4Lb5TqLWwx_aqUnnTXJ_70y83BpmJgwSi3nOoxHrb43OX35C-gvTARvHOU053dUzepm0xWJ8C5-7A70zmZn31i723wBjZq6aDaZaVOu-5Uf4qHSKWojsGmphPUfW0qkfcsO9jokSPp1kIim0abU_D16rS6XHb0KbX-k1y8QDlJDs_DCGVs2eD-zR4frTDWbJ87rajDjq9kv9sKCAVUMjbmzb8tAm-0WQPp6cJXQdxykgVRQQrG5oOFivTimjdzoK3kzVPTrTh_960g.jpg",
+      "photo": "https://cdn4.telesco.pe/file/oAcI41EC9TYO2vkfHz-slHF-WmRe_4m2l6Ou5SC9Ef8yY27mgjKr-ww_F-G-X74Pv1FgkMrbDcHhsdCHWWGOmj8GHVYsT4vFWsT7a9EK_T4hpkSc8RILKD63KHQ9PmpHa7qXyhq138aYi3IUpgiCe4PtIG7XuE_rJJZNRTAoVU2hVPxUS749g75W_Bqk8U8F3OAM5gn7oi1-Mnq4CtqUkTl-n_ePU3wQRgfCu8wWAcOUEDtR_AokiOxCMi779I9bZralU-3wUlaWSczzH_SsMYaJ4Zyc-LxENIuxAWuXDqYnNkETVUBUUC0COwaYW8G4sDBCBeAO0agZmz-OcT8mmg.jpg",
       "date": "2026-04-03T17:57:06+00:00",
       "views": "111",
-      "acc": "var(--acid-green)"
+      "acc": "var(--amber)"
     },
     {
       "id": 114,
       "url": "https://t.me/levorules/114",
       "title": "К ЧЕРТУ ГОЭТИЮ",
       "body": "Мой челлендж по проживанию демонов по Гоэтии провален. Я больше не могу читать эту херню. Пропитанный средневековыми предрассудками Лемегетон - самое бестолковое издание по магии, которое только можно себе вообразить. Это все равно что в 2К26 читать телефон…",
-      "photo": "https://cdn4.telesco.pe/file/OoxGZqt6MTgFCnctdpEZo8P2c2hwkJVLD3vRsk9Sg0FEMmVBndj6mJEKd5D9S6EJmYkIY0OLEVr-tQd4xLG9iZYsRDAzzQ5u9Im0LZ2fQXrs5FVxO3ARoUZ0WSwzdfvc15T247U03sAbt4nj6v3bpnODfslINP4fuYY6abt1t5Ysh2HsNwMaQpkFHt9NNMsxxQWHUDf5ANIxMJy4u1buk80zC5t7QpHJ5xU4gI0p68NZ_v8NNsFM5tWkTSwxHuY2NzAnOfVaXxaY3pdu8SRXFCQoOyuowzqNkEBwIdBKL5I4G-SiIGXCvP8bnpcXhlkIfHjkEEmjtwJCaj1hUbtNfA.jpg",
+      "photo": "https://cdn4.telesco.pe/file/EOfxD09CvbpDgjE53JhcsixqcO41QOKI1MhX2krPvMCtPlMu7MnDHoYxBfDxpC0SApxU_sUjNHGO1zEbUZk1b2EmkPMrBRTvJwGOE9jFPxsAFiJuSib4lDNLkYUDmqpU-53VmyCaTn31aWp5SXbxoQpyw5BvPRG7HcElulp4h_j7upn1rXte9wDP-sqTVaRjlkCKwNUfJNWx0keozkHPjmhwbUm9uISoFa2ylYUzXIna80kznwNKzjf7HC7vbou65PuAyGzpUbaSNfAi4T6KCll5zE3Obucoo2_bSwMOsA6Fm4zvUdn15kYcxxY3MeuRqsyqHEF_5ymWeWaVaGSe6Q.jpg",
       "date": "2026-03-29T17:51:12+00:00",
       "views": "93",
-      "acc": "var(--amber)"
+      "acc": "var(--purple)"
     },
     {
       "id": 113,
       "url": "https://t.me/levorules/113",
       "title": "8 ЦВЕТОВ МАГИИ: КАК ОПРЕДЕЛЯТЬ И КАК ПРОКАЧИВАТЬ",
       "body": "У каждого есть 2-3 доминантных цвета изъявления воли. И это стартовая позиция. Ниже - как определить свои наиболее часто используемые и работать с другими. 🔴 Красный (Марс) - война Легко идешь на конфронтацию. Не избегаешь неприятных разговоров. Физическая…",
-      "photo": "https://cdn4.telesco.pe/file/vjy4P1UfWj-A52n8k_KWTNeOLvtA8QKIN3IH6jfS_XH2RxHO2Bly9P8sFGTf-HFbcKVMC3PIDBVM1OXm_n_KZjgZg4cGGQ5iR30PKiqZcUw0VJ4fLmHJ4oQlRh5h29O_TSmbd3o-EnZ5dRkZZhtG92kM-wHsAsPzLxIxw5nWcwKTl0P4aegOwp6ueVioh6InHPVzdTdYWHPBfr157bWlJfd1OHaO8WUe4B4excYWy9vsVJS3H-rviGcQ5QdUzqGs3eXj4yGY5qefTY7Bh4Cy0WWWFYIr5RN_mchUn2-Tv_XEMwpitDIgWtmWOpCasEAPHcMbQNz1cfxPFfopAqkKmA.jpg",
+      "photo": "https://cdn4.telesco.pe/file/LS4DL2YgIouEXkYXH3oagoYM_O-Ut2TPiMTRwNG6_OpUAmv_SDfkT6giOj7kj06qXa1q9WQksRp700iOUnLG3bUcsEhn9YBFxikVhobDCkhOzOjlyqHObRXcv08iZGryWxkI5CcfzzU1e2nNTsRqzQSrQDvtkmho6399euOw1nEBkNlhj2yMfWYXTRcb7StTq8kuMkHdg-Uw1kWwIH0XmHJR3AFt9GniIQcLB3HVMGaPneVM468ErE2i4eVENvTAq6tNBhMgkdGj7DQytoUoRCPNiyMHdNLCs3MCwPsPt7J5X0SsgnZYpYNvaMtVUlKVJKs_YqOREbudSX3GRuzsjw.jpg",
       "date": "2026-03-24T09:29:02+00:00",
       "views": "93",
-      "acc": "var(--purple)"
-    },
-    {
-      "id": 112,
-      "url": "https://t.me/levorules/112",
-      "title": "ПРАКТИКА 3-6-9",
-      "body": "Тесла не раз писал: поймешь 3, 6, 9 - поймешь Вселенную. И - да, отвечать на это \"Если он все это знал, то чего ж помер в нищете?\" - моветон. Интересуешься магией исключительно из материальных соображений - иди лучше зарабатывай деньги более простыми путями…",
-      "photo": "https://cdn4.telesco.pe/file/sfcoUswaMONJp7jRx2jVoXUT3FpI5pfCpuzVKnk7PGKHOfCqjTiGvbQ0tH-CNX9Rp0Oh76h0xRrwWfl8DfAdCaJ8OoDRwVCLrLwL4Kcwjorn_Lbdqh9l6Rh-h0YhKHJHGYpG62WM_rlNyRkkTi9iT0fP1i7A7wrizKsOo-MImBXOnYPSxcz_Hungr9z8M1nJHKk1YDq33YfoCGjcuYSXJGaKwexge5bJftvR7FkjTon9SVrZq3QOiwTa4eKJ1lZEtX2NKnyHKurT4lQtTBYmXVApg2gE5O4sO4MR0WMu4R2kXMF7xZK_yfu4Z-VqxVXT3YTv4W8T8q6SlBJcXdsUcw.jpg",
-      "date": "2026-03-21T18:23:39+00:00",
-      "views": "94",
       "acc": "var(--blood)"
     }
   ]
