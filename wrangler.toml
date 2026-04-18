@@ -1,6 +1,11 @@
-# Cloudflare Pages config — says: "this is a static site, upload everything
-# from the project root". Without this, CF Pages sees package.json and
-# defaults to Worker-style `wrangler deploy`, which fails.
-name = "levorules"
+# Cloudflare Worker + Static Assets — site root is served as static files.
+# Required name must match the Worker project already created in CF dashboard.
+name = "levorules-com"
 compatibility_date = "2024-10-01"
-pages_build_output_dir = "./"
+
+# Serve everything in the repo root as static assets. Worker has no custom
+# JS handler — CF's asset server answers every request.
+[assets]
+directory = "./"
+not_found_handling = "single-page-application"
+
