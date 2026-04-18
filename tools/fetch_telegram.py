@@ -17,7 +17,8 @@ from bs4 import BeautifulSoup
 CHANNEL_HANDLE = "levorules"
 PREVIEW_URL = f"https://t.me/s/{CHANNEL_HANDLE}"
 COUNT = 6  # fetch a bit more than the 2 shown; frontend can pick
-OUT = Path.home() / "Library" / "Application Support" / "levorules" / "telegram.json"
+# Write directly to the repo's site/telegram.json (same rationale as fetch_shorts.py).
+OUT = Path(__file__).resolve().parents[1] / "site" / "telegram.json"
 
 ACCENTS = [
     "var(--cyber-cyan)",

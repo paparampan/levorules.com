@@ -1,0 +1,52 @@
+name: Update feeds
+
+# Regenerates site/shorts.json and site/telegram.json by hitting YouTube and
+# t.me/s/levorules, then commits the new JSON if anything changed. Cloudflare
+# auto-deploys on push.
+
+on:
+  schedule:
+    # every 2 hours at minute 17 (off-peak to avoid GH cron queue)
+    - cron: "17 */2 * * *"
+  workflow_dispatch: {}
+
+concurrency:
+  group: update-feeds
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          pip install yt-dlp beautifulsoup4
+
+      - name: Fetch YouTube Shorts
+        run: python tools/fetch_shorts.py
+        continue-on-error: true
+
+      - name: Fetch Telegram posts
+        run: python tools/fetch_telegram.py
+        continue-on-error: true
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "levorules-bot"
+          git config user.email "bot@levorules.com"
+          git add site/shorts.json site/telegram.json
+          if git diff --quiet --cached; then
+            echo "No feed changes."
+          else
+            git commit -m "feeds: auto-refresh $(date -u +%Y-%m-%dT%H:%MZ)"
+            git push
+          fi

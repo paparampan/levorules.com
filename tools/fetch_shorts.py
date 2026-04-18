@@ -14,10 +14,9 @@ from pathlib import Path
 
 CHANNEL = "https://www.youtube.com/@levorules/shorts"
 COUNT = 5
-# Real file lives in ~/Library/Application Support/levorules/ (outside the
-# TCC-guarded Desktop so launchd can write it). A symlink at
-# ~/Desktop/levorules.com/site/shorts.json points here.
-OUT = Path.home() / "Library" / "Application Support" / "levorules" / "shorts.json"
+# Write directly to the repo's site/shorts.json so both local runs and
+# GitHub Actions leave an immediately-committable result in the working tree.
+OUT = Path(__file__).resolve().parents[1] / "site" / "shorts.json"
 
 ACCENTS = [
     "var(--magenta)",
