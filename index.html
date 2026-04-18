@@ -191,15 +191,14 @@
       height: auto !important;
     }
 
-    /* Servitors landing: module list rows are 4-col grid (80px / text / time / button) —
-       overflow on mobile. Collapse to 2-col: number + content-stack (time/button inline). */
-    [style*="grid-template-columns: 80px 1fr auto auto"] {
+    /* Servitors landing: module list rows are 3-col grid (80px / text / button) —
+       collapse to 2-col on mobile: number + content-stack (button below). */
+    [style*="grid-template-columns: 80px 1fr auto"] {
       grid-template-columns: 48px 1fr !important;
       gap: 10px 14px !important;
       padding: 20px 20px !important;
     }
-    [style*="grid-template-columns: 80px 1fr auto auto"] > *:nth-child(3),
-    [style*="grid-template-columns: 80px 1fr auto auto"] > *:nth-child(4) {
+    [style*="grid-template-columns: 80px 1fr auto"] > *:nth-child(3) {
       grid-column: 2 !important;
       justify-self: start !important;
     }

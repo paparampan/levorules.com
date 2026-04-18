@@ -126,7 +126,7 @@ function ServitorsPage({ setRoute }) {
               >
                 <div style={{
                   padding: '28px 32px',
-                  display: 'grid', gridTemplateColumns: '80px 1fr auto auto', gap: 24, alignItems: 'center',
+                  display: 'grid', gridTemplateColumns: '80px 1fr auto', gap: 24, alignItems: 'center',
                 }}>
                   <span style={{ fontFamily: 'var(--font-mono)', fontSize: 28, color: purple, fontWeight: 700 }}>
                     {m.n}
@@ -153,10 +153,6 @@ function ServitorsPage({ setRoute }) {
                       </div>
                     )}
                   </div>
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)',
-                    letterSpacing: '0.1em', whiteSpace: 'nowrap' }}>
-                    {m.time || ''}
-                  </span>
                   <button
                     onClick={() => goToModule(i)}
                     style={{
