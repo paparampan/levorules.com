@@ -209,17 +209,25 @@
     }
 
     /* Content tables with 3+ cols don't fit 375px — stack each row's cells
-       vertically with the header cell labelling the value. Uses pattern
-       matching minmax() or repeat(3+,). */
+       vertically. Label cell stays default (bone, bold); values get column-
+       specific tints so reader can mentally group them back into columns:
+       middle col = purple, right col = cyan. */
     [style*="grid-template-columns: minmax"],
     [style*="grid-template-columns: repeat(4"],
     [style*="grid-template-columns: repeat(5"][style*="1fr)"] {
       grid-template-columns: 1fr !important;
       gap: 4px !important;
     }
-    /* Individual cells inside collapsed table keep their border-right off */
     [style*="grid-template-columns: minmax"] > div {
       border-right: none !important;
+    }
+    [style*="grid-template-columns: minmax(140px, 1fr) 1fr 1fr"] > div:nth-child(2),
+    [style*="grid-template-columns: minmax(140px, 1fr) 1fr 1fr"] > div:nth-child(2) * {
+      color: var(--purple) !important;
+    }
+    [style*="grid-template-columns: minmax(140px, 1fr) 1fr 1fr"] > div:nth-child(3),
+    [style*="grid-template-columns: minmax(140px, 1fr) 1fr 1fr"] > div:nth-child(3) * {
+      color: var(--cyber-cyan) !important;
     }
   }
 
