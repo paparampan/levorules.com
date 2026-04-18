@@ -1,0 +1,6 @@
+# Cloudflare Pages config — says: "this is a static site, upload everything
+# from the project root". Without this, CF Pages sees package.json and
+# defaults to Worker-style `wrangler deploy`, which fails.
+name = "levorules"
+compatibility_date = "2024-10-01"
+pages_build_output_dir = "./"
