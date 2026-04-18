@@ -1,0 +1,23 @@
+node_modules/
+.DS_Store
+*.pyc
+__pycache__/
+.venv/
+venv/
+dist/_source.jsx
+/_appendix_*.html
+/servitors_course.html
+*.log
+
+# preview tooling
+.claude/
+
+# macOS junk
+.AppleDouble
+.LSOverride
+Icon?
+
+# editor
+.vscode/
+.idea/
+*.swp

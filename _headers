@@ -1,0 +1,29 @@
+# Cloudflare Pages headers — cache strategy per path pattern.
+
+/dist/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/brand/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/uploads/appendices/*
+  Cache-Control: public, max-age=604800
+
+/uploads/*.png
+  Cache-Control: public, max-age=2592000
+
+/uploads/*.pdf
+  Cache-Control: public, max-age=3600
+
+/site/shorts.json
+  Cache-Control: public, max-age=1800
+
+/site/telegram.json
+  Cache-Control: public, max-age=1800
+
+/manifest.webmanifest
+  Content-Type: application/manifest+json
+
+/*
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin

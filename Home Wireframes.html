@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<title>ЛЕВО РУЛЯ · Wireframes</title>
+<link rel="icon" href="brand/assets/favicon.svg">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand/colors_and_type.css">
+<style>
+  html, body { margin:0; background:#f0eee9; height: 100%; overflow:hidden; }
+  /* Tab bar */
+  .tabbar {
+    position: fixed; top: 16px; left: 50%; transform: translateX(-50%);
+    z-index: 100;
+    display: flex; gap: 4px;
+    background: #0A0A0A; padding: 6px; border: 1px solid #2A2A2A;
+    font-family: 'Space Mono', monospace;
+    box-shadow: 0 6px 24px rgba(0,0,0,0.18);
+  }
+  .tabbar button {
+    all: unset; cursor: pointer;
+    padding: 8px 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase;
+    color: #8C8879;
+    border: 1px solid transparent;
+  }
+  .tabbar button:hover { color: #E8E2D3; }
+  .tabbar button.active {
+    background: #1F1F1F; color: #E8E2D3; border-color: #2A2A2A;
+  }
+  .tabbar button .dot {
+    display: inline-block; width: 6px; height: 6px; margin-right: 6px;
+    vertical-align: middle;
+  }
+  .tabbar .meta {
+    padding: 8px 10px; color: #8C8879; font-size: 10px; letter-spacing: 0.12em;
+    border-left: 1px solid #2A2A2A; margin-left: 4px;
+  }
+  .helper {
+    position: fixed; bottom: 16px; left: 16px; z-index: 100;
+    background: rgba(255,255,255,0.9); color: #333;
+    font: 11px/1.4 -apple-system, system-ui, sans-serif;
+    padding: 8px 12px; border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    max-width: 260px;
+  }
+  .helper b { color: #000; }
+</style>
+</head>
+<body>
+
+<div class="tabbar" id="tabbar">
+  <button data-tab="A" class="active"><span class="dot" style="background:#B30000"></span>A · Single-scroll</button>
+  <button data-tab="B"><span class="dot" style="background:#E8E2D3"></span>B · Terminal</button>
+  <button data-tab="C"><span class="dot" style="background:#FFB800"></span>C · Poster</button>
+  <button data-tab="D"><span class="dot" style="background:#B026FF"></span>D · Altar rail</button>
+  <span class="meta">ЛЕВО РУЛЯ · wireframes · 2026</span>
+</div>
+
+<div class="helper">
+  <b>Pan:</b> drag background · <b>Zoom:</b> wheel / pinch · <b>Switch:</b> tabs above.
+  Sticky notes explain each new/changed block.
+</div>
+
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+<script type="text/babel" src="frames/design-canvas.jsx"></script>
+<script type="text/babel" src="frames/wireframe-parts.jsx"></script>
+<script type="text/babel" src="frames/variant-a.jsx"></script>
+<script type="text/babel" src="frames/variant-b.jsx"></script>
+<script type="text/babel" src="frames/variant-c.jsx"></script>
+<script type="text/babel" src="frames/variant-d.jsx"></script>
+
+<script type="text/babel">
+const { useState, useEffect } = React;
+
+const NOTES = {
+  A: 'Консервативный. Почти текущая структура, но перебранная по гриду, с новыми блоками: курс как Callout Band, видео-лента 9:16.',
+  B: 'Радикально. Вся главная — CRT-терминал. Разделы как /dirs. Курс — «incoming transmission». Ritual mode тут в ДНК.',
+  C: 'Поcтер + зин. Hero = одна крупная мысль в цикле (anti-dogma). Ниже — 3-колоночный зин: тест «твой цвет», курс, видео.',
+  D: 'Боковой «алтарь» всегда на экране: логотип, оглавление §01–§06, манифест, CTA. Курс — полноэкранная фиолетовая зона.',
+};
+
+function App() {
+  const [tab, setTab] = useState(() => localStorage.getItem('lr_wf_tab') || 'A');
+
+  useEffect(() => {
+    localStorage.setItem('lr_wf_tab', tab);
+    document.querySelectorAll('#tabbar button').forEach(b => {
+      b.classList.toggle('active', b.dataset.tab === tab);
+    });
+  }, [tab]);
+
+  useEffect(() => {
+    const h = (e) => {
+      const t = e.target.closest('button[data-tab]');
+      if (t) setTab(t.dataset.tab);
+    };
+    document.getElementById('tabbar').addEventListener('click', h);
+    return () => document.getElementById('tabbar').removeEventListener('click', h);
+  }, []);
+
+  const Variant = { A: VariantA, B: VariantB, C: VariantC, D: VariantD }[tab];
+
+  return (
+    <DesignCanvas>
+      <DCSection
+        title={`Вариант ${tab} · главная + курс`}
+        subtitle={NOTES[tab]}
+      >
+        <DCArtboard label={`levorules.com · variant ${tab} · desktop 780w`} width={780}>
+          <Variant />
+        </DCArtboard>
+
+        {/* Spec column next to each artboard */}
+        <div style={{ width: 260, padding: '4px 0 0 8px', fontFamily: '-apple-system, system-ui, sans-serif', color: '#3c3226', fontSize: 12, lineHeight: 1.55 }}>
+          <div style={{ fontSize: 14, fontWeight: 600, color: '#1a1a1a', marginBottom: 6 }}>Что меняется</div>
+          <ChangeList tab={tab} />
+        </div>
+      </DCSection>
+    </DesignCanvas>
+  );
+}
+
+function ChangeList({ tab }) {
+  const items = {
+    A: [
+      ['+', 'Блок курса как Callout Band с фиолетовым левым бордером'],
+      ['+', 'Новая лента последних видео 5×9:16 (YT + TT)'],
+      ['~', 'Hero: добавлена вторая кнопка «Курс · сервиторы»'],
+      ['~', 'Territories → карточки с номерами (01/03)'],
+      ['+', 'Manifesto band на blood как финальный разделитель'],
+    ],
+    B: [
+      ['+', 'Вся главная = терминал. Header показывает путь /~/index'],
+      ['+', 'Территории как /chaos /demons /lhp (cd-стиль)'],
+      ['+', 'Курс = INCOMING TRANSMISSION, модули = лог-линии'],
+      ['+', 'Split video + TG снизу (6 шортсов + 4 лога)'],
+      ['!', 'Шрифт IBM Plex уступает Space Mono почти везде'],
+    ],
+    C: [
+      ['+', 'Hero — постер, 150px headline, одна мысль'],
+      ['+', '3-колоночный зин: тест «цвет магии» · курс · видео'],
+      ['+', 'Интерактив: quiz с 8 цветами магии (сохраняется)'],
+      ['~', 'TG — горизонтальная лента 4 карточки'],
+      ['+', 'Manifesto — узкая blood-полоса с CTA справа'],
+    ],
+    D: [
+      ['+', 'Боковой «altar rail» 260px, sticky слева'],
+      ['+', 'Оглавление §01–§06 как шифр-навигация'],
+      ['+', 'Курс — собственный фон (void→фиолетовая тень) + sigil'],
+      ['+', 'Видео — featured + 4 тумбы (1+4 masonry)'],
+      ['~', 'Верхний header минимален — вся навигация в рейле'],
+    ],
+  }[tab];
+  return (
+    <div style={{ display: 'flex', flexDirection: 'column', gap: 6 }}>
+      {items.map(([sym, txt], i) => (
+        <div key={i} style={{ display: 'grid', gridTemplateColumns: '20px 1fr', gap: 6 }}>
+          <span style={{
+            fontFamily: 'Space Mono, monospace', fontWeight: 700,
+            color: sym === '+' ? '#2a7a2a' : sym === '~' ? '#a67100' : '#8b0000',
+          }}>{sym}</span>
+          <span>{txt}</span>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+</script>
+</body>
+</html>

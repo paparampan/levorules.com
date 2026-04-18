@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ЛЕВО РУЛЯ · Магия хаоса и ПЛР</title>
+<meta name="description" content="Антидогматический оккультизм: магия хаоса, демонология, путь левой руки. Открытый курс «Сервиторы» (11 модулей, 130 страниц, без регистрации, оплаты и SMS).">
+<meta name="author" content="Антон / @levorules">
+<meta name="theme-color" content="#B30000">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Лево Руля">
+<meta property="og:title" content="ЛЕВО РУЛЯ · Магия хаоса и ПЛР">
+<meta property="og:description" content="Антидогматический оккультизм. Открытый курс «Сервиторы» — полный, без регистрации и оплаты.">
+<meta property="og:url" content="https://levorules.com/">
+<meta property="og:image" content="https://levorules.com/uploads/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Лево Руля · Магия хаоса, демонология, путь левой руки">
+<meta property="og:locale" content="ru_RU">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ЛЕВО РУЛЯ · Магия хаоса и ПЛР">
+<meta name="twitter:description" content="Антидогматический оккультизм. Открытый курс «Сервиторы» — полный, без регистрации и оплаты.">
+<meta name="twitter:image" content="https://levorules.com/uploads/og-image.png">
+
+<!-- Favicons / app icons -->
+<link rel="icon" type="image/svg+xml" href="brand/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="brand/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="brand/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="brand/assets/apple-touch-icon.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="alternate icon" href="brand/assets/favicon.ico">
+
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="brand/colors_and_type.css">
+
+<!-- Analytics (Plausible placeholder — enable after signup at plausible.io/levorules.com)
+     Uncomment the line below after registering the domain:
+<script defer data-domain="levorules.com" src="https://plausible.io/js/script.js"></script>
+-->
+
+<style>
+  html, body { min-height: 100%; }
+  body { background: var(--void); color: var(--bone); }
+  a { color: inherit; }
+  ::selection { background: var(--blood); color: var(--bone); }
+
+  /* Ritual mode: subtle scanlines + slight hue shift on accents */
+  body.ritual::before {
+    content: ""; position: fixed; inset: 0; z-index: 200; pointer-events: none;
+    background: repeating-linear-gradient(to bottom,
+      rgba(255,255,255,0.025) 0 1px, transparent 1px 3px);
+    mix-blend-mode: overlay;
+  }
+  body.ritual::after {
+    content: ""; position: fixed; inset: 0; z-index: 199; pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0 0.9 0 0 0 0.35 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    opacity: 0.08; mix-blend-mode: overlay;
+  }
+
+  /* Tweaks panel */
+  .tweaks {
+    position: fixed; bottom: 20px; right: 20px; z-index: 500;
+    width: 280px;
+    background: var(--void); border: 1px solid var(--border);
+    font-family: var(--font-mono); color: var(--bone);
+    display: none;
+  }
+  .tweaks.visible { display: block; }
+  .tweaks header {
+    padding: 10px 14px; border-bottom: 1px solid var(--border);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--bone-dim);
+  }
+  .tweaks .close { cursor: pointer; background: none; border: 0; color: var(--bone-dim); font-family: inherit; }
+  .tweaks .row { padding: 10px 14px; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .tweaks .row:last-child { border-bottom: 0; }
+  .tweaks label { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--bone-dim); }
+  .tweaks button.opt { all: unset; cursor: pointer; padding: 4px 8px; border: 1px solid var(--border); color: var(--bone-dim); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; font-family: inherit; }
+  .tweaks button.opt.on { color: var(--bone); border-color: var(--bone); }
+
+  /* ===== Responsive / mobile ===== */
+  /* overflow-x: clip (not hidden) — clip blocks horizontal scroll without creating
+     a scroll container, so descendant `position: sticky` still works. */
+  html, body { overflow-x: clip; }
+
+  /* ===== Matrix-breach glitch — only on page hero headings =====
+     At rest: clean text, no effect. Every cycle, one short sharp burst
+     (~400ms of visible chaos) then back to normal. */
+  @keyframes lr-glitch-hack {
+    0%, 91%, 100% {
+      text-shadow: none;
+      transform: translate(0, 0);
+    }
+    91.5% { text-shadow: 4px 0 rgba(232, 29, 29, 0.95), -4px 0 rgba(57, 226, 255, 0.95); transform: translate(-3px, 0); }
+    92%   { text-shadow: -5px 0 rgba(232, 29, 29, 0.95), 5px 0 rgba(57, 226, 255, 0.95); transform: translate(2px, 1px); }
+    92.5% { text-shadow: 6px 0 rgba(232, 29, 29, 1), -6px 0 rgba(57, 226, 255, 1); transform: translate(-2px, 0); }
+    93%   { text-shadow: none; transform: translate(0, 0); } /* snap back */
+    93.5% { text-shadow: -4px 0 rgba(232, 29, 29, 0.95), 4px 0 rgba(57, 226, 255, 0.95); transform: translate(3px, 0); }
+    94%   { text-shadow: 3px 0 rgba(232, 29, 29, 0.9), -3px 0 rgba(57, 226, 255, 0.9); transform: translate(-1px, 0); }
+    94.5% { text-shadow: 5px 0 rgba(232, 29, 29, 0.95), -5px 0 rgba(57, 226, 255, 0.95); transform: translate(2px, 0); }
+    95%   { text-shadow: none; transform: translate(0, 0); }
+  }
+
+  .lr-glitch-text {
+    animation: lr-glitch-hack 5.5s infinite step-end;
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .lr-glitch-text { animation: none; }
+  }
+
+  @media (max-width: 720px) {
+    /* Section content containers shrink horizontal+vertical padding. */
+    section > div[style*="max-width: 1280px"],
+    section > div[style*="max-width: 1440px"],
+    section > div[style*="max-width: 1100px"] {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+      padding-top: 56px !important;
+      padding-bottom: 56px !important;
+    }
+    /* Reader's sticky top bar and 2-col layout have smaller original padding. */
+    section[style*="position: sticky"] > div[style*="max-width: 1440px"] {
+      padding-top: 10px !important;
+      padding-bottom: 10px !important;
+    }
+    .sv-reader-grid {
+      padding-left: 20px !important;
+      padding-right: 20px !important;
+      padding-top: 24px !important;
+      padding-bottom: 64px !important;
+    }
+
+    /* Collapse layout grids (fr-based / repeat / fixed 280px sidebar) to 1 col.
+       Icon-text grids with small pixel first col (20px, 32px, 44px) are untouched. */
+    [style*="grid-template-columns: repeat(2"],
+    [style*="grid-template-columns: repeat(3"],
+    [style*="grid-template-columns: 1fr 1fr"],
+    [style*="grid-template-columns: 1.1fr 1fr"],
+    [style*="grid-template-columns: 1.2fr 1fr"],
+    [style*="grid-template-columns: 1.3fr 1fr"],
+    [style*="grid-template-columns: 1.35fr 1fr"],
+    [style*="grid-template-columns: 280px 1fr"] {
+      grid-template-columns: 1fr !important;
+      gap: 20px !important;
+    }
+
+    /* Shorts lineup: 5-col → 2-col on mobile (cards stay 9:16, look right). */
+    [style*="grid-template-columns: repeat(5"] {
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 12px !important;
+    }
+
+    /* Reader: hide desktop sidebar, use sticky top bar for nav. */
+    .sv-reader-grid > aside { display: none !important; }
+    .sv-reader-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
+
+    /* Header nav — wrap + compact sizing. */
+    header nav { flex-wrap: wrap !important; gap: 2px !important; row-gap: 4px !important; }
+    header nav a {
+      padding: 6px 8px !important;
+      font-size: 10px !important;
+      letter-spacing: 0.05em !important;
+    }
+    /* Header container: smaller padding so logo+nav fit. */
+    header > div[style*="padding: 14px 32px"] { padding: 10px 16px !important; gap: 12px !important; }
+
+    /* Hero decorative sigils pushed off-screen should fade further so they don't overpower. */
+    section > div[style*="right: -"],
+    section > div[style*="right:-"] { opacity: 0.35 !important; }
+
+    /* Article max-width constraint in reader — let it fill. */
+    .sv-reader-grid > article { max-width: 100% !important; }
+
+    /* Big headline clamp floors too tall for narrow phones — tighten floor. */
+    h1 { letter-spacing: -0.015em !important; }
+    h1[style*="clamp(72px"] { font-size: clamp(48px, 14vw, 180px) !important; }
+    h1[style*="clamp(80px"] { font-size: clamp(56px, 17vw, 180px) !important; }
+    h1[style*="clamp(72px, 11vw"] { font-size: clamp(48px, 13vw, 180px) !important; }
+
+    /* Decorative sigil SVGs positioned absolute — shrink so they don't flood the layout. */
+    section > div[style*="right: -"] > svg,
+    section > div[style*="right:-"] > svg {
+      max-width: 60vw !important;
+      height: auto !important;
+    }
+
+    /* Servitors landing: module list rows are 4-col grid (80px / text / time / button) —
+       overflow on mobile. Collapse to 2-col: number + content-stack (time/button inline). */
+    [style*="grid-template-columns: 80px 1fr auto auto"] {
+      grid-template-columns: 48px 1fr !important;
+      gap: 10px 14px !important;
+      padding: 20px 20px !important;
+    }
+    [style*="grid-template-columns: 80px 1fr auto auto"] > *:nth-child(3),
+    [style*="grid-template-columns: 80px 1fr auto auto"] > *:nth-child(4) {
+      grid-column: 2 !important;
+      justify-self: start !important;
+    }
+  }
+
+  @media (max-width: 340px) {
+    /* Very narrow phones: tighten nav. Shorts stay 2-col (wider cards look worse). */
+    header nav a { padding: 5px 6px !important; font-size: 9px !important; }
+  }
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<div class="tweaks" id="tweaks">
+  <header>
+    <span>▸ TWEAKS</span>
+    <button class="close" onclick="document.getElementById('tweaks').classList.remove('visible')">×</button>
+  </header>
+  <div class="row">
+    <label>Ritual mode</label>
+    <div style="display:flex;gap:4px">
+      <button class="opt" data-k="ritual" data-v="false">OFF</button>
+      <button class="opt" data-k="ritual" data-v="true">ON</button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Hero scale</label>
+    <div style="display:flex;gap:4px">
+      <button class="opt" data-k="heroScale" data-v="md">M</button>
+      <button class="opt" data-k="heroScale" data-v="lg">L</button>
+      <button class="opt" data-k="heroScale" data-v="xl">XL</button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Course accent</label>
+    <div style="display:flex;gap:4px">
+      <button class="opt" data-k="courseAccent" data-v="purple" style="color:#B026FF;border-color:#B026FF">PRL</button>
+      <button class="opt" data-k="courseAccent" data-v="amber" style="color:#FFB800;border-color:#FFB800">AMB</button>
+      <button class="opt" data-k="courseAccent" data-v="acid" style="color:#39FF14;border-color:#39FF14">ACD</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Build mode toggle:
+  //   default → prod bundle (dist/app.js), pre-compiled, fast.
+  //   ?dev=1  → raw JSX + Babel-in-browser for local iteration.
+  window.__TWEAKS__ = /*EDITMODE-BEGIN*/{
+    "ritual": false,
+    "heroScale": "xl",
+    "courseAccent": "purple"
+  }/*EDITMODE-END*/;
+  window.__LR_DEV__ = new URLSearchParams(location.search).get('dev') === '1';
+</script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
+
+<script>
+(function loadApp() {
+  if (window.__LR_DEV__) {
+    // dev: load Babel then each JSX source via text/babel
+    const babel = document.createElement('script');
+    babel.src = 'https://unpkg.com/@babel/standalone@7.29.0/babel.min.js';
+    babel.crossOrigin = 'anonymous';
+    babel.onload = () => {
+      const files = [
+        'site/_atoms.jsx','site/_home-top.jsx','site/_home-mid.jsx',
+        'site/_servitors-content-1.jsx','site/_servitors-content-2.jsx',
+        'site/_servitors-content-loader.jsx','site/_servitors-reader.jsx',
+        'site/_servitors.jsx','site/_who.jsx','site/_app.jsx',
+      ];
+      files.forEach(f => {
+        const s = document.createElement('script');
+        s.type = 'text/babel';
+        s.src = f + '?v=' + Date.now();
+        document.body.appendChild(s);
+      });
+    };
+    document.head.appendChild(babel);
+  } else {
+    // prod: single pre-compiled bundle
+    const s = document.createElement('script');
+    s.src = 'dist/app.js';
+    s.defer = true;
+    document.body.appendChild(s);
+  }
+})();
+</script>
+
+<script>
+// Tweaks panel plumbing (plain JS, no JSX).
+(function tweaksInit() {
+  const panel = document.getElementById('tweaks');
+  const TWEAKS = window.__TWEAKS__;
+  const syncButtons = () => {
+    panel.querySelectorAll('button.opt').forEach(b => {
+      const v = b.dataset.v === 'true' ? true : b.dataset.v === 'false' ? false : b.dataset.v;
+      b.classList.toggle('on', TWEAKS[b.dataset.k] === v);
+    });
+  };
+  panel.addEventListener('click', (e) => {
+    const b = e.target.closest('button.opt');
+    if (!b) return;
+    const v = b.dataset.v === 'true' ? true : b.dataset.v === 'false' ? false : b.dataset.v;
+    TWEAKS[b.dataset.k] = v;
+    if (b.dataset.k === 'ritual') document.body.classList.toggle('ritual', v);
+    syncButtons();
+    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [b.dataset.k]: v } }, '*');
+  });
+  syncButtons();
+
+  window.addEventListener('message', (e) => {
+    if (e.data?.type === '__activate_edit_mode') panel.classList.add('visible');
+    if (e.data?.type === '__deactivate_edit_mode') panel.classList.remove('visible');
+  });
+  window.parent.postMessage({ type: '__edit_mode_available' }, '*');
+})();
+</script>
+</body>
+</html>
