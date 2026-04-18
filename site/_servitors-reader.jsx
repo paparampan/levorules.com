@@ -273,7 +273,6 @@ function ModuleRenderer({ mod, accent }) {
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.16em',
           color: accent, textTransform: 'uppercase', marginBottom: 12 }}>
           ▸ МОДУЛЬ {mod.n}
-          {mod.time && <span style={{ color: 'var(--bone-dim)', marginLeft: 14 }}>{mod.time}</span>}
         </div>
         <h1 style={{
           fontSize: 'clamp(44px, 6vw, 76px)', lineHeight: 0.92, letterSpacing: '-0.02em',
