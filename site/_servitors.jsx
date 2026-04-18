@@ -138,7 +138,7 @@ function ServitorsPage({ setRoute }) {
                       {m.title}
                     </div>
                     <div style={{ marginTop: 6, color: 'var(--bone-dim)', fontSize: 14, lineHeight: 1.45, maxWidth: 720 }}>
-                      {m.sub}
+                      <RichText text={m.sub} />
                     </div>
                     {m.sections && (
                       <div style={{ marginTop: 10, display: 'flex', flexWrap: 'wrap', gap: '4px 14px' }}>

@@ -665,4 +665,4 @@ function ShareLinkButton({ moduleNum }) {
   );
 }
 
-Object.assign(window, { ServitorsReader });
+Object.assign(window, { ServitorsReader, RichText });
