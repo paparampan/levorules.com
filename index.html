@@ -199,10 +199,14 @@
       padding: 20px 20px !important;
     }
     /* Third child (the Читать button) spans full content width so text
-       doesn't wrap into "ЧИТАТЬ \n →". */
+       doesn't wrap into "ЧИТАТЬ \n →". Button has `all: unset` → display:inline,
+       so explicitly force block + full width to make grid stretch actually apply. */
     [style*="grid-template-columns: 80px 1fr auto"] > *:nth-child(3) {
       grid-column: 2 !important;
       justify-self: stretch !important;
+      display: block !important;
+      width: 100% !important;
+      box-sizing: border-box !important;
       text-align: center !important;
       padding: 12px 16px !important;
       margin-top: 4px !important;
