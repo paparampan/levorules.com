@@ -1,14 +1,22 @@
 {
-  "updated": "2026-04-25T13:40:14Z",
+  "updated": "2026-04-25T15:03:16Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "TayKCBQgL8o",
+      "title": "Магический помощник, который работает на тебя #сервитор #результаты",
+      "url": "https://www.youtube.com/shorts/TayKCBQgL8o",
+      "thumb": "https://i.ytimg.com/vi/TayKCBQgL8o/hqdefault.jpg",
+      "views": "31",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "imp38yuhn7w",
       "title": "Нумерология по дате рождения — фейк",
       "url": "https://www.youtube.com/shorts/imp38yuhn7w",
       "thumb": "https://i.ytimg.com/vi/imp38yuhn7w/hqdefault.jpg",
       "views": "2.2k",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "i__GskVWcHU",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/i__GskVWcHU",
       "thumb": "https://i.ytimg.com/vi/i__GskVWcHU/hqdefault.jpg",
       "views": "14k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "RVk-A-rS4WM",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/RVk-A-rS4WM",
       "thumb": "https://i.ytimg.com/vi/RVk-A-rS4WM/hqdefault.jpg",
       "views": "2.2k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "I6iWxrI3GWo",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/I6iWxrI3GWo",
       "thumb": "https://i.ytimg.com/vi/I6iWxrI3GWo/hqdefault.jpg",
       "views": "5.5k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "u9DUn0Zrc68",
-      "title": "Почему визуализация убивает твой успех #thesecret #манифестация #успешныйуспех",
-      "url": "https://www.youtube.com/shorts/u9DUn0Zrc68",
-      "thumb": "https://i.ytimg.com/vi/u9DUn0Zrc68/hqdefault.jpg",
-      "views": "1.1k",
       "acc": "var(--cyber-cyan)"
     }
   ]
