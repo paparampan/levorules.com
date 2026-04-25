@@ -581,7 +581,6 @@ function CourseSearch({ modules, setActiveIdx, accent }) {
           background: 'var(--ash)', color: 'var(--bone)',
           border: '1px solid var(--border)',
           fontFamily: 'var(--font-mono)', fontSize: 12,
-          outline: 'none',
         }}
       />
       {q.trim().length >= 2 && (

@@ -1,9 +1,15 @@
 # Cloudflare Pages headers — cache strategy per path pattern.
 
 /dist/*
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/brand/colors_and_type.css
+  Cache-Control: public, max-age=3600, must-revalidate
+
+/brand/assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-/brand/*
+/brand/fonts/*
   Cache-Control: public, max-age=31536000, immutable
 
 /uploads/appendices/*

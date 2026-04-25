@@ -111,6 +111,14 @@ html, body {
   text-rendering: optimizeLegibility;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--cyber-cyan);
+  outline-offset: 3px;
+}
+
 /* ---------- SEMANTIC TYPE ---------- */
 h1, h2, h3, h4, .display {
   font-family: var(--font-display);

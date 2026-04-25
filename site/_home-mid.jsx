@@ -105,7 +105,7 @@ function VideoRow() {
   const [videos, setVideos] = React.useState(SHORTS_FALLBACK);
 
   React.useEffect(() => {
-    fetch('site/shorts.json', { cache: 'no-store' })
+    fetch('site/shorts.json')
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
         if (data && Array.isArray(data.items) && data.items.length) {
@@ -201,7 +201,7 @@ function TelegramPosts() {
   const [posts, setPosts] = React.useState(TELEGRAM_FALLBACK);
 
   React.useEffect(() => {
-    fetch('site/telegram.json', { cache: 'no-store' })
+    fetch('site/telegram.json')
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
         if (data && Array.isArray(data.items) && data.items.length) {
@@ -280,13 +280,23 @@ function ManifestoBand() {
 
 // Footer
 function Footer() {
+  const navigate = (e, route, section) => {
+    e.preventDefault();
+    window.dispatchEvent(new CustomEvent('lr:route', { detail: { route, section } }));
+  };
+  const sectionLinks = [
+    { label: 'Главная', href: '#', route: 'home' },
+    { label: 'Сервиторы', href: '#servitors', route: 'servitors' },
+    { label: 'Видео', href: '#video', route: 'home', section: 'video' },
+    { label: 'Telegram', href: 'https://t.me/levorules', external: true },
+  ];
   return (
     <footer style={{ background: 'var(--ash-2)', borderTop: '1px solid var(--border)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '56px 32px 40px' }}>
         <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: 48, marginBottom: 40 }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-              <LRLogo size={32} color="bone" />
+              <LRLogo size={32} color="bone" alt="" />
               <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 18 }}>ЛЕВО РУЛЯ</div>
             </div>
             <p style={{ marginTop: 18, color: 'var(--bone-dim)', maxWidth: 320 }}>
@@ -295,11 +305,14 @@ function Footer() {
           </div>
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em', color: 'var(--bone-dim)', textTransform: 'uppercase', marginBottom: 14 }}>▸ разделы</div>
-            {[
-              ['Главная', '#'], ['Сервиторы', '#servitors'],
-              ['Видео', '#video'], ['Telegram', 'https://t.me/levorules'],
-            ].map(([l, h]) => (
-              <a key={l} href={h} style={{ display: 'block', padding: '6px 0', color: 'var(--bone)', textDecoration: 'none', fontSize: 14 }}>{l} →</a>
+            {sectionLinks.map((item) => (
+              <a key={item.label} href={item.href}
+                 target={item.external ? '_blank' : undefined}
+                 rel={item.external ? 'noopener' : undefined}
+                 onClick={item.external ? undefined : (e) => navigate(e, item.route, item.section)}
+                 style={{ display: 'block', padding: '6px 0', color: 'var(--bone)', textDecoration: 'none', fontSize: 14 }}>
+                {item.label} {item.external ? '↗' : '→'}
+              </a>
             ))}
           </div>
           <div>

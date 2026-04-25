@@ -18,7 +18,7 @@ function Header({ ritual, setRitual, route, setRoute }) {
       }}>
         <a href="#" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
           style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', color: 'var(--bone)' }}>
-          <LRLogo size={30} color="blood" />
+          <LRLogo size={30} color="blood" alt="" />
           <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 18, letterSpacing: '-0.005em', lineHeight: 1 }}>
             ЛЕВО&nbsp;РУЛЯ
           </div>

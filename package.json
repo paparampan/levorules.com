@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "node build.mjs",
+    "preview": "python3 -m http.server 4173 --bind 127.0.0.1",
+    "start": "npm run preview",
+    "test": "npm run build"
   },
   "keywords": [],
   "author": "",

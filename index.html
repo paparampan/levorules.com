@@ -7,6 +7,7 @@
 <meta name="description" content="Антидогматический оккультизм: магия хаоса, демонология, путь левой руки. Открытый курс «Сервиторы» (11 модулей, 130 страниц, без регистрации, оплаты и SMS).">
 <meta name="author" content="Антон / @levorules">
 <meta name="theme-color" content="#B30000">
+<link rel="canonical" href="https://levorules.com/">
 
 <!-- Open Graph -->
 <meta property="og:type" content="website">
@@ -34,8 +35,40 @@
 <link rel="manifest" href="manifest.webmanifest">
 <link rel="alternate icon" href="brand/assets/favicon.ico">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="brand/colors_and_type.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://levorules.com/#website",
+      "url": "https://levorules.com/",
+      "name": "Лево Руля",
+      "inLanguage": "ru-RU",
+      "description": "Антидогматический оккультизм: магия хаоса, демонология, путь левой руки."
+    },
+    {
+      "@type": "Course",
+      "@id": "https://levorules.com/#servitors-course",
+      "name": "Сервиторы",
+      "url": "https://levorules.com/#servitors",
+      "inLanguage": "ru-RU",
+      "description": "Открытый курс про работу с автономными сущностями, сконструированными под волю практика.",
+      "provider": {
+        "@type": "Organization",
+        "name": "Лево Руля",
+        "url": "https://levorules.com/"
+      }
+    }
+  ]
+}
+</script>
 
 <!-- Analytics (Plausible placeholder — enable after signup at plausible.io/levorules.com)
      Uncomment the line below after registering the domain:
@@ -306,13 +339,15 @@
       files.forEach(f => {
         const s = document.createElement('script');
         s.type = 'text/babel';
+        s.async = false;
         s.src = f + '?v=' + Date.now();
         document.body.appendChild(s);
       });
+      window.Babel?.transformScriptTags?.();
     };
     document.head.appendChild(babel);
   } else {
-    // prod: single pre-compiled bundle
+    // prod: small shell bundle; the course reader is lazy-loaded as dist/servitors.js
     const s = document.createElement('script');
     s.src = 'dist/app.js';
     s.defer = true;

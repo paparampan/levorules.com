@@ -4,7 +4,7 @@ node_modules/
 __pycache__/
 .venv/
 venv/
-dist/_source.jsx
+dist/_source*.jsx
 /_appendix_*.html
 /servitors_course.html
 *.log
