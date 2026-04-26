@@ -1,14 +1,22 @@
 {
-  "updated": "2026-04-26T17:04:26Z",
+  "updated": "2026-04-26T19:15:01Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "TD7YnYEo8M8",
+      "title": "Не подавляй ярость. Переплавь. Демон Асмодей #shorts #оккультизм",
+      "url": "https://www.youtube.com/shorts/TD7YnYEo8M8",
+      "thumb": "https://i.ytimg.com/vi/TD7YnYEo8M8/hqdefault.jpg",
+      "views": "150",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "TayKCBQgL8o",
       "title": "Магический помощник, который работает на тебя #сервитор #результаты",
       "url": "https://www.youtube.com/shorts/TayKCBQgL8o",
       "thumb": "https://i.ytimg.com/vi/TayKCBQgL8o/hqdefault.jpg",
-      "views": "3k",
-      "acc": "var(--magenta)"
+      "views": "3.4k",
+      "acc": "var(--acid-green)"
     },
     {
       "id": "imp38yuhn7w",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/imp38yuhn7w",
       "thumb": "https://i.ytimg.com/vi/imp38yuhn7w/hqdefault.jpg",
       "views": "2.4k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "i__GskVWcHU",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/i__GskVWcHU",
       "thumb": "https://i.ytimg.com/vi/i__GskVWcHU/hqdefault.jpg",
       "views": "14k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "RVk-A-rS4WM",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/RVk-A-rS4WM",
       "thumb": "https://i.ytimg.com/vi/RVk-A-rS4WM/hqdefault.jpg",
       "views": "2.3k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "I6iWxrI3GWo",
-      "title": "Ангелы - не добрые существа #оккультизм #shorts #библия",
-      "url": "https://www.youtube.com/shorts/I6iWxrI3GWo",
-      "thumb": "https://i.ytimg.com/vi/I6iWxrI3GWo/hqdefault.jpg",
-      "views": "5.8k",
       "acc": "var(--cyber-cyan)"
     }
   ]
