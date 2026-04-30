@@ -1,14 +1,22 @@
 {
-  "updated": "2026-04-30T19:51:27Z",
+  "updated": "2026-04-30T21:16:39Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "UQR1VZmU3t4",
+      "title": "Викканский Белтайн — пошлятина. Вот настоящий",
+      "url": "https://www.youtube.com/shorts/UQR1VZmU3t4",
+      "thumb": "https://i.ytimg.com/vi/UQR1VZmU3t4/hqdefault.jpg",
+      "views": "10",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "TD7YnYEo8M8",
       "title": "Не подавляй ярость. Переплавь. Демон Асмодей #оккультизм",
       "url": "https://www.youtube.com/shorts/TD7YnYEo8M8",
       "thumb": "https://i.ytimg.com/vi/TD7YnYEo8M8/hqdefault.jpg",
       "views": "2.4k",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "TayKCBQgL8o",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/TayKCBQgL8o",
       "thumb": "https://i.ytimg.com/vi/TayKCBQgL8o/hqdefault.jpg",
       "views": "13k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "imp38yuhn7w",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/imp38yuhn7w",
       "thumb": "https://i.ytimg.com/vi/imp38yuhn7w/hqdefault.jpg",
       "views": "2.8k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "i__GskVWcHU",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/i__GskVWcHU",
       "thumb": "https://i.ytimg.com/vi/i__GskVWcHU/hqdefault.jpg",
       "views": "14k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "RVk-A-rS4WM",
-      "title": "Сигилы vs визуализация: что реально работает #сигилы",
-      "url": "https://www.youtube.com/shorts/RVk-A-rS4WM",
-      "thumb": "https://i.ytimg.com/vi/RVk-A-rS4WM/hqdefault.jpg",
-      "views": "2.6k",
       "acc": "var(--cyber-cyan)"
     }
   ]
