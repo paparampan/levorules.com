@@ -11,6 +11,8 @@ function lrRouteFromHash(hash = location.hash) {
   if (h === 'servitors' || h === 'program' || h === 'appendices') return 'servitors';
   if (h === 'servitors-reader' || h.startsWith('servitors-reader/')) return 'servitors-reader';
   if (h === 'who') return 'who';
+  if (h === 'guides') return 'guides';
+  if (h.startsWith('guides/')) return 'guide';
   return 'home';
 }
 
@@ -19,6 +21,12 @@ function lrSectionFromHash(hash = location.hash, route = lrRouteFromHash(hash)) 
   if (route === 'home' && ['territories', 'video', 'content'].includes(h)) return h;
   if (route === 'servitors' && ['program', 'appendices'].includes(h)) return h;
   return null;
+}
+
+function lrGuideSlugFromHash(hash = location.hash) {
+  const h = lrHashValue(hash);
+  const m = h.match(/^guides\/(.+)$/);
+  return m ? m[1] : null;
 }
 
 function lrNeedsServitors(route) {
@@ -58,11 +66,18 @@ function App() {
     const saved = localStorage.getItem('lr_route') || 'home';
     return saved;
   });
+  const [guideSlug, setGuideSlug] = React.useState(() => {
+    const fromHash = lrGuideSlugFromHash();
+    if (fromHash) return fromHash;
+    try { return localStorage.getItem('lr_guide_slug') || 'defense-basics'; }
+    catch { return 'defense-basics'; }
+  });
   const [ritual, setRitual] = React.useState(TWEAKS.ritual);
   const [servitorsReady, setServitorsReady] = React.useState(() => lrServitorsReady());
   const [servitorsError, setServitorsError] = React.useState(null);
-  const navigate = React.useCallback((nextRoute, sectionId = null) => {
+  const navigate = React.useCallback((nextRoute, sectionId = null, slug = null) => {
     pendingScrollId.current = sectionId;
+    if (slug) setGuideSlug(slug);
     setRoute(nextRoute);
     setNavTick((n) => n + 1);
   }, []);
@@ -76,6 +91,11 @@ function App() {
       history.replaceState(null, '', `#servitors-reader/${mod}`);
     }
     else if (route === 'who') history.replaceState(null, '', '#who');
+    else if (route === 'guides') history.replaceState(null, '', '#guides');
+    else if (route === 'guide') {
+      try { localStorage.setItem('lr_guide_slug', guideSlug); } catch {}
+      history.replaceState(null, '', `#guides/${guideSlug}`);
+    }
     else history.replaceState(null, '', sectionId ? `#${sectionId}` : '#');
 
     if (sectionId) {
@@ -86,7 +106,7 @@ function App() {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
     pendingScrollId.current = null;
-  }, [route, navTick]);
+  }, [route, navTick, guideSlug]);
 
   React.useEffect(() => {
     document.body.classList.toggle('ritual', ritual);
@@ -119,7 +139,8 @@ function App() {
     };
     const hashHandler = () => {
       const nextRoute = lrRouteFromHash();
-      navigate(nextRoute, lrSectionFromHash(location.hash, nextRoute));
+      const slug = lrGuideSlugFromHash();
+      navigate(nextRoute, lrSectionFromHash(location.hash, nextRoute), slug);
     };
     window.addEventListener('lr:route', handler);
     window.addEventListener('hashchange', hashHandler);
@@ -166,6 +187,16 @@ function App() {
       ) : route === 'who' ? (
         <>
           <WhoPage />
+          <Footer />
+        </>
+      ) : route === 'guides' ? (
+        <>
+          <GuidesLanding setRoute={navigate} />
+          <Footer />
+        </>
+      ) : route === 'guide' ? (
+        <>
+          <GuidePage slug={guideSlug} setRoute={navigate} />
           <Footer />
         </>
       ) : (

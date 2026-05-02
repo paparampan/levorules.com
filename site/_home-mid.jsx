@@ -287,8 +287,8 @@ function Footer() {
   const sectionLinks = [
     { label: 'Главная', href: '#', route: 'home' },
     { label: 'Сервиторы', href: '#servitors', route: 'servitors' },
+    { label: 'Гайды', href: '#guides', route: 'guides' },
     { label: 'Видео', href: '#video', route: 'home', section: 'video' },
-    { label: 'Telegram', href: 'https://t.me/levorules', external: true },
   ];
   return (
     <footer style={{ background: 'var(--ash-2)', borderTop: '1px solid var(--border)' }}>

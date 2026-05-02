@@ -3,6 +3,7 @@ function Header({ ritual, setRitual, route, setRoute }) {
   const items = [
     { id: 'home', label: 'Главная' },
     { id: 'servitors', label: 'Сервиторы', accent: 'var(--purple)' },
+    { id: 'guides', label: 'Гайды', accent: 'var(--acid-green)' },
     { id: 'who', label: 'Кто я', accent: 'var(--blood)' },
     { id: 'tg', label: 'Telegram', href: 'https://t.me/levorules', external: true },
   ];
@@ -25,7 +26,9 @@ function Header({ ritual, setRitual, route, setRoute }) {
         </a>
         <nav style={{ display: 'flex', gap: 4 }}>
           {items.map(i => {
-            const isActive = route === i.id || (i.id === 'servitors' && route === 'servitors-reader');
+            const isActive = route === i.id
+              || (i.id === 'servitors' && route === 'servitors-reader')
+              || (i.id === 'guides' && route === 'guide');
             const accent = i.accent || 'var(--bone)';
             return i.external ? (
               <a key={i.id} href={i.href} target="_blank" rel="noopener"

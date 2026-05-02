@@ -22,6 +22,7 @@ const APP_FILES = [
   "_home-top.jsx",
   "_home-mid.jsx",
   "_who.jsx",
+  "_guides.jsx",
   "_app.jsx",
 ];
 
