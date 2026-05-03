@@ -1,22 +1,30 @@
 {
-  "updated": "2026-05-03T15:07:38Z",
+  "updated": "2026-05-03T17:10:14Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "1HYfbYexo50",
+      "title": "Реальность — это код. Вот как её взломать",
+      "url": "https://www.youtube.com/shorts/1HYfbYexo50",
+      "thumb": "https://i.ytimg.com/vi/1HYfbYexo50/hqdefault.jpg",
+      "views": "247",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "3VqOUYMWzg8",
       "title": "Никто не ждёт твоей подписи в тонком мире",
       "url": "https://www.youtube.com/shorts/3VqOUYMWzg8",
       "thumb": "https://i.ytimg.com/vi/3VqOUYMWzg8/hqdefault.jpg",
       "views": "1.2k",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "UQR1VZmU3t4",
       "title": "Викканский Белтайн — пошлятина. Вот настоящий",
       "url": "https://www.youtube.com/shorts/UQR1VZmU3t4",
       "thumb": "https://i.ytimg.com/vi/UQR1VZmU3t4/hqdefault.jpg",
-      "views": "969",
-      "acc": "var(--acid-green)"
+      "views": "973",
+      "acc": "var(--purple)"
     },
     {
       "id": "TD7YnYEo8M8",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/TD7YnYEo8M8",
       "thumb": "https://i.ytimg.com/vi/TD7YnYEo8M8/hqdefault.jpg",
       "views": "2.6k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "TayKCBQgL8o",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/TayKCBQgL8o",
       "thumb": "https://i.ytimg.com/vi/TayKCBQgL8o/hqdefault.jpg",
       "views": "13k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "imp38yuhn7w",
-      "title": "Нумерология по дате рождения — фейк",
-      "url": "https://www.youtube.com/shorts/imp38yuhn7w",
-      "thumb": "https://i.ytimg.com/vi/imp38yuhn7w/hqdefault.jpg",
-      "views": "2.8k",
       "acc": "var(--cyber-cyan)"
     }
   ]
