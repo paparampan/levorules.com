@@ -1,14 +1,22 @@
 {
-  "updated": "2026-05-10T04:17:59Z",
+  "updated": "2026-05-10T08:22:48Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "AdADl8WXbrg",
+      "title": "Забудь о магических таблетках. Эти правила сделают тебя настоящим магом.",
+      "url": "https://www.youtube.com/shorts/AdADl8WXbrg",
+      "thumb": "https://i.ytimg.com/vi/AdADl8WXbrg/hqdefault.jpg",
+      "views": "19",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "1HYfbYexo50",
       "title": "Реальность — это код. Вот как её взломать",
       "url": "https://www.youtube.com/shorts/1HYfbYexo50",
       "thumb": "https://i.ytimg.com/vi/1HYfbYexo50/hqdefault.jpg",
       "views": "1.1k",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "3VqOUYMWzg8",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/3VqOUYMWzg8",
       "thumb": "https://i.ytimg.com/vi/3VqOUYMWzg8/hqdefault.jpg",
       "views": "1.6k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "UQR1VZmU3t4",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/UQR1VZmU3t4",
       "thumb": "https://i.ytimg.com/vi/UQR1VZmU3t4/hqdefault.jpg",
       "views": "1k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "TD7YnYEo8M8",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/TD7YnYEo8M8",
       "thumb": "https://i.ytimg.com/vi/TD7YnYEo8M8/hqdefault.jpg",
       "views": "2.7k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "TayKCBQgL8o",
-      "title": "Магический помощник, который работает на тебя #сервитор #результаты",
-      "url": "https://www.youtube.com/shorts/TayKCBQgL8o",
-      "thumb": "https://i.ytimg.com/vi/TayKCBQgL8o/hqdefault.jpg",
-      "views": "13k",
       "acc": "var(--cyber-cyan)"
     }
   ]
