@@ -1,14 +1,22 @@
 {
-  "updated": "2026-05-13T18:19:02Z",
+  "updated": "2026-05-13T21:47:09Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "t4ar46zrbiw",
+      "title": "Встреча с тем, что ты забыл #левиафан #тень",
+      "url": "https://www.youtube.com/shorts/t4ar46zrbiw",
+      "thumb": "https://i.ytimg.com/vi/t4ar46zrbiw/hqdefault.jpg",
+      "views": "273",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "AdADl8WXbrg",
       "title": "Забудь о магических таблетках. Эти правила сделают тебя настоящим магом.",
       "url": "https://www.youtube.com/shorts/AdADl8WXbrg",
       "thumb": "https://i.ytimg.com/vi/AdADl8WXbrg/hqdefault.jpg",
-      "views": "1.3k",
-      "acc": "var(--magenta)"
+      "views": "1.4k",
+      "acc": "var(--acid-green)"
     },
     {
       "id": "1HYfbYexo50",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/1HYfbYexo50",
       "thumb": "https://i.ytimg.com/vi/1HYfbYexo50/hqdefault.jpg",
       "views": "1.2k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "3VqOUYMWzg8",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/3VqOUYMWzg8",
       "thumb": "https://i.ytimg.com/vi/3VqOUYMWzg8/hqdefault.jpg",
       "views": "1.7k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "UQR1VZmU3t4",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/UQR1VZmU3t4",
       "thumb": "https://i.ytimg.com/vi/UQR1VZmU3t4/hqdefault.jpg",
       "views": "1.1k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "TD7YnYEo8M8",
-      "title": "Не подавляй ярость. Переплавь. Демон Асмодей #оккультизм",
-      "url": "https://www.youtube.com/shorts/TD7YnYEo8M8",
-      "thumb": "https://i.ytimg.com/vi/TD7YnYEo8M8/hqdefault.jpg",
-      "views": "2.8k",
       "acc": "var(--cyber-cyan)"
     }
   ]
