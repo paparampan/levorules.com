@@ -1,22 +1,30 @@
 {
-  "updated": "2026-05-19T17:17:15Z",
+  "updated": "2026-05-19T20:05:55Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "fqFj6iwdxUw",
+      "title": "11:11 — язык подсознания, который мы забыли #эзотерика #духовное",
+      "url": "https://www.youtube.com/shorts/fqFj6iwdxUw",
+      "thumb": "https://i.ytimg.com/vi/fqFj6iwdxUw/hqdefault.jpg",
+      "views": "11",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "t4ar46zrbiw",
       "title": "Встреча с тем, что ты забыл #левиафан #тень",
       "url": "https://www.youtube.com/shorts/t4ar46zrbiw",
       "thumb": "https://i.ytimg.com/vi/t4ar46zrbiw/hqdefault.jpg",
       "views": "1.5k",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "AdADl8WXbrg",
       "title": "Забудь о магических таблетках. Эти правила сделают тебя настоящим магом.",
       "url": "https://www.youtube.com/shorts/AdADl8WXbrg",
       "thumb": "https://i.ytimg.com/vi/AdADl8WXbrg/hqdefault.jpg",
-      "views": "1.6k",
-      "acc": "var(--acid-green)"
+      "views": "1.7k",
+      "acc": "var(--purple)"
     },
     {
       "id": "1HYfbYexo50",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/1HYfbYexo50",
       "thumb": "https://i.ytimg.com/vi/1HYfbYexo50/hqdefault.jpg",
       "views": "1.5k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "3VqOUYMWzg8",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/3VqOUYMWzg8",
       "thumb": "https://i.ytimg.com/vi/3VqOUYMWzg8/hqdefault.jpg",
       "views": "1.9k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "UQR1VZmU3t4",
-      "title": "Викканский Белтайн — пошлятина. Вот настоящий",
-      "url": "https://www.youtube.com/shorts/UQR1VZmU3t4",
-      "thumb": "https://i.ytimg.com/vi/UQR1VZmU3t4/hqdefault.jpg",
-      "views": "1.2k",
       "acc": "var(--cyber-cyan)"
     }
   ]
