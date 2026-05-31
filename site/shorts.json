@@ -1,30 +1,38 @@
 {
-  "updated": "2026-05-31T11:51:21Z",
+  "updated": "2026-05-31T14:12:50Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "yOzoW82xpdI",
+      "title": "Цифры — это просто цифры? Скептик против нумеролога: кто прав?",
+      "url": "https://www.youtube.com/shorts/yOzoW82xpdI",
+      "thumb": "https://i.ytimg.com/vi/yOzoW82xpdI/hqdefault.jpg",
+      "views": "25",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "WP9xFFTIaLc",
       "title": "Сервитор, фамильяр, тульпа, эгрегор - в чем разница?",
       "url": "https://www.youtube.com/shorts/WP9xFFTIaLc",
       "thumb": "https://i.ytimg.com/vi/WP9xFFTIaLc/hqdefault.jpg",
       "views": "1.6k",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "Wy9O5H87Riw",
       "title": "Как получить ответ от Гермеса",
       "url": "https://www.youtube.com/shorts/Wy9O5H87Riw",
       "thumb": "https://i.ytimg.com/vi/Wy9O5H87Riw/hqdefault.jpg",
-      "views": "462",
-      "acc": "var(--acid-green)"
+      "views": "464",
+      "acc": "var(--purple)"
     },
     {
       "id": "fqFj6iwdxUw",
       "title": "11:11 — язык подсознания, который мы забыли #эзотерика #духовное",
       "url": "https://www.youtube.com/shorts/fqFj6iwdxUw",
       "thumb": "https://i.ytimg.com/vi/fqFj6iwdxUw/hqdefault.jpg",
-      "views": "510",
-      "acc": "var(--purple)"
+      "views": "516",
+      "acc": "var(--amber)"
     },
     {
       "id": "t4ar46zrbiw",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/t4ar46zrbiw",
       "thumb": "https://i.ytimg.com/vi/t4ar46zrbiw/hqdefault.jpg",
       "views": "1.7k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "AdADl8WXbrg",
-      "title": "Забудь о магических таблетках. Эти правила сделают тебя настоящим магом.",
-      "url": "https://www.youtube.com/shorts/AdADl8WXbrg",
-      "thumb": "https://i.ytimg.com/vi/AdADl8WXbrg/hqdefault.jpg",
-      "views": "1.9k",
       "acc": "var(--cyber-cyan)"
     }
   ]
