@@ -1,14 +1,22 @@
 {
-  "updated": "2026-07-09T11:20:11Z",
+  "updated": "2026-07-09T15:35:20Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "bNFhtTA9c38",
+      "title": "8 типов сервиторов. Выбирай под свою задачу #магия #эзотерика",
+      "url": "https://www.youtube.com/shorts/bNFhtTA9c38",
+      "thumb": "https://i.ytimg.com/vi/bNFhtTA9c38/hqdefault.jpg",
+      "views": "8",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "yOzoW82xpdI",
       "title": "Цифры — это просто цифры? Скептик против нумеролога: кто прав?",
       "url": "https://www.youtube.com/shorts/yOzoW82xpdI",
       "thumb": "https://i.ytimg.com/vi/yOzoW82xpdI/hqdefault.jpg",
       "views": "1.3k",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "WP9xFFTIaLc",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/WP9xFFTIaLc",
       "thumb": "https://i.ytimg.com/vi/WP9xFFTIaLc/hqdefault.jpg",
       "views": "1.7k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "Wy9O5H87Riw",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/Wy9O5H87Riw",
       "thumb": "https://i.ytimg.com/vi/Wy9O5H87Riw/hqdefault.jpg",
       "views": "514",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "fqFj6iwdxUw",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/fqFj6iwdxUw",
       "thumb": "https://i.ytimg.com/vi/fqFj6iwdxUw/hqdefault.jpg",
       "views": "565",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "t4ar46zrbiw",
-      "title": "Встреча с тем, что ты забыл #левиафан #тень",
-      "url": "https://www.youtube.com/shorts/t4ar46zrbiw",
-      "thumb": "https://i.ytimg.com/vi/t4ar46zrbiw/hqdefault.jpg",
-      "views": "1.8k",
       "acc": "var(--cyber-cyan)"
     }
   ]
