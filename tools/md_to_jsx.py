@@ -33,6 +33,25 @@ def sentence_case(s: str) -> str:
     return s[0].upper() + s[1:].lower()
 
 
+HEADING_DURATION_RE = re.compile(
+    r"\s*\((?:≈\s*)?(?:"
+    r"\d+(?:[.,]\d+)?(?:[–-]\d+(?:[.,]\d+)?)?\s*(?:мин(?:ут(?:а|ы)?)?|час(?:а|ов)?)"
+    r"(?:,\s*[^)]*)?|\d+\s*вечер[^)]*)\)",
+    re.IGNORECASE,
+)
+
+
+def strip_display_duration(s: str) -> str:
+    """Remove duration estimates from headings and standalone bold labels."""
+    s = re.sub(
+        r"\(еженедельно,\s*\d+\s*минут(?:а|ы)?\)",
+        "(еженедельно)",
+        s,
+        flags=re.IGNORECASE,
+    )
+    return HEADING_DURATION_RE.sub("", s)
+
+
 def parse_blocks(md: str):
     """Convert markdown block-level content into JSX block objects."""
     lines = md.split("\n")
@@ -79,17 +98,17 @@ def parse_blocks(md: str):
 
         # Headings (inside-section). ## Title (no N.M.) also promotes to h.
         if s.startswith("#### "):
-            blocks.append({"type": "h4", "text": s[5:].strip()})
+            blocks.append({"type": "h4", "text": strip_display_duration(s[5:].strip())})
             i += 1
             continue
         if s.startswith("### "):
-            blocks.append({"type": "h", "text": s[4:].strip()})
+            blocks.append({"type": "h", "text": strip_display_duration(s[4:].strip())})
             i += 1
             continue
         if s.startswith("## "):
             # Inside-section ## heading (not a N.M. section — those are caught
             # by SECTION_RE at the parent level).
-            blocks.append({"type": "h", "text": s[3:].strip()})
+            blocks.append({"type": "h", "text": strip_display_duration(s[3:].strip())})
             i += 1
             continue
 
@@ -166,7 +185,10 @@ def parse_blocks(md: str):
             para.append(lines[i].strip())
             i += 1
         if para:
-            blocks.append({"type": "p", "text": " ".join(para)})
+            text = " ".join(para)
+            if re.fullmatch(r"\*\*.+\*\*", text):
+                text = strip_display_duration(text)
+            blocks.append({"type": "p", "text": text})
         if i == prev:
             # Defensive: never loop on same line
             print(f"  STUCK line {i}: {lines[i][:100]!r}", flush=True)
@@ -194,7 +216,7 @@ def parse_module(num: int, title: str, body: str) -> dict:
     sections = []
     for sm in SECTION_RE.finditer(body):
         sid = sm.group(1).rstrip(".")
-        stitle = sm.group(2).strip()
+        stitle = strip_display_duration(sm.group(2).strip())
         sbody = sm.group(3)
         blocks = parse_blocks(sbody)
         sections.append({"id": sid, "title": stitle, "blocks": blocks})
@@ -226,26 +248,8 @@ def parse_module(num: int, title: str, body: str) -> dict:
         items = re.findall(r"^— (.+?)(?=\n— |\Z)", sbody, re.DOTALL | re.MULTILINE)
         selfcheck = [" ".join(it.split()) for it in items if it.strip()]
 
-    # estimate reading time: words / 180 wpm, round to nearest 5 min, floor 10
-    parts = []
-    for s in sections:
-        parts.append(s["title"])
-        for b in s["blocks"]:
-            if b.get("text"):
-                parts.append(b["text"])
-            if isinstance(b.get("items"), list):
-                parts.extend(b["items"])
-            if b.get("rows"):
-                for r in b["rows"]:
-                    parts.extend(r)
-    parts.extend(practice)
-    parts.extend(selfcheck)
-    words = sum(len(p.split()) for p in parts)
-    minutes = max(10, round(words / 180 / 5) * 5)
-
     return {
         "n": f"{num:02d}",
-        "time": f"≈ {minutes} мин",
         "title": sentence_case(title),
         "sub": sub_text or None,
         "sections": sections,
@@ -313,7 +317,6 @@ def emit_module(mod, indent=2):
     pad = " " * indent
     out = [pad + f"// === MODULE {mod['n']} ===", pad + "{"]
     out.append(" " * (indent + 2) + f'n: {js_string(mod["n"])},')
-    out.append(" " * (indent + 2) + f'time: {js_string(mod["time"])},')
     out.append(" " * (indent + 2) + f'title: {js_string(mod["title"])},')
     if mod.get("sub"):
         out.append(" " * (indent + 2) + f'sub: {js_string(mod["sub"])},')
@@ -340,7 +343,7 @@ def main():
     mods = []
     for m in MODULE_RE.finditer(text):
         num = int(m.group(1))
-        title = m.group(2).strip()
+        title = strip_display_duration(m.group(2).strip())
         body = m.group(3)
         mods.append(parse_module(num, title, body))
 
@@ -372,7 +375,7 @@ def main():
     for m in mods:
         secn = len(m["sections"])
         blk = sum(len(s["blocks"]) for s in m["sections"])
-        print(f"  Module {m['n']} «{m['title']}» — {secn} sections, {blk} blocks, practice={len(m['practice'])}, selfcheck={len(m['selfcheck'])}, time={m['time']}")
+        print(f"  Module {m['n']} «{m['title']}» — {secn} sections, {blk} blocks, practice={len(m['practice'])}, selfcheck={len(m['selfcheck'])}")
 
 
 if __name__ == "__main__":
