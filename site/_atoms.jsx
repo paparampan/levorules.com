@@ -20,7 +20,7 @@ function Eyebrow({ accent = 'var(--blood-text)', children, style }) {
   );
 }
 
-function Btn({ variant = 'default', accent, children, onClick, href, style = {}, block }) {
+function Btn({ variant = 'default', accent, children, onClick, href, style = {}, block, className = '' }) {
   const base = {
     display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: 10,
     padding: '14px 22px', width: block ? '100%' : 'auto',
@@ -53,10 +53,14 @@ function Btn({ variant = 'default', accent, children, onClick, href, style = {},
   return (
     <Comp
       {...(Comp === 'button' ? { type: 'button' } : {})}
+      className={`lr-action ${className}`.trim()}
       onClick={onClick} href={href}
       onMouseEnter={() => setHover(true)} onMouseLeave={() => { setHover(false); setActive(false); }}
       onMouseDown={() => setActive(true)} onMouseUp={() => setActive(false)}
-      style={{ ...mergedStyle, ...hoverStyle, ...pressStyle }}
+      style={{
+        '--lr-interaction-accent': accent || (variant === 'blood' ? 'var(--blood-text)' : 'var(--bone)'),
+        ...mergedStyle, ...hoverStyle, ...pressStyle,
+      }}
     >
       {children}
     </Comp>

@@ -20,7 +20,7 @@ function CourseCallout({ setRoute }) {
       ];
   const total = String(modules.length).padStart(2, '0');
   return (
-    <section id="servitors-callout" style={{
+    <section id="servitors-callout" data-lr-reveal="section" style={{
       position: 'relative', overflow: 'hidden',
       borderLeft: '4px solid var(--purple)',
       background: 'var(--ash-2)',
@@ -69,7 +69,7 @@ function CourseCallout({ setRoute }) {
             {modules.map((m, i) => (
               <button
                 type="button"
-                className="lr-course-module-link"
+                className="lr-course-module-link lr-reactive-row"
                 key={m.n}
                 onClick={() => setRoute('servitors')}
                 style={{
@@ -83,7 +83,7 @@ function CourseCallout({ setRoute }) {
                   {m.n}
                 </span>
                 <span style={{ color: 'var(--bone)', fontSize: 13.5, lineHeight: 1.35 }}>{m.title}</span>
-                <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--bone-dim)', textAlign: 'right' }}>
+                <span className="lr-reactive-arrow" style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--bone-dim)', textAlign: 'right' }}>
                   →
                 </span>
               </button>
@@ -119,7 +119,7 @@ function VideoRow() {
   }, []);
 
   return (
-    <section id="video" style={{ borderBottom: '1px solid var(--border)' }}>
+    <section id="video" data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: 32, flexWrap: 'wrap', gap: 16 }}>
           <div>
@@ -136,7 +136,8 @@ function VideoRow() {
           {videos.map((v, i) => (
             <a key={v.id || i} href={v.url || '#'} target="_blank" rel="noopener"
                style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-              <div style={{
+              <div className="lr-reactive-card" style={{
+                '--lr-interaction-accent': v.acc,
                 aspectRatio: '9/16', background: 'var(--ash)',
                 border: '1px solid var(--border)', position: 'relative', overflow: 'hidden',
               }}>
@@ -215,14 +216,17 @@ function TelegramPosts() {
   }, []);
 
   return (
-    <section id="content" style={{ borderBottom: '1px solid var(--border)' }}>
+    <section id="content" data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>
         <SectionTitle eyebrow="на канале" title="ПОСЛЕДНИЕ ПОСТЫ" />
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
           {posts.map((p, i) => (
             <a key={p.id || i} href={p.url || 'https://t.me/levorules'} target="_blank" rel="noopener"
                style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
-              <article style={{ border: '1px solid var(--border)', background: 'var(--ash)', position: 'relative', overflow: 'hidden', height: '100%' }}>
+              <article className="lr-reactive-card" style={{
+                '--lr-interaction-accent': p.acc,
+                border: '1px solid var(--border)', background: 'var(--ash)', position: 'relative', overflow: 'hidden', height: '100%',
+              }}>
                 <div style={{ height: 180, position: 'relative', borderBottom: '1px solid var(--border)', overflow: 'hidden' }}>
                   {p.photo ? (
                     <img src={p.photo} alt="" loading="lazy"
@@ -268,7 +272,7 @@ function TelegramPosts() {
 // Manifesto Band — blood full-bleed
 function ManifestoBand() {
   return (
-    <section style={{ background: 'var(--blood)', position: 'relative', overflow: 'hidden' }}>
+    <section data-lr-reveal="section" style={{ background: 'var(--blood)', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '96px 32px', textAlign: 'center' }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
           ▸ манифест

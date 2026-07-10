@@ -61,7 +61,7 @@ function GuidesLanding({ setRoute }) {
       </section>
 
       {/* INDEX */}
-      <section style={{ borderBottom: '1px solid var(--border)' }}>
+      <section data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px' }}>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 28, flexWrap: 'wrap', gap: 14 }}>
             <SectionTitle eyebrow="индекс" title="БИБЛИОТЕКА" accent={GUIDES_ACCENT} />
@@ -96,6 +96,7 @@ function GuideCard({ guide, idx, setRoute }) {
   };
   return (
     <a
+      className="lr-reactive-row"
       href={guide.available ? `#guides/${guide.slug}` : undefined}
       aria-disabled={!guide.available ? 'true' : undefined}
       onMouseEnter={() => setHover(true)}
@@ -106,12 +107,14 @@ function GuideCard({ guide, idx, setRoute }) {
         open();
       }}
       style={{
+        '--lr-interaction-accent': GUIDES_ACCENT,
         all: 'unset', boxSizing: 'border-box', width: '100%', textAlign: 'left',
         background: hover && guide.available ? 'var(--ash-2)' : 'var(--void)',
         padding: '32px 32px',
         cursor: guide.available ? 'pointer' : 'default',
+        position: 'relative', overflow: 'hidden',
         display: 'grid', gridTemplateColumns: '80px 1fr auto', gap: 28, alignItems: 'center',
-        transition: 'background .15s ease',
+        transition: 'background .15s ease, transform .18s ease',
       }}>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: GUIDES_ACCENT, letterSpacing: '0.1em' }}>
         [{String(idx + 1).padStart(2, '0')}]
@@ -139,6 +142,7 @@ function GuideCard({ guide, idx, setRoute }) {
         </div>
       </div>
       <span
+        className="lr-reactive-arrow"
         aria-hidden="true"
         style={{
           display: 'inline-block',
@@ -147,7 +151,7 @@ function GuideCard({ guide, idx, setRoute }) {
           border: `1px solid ${guide.available ? GUIDES_ACCENT : 'var(--border-strong)'}`,
           padding: '10px 16px', cursor: guide.available ? 'pointer' : 'not-allowed',
           background: hover && guide.available ? GUIDES_ACCENT : 'transparent',
-          transition: 'background .15s ease, color .15s ease',
+          transition: 'background .15s ease, color .15s ease, transform .18s ease',
         }}
       >
         <span style={{ color: hover && guide.available ? 'var(--void)' : undefined }}>

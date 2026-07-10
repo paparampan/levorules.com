@@ -194,6 +194,11 @@
     .sv-reader-separator,
     .sv-reader-discuss { display: none !important; }
     .sv-reader-module-label { flex-shrink: 0; }
+    .sv-progress-sigil {
+      width: 30px;
+      height: 30px;
+      flex-basis: 30px;
+    }
     .sv-reader-controls {
       margin-left: auto !important;
       gap: 6px !important;
@@ -209,6 +214,9 @@
       padding: 8px 10px !important;
       box-sizing: border-box !important;
     }
+    .sv-share-label { display: none; }
+    .sv-share-link::after { content: "↗"; }
+    .sv-share-link[data-copied="true"]::after { content: "✓"; }
     .sv-reader-grid {
       padding-left: 20px !important;
       padding-right: 20px !important;
@@ -332,11 +340,14 @@
     }
   }
 
+  @media (max-width: 400px) {
+    .sv-reader-module-label-full { display: none; }
+    .sv-reader-module-label-compact { display: inline; }
+  }
+
   @media (max-width: 340px) {
     .sv-reader-control,
     .sv-share-link { padding: 8px !important; font-size: 9px !important; }
-    .sv-share-label { display: none; }
-    .sv-share-link::after { content: "↗"; }
   }
 </style>
 </head>
