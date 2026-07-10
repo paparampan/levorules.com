@@ -21,14 +21,17 @@
   --bone:   #E8E2D3; /* warm off-white text on dark */
   --bone-dim: #8C8879; /* muted bone for secondary text */
   --blood:  #B30000; /* signature red */
+  --blood-display: #D41515; /* readable large display red on void */
+  --blood-text: #FF5A5A; /* readable red for small text on dark surfaces */
   --blood-deep: #690101; /* original logo dark crimson */
 
   /* ---------- ROTATIONAL ACCENTS (use ONE per artifact) ---------- */
   --acid-green: #39FF14; /* practice · result · "it works" */
   --cyber-cyan: #00E5FF; /* theory · explainer · concept */
-  --magenta:    #FF006E; /* provocation · debunk */
+  --magenta:    #FF2E85; /* provocation · debunk; readable on ash cards */
   --amber:      #FFB800; /* sacred · rare · alchemy */
-  --purple:     #B026FF; /* LHP depth · demonology */
+  --purple:     #C050FF; /* LHP depth · demonology; readable on dark surfaces */
+  --purple-on-blood: #F0C8FF; /* light purple reserved for blood-red surfaces */
 
   /* ---------- SEMANTIC FG / BG ---------- */
   --bg:       var(--void);
@@ -39,7 +42,7 @@
   --fg-inv:   var(--void);
   --border:   #2A2A2A;
   --border-strong: #3D3D3D;
-  --accent:   var(--blood); /* default accent; override per-piece */
+  --accent:   var(--blood-text); /* default text accent; override per-piece */
 
   /* ---------- TYPOGRAPHY ---------- */
   --font-display: "Oswald", "Impact", sans-serif;
@@ -167,7 +170,7 @@ p, li { font-size: var(--fs-body); line-height: 1.5; }
 }
 
 /* Accent utility classes */
-.c-blood   { color: var(--blood); }
+.c-blood   { color: var(--blood-text); }
 .c-acid    { color: var(--acid-green); }
 .c-cyan    { color: var(--cyber-cyan); }
 .c-magenta { color: var(--magenta); }
@@ -252,7 +255,7 @@ p, li { font-size: var(--fs-body); line-height: 1.5; }
   color: var(--fg-2);
   background: transparent;
 }
-.tag--blood { color: var(--blood); }
+.tag--blood { color: var(--blood-text); }
 .tag--acid { color: var(--acid-green); }
 .tag--cyan { color: var(--cyber-cyan); }
 .tag--magenta { color: var(--magenta); }

@@ -29,6 +29,34 @@ function lrGuideSlugFromHash(hash = location.hash) {
   return m ? m[1] : null;
 }
 
+function lrModuleFromHash(hash = location.hash) {
+  const h = lrHashValue(hash);
+  const m = h.match(/^servitors-reader\/(\d+)/);
+  if (!m) return null;
+  const n = parseInt(m[1], 10);
+  return Number.isNaN(n) || n < 0 ? null : n;
+}
+
+function lrHashForRoute(route, sectionId = null, guideSlug = null, moduleIndex = null) {
+  if (route === 'servitors') return sectionId ? `#${sectionId}` : '#servitors';
+  if (route === 'servitors-reader') {
+    let mod = moduleIndex;
+    if (mod === null || mod === undefined) {
+      const fromHash = lrModuleFromHash();
+      if (fromHash !== null) mod = fromHash;
+      else {
+        try { mod = localStorage.getItem('lr_servitor_module') || '0'; }
+        catch { mod = '0'; }
+      }
+    }
+    return `#servitors-reader/${mod}`;
+  }
+  if (route === 'who') return '#who';
+  if (route === 'guides') return '#guides';
+  if (route === 'guide') return `#guides/${guideSlug || 'defense-basics'}`;
+  return sectionId ? `#${sectionId}` : '#';
+}
+
 function lrNeedsServitors(route) {
   return route === 'servitors' || route === 'servitors-reader';
 }
@@ -59,12 +87,20 @@ function lrLoadServitorsBundle() {
 
 function App() {
   const pendingScrollId = React.useRef(lrSectionFromHash());
+  const pendingModuleIndex = React.useRef(null);
+  const historyMode = React.useRef('replace');
+  const handledHash = React.useRef(location.hash);
   const [navTick, setNavTick] = React.useState(0);
   const [route, setRoute] = React.useState(() => {
     const h = lrHashValue();
     if (h) return lrRouteFromHash();
-    const saved = localStorage.getItem('lr_route') || 'home';
-    return saved;
+    return 'home';
+  });
+  const [readerModule, setReaderModule] = React.useState(() => {
+    const fromHash = lrModuleFromHash();
+    if (fromHash !== null) return fromHash;
+    try { return parseInt(localStorage.getItem('lr_servitor_module') || '0', 10); }
+    catch { return 0; }
   });
   const [guideSlug, setGuideSlug] = React.useState(() => {
     const fromHash = lrGuideSlugFromHash();
@@ -75,37 +111,53 @@ function App() {
   const [ritual, setRitual] = React.useState(TWEAKS.ritual);
   const [servitorsReady, setServitorsReady] = React.useState(() => lrServitorsReady());
   const [servitorsError, setServitorsError] = React.useState(null);
-  const navigate = React.useCallback((nextRoute, sectionId = null, slug = null) => {
+  const navigate = React.useCallback((nextRoute, sectionId = null, slug = null, options = {}) => {
     pendingScrollId.current = sectionId;
+    let nextModule = options.moduleIndex ?? null;
+    if (nextRoute === 'servitors-reader') {
+      if (nextModule === null) {
+        const fromHash = lrModuleFromHash();
+        if (fromHash !== null) nextModule = fromHash;
+        else {
+          try { nextModule = parseInt(localStorage.getItem('lr_servitor_module') || '0', 10); }
+          catch { nextModule = 0; }
+        }
+      }
+      if (!Number.isFinite(nextModule) || nextModule < 0) nextModule = 0;
+      setReaderModule(nextModule);
+    }
+    pendingModuleIndex.current = nextModule;
+    historyMode.current = options.historyMode || 'push';
     if (slug) setGuideSlug(slug);
     setRoute(nextRoute);
     setNavTick((n) => n + 1);
   }, []);
 
   React.useEffect(() => {
-    localStorage.setItem('lr_route', route);
+    try { localStorage.setItem('lr_route', route); } catch {}
     const sectionId = pendingScrollId.current;
-    if (route === 'servitors') history.replaceState(null, '', sectionId ? `#${sectionId}` : '#servitors');
-    else if (route === 'servitors-reader') {
-      const mod = localStorage.getItem('lr_servitor_module') || '0';
-      history.replaceState(null, '', `#servitors-reader/${mod}`);
-    }
-    else if (route === 'who') history.replaceState(null, '', '#who');
-    else if (route === 'guides') history.replaceState(null, '', '#guides');
-    else if (route === 'guide') {
+    const moduleIndex = pendingModuleIndex.current;
+    if (route === 'guide') {
       try { localStorage.setItem('lr_guide_slug', guideSlug); } catch {}
-      history.replaceState(null, '', `#guides/${guideSlug}`);
     }
-    else history.replaceState(null, '', sectionId ? `#${sectionId}` : '#');
+    const nextHash = lrHashForRoute(route, sectionId, guideSlug, moduleIndex);
+    const mode = historyMode.current;
+    const currentHash = location.hash || '#';
+    if (mode !== 'none' && currentHash !== nextHash) {
+      const method = mode === 'replace' ? 'replaceState' : 'pushState';
+      history[method](null, '', nextHash);
+    }
+    handledHash.current = location.hash;
 
     if (sectionId) {
       requestAnimationFrame(() => {
         document.getElementById(sectionId)?.scrollIntoView({ block: 'start' });
       });
-    } else {
+    } else if (mode === 'push') {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
     pendingScrollId.current = null;
+    pendingModuleIndex.current = null;
   }, [route, navTick, guideSlug]);
 
   React.useEffect(() => {
@@ -135,76 +187,57 @@ function App() {
   React.useEffect(() => {
     const handler = (e) => {
       const detail = typeof e.detail === 'string' ? { route: e.detail } : e.detail;
-      navigate(detail.route, detail.section || null);
+      navigate(detail.route, detail.section || null, detail.slug || null, detail.options || {});
     };
-    const hashHandler = () => {
+    const syncFromLocation = () => {
+      if (handledHash.current === location.hash) return;
+      handledHash.current = location.hash;
       const nextRoute = lrRouteFromHash();
       const slug = lrGuideSlugFromHash();
-      navigate(nextRoute, lrSectionFromHash(location.hash, nextRoute), slug);
+      navigate(nextRoute, lrSectionFromHash(location.hash, nextRoute), slug, {
+        historyMode: 'none',
+        moduleIndex: lrModuleFromHash(),
+      });
     };
     window.addEventListener('lr:route', handler);
-    window.addEventListener('hashchange', hashHandler);
+    window.addEventListener('popstate', syncFromLocation);
+    window.addEventListener('hashchange', syncFromLocation);
     return () => {
       window.removeEventListener('lr:route', handler);
-      window.removeEventListener('hashchange', hashHandler);
+      window.removeEventListener('popstate', syncFromLocation);
+      window.removeEventListener('hashchange', syncFromLocation);
     };
   }, [navigate]);
 
-  // Initial module from hash (#servitors-reader/3 → module 3)
-  const initialModule = (() => {
-    const h = location.hash.replace('#', '');
-    const m = h.match(/^servitors-reader\/(\d+)/);
-    if (m) {
-      const n = parseInt(m[1], 10);
-      if (!isNaN(n) && n >= 0) return n;
-    }
-    return parseInt(localStorage.getItem('lr_servitor_module') || '0', 10);
-  })();
-
   return (
     <>
+      <a className="lr-skip-link" href="#main-content">К содержанию</a>
       <Header ritual={ritual} setRitual={setRitual} route={route} setRoute={navigate} />
-      {lrNeedsServitors(route) && !servitorsReady ? (
-        <>
+      <main id="main-content" tabIndex={-1}>
+        {lrNeedsServitors(route) && !servitorsReady ? (
           <ServitorsLoading error={servitorsError} />
-          <Footer />
-        </>
-      ) : route === 'home' ? (
-        <>
-          <Hero ritual={ritual} />
-          <Territories />
-          <CourseCallout setRoute={navigate} />
-          <VideoRow />
-          <TelegramPosts />
-          <ManifestoBand />
-          <Footer />
-        </>
-      ) : route === 'servitors-reader' ? (
-        <>
-          <ServitorsReader setRoute={navigate} initialModule={initialModule} />
-          <Footer />
-        </>
-      ) : route === 'who' ? (
-        <>
+        ) : route === 'home' ? (
+          <>
+            <Hero ritual={ritual} />
+            <Territories />
+            <CourseCallout setRoute={navigate} />
+            <VideoRow />
+            <TelegramPosts />
+            <ManifestoBand />
+          </>
+        ) : route === 'servitors-reader' ? (
+          <ServitorsReader setRoute={navigate} initialModule={readerModule} />
+        ) : route === 'who' ? (
           <WhoPage />
-          <Footer />
-        </>
-      ) : route === 'guides' ? (
-        <>
+        ) : route === 'guides' ? (
           <GuidesLanding setRoute={navigate} />
-          <Footer />
-        </>
-      ) : route === 'guide' ? (
-        <>
+        ) : route === 'guide' ? (
           <GuidePage slug={guideSlug} setRoute={navigate} />
-          <Footer />
-        </>
-      ) : (
-        <>
-          <ServitorsPage setRoute={setRoute} />
-          <Footer />
-        </>
-      )}
+        ) : (
+          <ServitorsPage setRoute={navigate} />
+        )}
+      </main>
+      <Footer />
     </>
   );
 }

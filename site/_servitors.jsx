@@ -86,7 +86,7 @@ function ServitorsPage({ setRoute }) {
             </ul>
           </div>
           <div>
-            <Eyebrow accent="var(--blood)">для кого НЕ</Eyebrow>
+            <Eyebrow accent="var(--blood-text)">для кого НЕ</Eyebrow>
             <h3 style={{ marginTop: 14, fontSize: 28 }}>НЕ ЧИТАЙ, ЕСЛИ</h3>
             <ul style={{ marginTop: 14, padding: 0, listStyle: 'none', color: 'var(--bone-dim)' }}>
               {[
@@ -97,7 +97,7 @@ function ServitorsPage({ setRoute }) {
               ].map((l, i) => (
                 <li key={i} style={{ padding: '8px 0', borderBottom: i < 3 ? '1px dashed var(--border)' : 'none',
                   display: 'grid', gridTemplateColumns: '20px 1fr', gap: 10, alignItems: 'baseline' }}>
-                  <span style={{ color: 'var(--blood)', fontFamily: 'var(--font-mono)' }}>✗</span>{l}
+                  <span style={{ color: 'var(--blood-text)', fontFamily: 'var(--font-mono)' }}>✗</span>{l}
                 </li>
               ))}
             </ul>

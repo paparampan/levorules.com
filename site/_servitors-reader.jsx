@@ -4,15 +4,35 @@
 function ServitorsReader({ setRoute, initialModule = 0 }) {
   const purple = 'var(--purple)';
   const modules = window.SERVITORS_MODULES || [];
-  const [activeIdx, setActiveIdx] = React.useState(initialModule);
+  const clampModule = (idx) => Math.max(0, Math.min(Math.max(0, modules.length - 1), Number.isFinite(idx) ? idx : 0));
+  const [activeIdx, setActiveIdx] = React.useState(() => clampModule(initialModule));
   const [activeSection, setActiveSection] = React.useState(null);
   const contentRef = React.useRef(null);
+  const didMountReader = React.useRef(false);
+
+  React.useEffect(() => {
+    const next = clampModule(initialModule);
+    setActiveIdx(next);
+    if (next !== initialModule) {
+      try { localStorage.setItem('lr_servitor_module', String(next)); } catch {}
+      setRoute('servitors-reader', null, null, { moduleIndex: next, historyMode: 'replace' });
+    }
+  }, [initialModule, modules.length]);
+
+  const goToModule = React.useCallback((nextIdx) => {
+    const next = clampModule(nextIdx);
+    try { localStorage.setItem('lr_servitor_module', String(next)); } catch {}
+    setActiveIdx(next);
+    setRoute('servitors-reader', null, null, { moduleIndex: next, historyMode: 'replace' });
+  }, [modules.length, setRoute]);
 
   // scroll to top of article when module changes
   React.useEffect(() => {
-    if (contentRef.current) {
-      window.scrollTo({ top: contentRef.current.offsetTop - 20, behavior: 'smooth' });
+    if (didMountReader.current && contentRef.current) {
+      const offset = document.documentElement.clientWidth <= 720 ? 124 : 20;
+      window.scrollTo({ top: Math.max(0, contentRef.current.offsetTop - offset), behavior: 'smooth' });
     }
+    didMountReader.current = true;
     // persist
     try { localStorage.setItem('lr_servitor_module', String(activeIdx)); } catch {}
   }, [activeIdx]);
@@ -43,47 +63,49 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
   return (
     <div>
       {/* READER HEADER — compact, shows current module + breadcrumbs */}
-      <section style={{
+      <section className="sv-reader-toolbar" style={{
         borderBottom: `1px solid var(--border)`,
         background: 'var(--ash-2)',
         position: 'sticky', top: 0, zIndex: 50,
         backdropFilter: 'blur(10px)',
       }}>
-        <div style={{ maxWidth: 1440, margin: '0 auto', padding: '16px 32px',
+        <div className="sv-reader-toolbar-inner" style={{ maxWidth: 1440, margin: '0 auto', padding: '16px 32px',
           display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-          <a href="#" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
+          <a className="sv-reader-home-link" href="#" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
             style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em',
               textTransform: 'uppercase', color: 'var(--bone-dim)', textDecoration: 'none' }}>
             ← ЛЕВО РУЛЯ
           </a>
-          <span style={{ color: 'var(--border-strong)' }}>/</span>
-          <a href="#" onClick={(e) => { e.preventDefault(); setRoute('servitors'); }}
+          <span className="sv-reader-separator" style={{ color: 'var(--border-strong)' }}>/</span>
+          <a className="sv-reader-course-link" href="#" onClick={(e) => { e.preventDefault(); setRoute('servitors'); }}
             style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em',
               textTransform: 'uppercase', color: 'var(--bone-dim)', textDecoration: 'none' }}>
             сервиторы
           </a>
-          <span style={{ color: 'var(--border-strong)' }}>/</span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em',
+          <span className="sv-reader-separator" style={{ color: 'var(--border-strong)' }}>/</span>
+          <span className="sv-reader-module-label" style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em',
             textTransform: 'uppercase', color: purple }}>
             МОДУЛЬ {mod.n}
           </span>
-          <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em',
+          <span className="sv-reader-discuss" style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em',
             textTransform: 'uppercase', color: 'var(--bone-dim)', marginLeft: 16 }}>
             задать вопрос или обсудить можно{' '}
             <a href="https://t.me/levorules_chat" target="_blank" rel="noopener"
                style={{ color: purple, textDecoration: 'underline', textUnderlineOffset: 2 }}>ТУТ</a>
           </span>
-          <div style={{ marginLeft: 'auto', display: 'flex', gap: 8, alignItems: 'center' }}>
+          <div className="sv-reader-controls" style={{ marginLeft: 'auto', display: 'flex', gap: 8, alignItems: 'center' }}>
             <ShareLinkButton moduleNum={mod.n} />
             <button
+              className="sv-reader-control"
               disabled={activeIdx === 0}
-              onClick={() => setActiveIdx(Math.max(0, activeIdx - 1))}
+              onClick={() => goToModule(activeIdx - 1)}
               style={navBtnStyle(activeIdx === 0)}>
               ← ПРЕД
             </button>
             <button
+              className="sv-reader-control"
               disabled={activeIdx === modules.length - 1}
-              onClick={() => setActiveIdx(Math.min(modules.length - 1, activeIdx + 1))}
+              onClick={() => goToModule(activeIdx + 1)}
               style={navBtnStyle(activeIdx === modules.length - 1)}>
               СЛЕД →
             </button>
@@ -111,7 +133,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
           maxHeight: 'calc(100vh - 120px)', overflowY: 'auto',
           paddingRight: 8,
         }}>
-          <CourseSearch modules={modules} setActiveIdx={setActiveIdx} accent={purple} />
+          <CourseSearch modules={modules} setActiveIdx={goToModule} accent={purple} />
           <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10,
             letterSpacing: '0.16em', textTransform: 'uppercase',
             color: 'var(--bone-dim)', margin: '20px 0 14px' }}>
@@ -121,7 +143,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
             {modules.map((m, i) => (
               <div key={m.n}>
                 <button
-                  onClick={() => setActiveIdx(i)}
+                  onClick={() => goToModule(i)}
                   style={{
                     all: 'unset', cursor: 'pointer',
                     display: 'grid', gridTemplateColumns: '32px 1fr', gap: 10,
@@ -189,7 +211,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
             display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16,
           }}>
             {activeIdx > 0 ? (
-              <button onClick={() => setActiveIdx(activeIdx - 1)} style={articleNavStyle('prev')}>
+              <button onClick={() => goToModule(activeIdx - 1)} style={articleNavStyle('prev')}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)',
                   letterSpacing: '0.12em', marginBottom: 8 }}>← ПРЕДЫДУЩИЙ</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: purple, marginBottom: 4 }}>
@@ -201,7 +223,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
               </button>
             ) : <div />}
             {activeIdx < modules.length - 1 ? (
-              <button onClick={() => setActiveIdx(activeIdx + 1)} style={articleNavStyle('next')}>
+              <button onClick={() => goToModule(activeIdx + 1)} style={articleNavStyle('next')}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)',
                   letterSpacing: '0.12em', marginBottom: 8, textAlign: 'right' }}>СЛЕДУЮЩИЙ →</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: purple, marginBottom: 4, textAlign: 'right' }}>
@@ -483,7 +505,7 @@ function RichText({ text }) {
 }
 
 function Callout({ kind = 'note', title, accent, children }) {
-  const color = kind === 'danger' ? 'var(--blood)'
+  const color = kind === 'danger' ? 'var(--blood-text)'
     : kind === 'warning' ? 'var(--amber)'
     : kind === 'practice' ? accent || 'var(--purple)'
     : kind === 'check' ? 'var(--cyber-cyan)'
@@ -647,7 +669,8 @@ function ShareLinkButton({ moduleNum }) {
     }
   };
   return (
-    <button onClick={copy} title="Скопировать ссылку на этот модуль"
+    <button className="sv-share-link" onClick={copy} title="Скопировать ссылку на этот модуль"
+      aria-label={copied ? '✓ СКОПИРОВАНО — ссылка на модуль' : 'ССЫЛКА — скопировать ссылку на этот модуль'}
       style={{
         all: 'unset', cursor: 'pointer',
         fontFamily: 'var(--font-mono)', fontSize: 11,
@@ -658,7 +681,7 @@ function ShareLinkButton({ moduleNum }) {
         borderColor: copied ? 'var(--acid-green)' : 'var(--border)',
         transition: 'all .15s ease',
       }}>
-      {copied ? '✓ СКОПИРОВАНО' : 'ССЫЛКА'}
+      <span className="sv-share-label">{copied ? '✓ СКОПИРОВАНО' : 'ССЫЛКА'}</span>
     </button>
   );
 }

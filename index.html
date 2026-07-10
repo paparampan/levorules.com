@@ -120,6 +120,26 @@
      a scroll container, so descendant `position: sticky` still works. */
   html, body { overflow-x: clip; }
 
+  .lr-skip-link {
+    position: fixed; top: 8px; left: 8px; z-index: 1000;
+    padding: 10px 14px;
+    background: var(--cyber-cyan); color: var(--void);
+    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    transform: translateY(-160%); transition: transform .15s ease;
+  }
+  .lr-skip-link:focus { transform: translateY(0); }
+
+  .lr-nav-toggle {
+    display: none;
+    min-width: 44px; min-height: 44px;
+    border: 1px solid var(--border-strong); background: transparent; color: var(--bone);
+    font-family: var(--font-mono); font-size: 10px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    align-items: center; justify-content: center; gap: 7px;
+    cursor: pointer;
+  }
+
   /* ===== Matrix-breach glitch — only on page hero headings =====
      At rest: clean text, no effect. Every cycle, one short sharp burst
      (~400ms of visible chaos) then back to normal. */
@@ -159,9 +179,35 @@
       padding-bottom: 56px !important;
     }
     /* Reader's sticky top bar and 2-col layout have smaller original padding. */
-    section[style*="position: sticky"] > div[style*="max-width: 1440px"] {
-      padding-top: 10px !important;
-      padding-bottom: 10px !important;
+    .sv-reader-toolbar {
+      top: 56px !important;
+      z-index: 45 !important;
+    }
+    .sv-reader-toolbar > .sv-reader-toolbar-inner {
+      min-height: 56px;
+      padding: 8px 16px !important;
+      gap: 8px !important;
+      flex-wrap: nowrap !important;
+    }
+    .sv-reader-home-link,
+    .sv-reader-course-link,
+    .sv-reader-separator,
+    .sv-reader-discuss { display: none !important; }
+    .sv-reader-module-label { flex-shrink: 0; }
+    .sv-reader-controls {
+      margin-left: auto !important;
+      gap: 6px !important;
+      flex-shrink: 0;
+    }
+    .sv-reader-control,
+    .sv-share-link {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      min-width: 44px !important;
+      min-height: 44px !important;
+      padding: 8px 10px !important;
+      box-sizing: border-box !important;
     }
     .sv-reader-grid {
       padding-left: 20px !important;
@@ -185,8 +231,8 @@
     }
 
     /* Shorts lineup: 5-col → 2-col on mobile (cards stay 9:16, look right). */
-    [style*="grid-template-columns: repeat(5"] {
-      grid-template-columns: repeat(2, 1fr) !important;
+    .lr-shorts-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
       gap: 12px !important;
     }
 
@@ -194,15 +240,34 @@
     .sv-reader-grid > aside { display: none !important; }
     .sv-reader-grid { grid-template-columns: 1fr !important; gap: 0 !important; }
 
-    /* Header nav — wrap + compact sizing. */
-    header nav { flex-wrap: wrap !important; gap: 2px !important; row-gap: 4px !important; }
-    header nav a {
-      padding: 6px 8px !important;
+    /* Compact mobile header with an accessible disclosure menu. */
+    .lr-header-inner {
+      min-height: 56px;
+      padding: 6px 16px !important;
+      gap: 12px !important;
+    }
+    .lr-brand-link { flex-shrink: 0; }
+    .lr-nav-toggle { display: inline-flex; margin-left: auto; }
+    .lr-main-nav {
+      display: none !important;
+      position: absolute; top: 100%; left: 0; right: 0;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1px !important;
+      padding: 1px;
+      background: var(--border);
+      border-bottom: 1px solid var(--border-strong);
+      box-shadow: 0 18px 42px rgba(0,0,0,0.55);
+    }
+    .lr-main-nav.is-open { display: grid !important; }
+    .lr-main-nav a {
+      min-height: 48px;
+      padding: 10px 14px !important;
+      background: var(--void);
       font-size: 10px !important;
       letter-spacing: 0.05em !important;
+      border-bottom: 0 !important;
+      white-space: nowrap;
     }
-    /* Header container: smaller padding so logo+nav fit. */
-    header > div[style*="padding: 14px 32px"] { padding: 10px 16px !important; gap: 12px !important; }
 
     /* Hero decorative sigils pushed off-screen should fade further so they don't overpower. */
     section > div[style*="right: -"],
@@ -250,8 +315,7 @@
        specific tints so reader can mentally group them back into columns:
        middle col = purple, right col = cyan. */
     [style*="grid-template-columns: minmax"],
-    [style*="grid-template-columns: repeat(4"],
-    [style*="grid-template-columns: repeat(5"][style*="1fr)"] {
+    [style*="grid-template-columns: repeat(4"] {
       grid-template-columns: 1fr !important;
       gap: 4px !important;
     }
@@ -269,8 +333,10 @@
   }
 
   @media (max-width: 340px) {
-    /* Very narrow phones: tighten nav. Shorts stay 2-col (wider cards look worse). */
-    header nav a { padding: 5px 6px !important; font-size: 9px !important; }
+    .sv-reader-control,
+    .sv-share-link { padding: 8px !important; font-size: 9px !important; }
+    .sv-share-label { display: none; }
+    .sv-share-link::after { content: "↗"; }
   }
 </style>
 </head>
@@ -300,7 +366,7 @@
   <div class="row">
     <label>Course accent</label>
     <div style="display:flex;gap:4px">
-      <button class="opt" data-k="courseAccent" data-v="purple" style="color:#B026FF;border-color:#B026FF">PRL</button>
+      <button class="opt" data-k="courseAccent" data-v="purple" style="color:#C050FF;border-color:#C050FF">PRL</button>
       <button class="opt" data-k="courseAccent" data-v="amber" style="color:#FFB800;border-color:#FFB800">AMB</button>
       <button class="opt" data-k="courseAccent" data-v="acid" style="color:#39FF14;border-color:#39FF14">ACD</button>
     </div>
