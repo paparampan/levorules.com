@@ -65,7 +65,7 @@ function ServitorsPage({ setRoute }) {
       </section>
 
       {/* PROMISE STRIP */}
-      <section style={{ borderBottom: '1px solid var(--border)', background: 'var(--ash-2)' }}>
+      <section data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)', background: 'var(--ash-2)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '64px 32px',
           display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48 }}>
           <div>
@@ -106,7 +106,7 @@ function ServitorsPage({ setRoute }) {
       </section>
 
       {/* PROGRAM */}
-      <section id="program" style={{ borderBottom: '1px solid var(--border)' }}>
+      <section id="program" data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
           <SectionTitle eyebrow="программа" title="ОДИННАДЦАТЬ МОДУЛЕЙ" accent={purple}>
             Курс построен по принципу восхождения. Каждый модуль предполагает освоение
@@ -175,7 +175,7 @@ function ServitorsPage({ setRoute }) {
       </section>
 
       {/* FORMAT */}
-      <section style={{ borderBottom: '1px solid var(--border)', background: 'var(--ash-2)' }}>
+      <section data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)', background: 'var(--ash-2)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>
           <SectionTitle eyebrow="формат" title="КАК ЭТО УСТРОЕНО" accent={purple} />
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: 1, background: 'var(--border)', border: '1px solid var(--border)' }}>
@@ -196,7 +196,7 @@ function ServitorsPage({ setRoute }) {
       </section>
 
       {/* APPENDICES — separate PDF downloads */}
-      <section id="appendices" style={{ borderBottom: '1px solid var(--border)' }}>
+      <section id="appendices" data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>
           <SectionTitle eyebrow="приложения" title="СПРАВОЧНИКИ И ШАБЛОНЫ" accent={purple}>
             Восемь отдельных PDF — глоссарий, библиография, чек-листы, шаблоны протоколов, годовая программа, FAQ, расширенная литература и полный курс одним файлом. Скачиваются по одному, печатаются отдельно, читаются по мере надобности.
@@ -214,12 +214,14 @@ function ServitorsPage({ setRoute }) {
               { l: 'G', t: 'Дополнительная литература', d: 'Авторитетные работы за пределами основной библиографии: Stavish, Veissière, Schwartz, Stratton-Kent, Lachman, Kripal, Ellwood, Moore. Двенадцать тематических блоков.', f: 'prilozhenie-g-dopolnitelnaya-literatura.pdf' },
               { l: '✱', t: 'Курс одним PDF', d: 'Полная редакция 2026-04-18 в одном файле на 141 страницу. Все модули и приложения вместе — для оффлайн-чтения и печати.', f: 'servitors.pdf', isFull: true },
             ].map((a, i) => (
-              <a key={a.l} href={`uploads/${a.isFull ? '' : 'appendices/'}${a.f}`} download
+              <a key={a.l} className="lr-reactive-card" href={`uploads/${a.isFull ? '' : 'appendices/'}${a.f}`} download
                 style={{
+                  '--lr-interaction-accent': purple,
                   background: 'var(--ash)', padding: 28, minHeight: 160,
                   textDecoration: 'none', color: 'inherit',
                   display: 'flex', flexDirection: 'column', gap: 10,
-                  transition: 'background .15s ease',
+                  position: 'relative', overflow: 'hidden',
+                  transition: 'background .15s ease, transform .18s ease',
                   cursor: 'pointer',
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.background = 'var(--ash-2)'}
@@ -244,7 +246,7 @@ function ServitorsPage({ setRoute }) {
       </section>
 
       {/* CTA */}
-      <section style={{ background: purple, color: 'var(--void)', position: 'relative', overflow: 'hidden' }}>
+      <section data-lr-reveal="section" style={{ background: purple, color: 'var(--void)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '56px 32px', textAlign: 'center' }}>
           <Btn href="https://t.me/levorules" style={{
             background: 'var(--void)', color: 'var(--bone)',

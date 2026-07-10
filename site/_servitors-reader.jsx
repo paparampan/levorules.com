@@ -30,7 +30,10 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
   React.useEffect(() => {
     if (didMountReader.current && contentRef.current) {
       const offset = document.documentElement.clientWidth <= 720 ? 124 : 20;
-      window.scrollTo({ top: Math.max(0, contentRef.current.offsetTop - offset), behavior: 'smooth' });
+      window.scrollTo({
+        top: Math.max(0, contentRef.current.offsetTop - offset),
+        behavior: lrReaderScrollBehavior(),
+      });
     }
     didMountReader.current = true;
     // persist
@@ -39,7 +42,9 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
 
   // scroll-spy for sections within current module
   React.useEffect(() => {
-    const handler = () => {
+    let frame = null;
+    const update = () => {
+      frame = null;
       const hs = contentRef.current?.querySelectorAll('[data-section-id]');
       if (!hs) return;
       const scrollY = window.scrollY + 120;
@@ -47,11 +52,18 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
       hs.forEach(h => {
         if (h.offsetTop <= scrollY) current = h.dataset.sectionId;
       });
-      setActiveSection(current);
+      setActiveSection((previous) => previous === current ? previous : current);
+    };
+    const handler = () => {
+      if (frame !== null) return;
+      frame = requestAnimationFrame(update);
     };
     window.addEventListener('scroll', handler, { passive: true });
-    handler();
-    return () => window.removeEventListener('scroll', handler);
+    update();
+    return () => {
+      window.removeEventListener('scroll', handler);
+      if (frame !== null) cancelAnimationFrame(frame);
+    };
   }, [activeIdx]);
 
   if (!modules.length) {
@@ -83,9 +95,16 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
             сервиторы
           </a>
           <span className="sv-reader-separator" style={{ color: 'var(--border-strong)' }}>/</span>
+          <CourseProgressSigil
+            activeIdx={activeIdx}
+            total={modules.length}
+            moduleNum={mod.n}
+            accent={purple}
+          />
           <span className="sv-reader-module-label" style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em',
             textTransform: 'uppercase', color: purple }}>
-            МОДУЛЬ {mod.n}
+            <span className="sv-reader-module-label-full">МОДУЛЬ {mod.n}</span>
+            <span className="sv-reader-module-label-compact" aria-hidden="true">М{mod.n}</span>
           </span>
           <span className="sv-reader-discuss" style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em',
             textTransform: 'uppercase', color: 'var(--bone-dim)', marginLeft: 16 }}>
@@ -112,12 +131,20 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
           </div>
         </div>
         {/* progress bar */}
-        <div style={{ height: 2, background: 'var(--border)' }}>
-          <div style={{
+        <div
+          className="sv-reader-progress"
+          role="progressbar"
+          aria-label="Позиция в курсе"
+          aria-valuemin={1}
+          aria-valuemax={modules.length}
+          aria-valuenow={activeIdx + 1}
+          aria-valuetext={`Модуль ${mod.n}: позиция ${activeIdx + 1} из ${modules.length}`}
+          style={{ height: 2, background: 'var(--border)' }}
+        >
+          <div className="sv-reader-progress-fill" style={{
             height: '100%',
-            width: `${((activeIdx + 1) / modules.length) * 100}%`,
             background: purple,
-            transition: 'width .3s ease',
+            transform: `scaleX(${(activeIdx + 1) / modules.length})`,
           }} />
         </div>
       </section>
@@ -143,6 +170,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
             {modules.map((m, i) => (
               <div key={m.n}>
                 <button
+                  aria-current={i === activeIdx ? 'step' : undefined}
                   onClick={() => goToModule(i)}
                   style={{
                     all: 'unset', cursor: 'pointer',
@@ -171,10 +199,11 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
                     borderLeft: `1px solid var(--border)`, marginLeft: 15, marginTop: 4, marginBottom: 10 }}>
                     {m.sections.map(s => (
                       <a key={s.id} href={`#s-${s.id}`}
+                        aria-current={activeSection === s.id ? 'location' : undefined}
                         onClick={(e) => {
                           e.preventDefault();
                           const el = document.getElementById(`s-${s.id}`);
-                          if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+                          if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: lrReaderScrollBehavior() });
                         }}
                         style={{
                           fontFamily: 'var(--font-mono)', fontSize: 11,
@@ -211,7 +240,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
             display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16,
           }}>
             {activeIdx > 0 ? (
-              <button onClick={() => goToModule(activeIdx - 1)} style={articleNavStyle('prev')}>
+              <button className="lr-reactive-card" onClick={() => goToModule(activeIdx - 1)} style={articleNavStyle('prev')}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)',
                   letterSpacing: '0.12em', marginBottom: 8 }}>← ПРЕДЫДУЩИЙ</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: purple, marginBottom: 4 }}>
@@ -223,7 +252,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
               </button>
             ) : <div />}
             {activeIdx < modules.length - 1 ? (
-              <button onClick={() => goToModule(activeIdx + 1)} style={articleNavStyle('next')}>
+              <button className="lr-reactive-card" onClick={() => goToModule(activeIdx + 1)} style={articleNavStyle('next')}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)',
                   letterSpacing: '0.12em', marginBottom: 8, textAlign: 'right' }}>СЛЕДУЮЩИЙ →</div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: purple, marginBottom: 4, textAlign: 'right' }}>
@@ -234,10 +263,10 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
                 </div>
               </button>
             ) : (
-              <button onClick={() => {
+              <button className="lr-reactive-card" onClick={() => {
                 setRoute('servitors');
                 setTimeout(() => {
-                  document.getElementById('appendices')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                  document.getElementById('appendices')?.scrollIntoView({ behavior: lrReaderScrollBehavior(), block: 'start' });
                 }, 120);
               }} style={articleNavStyle('next')}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)',
@@ -265,6 +294,45 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
   );
 }
 
+function lrReaderScrollBehavior() {
+  return window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth';
+}
+
+function CourseProgressSigil({ activeIdx, total, moduleNum, accent }) {
+  const count = Math.max(1, total);
+  const rotation = (activeIdx / count) * 360;
+  const rays = Array.from({ length: count }, (_, index) => index);
+
+  return (
+    <span
+      className="sv-progress-sigil"
+      style={{ '--sv-sigil-accent': accent }}
+      aria-hidden="true"
+    >
+      <svg viewBox="0 0 44 44" focusable="false">
+        <circle className="sv-progress-sigil__orbit" cx="22" cy="22" r="12" />
+        {rays.map((ray) => (
+          <line
+            key={ray}
+            className={`sv-progress-sigil__ray${ray <= activeIdx ? ' is-lit' : ''}${ray === activeIdx ? ' is-current' : ''}`}
+            x1="22" y1="2.5" x2="22" y2="7.5"
+            transform={`rotate(${(ray / count) * 360} 22 22)`}
+          />
+        ))}
+        <g
+          className="sv-progress-sigil__pointer"
+          style={{ transform: `rotate(${rotation}deg)`, transformOrigin: '22px 22px' }}
+        >
+          <path d="M22 9.5 L19.6 14.8 L24.4 14.8 Z" />
+        </g>
+        <text className="sv-progress-sigil__number" x="22" y="24.3" textAnchor="middle">
+          {String(moduleNum).padStart(2, '0')}
+        </text>
+      </svg>
+    </span>
+  );
+}
+
 function navBtnStyle(disabled) {
   return {
     all: 'unset',
@@ -281,7 +349,9 @@ function articleNavStyle(which) {
   return {
     all: 'unset', cursor: 'pointer',
     padding: 24, border: '1px solid var(--border)',
-    background: 'var(--ash)', transition: 'border-color .15s ease, background .15s ease',
+    background: 'var(--ash)', position: 'relative', overflow: 'hidden',
+    transition: 'border-color .15s ease, background .15s ease, transform .18s ease',
+    '--lr-interaction-accent': 'var(--purple)',
     textAlign: which === 'next' ? 'right' : 'left',
   };
 }
@@ -620,7 +690,7 @@ function CourseSearch({ modules, setActiveIdx, accent }) {
                   setQ('');
                   setTimeout(() => {
                     const el = document.getElementById('s-' + h.sectionId);
-                    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: 'smooth' });
+                    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: lrReaderScrollBehavior() });
                   }, 50);
                 }}
                 style={{
@@ -669,7 +739,7 @@ function ShareLinkButton({ moduleNum }) {
     }
   };
   return (
-    <button className="sv-share-link" onClick={copy} title="Скопировать ссылку на этот модуль"
+    <button className="sv-share-link" data-copied={copied ? 'true' : 'false'} onClick={copy} title="Скопировать ссылку на этот модуль"
       aria-label={copied ? '✓ СКОПИРОВАНО — ссылка на модуль' : 'ССЫЛКА — скопировать ссылку на этот модуль'}
       style={{
         all: 'unset', cursor: 'pointer',

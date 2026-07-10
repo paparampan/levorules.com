@@ -85,6 +85,26 @@ function lrLoadServitorsBundle() {
   return window.__LR_SERVITORS_PROMISE__;
 }
 
+function lrRouteAccent(route) {
+  if (route === 'servitors' || route === 'servitors-reader') return 'var(--purple)';
+  if (route === 'guides' || route === 'guide') return 'var(--acid-green)';
+  if (route === 'who') return 'var(--blood-text)';
+  return 'var(--blood-display)';
+}
+
+function RouteCut({ active, accent }) {
+  return (
+    <div
+      className={`lr-route-cut${active ? ' is-active' : ''}`}
+      style={{ '--lr-route-accent': accent }}
+      aria-hidden="true"
+    >
+      <span className="lr-route-cut__line lr-route-cut__line--primary" />
+      <span className="lr-route-cut__line lr-route-cut__line--echo" />
+    </div>
+  );
+}
+
 function App() {
   const pendingScrollId = React.useRef(lrSectionFromHash());
   const pendingModuleIndex = React.useRef(null);
@@ -111,6 +131,52 @@ function App() {
   const [ritual, setRitual] = React.useState(TWEAKS.ritual);
   const [servitorsReady, setServitorsReady] = React.useState(() => lrServitorsReady());
   const [servitorsError, setServitorsError] = React.useState(null);
+  const firstVisualRoute = React.useRef(true);
+  const [routeCutTick, setRouteCutTick] = React.useState(0);
+  const visualRouteKey = route === 'guide' ? `${route}:${guideSlug}` : route;
+
+  React.useLayoutEffect(() => {
+    if (firstVisualRoute.current) {
+      firstVisualRoute.current = false;
+      return;
+    }
+    setRouteCutTick((tick) => tick + 1);
+  }, [visualRouteKey]);
+
+  React.useLayoutEffect(() => {
+    const root = document.getElementById('main-content');
+    const reduceMotion = window.matchMedia?.('(prefers-reduced-motion: reduce)').matches;
+    if (!root || reduceMotion || !('IntersectionObserver' in window)) return;
+
+    const targets = Array.from(root.querySelectorAll('[data-lr-reveal]'));
+    if (!targets.length) return;
+
+    const viewportHeight = document.documentElement.clientHeight || window.innerHeight;
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('is-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: '0px 0px -8% 0px' });
+
+    targets.forEach((target) => {
+      target.classList.remove('is-armed', 'is-visible');
+      const pageTop = target.getBoundingClientRect().top + window.scrollY;
+      if (pageTop <= viewportHeight * 0.92) {
+        target.classList.add('is-visible');
+        return;
+      }
+      target.classList.add('is-armed');
+      observer.observe(target);
+    });
+
+    return () => {
+      observer.disconnect();
+      targets.forEach((target) => target.classList.add('is-visible'));
+    };
+  }, [visualRouteKey, servitorsReady]);
+
   const navigate = React.useCallback((nextRoute, sectionId = null, slug = null, options = {}) => {
     pendingScrollId.current = sectionId;
     let nextModule = options.moduleIndex ?? null;
@@ -212,6 +278,7 @@ function App() {
   return (
     <>
       <a className="lr-skip-link" href="#main-content">К содержанию</a>
+      <RouteCut key={routeCutTick} active={routeCutTick > 0} accent={lrRouteAccent(route)} />
       <Header ritual={ritual} setRitual={setRitual} route={route} setRoute={navigate} />
       <main id="main-content" tabIndex={-1}>
         {lrNeedsServitors(route) && !servitorsReady ? (

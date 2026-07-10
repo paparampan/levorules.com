@@ -50,12 +50,14 @@ function Header({ ritual, setRitual, route, setRoute }) {
             const accent = i.accent || 'var(--bone)';
             return i.external ? (
               <a key={i.id} href={i.href} target="_blank" rel="noopener"
+                className="lr-nav-link"
                 onClick={() => setMobileNavOpen(false)}
                 style={navLinkStyle(false, accent)}>
                 <span style={{ color: 'var(--blood-text)' }}>▸</span> {i.label} ↗
               </a>
             ) : (
               <a key={i.id} href={'#' + i.id}
+                className="lr-nav-link"
                 aria-current={isActive ? 'page' : undefined}
                 onClick={(e) => {
                   if (i.hash) return;
@@ -142,12 +144,19 @@ function Territories() {
     { n: '03', title: 'ПУТЬ ЛЕВОЙ РУКИ', body: 'Самообожествление, Чёрное Пламя, индивидуация. Ты и есть бог.' },
   ];
   return (
-    <section id="territories" style={{ borderBottom: '1px solid var(--border)' }}>
+    <section id="territories" data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>
         <SectionTitle eyebrow="три направления практики" title="ТЕРРИТОРИИ" />
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: 'var(--border)', border: '1px solid var(--border)' }}>
           {items.map(c => (
-            <div key={c.n} style={{ background: 'var(--ash)', padding: 32, minHeight: 240, position: 'relative' }}>
+            <div
+              key={c.n}
+              className="lr-reactive-card"
+              style={{
+                '--lr-interaction-accent': 'var(--blood-text)',
+                background: 'var(--ash)', padding: 32, minHeight: 240, position: 'relative',
+              }}
+            >
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--blood-text)', letterSpacing: '0.15em' }}>
                 {c.n} / 03
               </div>
