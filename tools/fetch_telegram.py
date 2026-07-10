@@ -26,7 +26,7 @@ ACCENTS = [
     "var(--acid-green)",
     "var(--amber)",
     "var(--purple)",
-    "var(--blood)",
+    "var(--blood-text)",
 ]
 
 

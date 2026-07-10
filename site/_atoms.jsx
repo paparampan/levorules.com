@@ -8,7 +8,7 @@ function LRLogo({ size = 28, color = 'bone', alt = 'ЛЕВО РУЛЯ' }) {
   return <img src={src} width={size} height={size} style={{ display: 'block' }} alt={alt} aria-hidden={alt === '' ? 'true' : undefined} />;
 }
 
-function Eyebrow({ accent = 'var(--blood)', children, style }) {
+function Eyebrow({ accent = 'var(--blood-text)', children, style }) {
   return (
     <div style={{
       fontFamily: 'var(--font-mono)', fontSize: 12,

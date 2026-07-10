@@ -95,11 +95,18 @@ function GuideCard({ guide, idx, setRoute }) {
     setRoute('guide', null, guide.slug);
   };
   return (
-    <div
+    <a
+      href={guide.available ? `#guides/${guide.slug}` : undefined}
+      aria-disabled={!guide.available ? 'true' : undefined}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
-      onClick={guide.available ? open : undefined}
+      onClick={(e) => {
+        if (!guide.available) return;
+        e.preventDefault();
+        open();
+      }}
       style={{
+        all: 'unset', boxSizing: 'border-box', width: '100%', textAlign: 'left',
         background: hover && guide.available ? 'var(--ash-2)' : 'var(--void)',
         padding: '32px 32px',
         cursor: guide.available ? 'pointer' : 'default',
@@ -131,11 +138,10 @@ function GuideCard({ guide, idx, setRoute }) {
           {guide.tags.map(t => <Tag key={t} accent={GUIDES_ACCENT}>▸ {t}</Tag>)}
         </div>
       </div>
-      <button
-        type="button"
-        onClick={(e) => { e.stopPropagation(); if (guide.available) open(); }}
+      <span
+        aria-hidden="true"
         style={{
-          all: 'unset',
+          display: 'inline-block',
           fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase',
           color: guide.available ? GUIDES_ACCENT : 'var(--bone-dim)',
           border: `1px solid ${guide.available ? GUIDES_ACCENT : 'var(--border-strong)'}`,
@@ -147,8 +153,8 @@ function GuideCard({ guide, idx, setRoute }) {
         <span style={{ color: hover && guide.available ? 'var(--void)' : undefined }}>
           {guide.available ? 'Читать →' : 'Скоро'}
         </span>
-      </button>
-    </div>
+      </span>
+    </a>
   );
 }
 
@@ -215,7 +221,7 @@ function GuideFooterNav({ setRoute }) {
 
 function GuideTag({ kind = 'neutral', children }) {
   const colors = {
-    blood: 'var(--blood)', acid: 'var(--acid-green)', cyan: 'var(--cyber-cyan)',
+    blood: 'var(--blood-text)', acid: 'var(--acid-green)', cyan: 'var(--cyber-cyan)',
     magenta: 'var(--magenta)', amber: 'var(--amber)', purple: 'var(--purple)',
     neutral: 'var(--bone-dim)',
   };
@@ -232,7 +238,7 @@ function DefenceHero() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '48px 32px 72px' }}>
         <div style={{ display: 'flex', gap: 14, marginBottom: 28, flexWrap: 'wrap',
           fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.12em', textTransform: 'uppercase' }}>
-          <span style={{ color: 'var(--blood)' }}>▸ Протокол</span>
+          <span style={{ color: 'var(--blood-text)' }}>▸ Протокол</span>
           <span style={{ color: 'var(--bone-dim)' }}>·</span>
           <span style={{ color: 'var(--bone-dim)' }}>02.05.2026</span>
           <span style={{ color: 'var(--bone-dim)' }}>·</span>
@@ -244,7 +250,7 @@ function DefenceHero() {
           lineHeight: 0.88, fontSize: 'clamp(56px, 8vw, 120px)',
           margin: 0, color: 'var(--bone)',
         }}>
-          Базовые<br/>техники <span style={{ color: 'var(--blood)' }}>защиты</span>
+          Базовые<br/>техники <span style={{ color: 'var(--blood-display)' }}>защиты</span>
         </h1>
         <p style={{
           marginTop: 36, fontSize: 20, lineHeight: 1.5, color: 'var(--bone)', maxWidth: 760,
@@ -281,12 +287,12 @@ function DefenceTLDR() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '72px 32px' }}>
         <div className="eyebrow" style={{ marginBottom: 18 }}>Tl;dr · 4 тезиса</div>
         <h2 style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', maxWidth: 1100, marginBottom: 48 }}>
-          Если читать нечего — <span style={{ color: 'var(--blood)' }}>читай это</span>
+          Если читать нечего — <span style={{ color: 'var(--blood-display)' }}>читай это</span>
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 1, background: 'var(--border)', border: '1px solid var(--border)' }}>
           {items.map(it => (
             <div key={it.n} style={{ background: 'var(--void)', padding: '32px 28px' }}>
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--blood)', letterSpacing: '0.1em', marginBottom: 16 }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--blood-text)', letterSpacing: '0.1em', marginBottom: 16 }}>
                 [{it.n}]
               </div>
               <div style={{
@@ -443,7 +449,7 @@ function DefenceParadigmBlock() {
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px 72px' }}>
         <div className="eyebrow" style={{ marginBottom: 18 }}>Две парадигмы · одна задача</div>
         <h2 style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', maxWidth: 1200, marginBottom: 28 }}>
-          Выбери <span style={{ color: 'var(--blood)' }}>систему координат</span>
+          Выбери <span style={{ color: 'var(--blood-display)' }}>систему координат</span>
         </h2>
         <p className="lead" style={{ color: 'var(--bone-dim)', maxWidth: 820, marginBottom: 48 }}>
           Не «Каббала vs Хаос» — это разные инструменты под разные задачи. Структурный путь Сефирот даёт ось, на которой можно стоять. Хаос даёт способ исчезнуть из-под удара. Оба работают. Не комбинируй в одном сеансе.
@@ -490,7 +496,7 @@ function ParadigmTab({ active, accent, n, title, subtitle, onClick }) {
             fontSize: 24, lineHeight: 1, color: active ? 'var(--bone)' : 'var(--bone-dim)',
             marginBottom: 6,
           }}>{title}</div>
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: active ? accent : 'var(--bone-dim)', opacity: active ? 0.9 : 0.6 }}>
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: active ? accent : 'var(--bone-dim)' }}>
             {subtitle}
           </div>
         </div>
@@ -789,7 +795,7 @@ function DefenceVibration() {
             </div>
           </div>
           <div style={{ padding: '20px 24px', border: '1px solid var(--border)', background: 'var(--void)' }}>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em', color: 'var(--blood)', textTransform: 'uppercase', marginBottom: 10 }}>▸ Стоп-сигнал</div>
+            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em', color: 'var(--blood-text)', textTransform: 'uppercase', marginBottom: 10 }}>▸ Стоп-сигнал</div>
             <div style={{ color: 'var(--bone)', fontSize: 14.5, lineHeight: 1.6 }}>
               Если на любом этапе появилась тошнота, страх или ощущение «я растворяюсь без возврата» — немедленно открой глаза, выпей воды, выйди на улицу. Это перебор по интенсивности, а не «прорыв». Возвращайся к практике на следующий день в более лёгкой версии.
             </div>
@@ -1077,7 +1083,7 @@ function DefenceChecklist() {
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 32 }}>
           <ChecklistColumn title="Должно быть · да" accent="var(--acid-green)" items={greens} />
-          <ChecklistColumn title="Должно быть · нет" accent="var(--blood)" items={reds} />
+          <ChecklistColumn title="Должно быть · нет" accent="var(--blood-text)" items={reds} />
         </div>
       </div>
     </section>
@@ -1124,9 +1130,9 @@ function DefenceFalseDefence() {
   return (
     <section style={{ borderBottom: '1px solid var(--border)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '96px 32px' }}>
-        <div className="eyebrow" style={{ color: 'var(--blood)', marginBottom: 18 }}>Критерии · Признаки фиктивной защиты</div>
+        <div className="eyebrow" style={{ color: 'var(--blood-text)', marginBottom: 18 }}>Критерии · Признаки фиктивной защиты</div>
         <h2 style={{ fontSize: 'clamp(36px, 4.5vw, 56px)', maxWidth: 1200, marginBottom: 48 }}>
-          Если узнал себя — <span style={{ color: 'var(--blood)' }}>защиты нет</span>
+          Если узнал себя — <span style={{ color: 'var(--blood-display)' }}>защиты нет</span>
         </h2>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 0, border: '1px solid var(--border)' }}>
           {items.map((x, i) => {
@@ -1141,7 +1147,7 @@ function DefenceFalseDefence() {
                 background: 'var(--void)',
                 display: 'flex', gap: 20, alignItems: 'baseline',
               }}>
-                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--blood)', letterSpacing: '0.1em', flexShrink: 0 }}>×</div>
+                <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--blood-text)', letterSpacing: '0.1em', flexShrink: 0 }}>×</div>
                 <div>
                   <div style={{
                     fontFamily: 'var(--font-display)', fontWeight: 700,
@@ -1167,7 +1173,7 @@ function DefenceClosing() {
       borderBottom: '1px solid var(--border)',
     }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '88px 32px', position: 'relative' }}>
-        <div style={{ position: 'absolute', top: 14, left: 32, fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.15em', color: 'var(--bone)', opacity: 0.7, textTransform: 'uppercase' }}>
+        <div style={{ position: 'absolute', top: 14, left: 32, fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.15em', color: 'var(--bone)', textTransform: 'uppercase' }}>
           ▸ финальный тезис
         </div>
         <div style={{
@@ -1178,7 +1184,7 @@ function DefenceClosing() {
         }}>
           Высшая защита — это не<br/>заклинание, а обретение<br/><span style={{ opacity: 0.7 }}>знания (Даат).</span>
         </div>
-        <div style={{ marginTop: 32, fontFamily: 'var(--font-mono)', fontSize: 14, letterSpacing: '0.1em', color: 'var(--bone)', opacity: 0.85, maxWidth: 700, lineHeight: 1.6 }}>
+        <div style={{ marginTop: 32, fontFamily: 'var(--font-mono)', fontSize: 14, letterSpacing: '0.1em', color: 'var(--bone)', maxWidth: 700, lineHeight: 1.6 }}>
           Безопасность — побочный продукт правильной эволюции сознания. Не цель, не результат и не статус. Это состояние.
         </div>
       </div>

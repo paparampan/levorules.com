@@ -67,14 +67,17 @@ function CourseCallout({ setRoute }) {
               <span>{total} / {total}</span>
             </div>
             {modules.map((m, i) => (
-              <div
+              <button
+                type="button"
+                className="lr-course-module-link"
                 key={m.n}
                 onClick={() => setRoute('servitors')}
                 style={{
+                  width: '100%', border: 0, background: 'transparent', color: 'inherit', textAlign: 'left',
                   display: 'grid', gridTemplateColumns: '44px 1fr 36px',
                   padding: '12px 18px',
                   borderBottom: i < modules.length - 1 ? '1px dashed var(--border)' : 'none',
-                  alignItems: 'center', cursor: 'pointer',
+                  alignItems: 'center', cursor: 'pointer', fontFamily: 'inherit',
                 }}>
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: 'var(--purple)', fontWeight: 700 }}>
                   {m.n}
@@ -83,7 +86,7 @@ function CourseCallout({ setRoute }) {
                 <span style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--bone-dim)', textAlign: 'right' }}>
                   →
                 </span>
-              </div>
+              </button>
             ))}
           </div>
         </div>
@@ -129,7 +132,7 @@ function VideoRow() {
             </Btn>
           </div>
         </div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16 }}>
+        <div className="lr-shorts-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: 16 }}>
           {videos.map((v, i) => (
             <a key={v.id || i} href={v.url || '#'} target="_blank" rel="noopener"
                style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
@@ -155,7 +158,7 @@ function VideoRow() {
                 <div style={{
                   position: 'absolute', top: 10, left: 10,
                   fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.1em',
-                  color: v.acc, padding: '2px 6px', border: `1px solid ${v.acc}`,
+                  color: 'var(--bone)', padding: '2px 6px', border: `1px solid ${v.acc}`,
                   background: 'rgba(10,10,10,0.6)', backdropFilter: 'blur(4px)',
                 }}>YT</div>
                 {v.views ? (
@@ -267,11 +270,11 @@ function ManifestoBand() {
   return (
     <section style={{ background: 'var(--blood)', position: 'relative', overflow: 'hidden' }}>
       <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '96px 32px', textAlign: 'center' }}>
-        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', opacity: 0.7, textTransform: 'uppercase' }}>
+        <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase' }}>
           ▸ манифест
         </div>
         <div className="lr-glitch-text" style={{ marginTop: 20, fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 'clamp(48px, 8vw, 120px)', lineHeight: 0.9, letterSpacing: '-0.02em', textTransform: 'uppercase' }}>
-          НИЧТО НЕ ИСТИННО.<br/><span style={{ color: 'var(--purple)' }}>ВСЁ ДОЗВОЛЕНО.</span>
+          НИЧТО НЕ ИСТИННО.<br/><span style={{ color: 'var(--purple-on-blood)' }}>ВСЁ ДОЗВОЛЕНО.</span>
         </div>
       </div>
     </section>

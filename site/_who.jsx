@@ -1,6 +1,6 @@
 // «Кто я» — one-line koan page.
 function WhoPage() {
-  const blood = 'var(--blood)';
+  const blood = 'var(--blood-display)';
   return (
     <section style={{
       minHeight: 'calc(100vh - 64px)',
