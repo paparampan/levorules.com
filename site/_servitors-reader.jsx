@@ -226,7 +226,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
           <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid var(--border)',
             fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.1em',
             color: 'var(--bone-dim)', lineHeight: 1.5 }}>
-            редакция 2026-04-18 · @levorules
+            редакция 2026-07-10 · @levorules
           </div>
         </aside>
 
