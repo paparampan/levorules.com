@@ -8,13 +8,21 @@
 // only when a visitor opens the course route.
 
 import { build } from "esbuild";
-import { readFileSync, writeFileSync, mkdirSync, statSync } from "node:fs";
+import {
+  readFileSync,
+  writeFileSync,
+  mkdirSync,
+  statSync,
+  rmSync,
+  cpSync,
+} from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SITE = resolve(HERE, "site");
 const DIST = resolve(HERE, "dist");
+const PUBLIC = resolve(HERE, "public");
 mkdirSync(DIST, { recursive: true });
 
 const APP_FILES = [
@@ -59,6 +67,8 @@ async function buildBundle({ files, tmpName, outfile, label }) {
     logLevel: "info",
   });
 
+  rmSync(tmpIn, { force: true });
+
   const bytes = statSync(resolve(DIST, outfile)).size;
   console.log(`\nWrote dist/${outfile}  (${(bytes / 1024).toFixed(1)} KB minified)`);
   if (result.warnings.length) console.warn(result.warnings);
@@ -77,3 +87,41 @@ await buildBundle({
   outfile: "servitors.js",
   label: "servitors bundle",
 });
+
+// Cloudflare must receive only runtime assets. Publishing the repository root
+// would expose .git, node_modules, source JSX, build tools and design drafts.
+rmSync(PUBLIC, { recursive: true, force: true });
+mkdirSync(PUBLIC, { recursive: true });
+
+for (const file of [
+  "index.html",
+  "_headers",
+  "manifest.webmanifest",
+  "robots.txt",
+  "sitemap.xml",
+]) {
+  cpSync(resolve(HERE, file), resolve(PUBLIC, file));
+}
+
+for (const directory of ["brand", "dist"]) {
+  cpSync(resolve(HERE, directory), resolve(PUBLIC, directory), {
+    recursive: true,
+  });
+}
+
+mkdirSync(resolve(PUBLIC, "site"), { recursive: true });
+for (const file of ["shorts.json", "telegram.json"]) {
+  cpSync(resolve(SITE, file), resolve(PUBLIC, "site", file));
+}
+
+mkdirSync(resolve(PUBLIC, "uploads", "appendices"), { recursive: true });
+for (const file of ["og-image.png", "servitors.pdf"]) {
+  cpSync(resolve(HERE, "uploads", file), resolve(PUBLIC, "uploads", file));
+}
+cpSync(
+  resolve(HERE, "uploads", "appendices"),
+  resolve(PUBLIC, "uploads", "appendices"),
+  { recursive: true },
+);
+
+console.log("\nWrote public/ production artifact (runtime files only)");

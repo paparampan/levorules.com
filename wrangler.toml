@@ -3,9 +3,14 @@
 name = "levorules-com"
 compatibility_date = "2024-10-01"
 
-# Serve everything in the repo root as static assets. Worker has no custom
-# JS handler — CF's asset server answers every request.
+# Serve only the production artifact assembled by `npm run build`.
+# Never point this at the repository root: it contains .git, node_modules,
+# source JSX, build tools and design drafts.
 [assets]
-directory = "./"
-not_found_handling = "single-page-application"
+directory = "./public"
 
+# Cloudflare's connected-Git pipeline invokes Wrangler directly. Build the
+# production artifact first so the assets directory always exists on a clean
+# checkout.
+[build]
+command = "npm run build"
