@@ -8,3 +8,9 @@ compatibility_date = "2024-10-01"
 # source JSX, build tools and design drafts.
 [assets]
 directory = "./public"
+
+# Cloudflare's connected-Git pipeline invokes Wrangler directly. Build the
+# production artifact first so the assets directory always exists on a clean
+# checkout.
+[build]
+command = "npm run build"
