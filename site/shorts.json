@@ -1,14 +1,22 @@
 {
-  "updated": "2026-07-11T11:26:19Z",
+  "updated": "2026-07-11T13:56:43Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "Cs-eRWjrqmE",
+      "title": "5 форм сервиторов: какую выбрать? #магия #эзотерика",
+      "url": "https://www.youtube.com/shorts/Cs-eRWjrqmE",
+      "thumb": "https://i.ytimg.com/vi/Cs-eRWjrqmE/hqdefault.jpg",
+      "views": "4",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "bNFhtTA9c38",
       "title": "8 типов сервиторов. Выбирай под свою задачу #магия #эзотерика",
       "url": "https://www.youtube.com/shorts/bNFhtTA9c38",
       "thumb": "https://i.ytimg.com/vi/bNFhtTA9c38/hqdefault.jpg",
-      "views": "130",
-      "acc": "var(--magenta)"
+      "views": "133",
+      "acc": "var(--acid-green)"
     },
     {
       "id": "yOzoW82xpdI",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/yOzoW82xpdI",
       "thumb": "https://i.ytimg.com/vi/yOzoW82xpdI/hqdefault.jpg",
       "views": "1.3k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "WP9xFFTIaLc",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/WP9xFFTIaLc",
       "thumb": "https://i.ytimg.com/vi/WP9xFFTIaLc/hqdefault.jpg",
       "views": "1.7k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "Wy9O5H87Riw",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/Wy9O5H87Riw",
       "thumb": "https://i.ytimg.com/vi/Wy9O5H87Riw/hqdefault.jpg",
       "views": "517",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "fqFj6iwdxUw",
-      "title": "11:11 — язык подсознания, который мы забыли #эзотерика #духовное",
-      "url": "https://www.youtube.com/shorts/fqFj6iwdxUw",
-      "thumb": "https://i.ytimg.com/vi/fqFj6iwdxUw/hqdefault.jpg",
-      "views": "570",
       "acc": "var(--cyber-cyan)"
     }
   ]
