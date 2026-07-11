@@ -12,9 +12,10 @@ import json
 import re
 from pathlib import Path
 
-MD = Path.home() / "Desktop/Servitors_Course_Report.md"
-OUT1 = Path.home() / "Desktop/levorules.com/site/_servitors-content-1.jsx"
-OUT2 = Path.home() / "Desktop/levorules.com/site/_servitors-content-2.jsx"
+REPO = Path(__file__).resolve().parents[1]
+MD = Path.home() / "Desktop" / "___Другое" / "СЕРВ" / "Servitors_Course_Report.md"
+OUT1 = REPO / "site" / "_servitors-content-1.jsx"
+OUT2 = REPO / "site" / "_servitors-content-2.jsx"
 
 # ---------- parse ----------
 
@@ -126,7 +127,10 @@ def parse_blocks(md: str):
                     continue
                 rows.append(cells)
             if rows:
-                blocks.append({"type": "table", "header": True, "rows": rows})
+                block = {"type": "table", "header": True, "rows": rows}
+                if len(rows[0]) == 3:
+                    block["cols"] = "minmax(140px, 1fr) 1fr 1fr"
+                blocks.append(block)
             continue
 
         # Blockquote → quote
@@ -205,7 +209,11 @@ SECTION_RE = re.compile(
 
 def parse_module(num: int, title: str, body: str) -> dict:
     # sub: text between module header and first "## N.M."
-    sub_match = re.match(r"\n*(.*?)(?=\n## \d+\.\d+\.)", body, re.DOTALL)
+    sub_match = re.match(
+        r"\s*(.*?)(?=^## \d+\.\d+\.)",
+        body,
+        re.DOTALL | re.MULTILINE,
+    )
     sub_text = (sub_match.group(1).strip() if sub_match else "").strip()
     # take first paragraph only
     if sub_text:
@@ -223,22 +231,36 @@ def parse_module(num: int, title: str, body: str) -> dict:
 
     # practice
     practice = []
+    practice_intro = None
     pm = re.search(r"### Практика Модуля \d+\n\n?(.*?)(?=\n### |\Z)", body, re.DOTALL)
     if pm:
         pbody = pm.group(1).strip()
         # 1) numbered list items
         items = re.findall(r"^\d+\. (.+?)(?=\n\d+\. |\Z)", pbody, re.DOTALL | re.MULTILINE)
         if items:
+            first_item = re.search(r"^\d+\. ", pbody, re.MULTILINE)
+            if first_item and pbody[:first_item.start()].strip():
+                practice_intro = " ".join(pbody[:first_item.start()].split())
             practice = [" ".join(it.split()) for it in items if it.strip()]
         else:
             # 2) em-dash bullets
             items = re.findall(r"^— (.+?)(?=\n— |\Z)", pbody, re.DOTALL | re.MULTILINE)
             if items:
+                first_item = re.search(r"^— ", pbody, re.MULTILINE)
+                if first_item and pbody[:first_item.start()].strip():
+                    practice_intro = " ".join(pbody[:first_item.start()].split())
                 practice = [" ".join(it.split()) for it in items if it.strip()]
             else:
                 # 3) fallback — split by blank lines, each paragraph = one item
                 paras = re.split(r"\n\s*\n", pbody)
-                practice = [" ".join(p.split()) for p in paras if p.strip() and not p.strip().startswith("```")]
+                clean_paras = [
+                    " ".join(p.split())
+                    for p in paras
+                    if p.strip() and not p.strip().startswith("```")
+                ]
+                if len(clean_paras) > 1 and clean_paras[0].endswith(":"):
+                    practice_intro = clean_paras.pop(0)
+                practice = clean_paras
 
     # selfcheck
     selfcheck = []
@@ -254,6 +276,7 @@ def parse_module(num: int, title: str, body: str) -> dict:
         "sub": sub_text or None,
         "sections": sections,
         "practice": practice,
+        "practiceIntro": practice_intro,
         "selfcheck": selfcheck,
     }
 
@@ -290,8 +313,9 @@ def emit_block(b, indent=10):
             " " * (indent + 2) + "[" + ", ".join(js_string(c) for c in r) + "]"
             for r in b["rows"]
         )
+        cols = f', cols: {js_string(b["cols"])}' if b.get("cols") else ""
         return (
-            pad + "{ " + f'type: "table", header: true, rows: [\n'
+            pad + "{ " + f'type: "table", header: true{cols}, rows: [\n'
             + rows_inner + "\n" + " " * indent + "] }"
         )
     if t == "callout":
@@ -325,6 +349,8 @@ def emit_module(mod, indent=2):
         out.append(emit_section(sec, indent + 4) + ",")
     out.append(" " * (indent + 2) + "],")
     if mod["practice"]:
+        if mod.get("practiceIntro"):
+            out.append(" " * (indent + 2) + f'practiceIntro: {js_string(mod["practiceIntro"])},')
         out.append(" " * (indent + 2) + "practice: [")
         for p in mod["practice"]:
             out.append(" " * (indent + 4) + js_string(p) + ",")
@@ -354,7 +380,7 @@ def main():
 
     header = (
         "// Servitors course — auto-generated from Servitors_Course_Report.md.\n"
-        "// Regenerate via: /tmp/pdfenv/bin/python /tmp/md_to_jsx.py\n"
+        "// Regenerate via: python3 tools/md_to_jsx.py\n"
         "// Do not edit by hand.\n\n"
     )
 
