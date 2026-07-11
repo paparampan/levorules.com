@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ЛЕВО РУЛЯ · Магия хаоса и ПЛР</title>
-<meta name="description" content="Антидогматический оккультизм: магия хаоса, демонология, путь левой руки. Открытый курс «Сервиторы» (11 модулей, 130 страниц, без регистрации, оплаты и SMS).">
+<meta name="description" content="Антидогматический оккультизм: магия хаоса, демонология, путь левой руки. Полный открытый курс «Сервиторы» — 11 модулей без регистрации и оплаты.">
 <meta name="author" content="Антон / @levorules">
 <meta name="theme-color" content="#B30000">
 <link rel="canonical" href="https://levorules.com/">
@@ -354,113 +354,16 @@
 <body>
 <div id="root"></div>
 
-<div class="tweaks" id="tweaks">
-  <header>
-    <span>▸ TWEAKS</span>
-    <button class="close" onclick="document.getElementById('tweaks').classList.remove('visible')">×</button>
-  </header>
-  <div class="row">
-    <label>Ritual mode</label>
-    <div style="display:flex;gap:4px">
-      <button class="opt" data-k="ritual" data-v="false">OFF</button>
-      <button class="opt" data-k="ritual" data-v="true">ON</button>
-    </div>
-  </div>
-  <div class="row">
-    <label>Hero scale</label>
-    <div style="display:flex;gap:4px">
-      <button class="opt" data-k="heroScale" data-v="md">M</button>
-      <button class="opt" data-k="heroScale" data-v="lg">L</button>
-      <button class="opt" data-k="heroScale" data-v="xl">XL</button>
-    </div>
-  </div>
-  <div class="row">
-    <label>Course accent</label>
-    <div style="display:flex;gap:4px">
-      <button class="opt" data-k="courseAccent" data-v="purple" style="color:#C050FF;border-color:#C050FF">PRL</button>
-      <button class="opt" data-k="courseAccent" data-v="amber" style="color:#FFB800;border-color:#FFB800">AMB</button>
-      <button class="opt" data-k="courseAccent" data-v="acid" style="color:#39FF14;border-color:#39FF14">ACD</button>
-    </div>
-  </div>
-</div>
-
 <script>
-  // Build mode toggle:
-  //   default → prod bundle (dist/app.js), pre-compiled, fast.
-  //   ?dev=1  → raw JSX + Babel-in-browser for local iteration.
-  window.__TWEAKS__ = /*EDITMODE-BEGIN*/{
+  window.__TWEAKS__ = {
     "ritual": false,
     "heroScale": "xl",
     "courseAccent": "purple"
-  }/*EDITMODE-END*/;
-  window.__LR_DEV__ = new URLSearchParams(location.search).get('dev') === '1';
-</script>
-
-<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
-
-<script>
-(function loadApp() {
-  if (window.__LR_DEV__) {
-    // dev: load Babel then each JSX source via text/babel
-    const babel = document.createElement('script');
-    babel.src = 'https://unpkg.com/@babel/standalone@7.29.0/babel.min.js';
-    babel.crossOrigin = 'anonymous';
-    babel.onload = () => {
-      const files = [
-        'site/_atoms.jsx','site/_home-top.jsx','site/_home-mid.jsx',
-        'site/_servitors-content-1.jsx','site/_servitors-content-2.jsx',
-        'site/_servitors-content-loader.jsx','site/_servitors-reader.jsx',
-        'site/_servitors.jsx','site/_who.jsx','site/_guides.jsx','site/_app.jsx',
-      ];
-      files.forEach(f => {
-        const s = document.createElement('script');
-        s.type = 'text/babel';
-        s.async = false;
-        s.src = f + '?v=' + Date.now();
-        document.body.appendChild(s);
-      });
-      window.Babel?.transformScriptTags?.();
-    };
-    document.head.appendChild(babel);
-  } else {
-    // prod: small shell bundle; the course reader is lazy-loaded as dist/servitors.js
-    const s = document.createElement('script');
-    s.src = 'dist/app.js';
-    s.defer = true;
-    document.body.appendChild(s);
-  }
-})();
-</script>
-
-<script>
-// Tweaks panel plumbing (plain JS, no JSX).
-(function tweaksInit() {
-  const panel = document.getElementById('tweaks');
-  const TWEAKS = window.__TWEAKS__;
-  const syncButtons = () => {
-    panel.querySelectorAll('button.opt').forEach(b => {
-      const v = b.dataset.v === 'true' ? true : b.dataset.v === 'false' ? false : b.dataset.v;
-      b.classList.toggle('on', TWEAKS[b.dataset.k] === v);
-    });
   };
-  panel.addEventListener('click', (e) => {
-    const b = e.target.closest('button.opt');
-    if (!b) return;
-    const v = b.dataset.v === 'true' ? true : b.dataset.v === 'false' ? false : b.dataset.v;
-    TWEAKS[b.dataset.k] = v;
-    if (b.dataset.k === 'ritual') document.body.classList.toggle('ritual', v);
-    syncButtons();
-    window.parent.postMessage({ type: '__edit_mode_set_keys', edits: { [b.dataset.k]: v } }, '*');
-  });
-  syncButtons();
-
-  window.addEventListener('message', (e) => {
-    if (e.data?.type === '__activate_edit_mode') panel.classList.add('visible');
-    if (e.data?.type === '__deactivate_edit_mode') panel.classList.remove('visible');
-  });
-  window.parent.postMessage({ type: '__edit_mode_available' }, '*');
-})();
 </script>
+
+<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
+<script src="dist/app.js" defer></script>
 </body>
 </html>

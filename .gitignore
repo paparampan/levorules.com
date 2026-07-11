@@ -5,6 +5,7 @@ __pycache__/
 .venv/
 venv/
 dist/_source*.jsx
+/public/
 /_appendix_*.html
 /servitors_course.html
 *.log

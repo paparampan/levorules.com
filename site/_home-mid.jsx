@@ -30,7 +30,7 @@ function CourseCallout({ setRoute }) {
         <SigilServitor accent="var(--purple)" opacity={0.22} size={520} />
       </div>
       <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>
-        <Eyebrow accent="var(--purple)">новое · бесплатно · 130 страниц</Eyebrow>
+        <Eyebrow accent="var(--purple)">новое · бесплатно · полный курс</Eyebrow>
         <div style={{ marginTop: 18, display: 'grid', gridTemplateColumns: '1.35fr 1fr', gap: 56, alignItems: 'center' }}>
           <div>
             <h2 style={{ fontSize: 'clamp(44px, 6vw, 88px)', lineHeight: 0.9, margin: 0 }}>

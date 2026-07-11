@@ -4,10 +4,14 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "content:jsx": "python3 tools/md_to_jsx.py",
+    "content:pdf": "python3 tools/pdf/make_pdf.py && python3 tools/pdf/make_appendices.py",
+    "content:build": "npm run content:jsx && npm run content:pdf",
+    "audit:content": "python3 tools/content_audit.py",
     "build": "node build.mjs",
     "preview": "python3 -m http.server 4173 --bind 127.0.0.1",
     "start": "npm run preview",
-    "test": "npm run build"
+    "test": "npm run content:jsx && npm run build && npm run audit:content"
   },
   "keywords": [],
   "author": "",

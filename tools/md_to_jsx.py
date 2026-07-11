@@ -13,7 +13,7 @@ import re
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[1]
-MD = Path.home() / "Desktop" / "___Другое" / "СЕРВ" / "Servitors_Course_Report.md"
+MD = REPO / "content" / "servitors-course.md"
 OUT1 = REPO / "site" / "_servitors-content-1.jsx"
 OUT2 = REPO / "site" / "_servitors-content-2.jsx"
 
@@ -29,7 +29,7 @@ def sentence_case(s: str) -> str:
     s = s.strip()
     if not s:
         return s
-    # Лово руля: keep abbreviations/parenthesized acronyms as-is. Simplest:
+    # Keep abbreviations/parenthesized acronyms as-is. Simplest:
     # lower all, then upper-case the very first character.
     return s[0].upper() + s[1:].lower()
 
