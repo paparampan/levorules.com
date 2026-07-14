@@ -188,8 +188,8 @@ function VideoRow() {
 
 // Telegram Posts Row — auto-fetched from site/telegram.json
 const TELEGRAM_FALLBACK = [
-  { id: 0, url: 'https://t.me/levorules', title: '8 ЦВЕТОВ МАГИИ', body: 'Таксономия, которую используют практики. Как определить свой доминантный и не закиснуть в одном канале на десятилетие.', photo: null, date: '', views: '', acc: 'var(--cyber-cyan)' },
-  { id: 0, url: 'https://t.me/levorules', title: 'ПОЧЕМУ 432 ГЦ — ЛОЖЬ', body: 'Откуда взялась цифра, кто на ней заработал, и что на самом деле слышит ухо. Без эзотерического душа.', photo: null, date: '', views: '', acc: 'var(--magenta)' },
+  { id: 0, url: 'https://telegram.me/levorules', title: '8 ЦВЕТОВ МАГИИ', body: 'Таксономия, которую используют практики. Как определить свой доминантный и не закиснуть в одном канале на десятилетие.', photo: null, date: '', views: '', acc: 'var(--cyber-cyan)' },
+  { id: 0, url: 'https://telegram.me/levorules', title: 'ПОЧЕМУ 432 ГЦ — ЛОЖЬ', body: 'Откуда взялась цифра, кто на ней заработал, и что на самом деле слышит ухо. Без эзотерического душа.', photo: null, date: '', views: '', acc: 'var(--magenta)' },
 ];
 
 function formatTelegramDate(iso) {
@@ -221,7 +221,7 @@ function TelegramPosts() {
         <SectionTitle eyebrow="на канале" title="ПОСЛЕДНИЕ ПОСТЫ" />
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
           {posts.map((p, i) => (
-            <a key={p.id || i} href={p.url || 'https://t.me/levorules'} target="_blank" rel="noopener"
+            <a key={p.id || i} href={p.url || 'https://telegram.me/levorules'} target="_blank" rel="noopener"
                style={{ textDecoration: 'none', color: 'inherit', display: 'block' }}>
               <article className="lr-reactive-card" style={{
                 '--lr-interaction-accent': p.acc,
@@ -262,7 +262,7 @@ function TelegramPosts() {
           ))}
         </div>
         <div style={{ marginTop: 32, textAlign: 'center' }}>
-          <Btn href="https://t.me/levorules">Читать всё на канале →</Btn>
+          <Btn href="https://telegram.me/levorules">Читать всё на канале →</Btn>
         </div>
       </div>
     </section>
@@ -325,7 +325,7 @@ function Footer() {
           <div>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em', color: 'var(--bone-dim)', textTransform: 'uppercase', marginBottom: 14 }}>▸ связь</div>
             {[
-              ['Telegram', 'https://t.me/levorules'],
+              ['Telegram', 'https://telegram.me/levorules'],
               ['YouTube', 'https://www.youtube.com/@levorules'],
               ['TikTok', 'https://www.tiktok.com/@levorules'],
               ].map(([l, h]) => (

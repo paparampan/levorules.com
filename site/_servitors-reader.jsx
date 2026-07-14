@@ -109,7 +109,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
           <span className="sv-reader-discuss" style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.08em',
             textTransform: 'uppercase', color: 'var(--bone-dim)', marginLeft: 16 }}>
             задать вопрос или обсудить можно{' '}
-            <a href="https://t.me/levorules_chat" target="_blank" rel="noopener"
+            <a href="https://telegram.me/levorules_chat" target="_blank" rel="noopener"
                style={{ color: purple, textDecoration: 'underline', textUnderlineOffset: 2 }}>ТУТ</a>
           </span>
           <div className="sv-reader-controls" style={{ marginLeft: 'auto', display: 'flex', gap: 8, alignItems: 'center' }}>

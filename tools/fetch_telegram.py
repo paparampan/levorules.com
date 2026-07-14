@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Fetch latest @levorules Telegram posts from t.me/s/levorules preview page.
+"""Fetch latest @levorules Telegram posts from telegram.me/s/levorules preview page.
 
 Writes site/telegram.json for the homepage «ПОСЛЕДНИЕ ПОСТЫ» block.
 Real file lives in ~/Library/Application Support/levorules/ so launchd can
@@ -15,7 +15,7 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 
 CHANNEL_HANDLE = "levorules"
-PREVIEW_URL = f"https://t.me/s/{CHANNEL_HANDLE}"
+PREVIEW_URL = f"https://telegram.me/s/{CHANNEL_HANDLE}"
 COUNT = 6  # fetch a bit more than the 2 shown; frontend can pick
 # Write directly to the repo's site/telegram.json (same rationale as fetch_shorts.py).
 OUT = Path(__file__).resolve().parents[1] / "site" / "telegram.json"
@@ -130,7 +130,7 @@ def extract_post(msg):
 
     return {
         "id": pid,
-        "url": f"https://t.me/{CHANNEL_HANDLE}/{pid}",
+        "url": f"https://telegram.me/{CHANNEL_HANDLE}/{pid}",
         "title": title,
         "body": body,
         "photo": photo,
@@ -161,7 +161,7 @@ def main():
 
     payload = {
         "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "channel": f"https://t.me/{CHANNEL_HANDLE}",
+        "channel": f"https://telegram.me/{CHANNEL_HANDLE}",
         "items": posts,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
