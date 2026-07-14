@@ -78,8 +78,8 @@ function GuidesLanding({ setRoute }) {
 
           <div style={{ marginTop: 24, fontFamily: 'var(--font-mono)', fontSize: 12, color: 'var(--bone-dim)', letterSpacing: '0.08em' }}>
             ▸ Новые гайды добавляются по мере появления. Подписка на канал —{' '}
-            <a href="https://t.me/levorules" target="_blank" rel="noopener" style={{ color: GUIDES_ACCENT, textUnderlineOffset: 2 }}>
-              t.me/levorules
+            <a href="https://telegram.me/levorules" target="_blank" rel="noopener" style={{ color: GUIDES_ACCENT, textUnderlineOffset: 2 }}>
+              telegram.me/levorules
             </a>
           </div>
         </div>

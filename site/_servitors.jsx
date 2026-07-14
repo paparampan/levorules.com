@@ -56,7 +56,7 @@ function ServitorsPage({ setRoute }) {
               </div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)', letterSpacing: '0.08em', textAlign: 'right' }}>
                 Задать вопрос или обсудить можно{' '}
-                <a href="https://t.me/levorules_chat" target="_blank" rel="noopener"
+                <a href="https://telegram.me/levorules_chat" target="_blank" rel="noopener"
                    style={{ color: purple, textDecoration: 'underline', textUnderlineOffset: 2 }}>ТУТ</a>
               </div>
             </div>
@@ -248,7 +248,7 @@ function ServitorsPage({ setRoute }) {
       {/* CTA */}
       <section data-lr-reveal="section" style={{ background: purple, color: 'var(--void)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '56px 32px', textAlign: 'center' }}>
-          <Btn href="https://t.me/levorules" style={{
+          <Btn href="https://telegram.me/levorules" style={{
             background: 'var(--void)', color: 'var(--bone)',
             borderColor: 'var(--void)',
           }}>@levorules →</Btn>

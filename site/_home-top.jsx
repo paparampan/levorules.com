@@ -8,7 +8,7 @@ function Header({ ritual, setRitual, route, setRoute }) {
     { id: 'servitors', label: 'Сервиторы', accent: 'var(--purple)' },
     { id: 'guides', label: 'Гайды', accent: 'var(--acid-green)' },
     { id: 'who', label: 'Кто я', accent: 'var(--blood-text)' },
-    { id: 'tg', label: 'Telegram', href: 'https://t.me/levorules', external: true },
+    { id: 'tg', label: 'Telegram', href: 'https://telegram.me/levorules', external: true },
   ];
   return (
     <header className={`lr-site-header${route === 'servitors-reader' ? ' lr-site-header--reader' : ''}`} style={{
@@ -122,7 +122,7 @@ function Hero({ ritual }) {
             </div>
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'stretch', minWidth: 260 }}>
-            <Btn variant="blood" href="https://t.me/levorules">Читать канал →</Btn>
+            <Btn variant="blood" href="https://telegram.me/levorules">Читать канал →</Btn>
             <Btn variant="ghostAccent" accent="var(--purple)" href="#" onClick={(e) => {
               e.preventDefault();
               window.dispatchEvent(new CustomEvent('lr:route', { detail: 'servitors' }));
