@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-15T21:16:05Z",
+  "updated": "2026-07-15T23:13:52Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -7,7 +7,7 @@
       "title": "5 форм сервиторов: какую выбрать? #магия #эзотерика",
       "url": "https://www.youtube.com/shorts/Cs-eRWjrqmE",
       "thumb": "https://i.ytimg.com/vi/Cs-eRWjrqmE/hqdefault.jpg",
-      "views": "22",
+      "views": "23",
       "acc": "var(--magenta)"
     },
     {
@@ -15,7 +15,7 @@
       "title": "8 типов сервиторов. Выбирай под свою задачу #магия #эзотерика",
       "url": "https://www.youtube.com/shorts/bNFhtTA9c38",
       "thumb": "https://i.ytimg.com/vi/bNFhtTA9c38/hqdefault.jpg",
-      "views": "154",
+      "views": "155",
       "acc": "var(--acid-green)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "Как получить ответ от Гермеса",
       "url": "https://www.youtube.com/shorts/Wy9O5H87Riw",
       "thumb": "https://i.ytimg.com/vi/Wy9O5H87Riw/hqdefault.jpg",
-      "views": "523",
+      "views": "525",
       "acc": "var(--cyber-cyan)"
     }
   ]
