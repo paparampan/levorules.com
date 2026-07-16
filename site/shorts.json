@@ -1,14 +1,22 @@
 {
-  "updated": "2026-07-16T17:41:12Z",
+  "updated": "2026-07-16T19:34:59Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "5zOGkx9ts9o",
+      "title": "Как кормить сервитора: 6 способов и их риски",
+      "url": "https://www.youtube.com/shorts/5zOGkx9ts9o",
+      "thumb": "https://i.ytimg.com/vi/5zOGkx9ts9o/hqdefault.jpg",
+      "views": "25",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "Cs-eRWjrqmE",
       "title": "5 форм сервиторов: какую выбрать? #магия #эзотерика",
       "url": "https://www.youtube.com/shorts/Cs-eRWjrqmE",
       "thumb": "https://i.ytimg.com/vi/Cs-eRWjrqmE/hqdefault.jpg",
-      "views": "23",
-      "acc": "var(--magenta)"
+      "views": "24",
+      "acc": "var(--acid-green)"
     },
     {
       "id": "bNFhtTA9c38",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/bNFhtTA9c38",
       "thumb": "https://i.ytimg.com/vi/bNFhtTA9c38/hqdefault.jpg",
       "views": "152",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "yOzoW82xpdI",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/yOzoW82xpdI",
       "thumb": "https://i.ytimg.com/vi/yOzoW82xpdI/hqdefault.jpg",
       "views": "1.3k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "WP9xFFTIaLc",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/WP9xFFTIaLc",
       "thumb": "https://i.ytimg.com/vi/WP9xFFTIaLc/hqdefault.jpg",
       "views": "1.8k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "Wy9O5H87Riw",
-      "title": "Как получить ответ от Гермеса",
-      "url": "https://www.youtube.com/shorts/Wy9O5H87Riw",
-      "thumb": "https://i.ytimg.com/vi/Wy9O5H87Riw/hqdefault.jpg",
-      "views": "524",
       "acc": "var(--cyber-cyan)"
     }
   ]
