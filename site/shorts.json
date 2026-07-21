@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-21T19:53:41Z",
+  "updated": "2026-07-21T21:34:11Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -7,7 +7,7 @@
       "title": "Сервитор может пережить тебя. Что тогда?",
       "url": "https://www.youtube.com/shorts/9GkIm1OqDx4",
       "thumb": "https://i.ytimg.com/vi/9GkIm1OqDx4/hqdefault.jpg",
-      "views": "604",
+      "views": "800",
       "acc": "var(--magenta)"
     },
     {
@@ -15,7 +15,7 @@
       "title": "5 уровней автономии сервиторов: где заканчивается контроль?",
       "url": "https://www.youtube.com/shorts/uMPscMZnqvY",
       "thumb": "https://i.ytimg.com/vi/uMPscMZnqvY/hqdefault.jpg",
-      "views": "938",
+      "views": "939",
       "acc": "var(--acid-green)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "8 типов сервиторов. Выбирай под свою задачу #магия #эзотерика",
       "url": "https://www.youtube.com/shorts/bNFhtTA9c38",
       "thumb": "https://i.ytimg.com/vi/bNFhtTA9c38/hqdefault.jpg",
-      "views": "163",
+      "views": "166",
       "acc": "var(--cyber-cyan)"
     }
   ]
