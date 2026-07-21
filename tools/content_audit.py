@@ -22,6 +22,18 @@ FORBIDDEN = {
     "duplicate Vessiere title": r"Sentient Imaginary Friends, Embodied Joint Attention",
     "stale glossary typo": r"\*\*Кампир",
     "stale appendix count": r"Шаблоны протоколов \(10 листов\)",
+    "legacy Koetting spelling": r"\bКеттинг\b",
+    "legacy Enmerkar spelling": r"\bEnmerkar\b",
+    "legacy Brother Marsyas spelling": r"\bMarsyas\b",
+    "legacy Mathers spelling": r"\bМэзерс\b",
+    "legacy Pagels spelling": r"\bПейгелс\b",
+    "legacy Leitch spelling": r"\bЛейтч\b",
+    "legacy Stratton-Kent spelling": r"\bСтраттон-Кент\b",
+    "legacy Kripal spelling": r"\bКрипаль\b",
+    "legacy Wayne spelling": r"\bВэйн\b",
+    "legacy Wilde spelling": r"\bВайлд\b",
+    "stale Vessiere sample size": r"166 информант",
+    "stale Vessiere country count": r"17 стран",
 }
 
 for label, pattern in FORBIDDEN.items():
