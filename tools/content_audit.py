@@ -34,17 +34,39 @@ FORBIDDEN = {
     "legacy Wilde spelling": r"\bВайлд\b",
     "stale Vessiere sample size": r"166 информант",
     "stale Vessiere country count": r"17 стран",
+    "translationese review": r"\bревю\b",
+    "translationese case": r"\bкейс(?:ы|а|ов|ом|е)?\b",
+    "translationese valid": r"\bвалиден\b",
+    "translationese insight": r"\bинсайт(?:а|ы|ов|ом|е)?\b",
+    "translationese trigger": r"\bтриггер(?:а|ы|ов|ом|е)?\b",
+    "translationese stress profile": r"стресс-профиль",
+    "translationese sharing": r"\bшеринг\b",
+    "translationese background": r"философский бэкграунд",
+    "translationese banishing routine": r"банишинг-рутина",
+    "obsolete M-SMART framework": r"M-SMART",
+    "obsolete qualification tests": r"квалификационн(?:ый|ые|ого|ых|ому|ым|ыми|ая|ой|ую)\s+(?:тест|испыт)",
+    "unsafe acid disposal": r"солян(?:ая|ой|ую) кислот",
+    "unsafe water disposal": r"выбросить (?:его |их )?в (?:реку|море|воду)",
+    "obsessive forty-day residue check": r"через 40 дней",
+    "obsolete 21-day streak": r"21 день подряд",
+    "translationese paradigm surfing": r"парадигмальн(?:ый|ого|ом) с[её]рфинг",
 }
 
-for label, pattern in FORBIDDEN.items():
-    if re.search(pattern, text, flags=re.IGNORECASE):
-        errors.append(f"{label}: /{pattern}/")
+regression_targets = {
+    "canonical course": text,
+    "course shell": (REPO / "site" / "_servitors.jsx").read_text(encoding="utf-8"),
+    "home course callout": (REPO / "site" / "_home-mid.jsx").read_text(encoding="utf-8"),
+}
+for target_name, target_text in regression_targets.items():
+    for label, pattern in FORBIDDEN.items():
+        if re.search(pattern, target_text, flags=re.IGNORECASE):
+            errors.append(f"{label} in {target_name}: /{pattern}/")
 
 modules = re.findall(r"^# МОДУЛЬ (\d+)\.", text, flags=re.MULTILINE)
 if modules != [str(i) for i in range(11)]:
     errors.append(f"module sequence is {modules!r}, expected 0..10")
 
-if "- 9.5. Сервитор как интерфейс к Тени" not in text:
+if "- 9.5. Сервитор как посредник в работе с Тенью" not in text:
     errors.append("TOC is missing module 9.5")
 if "- 9.6. Когда пора к специалисту по психическому здоровью" not in text:
     errors.append("TOC is missing module 9.6")

@@ -9,6 +9,7 @@ Design system per brand/colors_and_type.css:
 
 from pathlib import Path
 import markdown as md_lib
+import os
 import re
 
 REPO = Path(__file__).resolve().parents[2]
@@ -570,8 +571,8 @@ def build_html(title: str, body_md: str, *, accent: str = None,
 
 def render_pdf(html: str, output_pdf: Path, *, landscape: bool = False,
                format_: str = "A4") -> None:
-    """Render HTML → PDF via headless Chromium, with running footer."""
-    from playwright.sync_api import sync_playwright
+    """Render HTML to PDF via headless Chromium, with running footer."""
+    from playwright.sync_api import Error as PlaywrightError, sync_playwright
     import tempfile
 
     output_pdf = Path(output_pdf)
@@ -584,7 +585,23 @@ def render_pdf(html: str, output_pdf: Path, *, landscape: bool = False,
         tmp_html = fh.name
 
     with sync_playwright() as p:
-        browser = p.chromium.launch()
+        try:
+            browser = p.chromium.launch()
+        except PlaywrightError as exc:
+            if "Executable doesn't exist" not in str(exc):
+                raise
+            browser_paths = [
+                Path(os.environ.get("PROGRAMFILES", ""))
+                / "Google/Chrome/Application/chrome.exe",
+                Path(os.environ.get("PROGRAMFILES(X86)", ""))
+                / "Microsoft/Edge/Application/msedge.exe",
+                Path(os.environ.get("LOCALAPPDATA", ""))
+                / "Google/Chrome/Application/chrome.exe",
+            ]
+            executable = next((path for path in browser_paths if path.is_file()), None)
+            if executable is None:
+                raise
+            browser = p.chromium.launch(executable_path=str(executable))
         page = browser.new_page()
         page.goto("file://" + tmp_html, wait_until="networkidle")
         page.evaluate("document.fonts.ready")
@@ -601,7 +618,7 @@ def render_pdf(html: str, output_pdf: Path, *, landscape: bool = False,
         browser.close()
 
     Path(tmp_html).unlink(missing_ok=True)
-    print(f"  → wrote {output_pdf.name} ({output_pdf.stat().st_size // 1024} KB)")
+    print(f"  - wrote {output_pdf.name} ({output_pdf.stat().st_size // 1024} KB)")
 
 
 # MD parsing helpers ---------------------------------------------------
