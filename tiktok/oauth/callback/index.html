@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Лево руля — подключение TikTok</title>
+  <link rel="stylesheet" href="/tiktok/styles.css">
+</head>
+<body>
+  <main class="document-page">
+    <section class="document-card">
+      <p class="eyebrow">Лево руля · аналитика TikTok</p>
+      <h1 id="title">Подтверждаю подключение</h1>
+      <p id="message">Передаю результат авторизации локальному коннектору на этом компьютере.</p>
+      <p class="note" id="note">Не закрывай окно, пока не появится сообщение об успехе.</p>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const params = new URLSearchParams(location.search);
+      const title = document.getElementById('title');
+      const message = document.getElementById('message');
+      const note = document.getElementById('note');
+      const code = params.get('code');
+      const state = params.get('state');
+      const error = params.get('error') || params.get('error_description');
+      if (error || !code || !state) {
+        title.textContent = 'Подключение не завершено';
+        message.textContent = error || 'TikTok не вернул код авторизации.';
+        note.textContent = 'Вернись в локальный коннектор и запусти авторизацию ещё раз.';
+        return;
+      }
+      fetch('http://127.0.0.1:4019/oauth/complete', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ code, state }),
+      }).then(async (response) => {
+        if (!response.ok) throw new Error('Local connector rejected the callback.');
+        title.textContent = 'TikTok подключён';
+        message.textContent = 'Авторизация передана локальному коннектору. Теперь можно вернуться в Codex.';
+        note.textContent = 'Код авторизации не сохраняется на сайте.';
+      }).catch(() => {
+        title.textContent = 'Локальный коннектор не найден';
+        message.textContent = 'Запусти команду авторизации на этом компьютере и повтори вход через TikTok.';
+        note.textContent = 'Сайт не хранит код и не получает токены доступа.';
+      });
+    })();
+  </script>
+</body>
+</html>
