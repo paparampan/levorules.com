@@ -99,6 +99,7 @@ for (const file of [
   "manifest.webmanifest",
   "robots.txt",
   "sitemap.xml",
+  "tiktokH8yDqkET0pS2j5XmcfUgBkVn3UHKO5zU.txt",
 ]) {
   cpSync(resolve(HERE, file), resolve(PUBLIC, file));
 }
