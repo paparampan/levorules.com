@@ -103,7 +103,7 @@ for (const file of [
   cpSync(resolve(HERE, file), resolve(PUBLIC, file));
 }
 
-for (const directory of ["brand", "dist"]) {
+for (const directory of ["brand", "dist", "tiktok"]) {
   cpSync(resolve(HERE, directory), resolve(PUBLIC, directory), {
     recursive: true,
   });
