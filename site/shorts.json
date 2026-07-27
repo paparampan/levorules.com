@@ -1,5 +1,5 @@
 {
-  "updated": "2026-07-26T23:14:05Z",
+  "updated": "2026-07-27T04:04:42Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -7,7 +7,7 @@
       "title": "Где работает сервитор? Три зоны и их изнанка",
       "url": "https://www.youtube.com/shorts/yOWFqITNWuQ",
       "thumb": "https://i.ytimg.com/vi/yOWFqITNWuQ/hqdefault.jpg",
-      "views": "900",
+      "views": "906",
       "acc": "var(--magenta)"
     },
     {
@@ -15,7 +15,7 @@
       "title": "Сервитор может пережить тебя. Что тогда?",
       "url": "https://www.youtube.com/shorts/9GkIm1OqDx4",
       "thumb": "https://i.ytimg.com/vi/9GkIm1OqDx4/hqdefault.jpg",
-      "views": "975",
+      "views": "976",
       "acc": "var(--acid-green)"
     },
     {
@@ -31,7 +31,7 @@
       "title": "Как кормить сервитора: 6 способов и их риски",
       "url": "https://www.youtube.com/shorts/5zOGkx9ts9o",
       "thumb": "https://i.ytimg.com/vi/5zOGkx9ts9o/hqdefault.jpg",
-      "views": "974",
+      "views": "975",
       "acc": "var(--amber)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "5 форм сервиторов: какую выбрать? #магия #эзотерика",
       "url": "https://www.youtube.com/shorts/Cs-eRWjrqmE",
       "thumb": "https://i.ytimg.com/vi/Cs-eRWjrqmE/hqdefault.jpg",
-      "views": "88",
+      "views": "90",
       "acc": "var(--cyber-cyan)"
     }
   ]
