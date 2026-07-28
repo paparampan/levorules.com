@@ -195,6 +195,8 @@ function ServitorsPage({ setRoute }) {
         </div>
       </section>
 
+      <PassportPromo placement="servitors" />
+
       {/* APPENDICES — separate PDF downloads */}
       <section id="appendices" data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>
         <div style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>

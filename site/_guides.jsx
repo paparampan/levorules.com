@@ -55,10 +55,12 @@ function GuidesLanding({ setRoute }) {
           <div style={{ marginTop: 22, display: 'flex', gap: 10, flexWrap: 'wrap' }}>
             <Tag accent={GUIDES_ACCENT}>▸ практика</Tag>
             <Tag accent={GUIDES_ACCENT}>▸ короткие протоколы</Tag>
-            <Tag accent={GUIDES_ACCENT}>▸ открытый доступ</Tag>
+            <Tag accent={GUIDES_ACCENT}>▸ открытые и авторские материалы</Tag>
           </div>
         </div>
       </section>
+
+      <PassportPromo placement="guides" />
 
       {/* INDEX */}
       <section data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>

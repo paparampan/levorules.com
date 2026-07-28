@@ -288,6 +288,7 @@ function App() {
             <Hero ritual={ritual} />
             <Territories />
             <CourseCallout setRoute={navigate} />
+            <PassportPromo placement="home" />
             <VideoRow />
             <TelegramPosts />
             <ManifestoBand />

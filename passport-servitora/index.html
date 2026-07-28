@@ -1,0 +1,732 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Паспорт сервитора — практический PDF-гайд · Лево Руля</title>
+  <meta name="description" content="37-страничный практический гайд по созданию сервитора: задача, критерии, имя, сигила, форма, правила, тесты и завершение. Цена 299 ₽.">
+  <meta name="author" content="Антон Парамонов / @levorules">
+  <meta name="theme-color" content="#0A0A0A">
+  <link rel="canonical" href="https://levorules.com/passport-servitora/">
+
+  <meta property="og:type" content="product">
+  <meta property="og:site_name" content="Лево Руля">
+  <meta property="og:title" content="Паспорт сервитора — практический гайд">
+  <meta property="og:description" content="Последовательный маршрут от задачи до завершения. PDF, 37 страниц, примеры и 12 чистовых страниц паспорта.">
+  <meta property="og:url" content="https://levorules.com/passport-servitora/">
+  <meta property="og:image" content="https://levorules.com/passport-servitora/assets/cover.png">
+  <meta property="og:image:width" content="1024">
+  <meta property="og:image:height" content="1024">
+  <meta property="og:image:alt" content="Обложка практического гайда «Паспорт сервитора»">
+  <meta property="og:locale" content="ru_RU">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Паспорт сервитора — практический гайд">
+  <meta name="twitter:description" content="PDF, 37 страниц. От реальной задачи и критериев до тестов и завершения сервитора.">
+  <meta name="twitter:image" content="https://levorules.com/passport-servitora/assets/cover.png">
+
+  <link rel="icon" type="image/svg+xml" href="/brand/assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/brand/assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/brand/assets/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/brand/colors_and_type.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Паспорт сервитора — практический гайд",
+    "description": "Пошаговый PDF-гайд по созданию собственного сервитора: от задачи и функции до сигилы, правил, тестов и завершения.",
+    "image": "https://levorules.com/passport-servitora/assets/cover.png",
+    "brand": {
+      "@type": "Brand",
+      "name": "Лево Руля"
+    },
+    "offers": {
+      "@type": "Offer",
+      "price": "299.00",
+      "priceCurrency": "RUB",
+      "availability": "https://schema.org/InStock",
+      "url": "https://web.tribute.tg/p/APy"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --passport-gold: #c99a45;
+      --passport-gold-bright: #ffb800;
+      --passport-paper: #e8e2d3;
+      --passport-panel: #15120d;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      overflow-x: clip;
+      background: var(--void);
+      color: var(--bone);
+    }
+    a { color: inherit; }
+    ::selection { background: var(--passport-gold); color: var(--void); }
+    .pp-skip {
+      position: fixed;
+      top: 10px;
+      left: 10px;
+      z-index: 100;
+      padding: 10px 14px;
+      background: var(--cyber-cyan);
+      color: var(--void);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      text-decoration: none;
+      transform: translateY(-160%);
+    }
+    .pp-skip:focus { transform: translateY(0); }
+
+    .pp-header {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid var(--border);
+      background: rgba(10, 10, 10, 0.94);
+      backdrop-filter: blur(10px);
+    }
+    .pp-header__inner {
+      max-width: 1280px;
+      min-height: 64px;
+      margin: 0 auto;
+      padding: 0 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    .pp-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--bone);
+      font-family: var(--font-display);
+      font-size: 18px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .pp-brand img { width: 30px; height: 30px; }
+    .pp-nav { display: flex; align-items: center; gap: 6px; }
+    .pp-nav a {
+      padding: 10px 12px;
+      color: var(--bone-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-decoration: none;
+      text-transform: uppercase;
+    }
+    .pp-nav a:hover { color: var(--bone); }
+    .pp-nav__buy {
+      border: 1px solid var(--passport-gold) !important;
+      color: var(--passport-gold-bright) !important;
+    }
+
+    .pp-shell { max-width: 1280px; margin: 0 auto; padding: 0 32px; }
+    .pp-eyebrow {
+      color: var(--bone-dim);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .pp-eyebrow::before { content: "▸ "; color: var(--passport-gold-bright); }
+
+    .pp-hero {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(201, 154, 69, 0.35);
+      background:
+        radial-gradient(circle at 84% 24%, rgba(201, 154, 69, 0.16), transparent 30%),
+        linear-gradient(135deg, #0a0a0a 0%, #15120d 100%);
+    }
+    .pp-hero::after {
+      content: "";
+      position: absolute;
+      width: 620px;
+      height: 620px;
+      top: -220px;
+      right: -220px;
+      border: 1px solid rgba(201, 154, 69, 0.18);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 90px rgba(201, 154, 69, 0.035),
+        0 0 0 180px rgba(201, 154, 69, 0.025);
+      pointer-events: none;
+    }
+    .pp-hero__grid {
+      position: relative;
+      z-index: 1;
+      min-height: calc(100vh - 64px);
+      padding-top: 72px;
+      padding-bottom: 72px;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.72fr);
+      gap: 76px;
+      align-items: center;
+    }
+    .pp-hero h1 {
+      margin: 22px 0 0;
+      max-width: 780px;
+      font-size: clamp(68px, 8vw, 126px);
+      line-height: 0.84;
+    }
+    .pp-hero h1 span { color: var(--passport-gold-bright); }
+    .pp-hero__lead {
+      max-width: 700px;
+      margin: 30px 0 0;
+      color: var(--bone);
+      font-size: 20px;
+      line-height: 1.55;
+    }
+    .pp-tags {
+      margin-top: 25px;
+      display: flex;
+      gap: 9px;
+      flex-wrap: wrap;
+    }
+    .pp-tag {
+      padding: 5px 10px;
+      border: 1px solid rgba(201, 154, 69, 0.65);
+      color: var(--passport-gold-bright);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .pp-purchase {
+      margin-top: 32px;
+      padding-top: 28px;
+      border-top: 1px solid rgba(201, 154, 69, 0.35);
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+    .pp-price {
+      font-family: var(--font-display);
+      font-size: 46px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .pp-button {
+      min-height: 54px;
+      padding: 0 24px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid var(--passport-gold-bright);
+      background: var(--passport-gold-bright);
+      color: var(--void);
+      font-family: var(--font-display);
+      font-size: 17px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: filter 0.15s ease, transform 0.15s ease;
+    }
+    .pp-button:hover { filter: brightness(1.12); transform: translateY(-1px); }
+    .pp-purchase__note {
+      width: 100%;
+      color: var(--bone-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .pp-cover {
+      position: relative;
+      width: min(100%, 520px);
+      justify-self: end;
+      transform: rotate(1.3deg);
+    }
+    .pp-cover::before {
+      content: "";
+      position: absolute;
+      inset: 18px -18px -18px 18px;
+      z-index: -1;
+      border: 1px solid rgba(201, 154, 69, 0.35);
+    }
+    .pp-cover img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: 1px solid rgba(201, 154, 69, 0.65);
+      box-shadow: 0 32px 90px rgba(0, 0, 0, 0.65);
+    }
+
+    .pp-section { padding: 92px 0; border-bottom: 1px solid var(--border); }
+    .pp-section--panel { background: var(--ash-2); }
+    .pp-section__head {
+      max-width: 850px;
+      margin-bottom: 44px;
+    }
+    .pp-section h2 {
+      margin: 14px 0 0;
+      font-size: clamp(42px, 5vw, 70px);
+      line-height: 0.94;
+    }
+    .pp-section__lead {
+      margin: 20px 0 0;
+      color: var(--bone-dim);
+      font-size: 18px;
+      line-height: 1.6;
+    }
+
+    .pp-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      border: 1px solid var(--border);
+      background: var(--border);
+    }
+    .pp-card {
+      min-height: 235px;
+      padding: 30px;
+      background: var(--void);
+    }
+    .pp-card__num {
+      color: var(--passport-gold-bright);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.12em;
+    }
+    .pp-card h3 { margin: 20px 0 0; font-size: 27px; line-height: 1.03; }
+    .pp-card p { margin: 15px 0 0; color: var(--bone-dim); line-height: 1.55; }
+
+    .pp-route {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+    }
+    .pp-route__step {
+      position: relative;
+      min-height: 255px;
+      padding: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(201, 154, 69, 0.38);
+      background: linear-gradient(145deg, #15120d, #0a0a0a);
+    }
+    .pp-route__step::after {
+      content: attr(data-step);
+      position: absolute;
+      right: -4px;
+      bottom: -28px;
+      color: rgba(201, 154, 69, 0.08);
+      font-family: var(--font-display);
+      font-size: 150px;
+      font-weight: 700;
+      line-height: 1;
+    }
+    .pp-route__step strong {
+      display: block;
+      color: var(--passport-gold-bright);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .pp-route__step h3 { margin: 18px 0 0; font-size: 26px; }
+    .pp-route__step p { position: relative; z-index: 1; color: var(--bone-dim); }
+
+    .pp-compare {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .pp-compare__card {
+      padding: 36px;
+      border: 1px solid var(--border);
+      background: var(--void);
+    }
+    .pp-compare__card--paid {
+      border-color: rgba(201, 154, 69, 0.7);
+      background: linear-gradient(145deg, #1b160d, #0a0a0a);
+    }
+    .pp-compare__label {
+      color: var(--bone-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+    .pp-compare__card--paid .pp-compare__label { color: var(--passport-gold-bright); }
+    .pp-compare h3 { margin: 18px 0 0; font-size: 32px; }
+    .pp-list {
+      margin: 24px 0 0;
+      padding: 0;
+      list-style: none;
+    }
+    .pp-list li {
+      padding: 11px 0;
+      border-bottom: 1px dashed var(--border);
+      color: var(--bone-dim);
+    }
+    .pp-list li::before {
+      content: "▸ ";
+      color: var(--passport-gold-bright);
+      font-family: var(--font-mono);
+    }
+    .pp-text-link {
+      display: inline-block;
+      margin-top: 26px;
+      color: var(--passport-gold-bright);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-underline-offset: 3px;
+      text-transform: uppercase;
+    }
+
+    .pp-previews {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+    }
+    .pp-preview {
+      margin: 0;
+      border: 1px solid var(--border);
+      background: var(--ash-2);
+    }
+    .pp-preview img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+    .pp-preview figcaption {
+      padding: 17px 18px;
+      border-top: 1px solid var(--border);
+      color: var(--bone-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .pp-fit {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      border: 1px solid var(--border);
+      background: var(--border);
+    }
+    .pp-fit__column { padding: 36px; background: var(--void); }
+    .pp-fit__column h3 { font-size: 32px; }
+    .pp-fit__column--no h3 { color: var(--blood-text); }
+    .pp-fit__column--yes h3 { color: var(--passport-gold-bright); }
+
+    .pp-final {
+      position: relative;
+      overflow: hidden;
+      padding: 96px 0;
+      background: var(--passport-gold-bright);
+      color: var(--void);
+      text-align: center;
+    }
+    .pp-final h2 {
+      max-width: 920px;
+      margin: 0 auto;
+      font-size: clamp(48px, 7vw, 96px);
+      line-height: 0.9;
+    }
+    .pp-final p {
+      max-width: 650px;
+      margin: 24px auto 0;
+      font-size: 18px;
+    }
+    .pp-final .pp-purchase {
+      max-width: 650px;
+      margin: 30px auto 0;
+      padding-top: 0;
+      border: 0;
+      justify-content: center;
+    }
+    .pp-final .pp-button {
+      border-color: var(--void);
+      background: var(--void);
+      color: var(--bone);
+    }
+    .pp-final .pp-purchase__note { color: rgba(10, 10, 10, 0.7); }
+
+    .pp-footer { background: var(--ash-2); }
+    .pp-footer__inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 46px 32px;
+      display: flex;
+      justify-content: space-between;
+      gap: 28px;
+      color: var(--bone-dim);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .pp-footer a { color: var(--bone); text-underline-offset: 3px; }
+
+    @media (max-width: 900px) {
+      .pp-hero__grid { grid-template-columns: 1fr; min-height: auto; }
+      .pp-cover { width: min(84vw, 520px); justify-self: center; transform: none; }
+      .pp-cover { grid-row: 1; }
+      .pp-hero__copy { grid-row: 2; }
+      .pp-grid-3, .pp-previews { grid-template-columns: 1fr; }
+      .pp-route { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 640px) {
+      .pp-header__inner { min-height: 56px; padding: 0 18px; }
+      .pp-nav a:not(.pp-nav__buy) { display: none; }
+      .pp-shell { padding-left: 20px; padding-right: 20px; }
+      .pp-hero__grid { padding-top: 42px; padding-bottom: 56px; gap: 50px; }
+      .pp-hero h1 { font-size: clamp(58px, 20vw, 90px); }
+      .pp-hero__lead { font-size: 18px; }
+      .pp-cover::before { display: none; }
+      .pp-purchase { align-items: flex-start; }
+      .pp-button { width: 100%; }
+      .pp-section { padding: 64px 0; }
+      .pp-section h2 { font-size: clamp(38px, 12vw, 58px); }
+      .pp-route, .pp-compare, .pp-fit { grid-template-columns: 1fr; }
+      .pp-card, .pp-route__step { min-height: 0; }
+      .pp-final { padding: 72px 0; }
+      .pp-footer__inner { padding: 36px 20px; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <a class="pp-skip" href="#main-content">К содержанию</a>
+  <header class="pp-header">
+    <div class="pp-header__inner">
+      <a class="pp-brand" href="/" aria-label="Лево Руля — на главную">
+        <img src="/brand/assets/logo-mono-bone.svg" alt="">
+        <span>ЛЕВО РУЛЯ</span>
+      </a>
+      <nav class="pp-nav" aria-label="Основная навигация">
+        <a href="/#servitors">Сервиторы</a>
+        <a href="/#guides">Гайды</a>
+        <a class="pp-nav__buy" href="https://web.tribute.tg/p/APy" target="_blank" rel="noopener sponsored" data-tribute="header">Купить · 299 ₽ ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content" tabindex="-1">
+    <section class="pp-hero">
+      <div class="pp-shell pp-hero__grid">
+        <div class="pp-hero__copy">
+          <div class="pp-eyebrow">практический гайд · PDF · 37 страниц</div>
+          <h1>ПАСПОРТ<br><span>СЕРВИТОРА.</span></h1>
+          <p class="pp-hero__lead">
+            Не очередная теория, а последовательный маршрут: от реальной задачи
+            и критериев успеха до имени, сигилы, правил, тестов и завершения.
+          </p>
+          <div class="pp-tags" aria-label="Особенности гайда">
+            <span class="pp-tag">сквозной пример</span>
+            <span class="pp-tag">типичные ошибки</span>
+            <span class="pp-tag">12 чистовых страниц</span>
+          </div>
+          <div class="pp-purchase">
+            <div class="pp-price">299 ₽</div>
+            <a class="pp-button" href="https://web.tribute.tg/p/APy" target="_blank" rel="noopener sponsored" data-tribute="hero">Купить в Tribute →</a>
+            <div class="pp-purchase__note">Оплата и выдача PDF проходят на стороне Tribute</div>
+          </div>
+        </div>
+        <div class="pp-cover">
+          <img src="/passport-servitora/assets/cover.webp" alt="Обложка практического гайда «Паспорт сервитора»" width="1024" height="1024">
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <div class="pp-shell">
+        <div class="pp-section__head">
+          <div class="pp-eyebrow">зачем нужен паспорт</div>
+          <h2>ОБРАЗ ПРИДУМАТЬ ЛЕГКО. ПРАВИЛА — СЛОЖНЕЕ.</h2>
+          <p class="pp-section__lead">
+            Проблемы начинаются, когда красивый образ появляется раньше функции,
+            результат определяется задним числом, а условия остановки не записаны вообще.
+          </p>
+        </div>
+        <div class="pp-grid-3">
+          <article class="pp-card">
+            <div class="pp-card__num">[01]</div>
+            <h3>НЕ ПОДГОНЯЙ ЗАДАЧУ ПОД ОБРАЗ</h3>
+            <p>Сначала опиши проблему, результат, срок, собственные действия и допустимые границы.</p>
+          </article>
+          <article class="pp-card">
+            <div class="pp-card__num">[02]</div>
+            <h3>НЕ НАЗНАЧАЙ СОВПАДЕНИЕ УСПЕХОМ</h3>
+            <p>Критерии и ранние признаки фиксируются до запуска, а не придумываются после приятного сна.</p>
+          </article>
+          <article class="pp-card">
+            <div class="pp-card__num">[03]</div>
+            <h3>НЕ ОСТАВЛЯЙ ЛЕГАСИ БЕЗ ДОКУМЕНТАЦИИ</h3>
+            <p>Срок, ревизия, правила продления и срочная остановка записываются заранее.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section--panel">
+      <div class="pp-shell">
+        <div class="pp-section__head">
+          <div class="pp-eyebrow">последовательный маршрут</div>
+          <h2>ОДНО РЕШЕНИЕ ОПИРАЕТСЯ НА ДРУГОЕ.</h2>
+          <p class="pp-section__lead">
+            Первый раз гайд лучше пройти по порядку. Форма вырастает из функции,
+            правила — из задачи, а тесты — из заранее определённого результата.
+          </p>
+        </div>
+        <div class="pp-route">
+          <article class="pp-route__step" data-step="1">
+            <strong>шаг 01</strong>
+            <h3>ЗАДАЧА И КРИТЕРИИ</h3>
+            <p>Что должно измениться, к какому сроку и по каким наблюдаемым признакам ты проверишь результат.</p>
+          </article>
+          <article class="pp-route__step" data-step="2">
+            <strong>шаг 02</strong>
+            <h3>ИМЯ, СИГИЛА И ФОРМА</h3>
+            <p>Как собрать узнаваемую конструкцию, которая поддерживает функцию, а не подменяет её.</p>
+          </article>
+          <article class="pp-route__step" data-step="3">
+            <strong>шаг 03</strong>
+            <h3>ПРАВИЛА И ГРАНИЦЫ</h3>
+            <p>Команда, разрешения, запреты, автономия, канал связи, питание и обычные действия оператора.</p>
+          </article>
+          <article class="pp-route__step" data-step="4">
+            <strong>шаг 04</strong>
+            <h3>ТЕСТЫ И ЗАВЕРШЕНИЕ</h3>
+            <p>Малые проверки, дата ревизии, условия продления, плановое завершение и срочная остановка.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <div class="pp-shell">
+        <div class="pp-section__head">
+          <div class="pp-eyebrow">курс и паспорт</div>
+          <h2>БЕСПЛАТНЫЙ КУРС ОБЪЯСНЯЕТ. ГАЙД ПОМОГАЕТ СОБРАТЬ.</h2>
+        </div>
+        <div class="pp-compare">
+          <article class="pp-compare__card">
+            <div class="pp-compare__label">открытый курс · бесплатно</div>
+            <h3>ПОНЯТЬ ТЕМУ</h3>
+            <ul class="pp-list">
+              <li>11 модулей: история, источники и подходы</li>
+              <li>широкая карта практики</li>
+              <li>разбор рисков и типичных ошибок</li>
+              <li>справочные приложения</li>
+            </ul>
+            <a class="pp-text-link" href="/#servitors">Открыть курс →</a>
+          </article>
+          <article class="pp-compare__card pp-compare__card--paid">
+            <div class="pp-compare__label">паспорт · 299 ₽</div>
+            <h3>СОБРАТЬ ОДНУ КОНСТРУКЦИЮ</h3>
+            <ul class="pp-list">
+              <li>37 страниц последовательной работы</li>
+              <li>один сквозной пример от начала до конца</li>
+              <li>поля для черновых решений на каждом этапе</li>
+              <li>12 чистовых страниц финального паспорта</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section--panel" id="preview">
+      <div class="pp-shell">
+        <div class="pp-section__head">
+          <div class="pp-eyebrow">внутри PDF</div>
+          <h2>НЕ КОТ В МЕШКЕ. ВОТ КАК ЭТО ВЫГЛЯДИТ.</h2>
+          <p class="pp-section__lead">
+            Тёмная часть ведёт по решениям и примерам. Светлая — чистовой паспорт,
+            который можно распечатать и заполнить для собственной конструкции.
+          </p>
+        </div>
+        <div class="pp-previews">
+          <figure class="pp-preview">
+            <img src="/passport-servitora/assets/preview-05.webp" alt="Превью страницы гайда о постановке задачи" loading="lazy" width="820" height="1159">
+            <figcaption>задача и четыре опоры</figcaption>
+          </figure>
+          <figure class="pp-preview">
+            <img src="/passport-servitora/assets/preview-16.webp" alt="Превью страницы гайда об автономии сервитора" loading="lazy" width="820" height="1159">
+            <figcaption>автономия и границы</figcaption>
+          </figure>
+          <figure class="pp-preview">
+            <img src="/passport-servitora/assets/preview-25.webp" alt="Превью чистовой страницы паспорта сервитора" loading="lazy" width="820" height="1159">
+            <figcaption>чистовой паспорт для заполнения</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section">
+      <div class="pp-shell">
+        <div class="pp-fit">
+          <div class="pp-fit__column pp-fit__column--yes">
+            <h3>ТЕБЕ ПОДОЙДЁТ, ЕСЛИ</h3>
+            <ul class="pp-list">
+              <li>ты уже знаком с базовой рамкой хаос-магии</li>
+              <li>хочешь перейти от чтения к одной конкретной работе</li>
+              <li>готов фиксировать критерии, границы и собственные действия</li>
+              <li>нужен документ, к которому можно вернуться через месяц</li>
+            </ul>
+          </div>
+          <div class="pp-fit__column pp-fit__column--no">
+            <h3>НЕ ПОКУПАЙ, ЕСЛИ</h3>
+            <ul class="pp-list">
+              <li>ищешь гарантированный результат без собственных действий</li>
+              <li>хочешь передать сервитору ответственность за решения</li>
+              <li>тебе нужна только общая теория — она уже есть в бесплатном курсе</li>
+              <li>не готов остановить практику, если она мешает сну, работе или отношениям</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-final">
+      <div class="pp-shell">
+        <h2>ОТ ПУСТОГО ЛИСТА — К СОБРАННОМУ ПАСПОРТУ.</h2>
+        <p>
+          Купи PDF в Tribute, пройди маршрут по порядку и перенеси
+          окончательные решения в чистовой паспорт.
+        </p>
+        <div class="pp-purchase">
+          <div class="pp-price">299 ₽</div>
+          <a class="pp-button" href="https://web.tribute.tg/p/APy" target="_blank" rel="noopener sponsored" data-tribute="final">Купить в Tribute →</a>
+          <div class="pp-purchase__note">Цифровой товар · PDF · 37 страниц</div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pp-footer">
+    <div class="pp-footer__inner">
+      <span>© ЛЕВО РУЛЯ · MMXXVI · Fac ut ardeat</span>
+      <span><a href="/">Главная</a> · <a href="https://telegram.me/levorules" target="_blank" rel="noopener">Telegram ↗</a></span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll("[data-tribute]").forEach(function (link) {
+      link.addEventListener("click", function () {
+        if (typeof window.plausible === "function") {
+          window.plausible("Passport Tribute Click", {
+            props: { placement: link.dataset.tribute }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -117,4 +117,89 @@ function SigilServitor({ accent = 'var(--purple)', opacity = 0.3, size = 320 }) 
   );
 }
 
-Object.assign(window, { LRLogo, Eyebrow, Btn, Tag, SectionTitle, SigilTriad, SigilServitor });
+const PASSPORT_PRODUCT = Object.freeze({
+  title: 'Паспорт сервитора',
+  price: '299 ₽',
+  pages: 37,
+  landingUrl: '/passport-servitora/',
+});
+
+function PassportPromo({ placement = 'site' }) {
+  const amber = 'var(--amber)';
+  return (
+    <section
+      className="lr-passport-promo"
+      data-lr-reveal="section"
+      style={{
+        '--lr-interaction-accent': amber,
+        borderBottom: '1px solid var(--border)',
+        background: 'linear-gradient(135deg, #0a0a0a 0%, #171208 100%)',
+      }}
+    >
+      <div className="lr-passport-promo__inner">
+        <div className="lr-passport-promo__copy">
+          <Eyebrow accent={amber}>практический гайд · PDF · {PASSPORT_PRODUCT.pages} страниц</Eyebrow>
+          <h2 className="lr-passport-promo__title">
+            КУРС ОБЪЯСНЯЕТ.<br />
+            <span style={{ color: amber }}>ПАСПОРТ СОБИРАЕТ.</span>
+          </h2>
+          <p className="lr-passport-promo__lead">
+            Последовательный маршрут от реальной задачи и критериев успеха
+            до имени, сигилы, формы, правил, тестов и завершения сервитора.
+          </p>
+          <ul className="lr-passport-promo__list">
+            <li>примеры и типичные ошибки на каждом этапе;</li>
+            <li>12 чистовых страниц для собственной конструкции;</li>
+            <li>понятные границы, ревизия и условия остановки.</li>
+          </ul>
+          <div className="lr-passport-promo__actions">
+            <Btn
+              variant="accent"
+              accent={amber}
+              href={PASSPORT_PRODUCT.landingUrl}
+              onClick={() => {
+                window.plausible?.('Passport Landing Click', {
+                  props: { placement },
+                });
+              }}
+            >
+              Посмотреть гайд →
+            </Btn>
+            <span className="lr-passport-promo__price">{PASSPORT_PRODUCT.price}</span>
+          </div>
+          <div className="lr-passport-promo__note">
+            Покупка и выдача файла проходят в Tribute
+          </div>
+        </div>
+        <a
+          className="lr-passport-promo__cover-link lr-reactive-card"
+          href={PASSPORT_PRODUCT.landingUrl}
+          aria-label={`Подробнее о гайде «${PASSPORT_PRODUCT.title}»`}
+          onClick={() => {
+            window.plausible?.('Passport Landing Click', {
+              props: { placement: `${placement}_cover` },
+            });
+          }}
+        >
+          <img
+            className="lr-passport-promo__cover"
+            src="/passport-servitora/assets/cover.webp"
+            alt="Обложка практического гайда «Паспорт сервитора»"
+            loading="lazy"
+          />
+        </a>
+      </div>
+    </section>
+  );
+}
+
+Object.assign(window, {
+  LRLogo,
+  Eyebrow,
+  Btn,
+  Tag,
+  SectionTitle,
+  SigilTriad,
+  SigilServitor,
+  PassportPromo,
+});

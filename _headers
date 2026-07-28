@@ -21,6 +21,9 @@
 /uploads/*.pdf
   Cache-Control: public, max-age=3600
 
+/passport-servitora/assets/*
+  Cache-Control: public, max-age=2592000
+
 /site/shorts.json
   Cache-Control: public, max-age=1800
 
