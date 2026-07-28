@@ -92,6 +92,32 @@ function lrRouteAccent(route) {
   return 'var(--blood-display)';
 }
 
+function lrAnalyticsMeta(route, guideSlug, readerModule) {
+  if (route === 'servitors') {
+    return { title: 'Сервиторы — открытый курс · Лево Руля', contentGroup: 'course' };
+  }
+  if (route === 'servitors-reader') {
+    return {
+      title: `Сервиторы — модуль ${readerModule + 1} · Лево Руля`,
+      contentGroup: 'course_reader',
+    };
+  }
+  if (route === 'guides') {
+    return { title: 'Гайды · Лево Руля', contentGroup: 'guides' };
+  }
+  if (route === 'guide') {
+    const guide = window.GUIDES_INDEX?.find((item) => item.slug === guideSlug);
+    return {
+      title: `${guide?.title || 'Гайд'} · Лево Руля`,
+      contentGroup: 'guide',
+    };
+  }
+  if (route === 'who') {
+    return { title: 'Кто я · Лево Руля', contentGroup: 'about' };
+  }
+  return { title: 'ЛЕВО РУЛЯ · Магия хаоса и ПЛР', contentGroup: 'home' };
+}
+
 function RouteCut({ active, accent }) {
   return (
     <div
@@ -214,6 +240,13 @@ function App() {
       history[method](null, '', nextHash);
     }
     handledHash.current = location.hash;
+    const analyticsMeta = lrAnalyticsMeta(route, guideSlug, readerModule);
+    document.title = analyticsMeta.title;
+    window.lrAnalytics?.pageView({
+      title: analyticsMeta.title,
+      contentGroup: analyticsMeta.contentGroup,
+      route,
+    });
 
     if (sectionId) {
       requestAnimationFrame(() => {
@@ -224,7 +257,7 @@ function App() {
     }
     pendingScrollId.current = null;
     pendingModuleIndex.current = null;
-  }, [route, navTick, guideSlug]);
+  }, [route, navTick, guideSlug, readerModule]);
 
   React.useEffect(() => {
     document.body.classList.toggle('ritual', ritual);

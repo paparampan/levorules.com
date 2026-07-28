@@ -126,8 +126,31 @@ const PASSPORT_PRODUCT = Object.freeze({
 
 function PassportPromo({ placement = 'site' }) {
   const amber = 'var(--amber)';
+  const sectionRef = React.useRef(null);
+
+  React.useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+
+    const trackView = () => window.lrAnalytics?.passportPromotion('view_promotion', placement);
+    if (!('IntersectionObserver' in window)) {
+      trackView();
+      return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      trackView();
+      observer.disconnect();
+    }, { threshold: 0.35 });
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, [placement]);
+
   return (
     <section
+      ref={sectionRef}
       className="lr-passport-promo"
       data-lr-reveal="section"
       style={{
@@ -158,9 +181,7 @@ function PassportPromo({ placement = 'site' }) {
               accent={amber}
               href={PASSPORT_PRODUCT.landingUrl}
               onClick={() => {
-                window.plausible?.('Passport Landing Click', {
-                  props: { placement },
-                });
+                window.lrAnalytics?.passportPromotion('select_promotion', placement);
               }}
             >
               Посмотреть гайд →
@@ -176,9 +197,7 @@ function PassportPromo({ placement = 'site' }) {
           href={PASSPORT_PRODUCT.landingUrl}
           aria-label={`Подробнее о гайде «${PASSPORT_PRODUCT.title}»`}
           onClick={() => {
-            window.plausible?.('Passport Landing Click', {
-              props: { placement: `${placement}_cover` },
-            });
+            window.lrAnalytics?.passportPromotion('select_promotion', `${placement}_cover`);
           }}
         >
           <img

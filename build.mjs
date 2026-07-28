@@ -95,6 +95,7 @@ mkdirSync(PUBLIC, { recursive: true });
 
 for (const file of [
   "index.html",
+  "analytics.js",
   "_headers",
   "manifest.webmanifest",
   "robots.txt",
