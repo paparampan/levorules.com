@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-02T23:14:25Z",
+  "updated": "2026-08-03T03:57:49Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -7,7 +7,7 @@
       "title": "3 ошибки при создании сервитора: почему он выходит из-под контроля",
       "url": "https://www.youtube.com/shorts/vmjaZvkzWvA",
       "thumb": "https://i.ytimg.com/vi/vmjaZvkzWvA/hqdefault.jpg",
-      "views": "999",
+      "views": "1k",
       "acc": "var(--magenta)"
     },
     {
@@ -15,7 +15,7 @@
       "title": "Где работает сервитор? Три зоны и их изнанка",
       "url": "https://www.youtube.com/shorts/yOWFqITNWuQ",
       "thumb": "https://i.ytimg.com/vi/yOWFqITNWuQ/hqdefault.jpg",
-      "views": "944",
+      "views": "949",
       "acc": "var(--acid-green)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "Как кормить сервитора: 6 способов и их риски",
       "url": "https://www.youtube.com/shorts/5zOGkx9ts9o",
       "thumb": "https://i.ytimg.com/vi/5zOGkx9ts9o/hqdefault.jpg",
-      "views": "986",
+      "views": "990",
       "acc": "var(--cyber-cyan)"
     }
   ]
