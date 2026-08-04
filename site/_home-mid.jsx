@@ -300,7 +300,7 @@ function Footer() {
   return (
     <footer style={{ background: 'var(--ash-2)', borderTop: '1px solid var(--border)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '56px 32px 40px' }}>
-        <div className="lr-footer-grid" style={{ display: 'grid', gridTemplateColumns: '1.2fr .8fr .8fr 1.2fr', gap: 48, marginBottom: 40 }}>
+        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr 1fr', gap: 48, marginBottom: 40 }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
               <LRLogo size={32} color="bone" alt="" />
@@ -330,16 +330,6 @@ function Footer() {
               ['TikTok', 'https://www.tiktok.com/@levorules'],
               ].map(([l, h]) => (
               <a key={l} href={h} target="_blank" rel="noopener" style={{ display: 'block', padding: '6px 0', color: 'var(--bone)', textDecoration: 'none', fontSize: 14 }}>{l} ↗</a>
-            ))}
-          </div>
-          <div>
-            <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em', color: 'var(--bone-dim)', textTransform: 'uppercase', marginBottom: 14 }}>▸ TikTok API</div>
-            {[
-              ['Сервис аналитики', '/tiktok/'],
-              ['Условия использования', '/tiktok/terms/'],
-              ['Политика конфиденциальности', '/tiktok/privacy/'],
-              ].map(([l, h]) => (
-              <a key={l} href={h} style={{ display: 'block', padding: '6px 0', color: 'var(--bone)', textDecoration: 'none', fontSize: 14 }}>{l} →</a>
             ))}
           </div>
         </div>

@@ -100,12 +100,11 @@ for (const file of [
   "manifest.webmanifest",
   "robots.txt",
   "sitemap.xml",
-  "tiktokH8yDqkET0pS2j5XmcfUgBkVn3UHKO5zU.txt",
 ]) {
   cpSync(resolve(HERE, file), resolve(PUBLIC, file));
 }
 
-for (const directory of ["brand", "dist", "tiktok", "passport-servitora"]) {
+for (const directory of ["brand", "dist", "passport-servitora"]) {
   cpSync(resolve(HERE, directory), resolve(PUBLIC, directory), {
     recursive: true,
   });
