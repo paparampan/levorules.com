@@ -1,7 +1,18 @@
 // Header — sticky top nav with Ritual mode toggle
 function Header({ ritual, setRitual, route, setRoute }) {
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
+  const mobileNavToggleRef = React.useRef(null);
   React.useEffect(() => setMobileNavOpen(false), [route]);
+  React.useEffect(() => {
+    if (!mobileNavOpen) return;
+    const closeOnEscape = (event) => {
+      if (event.key !== 'Escape') return;
+      setMobileNavOpen(false);
+      requestAnimationFrame(() => mobileNavToggleRef.current?.focus());
+    };
+    document.addEventListener('keydown', closeOnEscape);
+    return () => document.removeEventListener('keydown', closeOnEscape);
+  }, [mobileNavOpen]);
 
   const items = [
     { id: 'home', label: 'Главная' },
@@ -28,10 +39,12 @@ function Header({ ritual, setRitual, route, setRoute }) {
           </div>
         </a>
         <button
+          ref={mobileNavToggleRef}
           type="button"
           className="lr-nav-toggle"
           aria-expanded={mobileNavOpen}
           aria-controls="lr-primary-navigation"
+          aria-label={mobileNavOpen ? 'Закрыть меню' : 'Открыть меню'}
           onClick={() => setMobileNavOpen((open) => !open)}
         >
           <span aria-hidden="true">{mobileNavOpen ? '×' : '☰'}</span>

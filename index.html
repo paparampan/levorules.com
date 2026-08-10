@@ -76,6 +76,7 @@
   html, body { min-height: 100%; }
   body { background: var(--void); color: var(--bone); }
   a { color: inherit; }
+  section[id] { scroll-margin-top: 80px; }
   ::selection { background: var(--blood); color: var(--bone); }
 
   /* Ritual mode: subtle scanlines + slight hue shift on accents */
@@ -244,6 +245,8 @@
   }
 
   @media (max-width: 720px) {
+    section[id] { scroll-margin-top: 64px; }
+
     /* Section content containers shrink horizontal+vertical padding. */
     section > div[style*="max-width: 1280px"],
     section > div[style*="max-width: 1440px"],

@@ -98,7 +98,7 @@ function lrAnalyticsMeta(route, guideSlug, readerModule) {
   }
   if (route === 'servitors-reader') {
     return {
-      title: `Сервиторы — модуль ${readerModule + 1} · Лево Руля`,
+      title: `Сервиторы — модуль ${String(readerModule).padStart(2, '0')} · Лево Руля`,
       contentGroup: 'course_reader',
     };
   }
@@ -116,6 +116,32 @@ function lrAnalyticsMeta(route, guideSlug, readerModule) {
     return { title: 'Кто я · Лево Руля', contentGroup: 'about' };
   }
   return { title: 'ЛЕВО РУЛЯ · Магия хаоса и ПЛР', contentGroup: 'home' };
+}
+
+function lrFinishRouteNavigation(sectionId, shouldFocus, shouldScrollTop) {
+  const main = document.getElementById('main-content');
+  const section = sectionId ? document.getElementById(sectionId) : null;
+  if (sectionId && !section) return false;
+
+  if (section) {
+    section.scrollIntoView({ block: 'start' });
+  } else if (shouldScrollTop) {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+
+  if (shouldFocus && main) {
+    const scope = section || main;
+    const target = scope.querySelector('h1, h2') || main;
+    const temporaryTabIndex = target !== main && !target.hasAttribute('tabindex');
+    if (temporaryTabIndex) target.setAttribute('tabindex', '-1');
+    try { target.focus({ preventScroll: true }); }
+    catch { target.focus(); }
+    if (temporaryTabIndex) {
+      target.addEventListener('blur', () => target.removeAttribute('tabindex'), { once: true });
+    }
+  }
+
+  return true;
 }
 
 function RouteCut({ active, accent }) {
@@ -160,6 +186,9 @@ function App() {
   const firstVisualRoute = React.useRef(true);
   const [routeCutTick, setRouteCutTick] = React.useState(0);
   const visualRouteKey = route === 'guide' ? `${route}:${guideSlug}` : route;
+  const previousVisualRouteKey = React.useRef(visualRouteKey);
+  const pendingRouteFocus = React.useRef(false);
+  const pendingScrollTop = React.useRef(false);
 
   React.useLayoutEffect(() => {
     if (firstVisualRoute.current) {
@@ -234,6 +263,10 @@ function App() {
     }
     const nextHash = lrHashForRoute(route, sectionId, guideSlug, moduleIndex);
     const mode = historyMode.current;
+    const visualRouteChanged = previousVisualRouteKey.current !== visualRouteKey;
+    previousVisualRouteKey.current = visualRouteKey;
+    pendingRouteFocus.current = visualRouteChanged;
+    pendingScrollTop.current = !sectionId && mode === 'push';
     const currentHash = location.hash || '#';
     if (mode !== 'none' && currentHash !== nextHash) {
       const method = mode === 'replace' ? 'replaceState' : 'pushState';
@@ -248,16 +281,40 @@ function App() {
       route,
     });
 
-    if (sectionId) {
+    if (!lrNeedsServitors(route) || lrServitorsReady()) {
       requestAnimationFrame(() => {
-        document.getElementById(sectionId)?.scrollIntoView({ block: 'start' });
+        const finished = lrFinishRouteNavigation(
+          sectionId,
+          pendingRouteFocus.current,
+          pendingScrollTop.current,
+        );
+        if (!finished) return;
+        pendingScrollId.current = null;
+        pendingModuleIndex.current = null;
+        pendingRouteFocus.current = false;
+        pendingScrollTop.current = false;
       });
-    } else if (mode === 'push') {
-      window.scrollTo({ top: 0, behavior: 'instant' });
     }
-    pendingScrollId.current = null;
-    pendingModuleIndex.current = null;
-  }, [route, navTick, guideSlug, readerModule]);
+  }, [route, navTick, guideSlug, readerModule, visualRouteKey]);
+
+  React.useEffect(() => {
+    if (!servitorsReady || !lrNeedsServitors(route)) return;
+    const sectionId = pendingScrollId.current;
+    if (!sectionId && !pendingRouteFocus.current && !pendingScrollTop.current) return;
+
+    requestAnimationFrame(() => {
+      const finished = lrFinishRouteNavigation(
+        sectionId,
+        pendingRouteFocus.current,
+        pendingScrollTop.current,
+      );
+      if (!finished) return;
+      pendingScrollId.current = null;
+      pendingModuleIndex.current = null;
+      pendingRouteFocus.current = false;
+      pendingScrollTop.current = false;
+    });
+  }, [servitorsReady]);
 
   React.useEffect(() => {
     document.body.classList.toggle('ritual', ritual);
@@ -313,7 +370,11 @@ function App() {
       <a className="lr-skip-link" href="#main-content">К содержанию</a>
       <RouteCut key={routeCutTick} active={routeCutTick > 0} accent={lrRouteAccent(route)} />
       <Header ritual={ritual} setRitual={setRitual} route={route} setRoute={navigate} />
-      <main id="main-content" tabIndex={-1}>
+      <main
+        id="main-content"
+        tabIndex={-1}
+        aria-busy={lrNeedsServitors(route) && !servitorsReady ? 'true' : undefined}
+      >
         {lrNeedsServitors(route) && !servitorsReady ? (
           <ServitorsLoading error={servitorsError} />
         ) : route === 'home' ? (
@@ -345,7 +406,11 @@ function App() {
 
 function ServitorsLoading({ error }) {
   return (
-    <section style={{ minHeight: 'calc(100vh - 64px)', display: 'grid', placeItems: 'center', padding: '96px 32px' }}>
+    <section
+      aria-live={error ? 'assertive' : 'polite'}
+      aria-atomic="true"
+      style={{ minHeight: 'calc(100vh - 64px)', display: 'grid', placeItems: 'center', padding: '96px 32px' }}
+    >
       <div style={{ textAlign: 'center' }}>
         <Eyebrow accent="var(--purple)">курс</Eyebrow>
         <h1 style={{ marginTop: 16, fontSize: 'clamp(40px, 7vw, 92px)' }}>

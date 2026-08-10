@@ -50,7 +50,7 @@ function CourseCallout({ setRoute }) {
               <Btn variant="accent" accent="var(--purple)" onClick={() => setRoute('servitors')}>
                 Открыть курс →
               </Btn>
-              <Btn variant="ghostAccent" accent="var(--purple)" onClick={() => setRoute('servitors')}>
+              <Btn variant="ghostAccent" accent="var(--purple)" onClick={() => setRoute('servitors', 'program')}>
                 Программа ↓
               </Btn>
             </div>
@@ -71,7 +71,8 @@ function CourseCallout({ setRoute }) {
                 type="button"
                 className="lr-course-module-link lr-reactive-row"
                 key={m.n}
-                onClick={() => setRoute('servitors')}
+                aria-label={`Открыть модуль ${m.n}: ${m.title}`}
+                onClick={() => setRoute('servitors-reader', null, null, { moduleIndex: i })}
                 style={{
                   width: '100%', border: 0, background: 'transparent', color: 'inherit', textAlign: 'left',
                   display: 'grid', gridTemplateColumns: '44px 1fr 36px',

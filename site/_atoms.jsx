@@ -205,6 +205,9 @@ function PassportPromo({ placement = 'site' }) {
             src="/passport-servitora/assets/cover.webp"
             alt="Обложка практического гайда «Паспорт сервитора»"
             loading="lazy"
+            decoding="async"
+            width="1024"
+            height="1024"
           />
         </a>
       </div>
