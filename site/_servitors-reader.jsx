@@ -7,6 +7,9 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
   const clampModule = (idx) => Math.max(0, Math.min(Math.max(0, modules.length - 1), Number.isFinite(idx) ? idx : 0));
   const [activeIdx, setActiveIdx] = React.useState(() => clampModule(initialModule));
   const [activeSection, setActiveSection] = React.useState(null);
+  const [courseCompleted, setCourseCompleted] = React.useState(() => (
+    window.lrCourseProgress?.read(modules.length).completed || false
+  ));
   const contentRef = React.useRef(null);
   const didMountReader = React.useRef(false);
 
@@ -14,14 +17,12 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
     const next = clampModule(initialModule);
     setActiveIdx(next);
     if (next !== initialModule) {
-      try { localStorage.setItem('lr_servitor_module', String(next)); } catch {}
       setRoute('servitors-reader', null, null, { moduleIndex: next, historyMode: 'replace' });
     }
   }, [initialModule, modules.length]);
 
   const goToModule = React.useCallback((nextIdx) => {
     const next = clampModule(nextIdx);
-    try { localStorage.setItem('lr_servitor_module', String(next)); } catch {}
     setActiveIdx(next);
     setRoute('servitors-reader', null, null, { moduleIndex: next, historyMode: 'replace' });
   }, [modules.length, setRoute]);
@@ -36,9 +37,34 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
       });
     }
     didMountReader.current = true;
-    // persist
-    try { localStorage.setItem('lr_servitor_module', String(activeIdx)); } catch {}
-  }, [activeIdx]);
+    if (!modules.length) return;
+    const result = window.lrCourseProgress?.visit(activeIdx, modules.length);
+    const module = modules[activeIdx];
+    if (!result || !module) return;
+
+    setCourseCompleted(result.progress.completed);
+    const eventDetails = {
+      module_index: activeIdx,
+      module_number: module.n,
+      module_title: module.title,
+      modules_total: modules.length,
+      progress_percent: result.progressPercent,
+    };
+    if (result.startedNow) {
+      window.lrAnalytics?.course('course_start', eventDetails);
+    }
+    window.lrAnalytics?.course('course_module_view', {
+      ...eventDetails,
+      is_returning: result.previous.visitedModules.includes(activeIdx) ? 1 : 0,
+      visited_modules: result.progress.visitedModules.length,
+    });
+    result.newMilestones.forEach((milestone) => {
+      window.lrAnalytics?.course('course_progress', {
+        ...eventDetails,
+        progress_percent: milestone,
+      });
+    });
+  }, [activeIdx, modules.length]);
 
   // scroll-spy for sections within current module
   React.useEffect(() => {
@@ -71,6 +97,30 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
   }
 
   const mod = modules[activeIdx];
+  const finishCourse = () => {
+    const result = window.lrCourseProgress?.complete(modules.length);
+    if (!result) return;
+    setCourseCompleted(true);
+    if (!result.completedNow) return;
+    const eventDetails = {
+      module_index: activeIdx,
+      module_number: mod.n,
+      module_title: mod.title,
+      modules_total: modules.length,
+      progress_percent: 100,
+    };
+    window.lrAnalytics?.course('course_progress', eventDetails);
+    window.lrAnalytics?.course('course_complete', eventDetails);
+  };
+  const openAppendices = () => {
+    window.lrAnalytics?.course('course_cta_click', {
+      creative_slot: 'course_complete_appendices',
+      module_index: activeIdx,
+      module_number: mod.n,
+      progress_percent: courseCompleted ? 100 : undefined,
+    });
+    setRoute('servitors', 'appendices');
+  };
 
   return (
     <div>
@@ -234,9 +284,26 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
         <article ref={contentRef} style={{ maxWidth: 760, minWidth: 0 }}>
           <ModuleRenderer mod={mod} accent={purple} />
 
+          {activeIdx === modules.length - 1 && courseCompleted ? (
+            <div role="status" aria-live="polite" style={{
+              marginTop: 64, padding: '20px 24px',
+              border: '1px solid var(--acid-green)', borderLeftWidth: 3,
+              background: 'var(--ash-2)', color: 'var(--bone)',
+            }}>
+              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11,
+                letterSpacing: '0.12em', textTransform: 'uppercase', color: 'var(--acid-green)' }}>
+                ✓ Курс завершён
+              </div>
+              <p style={{ margin: '10px 0 0', color: 'var(--bone-dim)', lineHeight: 1.55 }}>
+                Прогресс сохранён в этом браузере. Теперь можно перейти к справочникам и рабочим шаблонам.
+              </p>
+            </div>
+          ) : null}
+
           {/* prev/next at end */}
           <div style={{
-            marginTop: 80, paddingTop: 32, borderTop: '1px solid var(--border)',
+            marginTop: activeIdx === modules.length - 1 && courseCompleted ? 24 : 80,
+            paddingTop: 32, borderTop: '1px solid var(--border)',
             display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16,
           }}>
             {activeIdx > 0 ? (
@@ -264,19 +331,19 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
               </button>
             ) : (
               <button className="lr-reactive-card" onClick={() => {
-                setRoute('servitors');
-                setTimeout(() => {
-                  document.getElementById('appendices')?.scrollIntoView({ behavior: lrReaderScrollBehavior(), block: 'start' });
-                }, 120);
+                if (courseCompleted) openAppendices();
+                else finishCourse();
               }} style={articleNavStyle('next')}>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)',
-                  letterSpacing: '0.12em', marginBottom: 8, textAlign: 'right' }}>К ПРИЛОЖЕНИЯМ →</div>
+                  letterSpacing: '0.12em', marginBottom: 8, textAlign: 'right' }}>
+                  {courseCompleted ? 'К ПРИЛОЖЕНИЯМ →' : 'ЗАВЕРШИТЬ КУРС →'}
+                </div>
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: purple, marginBottom: 4, textAlign: 'right' }}>
-                  8 PDF
+                  {courseCompleted ? '8 PDF' : `${modules.length} / ${modules.length}`}
                 </div>
                 <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 22,
                   textAlign: 'right', textTransform: 'uppercase', lineHeight: 1.1 }}>
-                  Справочники<br/>и шаблоны
+                  {courseCompleted ? <React.Fragment>Справочники<br/>и шаблоны</React.Fragment> : <React.Fragment>Зафиксировать<br/>прохождение</React.Fragment>}
                 </div>
               </button>
             )}

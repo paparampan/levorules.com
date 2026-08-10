@@ -63,6 +63,17 @@
       page_path: `${location.pathname}${location.search}${location.hash}`,
       content_group: details.contentGroup || contentGroupForPath(),
       app_route: details.route,
+      module_index: details.moduleIndex,
+      module_number: details.moduleNumber,
+      module_title: details.moduleTitle,
+    });
+  }
+
+  function course(eventName, details) {
+    event(eventName, {
+      course_id: 'servitors',
+      course_name: 'Сервиторы',
+      ...(details || {}),
     });
   }
 
@@ -107,6 +118,7 @@
     isProduction,
     event,
     pageView,
+    course,
     passportPromotion,
     passportCheckout,
   });

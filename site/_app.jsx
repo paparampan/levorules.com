@@ -1,6 +1,138 @@
 // Root App + router. Last in load order — uses all page components.
 
 const TWEAKS = window.__TWEAKS__ || { ritual: false, heroScale: 'xl', courseAccent: 'purple' };
+const LR_COURSE_PROGRESS_KEY = 'lr_servitor_progress_v1';
+const LR_COURSE_MODULE_KEY = 'lr_servitor_module';
+
+function lrClampCourseModule(value, total = 11) {
+  const parsed = parseInt(value, 10);
+  const safe = Number.isFinite(parsed) ? parsed : 0;
+  return Math.max(0, Math.min(Math.max(0, total - 1), safe));
+}
+
+function lrReadCourseProgress(total = 11) {
+  const fallback = {
+    started: false,
+    currentModule: 0,
+    highestModule: 0,
+    visitedModules: [],
+    milestones: [],
+    completed: false,
+    startedAt: null,
+    lastVisitedAt: null,
+    completedAt: null,
+  };
+
+  try {
+    const legacyValue = localStorage.getItem(LR_COURSE_MODULE_KEY);
+    const storedValue = localStorage.getItem(LR_COURSE_PROGRESS_KEY);
+    const stored = storedValue ? JSON.parse(storedValue) : {};
+    const currentModule = lrClampCourseModule(
+      stored.currentModule ?? legacyValue ?? 0,
+      total,
+    );
+    const highestModule = Math.max(
+      currentModule,
+      lrClampCourseModule(stored.highestModule ?? currentModule, total),
+    );
+    const legacyVisited = legacyValue !== null
+      ? Array.from({ length: currentModule + 1 }, (_, index) => index)
+      : [];
+    const visitedModules = Array.from(new Set(
+      (Array.isArray(stored.visitedModules) ? stored.visitedModules : legacyVisited)
+        .map((value) => lrClampCourseModule(value, total)),
+    )).sort((a, b) => a - b);
+    const milestones = Array.from(new Set(
+      (Array.isArray(stored.milestones) ? stored.milestones : [])
+        .filter((value) => [25, 50, 75, 100].includes(value)),
+    )).sort((a, b) => a - b);
+
+    return {
+      ...fallback,
+      ...stored,
+      started: stored.started === true || legacyValue !== null,
+      currentModule,
+      highestModule,
+      visitedModules,
+      milestones,
+      completed: stored.completed === true,
+    };
+  } catch {
+    return fallback;
+  }
+}
+
+function lrWriteCourseProgress(progress) {
+  try {
+    localStorage.setItem(LR_COURSE_PROGRESS_KEY, JSON.stringify(progress));
+    localStorage.setItem(LR_COURSE_MODULE_KEY, String(progress.currentModule));
+  } catch {}
+  return progress;
+}
+
+function lrVisitCourseModule(moduleIndex, total = 11) {
+  const previous = lrReadCourseProgress(total);
+  const now = new Date().toISOString();
+  const currentModule = lrClampCourseModule(moduleIndex, total);
+  const highestModule = Math.max(previous.highestModule, currentModule);
+  const visitedModules = Array.from(new Set([...previous.visitedModules, currentModule])).sort((a, b) => a - b);
+  const progressPercent = Math.round((visitedModules.length / Math.max(total, 1)) * 100);
+  const newMilestones = [25, 50, 75].filter((mark) => (
+    progressPercent >= mark && !previous.milestones.includes(mark)
+  ));
+  const next = lrWriteCourseProgress({
+    ...previous,
+    started: true,
+    currentModule,
+    highestModule,
+    visitedModules,
+    milestones: [...previous.milestones, ...newMilestones].sort((a, b) => a - b),
+    startedAt: previous.startedAt || now,
+    lastVisitedAt: now,
+  });
+
+  return {
+    previous,
+    progress: next,
+    startedNow: !previous.started,
+    newMilestones,
+    progressPercent,
+  };
+}
+
+function lrCompleteCourse(total = 11) {
+  const previous = lrReadCourseProgress(total);
+  const now = new Date().toISOString();
+  const currentModule = Math.max(0, total - 1);
+  const next = lrWriteCourseProgress({
+    ...previous,
+    started: true,
+    currentModule,
+    highestModule: currentModule,
+    visitedModules: Array.from({ length: total }, (_, index) => index),
+    milestones: Array.from(new Set([...previous.milestones, 100])).sort((a, b) => a - b),
+    completed: true,
+    startedAt: previous.startedAt || now,
+    lastVisitedAt: now,
+    completedAt: previous.completedAt || now,
+  });
+  return { previous, progress: next, completedNow: !previous.completed };
+}
+
+function lrResetCourseProgress() {
+  try {
+    localStorage.removeItem(LR_COURSE_PROGRESS_KEY);
+    localStorage.removeItem(LR_COURSE_MODULE_KEY);
+  } catch {}
+  return lrReadCourseProgress();
+}
+
+window.lrCourseProgress = Object.freeze({
+  read: lrReadCourseProgress,
+  visit: lrVisitCourseModule,
+  complete: lrCompleteCourse,
+  reset: lrResetCourseProgress,
+});
 
 function lrHashValue(hash = location.hash) {
   return hash.replace(/^#/, '').trim();
@@ -45,7 +177,7 @@ function lrHashForRoute(route, sectionId = null, guideSlug = null, moduleIndex =
       const fromHash = lrModuleFromHash();
       if (fromHash !== null) mod = fromHash;
       else {
-        try { mod = localStorage.getItem('lr_servitor_module') || '0'; }
+        try { mod = localStorage.getItem(LR_COURSE_MODULE_KEY) || '0'; }
         catch { mod = '0'; }
       }
     }
@@ -174,7 +306,7 @@ function App() {
   const [readerModule, setReaderModule] = React.useState(() => {
     const fromHash = lrModuleFromHash();
     if (fromHash !== null) return fromHash;
-    try { return parseInt(localStorage.getItem('lr_servitor_module') || '0', 10); }
+    try { return lrReadCourseProgress().currentModule; }
     catch { return 0; }
   });
   const [guideSlug, setGuideSlug] = React.useState(() => {
@@ -243,7 +375,7 @@ function App() {
         const fromHash = lrModuleFromHash();
         if (fromHash !== null) nextModule = fromHash;
         else {
-          try { nextModule = parseInt(localStorage.getItem('lr_servitor_module') || '0', 10); }
+          try { nextModule = lrReadCourseProgress().currentModule; }
           catch { nextModule = 0; }
         }
       }
@@ -282,6 +414,13 @@ function App() {
       title: analyticsMeta.title,
       contentGroup: analyticsMeta.contentGroup,
       route,
+      moduleIndex: route === 'servitors-reader' ? readerModule : undefined,
+      moduleNumber: route === 'servitors-reader'
+        ? String(readerModule).padStart(2, '0')
+        : undefined,
+      moduleTitle: route === 'servitors-reader'
+        ? window.SERVITORS_MODULES?.[readerModule]?.title
+        : undefined,
     });
 
     if (!lrNeedsServitors(route) || lrServitorsReady()) {

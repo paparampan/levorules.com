@@ -5,9 +5,15 @@ function ServitorsPage({ setRoute }) {
   const purple = 'var(--purple)';
   const modules = window.SERVITORS_MODULES || [];
 
-  const goToModule = (idx) => {
-    try { localStorage.setItem('lr_servitor_module', String(idx)); } catch {}
-    setRoute('servitors-reader');
+  const goToModule = (idx, placement = 'course_program') => {
+    const next = Math.max(0, Math.min(modules.length - 1, idx));
+    window.lrAnalytics?.course('course_cta_click', {
+      creative_slot: placement,
+      module_index: next,
+      module_number: modules[next]?.n,
+      module_title: modules[next]?.title,
+    });
+    setRoute('servitors-reader', null, null, { moduleIndex: next });
   };
 
   return (
@@ -153,9 +159,10 @@ function ServitorsPage({ setRoute }) {
                     )}
                   </div>
                   <button
-                    onClick={() => goToModule(i)}
+                    onClick={() => goToModule(i, 'course_program')}
                     style={{
                       all: 'unset', cursor: 'pointer',
+                      display: 'inline-flex', alignItems: 'center', justifyContent: 'center', minHeight: 44,
                       fontFamily: 'var(--font-mono)', fontSize: 12,
                       letterSpacing: '0.12em', textTransform: 'uppercase',
                       padding: '10px 16px',
@@ -264,29 +271,86 @@ function ServitorsPage({ setRoute }) {
 // - no progress / module 0 → «Начать с модуля 00 →»
 // - progress > 0         → «Продолжить с модуля NN →» + subtitle with section title
 function ContinueOrStartButton({ goToModule, modules, purple }) {
-  const [saved, setSaved] = React.useState(() => {
-    const n = parseInt(localStorage.getItem('lr_servitor_module') || '0', 10);
-    return isNaN(n) ? 0 : n;
-  });
-  if (saved <= 0 || !modules[saved]) {
+  const [progress, setProgress] = React.useState(() => (
+    window.lrCourseProgress?.read(modules.length) || {
+      started: false,
+      currentModule: 0,
+      highestModule: 0,
+      completed: false,
+    }
+  ));
+  const saved = Math.max(0, Math.min(modules.length - 1, progress.currentModule || 0));
+
+  if (!progress.started || !modules[saved]) {
     return (
-      <Btn variant="accent" accent={purple} onClick={() => goToModule(0)}>
+      <Btn variant="accent" accent={purple} onClick={() => goToModule(0, 'course_hero_start')}>
         Начать с модуля 00 →
       </Btn>
     );
   }
+
   const m = modules[saved];
-  const label = `Продолжить с модуля ${String(saved).padStart(2, '0')} →`;
+  const position = progress.completed
+    ? modules.length
+    : Math.min(modules.length, progress.visitedModules?.length || 1);
+  const percent = progress.completed
+    ? 100
+    : Math.round((position / Math.max(modules.length, 1)) * 100);
+  const label = progress.completed
+    ? `Вернуться к модулю ${m.n} →`
+    : `Продолжить с модуля ${m.n} →`;
+  const resetProgress = (event) => {
+    event.preventDefault();
+    window.lrAnalytics?.course('course_reset', {
+      module_index: saved,
+      module_number: m.n,
+      progress_percent: percent,
+    });
+    const next = window.lrCourseProgress?.reset() || {
+      started: false,
+      currentModule: 0,
+      highestModule: 0,
+      completed: false,
+    };
+    setProgress(next);
+  };
+
   return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: 6, alignItems: 'flex-end' }}>
-      <Btn variant="accent" accent={purple} onClick={() => goToModule(saved)}>{label}</Btn>
-      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)',
-        letterSpacing: '0.08em', textTransform: 'uppercase', maxWidth: 260, textAlign: 'right' }}>
-        {m.title}
+    <div style={{ width: 'min(100%, 360px)', display: 'flex', flexDirection: 'column', gap: 10, alignItems: 'stretch' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12,
+        fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.1em',
+        textTransform: 'uppercase', color: progress.completed ? 'var(--acid-green)' : 'var(--bone-dim)' }}>
+        <span>{progress.completed ? '✓ курс завершён' : 'открыто модулей'}</span>
+        <span>{position} / {modules.length} · {percent}%</span>
       </div>
-      <button onClick={(e) => { e.preventDefault(); localStorage.removeItem('lr_servitor_module'); setSaved(0); }}
+      <div
+        role="progressbar"
+        aria-label="Открытые модули курса"
+        aria-valuemin={0}
+        aria-valuemax={modules.length}
+        aria-valuenow={position}
+        aria-valuetext={`Открыто ${position} из ${modules.length} модулей`}
+        style={{ height: 4, background: 'var(--border)', overflow: 'hidden' }}
+      >
+        <div style={{ width: `${percent}%`, height: '100%', background: progress.completed ? 'var(--acid-green)' : purple }} />
+      </div>
+      <Btn variant="accent" accent={purple} block onClick={() => {
+        window.lrAnalytics?.course(progress.completed ? 'course_revisit' : 'course_resume', {
+          creative_slot: 'course_hero_resume',
+          module_index: saved,
+          module_number: m.n,
+          module_title: m.title,
+          progress_percent: percent,
+        });
+        goToModule(saved, 'course_hero_resume');
+      }}>{label}</Btn>
+      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)',
+        letterSpacing: '0.08em', textTransform: 'uppercase', textAlign: 'right' }}>
+        точка возврата · {m.title}
+      </div>
+      <button onClick={resetProgress}
         style={{ all: 'unset', cursor: 'pointer',
-          display: 'inline-flex', alignItems: 'center', minHeight: 44,
+          display: 'inline-flex', alignItems: 'center', justifyContent: 'flex-end', minHeight: 44,
           fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--bone-dim)',
           letterSpacing: '0.06em', textDecoration: 'underline' }}>
         сбросить прогресс
