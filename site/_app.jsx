@@ -73,7 +73,10 @@ function lrLoadServitorsBundle() {
 
   window.__LR_SERVITORS_PROMISE__ = new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = 'dist/servitors.js';
+    const version = window.__LR_ASSET_VERSION__;
+    script.src = version
+      ? `dist/servitors.js?v=${encodeURIComponent(version)}`
+      : 'dist/servitors.js';
     script.defer = true;
     script.onload = () => lrServitorsReady()
       ? resolve()

@@ -8,6 +8,7 @@
 // only when a visitor opens the course route.
 
 import { build } from "esbuild";
+import { createHash } from "node:crypto";
 import {
   readFileSync,
   writeFileSync,
@@ -88,13 +89,25 @@ await buildBundle({
   label: "servitors bundle",
 });
 
+const assetVersionHash = createHash("sha256");
+for (const file of [
+  resolve(HERE, "index.html"),
+  resolve(HERE, "passport-servitora", "index.html"),
+  resolve(HERE, "analytics.js"),
+  resolve(HERE, "brand", "colors_and_type.css"),
+  resolve(DIST, "app.js"),
+  resolve(DIST, "servitors.js"),
+]) {
+  assetVersionHash.update(readFileSync(file));
+}
+const assetVersion = assetVersionHash.digest("hex").slice(0, 12);
+
 // Cloudflare must receive only runtime assets. Publishing the repository root
 // would expose .git, node_modules, source JSX, build tools and design drafts.
 rmSync(PUBLIC, { recursive: true, force: true });
 mkdirSync(PUBLIC, { recursive: true });
 
 for (const file of [
-  "index.html",
   "analytics.js",
   "_headers",
   "manifest.webmanifest",
@@ -104,11 +117,24 @@ for (const file of [
   cpSync(resolve(HERE, file), resolve(PUBLIC, file));
 }
 
+const publicIndex = readFileSync(resolve(HERE, "index.html"), "utf-8")
+  .replaceAll("__LR_ASSET_VERSION_VALUE__", assetVersion);
+writeFileSync(resolve(PUBLIC, "index.html"), publicIndex);
+
 for (const directory of ["brand", "dist", "passport-servitora"]) {
   cpSync(resolve(HERE, directory), resolve(PUBLIC, directory), {
     recursive: true,
   });
 }
+
+const publicPassportIndex = readFileSync(
+  resolve(HERE, "passport-servitora", "index.html"),
+  "utf-8",
+).replaceAll("__LR_ASSET_VERSION_VALUE__", assetVersion);
+writeFileSync(
+  resolve(PUBLIC, "passport-servitora", "index.html"),
+  publicPassportIndex,
+);
 
 mkdirSync(resolve(PUBLIC, "site"), { recursive: true });
 for (const file of ["shorts.json", "telegram.json"]) {

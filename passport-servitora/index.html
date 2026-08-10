@@ -31,8 +31,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/brand/colors_and_type.css">
-  <script src="/analytics.js" defer></script>
+  <link rel="stylesheet" href="/brand/colors_and_type.css?v=__LR_ASSET_VERSION_VALUE__">
+  <script src="/analytics.js?v=__LR_ASSET_VERSION_VALUE__" defer></script>
 
   <script type="application/ld+json">
   {
@@ -108,6 +108,7 @@
     .pp-brand {
       display: inline-flex;
       align-items: center;
+      min-height: 44px;
       gap: 12px;
       color: var(--bone);
       font-family: var(--font-display);
@@ -118,6 +119,9 @@
     .pp-brand img { width: 30px; height: 30px; }
     .pp-nav { display: flex; align-items: center; gap: 6px; }
     .pp-nav a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
       padding: 10px 12px;
       color: var(--bone-dim);
       font-family: var(--font-mono);
@@ -379,7 +383,9 @@
       font-family: var(--font-mono);
     }
     .pp-text-link {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
       margin-top: 26px;
       color: var(--passport-gold-bright);
       font-family: var(--font-mono);
@@ -473,7 +479,13 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
-    .pp-footer a { color: var(--bone); text-underline-offset: 3px; }
+    .pp-footer a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      color: var(--bone);
+      text-underline-offset: 3px;
+    }
 
     @media (max-width: 900px) {
       .pp-hero__grid { grid-template-columns: 1fr; min-height: auto; }
@@ -508,7 +520,7 @@
   <header class="pp-header">
     <div class="pp-header__inner">
       <a class="pp-brand" href="/" aria-label="Лево Руля — на главную">
-        <img src="/brand/assets/logo-mono-bone.svg" alt="">
+        <img src="/brand/assets/logo-mono-bone.svg" alt="" width="30" height="30">
         <span>ЛЕВО РУЛЯ</span>
       </a>
       <nav class="pp-nav" aria-label="Основная навигация">

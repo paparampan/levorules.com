@@ -318,7 +318,7 @@ function Footer() {
                  target={item.external ? '_blank' : undefined}
                  rel={item.external ? 'noopener' : undefined}
                  onClick={item.external ? undefined : (e) => navigate(e, item.route, item.section)}
-                 style={{ display: 'block', padding: '6px 0', color: 'var(--bone)', textDecoration: 'none', fontSize: 14 }}>
+                 style={{ display: 'flex', alignItems: 'center', minHeight: 44, color: 'var(--bone)', textDecoration: 'none', fontSize: 14 }}>
                 {item.label} {item.external ? '↗' : '→'}
               </a>
             ))}
@@ -330,7 +330,7 @@ function Footer() {
               ['YouTube', 'https://www.youtube.com/@levorules'],
               ['TikTok', 'https://www.tiktok.com/@levorules'],
               ].map(([l, h]) => (
-              <a key={l} href={h} target="_blank" rel="noopener" style={{ display: 'block', padding: '6px 0', color: 'var(--bone)', textDecoration: 'none', fontSize: 14 }}>{l} ↗</a>
+              <a key={l} href={h} target="_blank" rel="noopener" style={{ display: 'flex', alignItems: 'center', minHeight: 44, color: 'var(--bone)', textDecoration: 'none', fontSize: 14 }}>{l} ↗</a>
             ))}
           </div>
         </div>

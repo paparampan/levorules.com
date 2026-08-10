@@ -286,6 +286,7 @@ function ContinueOrStartButton({ goToModule, modules, purple }) {
       </div>
       <button onClick={(e) => { e.preventDefault(); localStorage.removeItem('lr_servitor_module'); setSaved(0); }}
         style={{ all: 'unset', cursor: 'pointer',
+          display: 'inline-flex', alignItems: 'center', minHeight: 44,
           fontFamily: 'var(--font-mono)', fontSize: 10, color: 'var(--bone-dim)',
           letterSpacing: '0.06em', textDecoration: 'underline' }}>
         сбросить прогресс

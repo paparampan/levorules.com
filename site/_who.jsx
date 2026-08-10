@@ -11,15 +11,16 @@ function WhoPage() {
       <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none',
         background: 'radial-gradient(ellipse at 50% 40%, rgba(232,29,29,0.12), transparent 60%)' }} />
       <div style={{ position: 'relative', maxWidth: 1100, textAlign: 'center' }}>
-        <div style={{
+        <h1 style={{
+          margin: 0,
           fontFamily: 'var(--font-display)', fontWeight: 700,
           fontSize: 'clamp(22px, 3.6vw, 48px)', lineHeight: 1.15,
           letterSpacing: '-0.015em', textTransform: 'uppercase',
           color: 'var(--bone)',
         }}>
           Кто я —<br/>не имеет никакого значения.
-        </div>
-        <div className="lr-glitch-text" style={{
+        </h1>
+        <p className="lr-glitch-text" style={{
           marginTop: 40,
           fontFamily: 'var(--font-display)', fontWeight: 700,
           fontSize: 'clamp(56px, 10vw, 152px)', lineHeight: 1.0,
@@ -27,7 +28,7 @@ function WhoPage() {
           color: blood,
         }}>
           А вот кто ты?
-        </div>
+        </p>
       </div>
     </section>
   );
