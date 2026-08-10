@@ -32,7 +32,10 @@
   }
 
   function event(name, params) {
-    const payload = compact(params);
+    const payload = compact({
+      ...(params || {}),
+      debug_mode: debugMode ? true : undefined,
+    });
     const record = { name, params: payload, at: new Date().toISOString() };
     eventLog.push(record);
     window.dispatchEvent(new CustomEvent('lr:analytics', { detail: record }));
