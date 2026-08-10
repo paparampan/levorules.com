@@ -31,7 +31,7 @@ function Header({ ritual, setRitual, route, setRoute }) {
         maxWidth: 1280, margin: '0 auto', padding: '14px 32px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24,
       }}>
-        <a className="lr-brand-link" href="#" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
+        <a className="lr-brand-link" href="#home" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
           style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none', color: 'var(--bone)' }}>
           <LRLogo size={30} color="blood" alt="" />
           <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 18, letterSpacing: '-0.005em', lineHeight: 1 }}>
@@ -136,7 +136,7 @@ function Hero({ ritual }) {
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'stretch', minWidth: 260 }}>
             <Btn variant="blood" href="https://telegram.me/levorules">Читать канал →</Btn>
-            <Btn variant="ghostAccent" accent="var(--purple)" href="#" onClick={(e) => {
+            <Btn variant="ghostAccent" accent="var(--purple)" href="#servitors" onClick={(e) => {
               e.preventDefault();
               window.dispatchEvent(new CustomEvent('lr:route', { detail: 'servitors' }));
             }}>

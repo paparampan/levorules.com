@@ -133,13 +133,13 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
       }}>
         <div className="sv-reader-toolbar-inner" style={{ maxWidth: 1440, margin: '0 auto', padding: '16px 32px',
           display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-          <a className="sv-reader-home-link" href="#" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
+          <a className="sv-reader-home-link" href="#home" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
             style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em',
               textTransform: 'uppercase', color: 'var(--bone-dim)', textDecoration: 'none' }}>
             ← ЛЕВО РУЛЯ
           </a>
           <span className="sv-reader-separator" style={{ color: 'var(--border-strong)' }}>/</span>
-          <a className="sv-reader-course-link" href="#" onClick={(e) => { e.preventDefault(); setRoute('servitors'); }}
+          <a className="sv-reader-course-link" href="#servitors" onClick={(e) => { e.preventDefault(); setRoute('servitors'); }}
             style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em',
               textTransform: 'uppercase', color: 'var(--bone-dim)', textDecoration: 'none' }}>
             сервиторы

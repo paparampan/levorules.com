@@ -29,7 +29,7 @@ function ServitorsPage({ setRoute }) {
         </div>
         <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '96px 32px 80px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 16 }}>
-            <a href="#" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
+            <a href="#home" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
               style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--bone-dim)', textDecoration: 'none' }}>
               ← ЛЕВО РУЛЯ
             </a>
