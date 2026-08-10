@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>ЛЕВО РУЛЯ · Магия хаоса и ПЛР</title>
 <meta name="description" content="Антидогматический оккультизм: магия хаоса, демонология, путь левой руки. Полный открытый курс «Сервиторы» — 11 модулей без регистрации и оплаты.">
+<meta name="robots" content="index,follow,max-image-preview:large">
 <meta name="author" content="Антон / @levorules">
 <meta name="theme-color" content="#B30000">
 <link rel="canonical" href="https://levorules.com/">
@@ -16,6 +17,7 @@
 <meta property="og:description" content="Антидогматический оккультизм. Открытый курс «Сервиторы» — полный, без регистрации и оплаты.">
 <meta property="og:url" content="https://levorules.com/">
 <meta property="og:image" content="https://levorules.com/uploads/og-image.png">
+<meta property="og:image:type" content="image/png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Лево Руля · Магия хаоса, демонология, путь левой руки">
@@ -26,6 +28,7 @@
 <meta name="twitter:title" content="ЛЕВО РУЛЯ · Магия хаоса и ПЛР">
 <meta name="twitter:description" content="Антидогматический оккультизм. Открытый курс «Сервиторы» — полный, без регистрации и оплаты.">
 <meta name="twitter:image" content="https://levorules.com/uploads/og-image.png">
+<meta name="twitter:image:alt" content="Лево Руля · Магия хаоса, демонология, путь левой руки">
 
 <!-- Favicons / app icons -->
 <link rel="icon" type="image/svg+xml" href="brand/assets/favicon.svg">
@@ -46,12 +49,32 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "Organization",
+      "@id": "https://levorules.com/#organization",
+      "name": "Лево Руля",
+      "url": "https://levorules.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://levorules.com/brand/assets/apple-touch-icon.png",
+        "width": 180,
+        "height": 180
+      },
+      "sameAs": [
+        "https://telegram.me/levorules",
+        "https://www.youtube.com/@levorules",
+        "https://www.tiktok.com/@levorules"
+      ]
+    },
+    {
       "@type": "WebSite",
       "@id": "https://levorules.com/#website",
       "url": "https://levorules.com/",
       "name": "Лево Руля",
       "inLanguage": "ru-RU",
-      "description": "Антидогматический оккультизм: магия хаоса, демонология, путь левой руки."
+      "description": "Антидогматический оккультизм: магия хаоса, демонология, путь левой руки.",
+      "publisher": {
+        "@id": "https://levorules.com/#organization"
+      }
     },
     {
       "@type": "Course",
@@ -60,10 +83,10 @@
       "url": "https://levorules.com/#servitors",
       "inLanguage": "ru-RU",
       "description": "Открытый курс про работу с автономными сущностями, сконструированными под волю практика.",
+      "isAccessibleForFree": true,
+      "educationalLevel": "Для практикующих, знакомых с базовой рамкой хаос-магии",
       "provider": {
-        "@type": "Organization",
-        "name": "Лево Руля",
-        "url": "https://levorules.com/"
+        "@id": "https://levorules.com/#organization"
       }
     }
   ]
