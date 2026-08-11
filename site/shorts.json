@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-11T15:17:12Z",
+  "updated": "2026-08-11T17:13:57Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -7,7 +7,7 @@
       "title": "Чужой образ для сервитора: кто кем управляет?",
       "url": "https://www.youtube.com/shorts/qmJlqCBRzGE",
       "thumb": "https://i.ytimg.com/vi/qmJlqCBRzGE/hqdefault.jpg",
-      "views": "912",
+      "views": "915",
       "acc": "var(--magenta)"
     },
     {
@@ -23,7 +23,7 @@
       "title": "Где работает сервитор? Три зоны и их изнанка",
       "url": "https://www.youtube.com/shorts/yOWFqITNWuQ",
       "thumb": "https://i.ytimg.com/vi/yOWFqITNWuQ/hqdefault.jpg",
-      "views": "971",
+      "views": "975",
       "acc": "var(--purple)"
     },
     {
@@ -35,10 +35,10 @@
       "acc": "var(--amber)"
     },
     {
-      "id": "5zOGkx9ts9o",
-      "title": "Как кормить сервитора: 6 способов и их риски",
-      "url": "https://www.youtube.com/shorts/5zOGkx9ts9o",
-      "thumb": "https://i.ytimg.com/vi/5zOGkx9ts9o/hqdefault.jpg",
+      "id": "uMPscMZnqvY",
+      "title": "5 уровней автономии сервиторов: где заканчивается контроль?",
+      "url": "https://www.youtube.com/shorts/uMPscMZnqvY",
+      "thumb": "https://i.ytimg.com/vi/uMPscMZnqvY/hqdefault.jpg",
       "views": "1k",
       "acc": "var(--cyber-cyan)"
     }
