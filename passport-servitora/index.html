@@ -249,6 +249,10 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
+    .pp-purchase__note a {
+      color: inherit;
+      text-underline-offset: 3px;
+    }
     .pp-cover {
       position: relative;
       width: min(100%, 520px);
@@ -464,6 +468,38 @@
       color: var(--bone);
     }
     .pp-final .pp-purchase__note { color: rgba(10, 10, 10, 0.7); }
+    .pp-delivery-help {
+      max-width: 760px;
+      margin: 38px auto 0;
+      padding: 24px 28px;
+      border: 1px solid rgba(10, 10, 10, 0.35);
+      background: rgba(10, 10, 10, 0.06);
+      text-align: left;
+    }
+    .pp-delivery-help h3 {
+      margin: 0;
+      font-size: 22px;
+    }
+    .pp-delivery-help p {
+      max-width: none;
+      margin: 10px 0 0;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .pp-delivery-help ol {
+      margin: 16px 0 0;
+      padding-left: 22px;
+    }
+    .pp-delivery-help li {
+      padding: 4px 0;
+      font-size: 14px;
+      line-height: 1.55;
+    }
+    .pp-delivery-help a {
+      color: var(--void);
+      font-weight: 700;
+      text-underline-offset: 3px;
+    }
 
     .pp-footer { background: var(--ash-2); }
     .pp-footer__inner {
@@ -511,6 +547,7 @@
       .pp-route, .pp-compare, .pp-fit { grid-template-columns: 1fr; }
       .pp-card, .pp-route__step { min-height: 0; }
       .pp-final { padding: 72px 0; }
+      .pp-delivery-help { padding: 22px 20px; }
       .pp-footer__inner { padding: 36px 20px; flex-direction: column; }
     }
   </style>
@@ -549,7 +586,9 @@
           <div class="pp-purchase">
             <div class="pp-price">299 ₽</div>
             <a class="pp-button" href="https://web.tribute.tg/p/APy" target="_blank" rel="noopener sponsored" data-tribute="hero">Купить в Tribute →</a>
-            <div class="pp-purchase__note">Оплата и выдача PDF проходят на стороне Tribute</div>
+            <div class="pp-purchase__note">
+              PDF приходит на email после оплаты · <a href="#delivery-help">Что делать, если письма нет</a>
+            </div>
           </div>
         </div>
         <div class="pp-cover">
@@ -717,8 +756,19 @@
         <div class="pp-purchase">
           <div class="pp-price">299 ₽</div>
           <a class="pp-button" href="https://web.tribute.tg/p/APy" target="_blank" rel="noopener sponsored" data-tribute="final">Купить в Tribute →</a>
-          <div class="pp-purchase__note">Цифровой товар · PDF · 37 страниц</div>
+          <div class="pp-purchase__note">
+            Цифровой товар · PDF · 37 страниц · <a href="#delivery-help">Помощь с получением</a>
+          </div>
         </div>
+        <aside class="pp-delivery-help" id="delivery-help" aria-labelledby="delivery-help-title">
+          <h3 id="delivery-help-title">НЕ ПРИШЁЛ ФАЙЛ ПОСЛЕ ОПЛАТЫ?</h3>
+          <p>Обычно Tribute отправляет письмо со ссылкой на PDF автоматически.</p>
+          <ol>
+            <li>Подожди до 10 минут и проверь папки «Спам» и «Промоакции».</li>
+            <li>Открой <a href="https://t.me/tribute" target="_blank" rel="noopener">@Tribute</a> → «Меню» → нажми на аватар вверху → «Инфопродукты и контент».</li>
+            <li>Если гайда там нет, напиши в <a href="https://t.me/levorules_chat" target="_blank" rel="noopener">чат «Лево Руля»</a> и укажи время оплаты. Email и чек не публикуй — администратор свяжется с тобой лично.</li>
+          </ol>
+        </aside>
       </div>
     </section>
   </main>
