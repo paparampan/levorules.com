@@ -12,7 +12,7 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, NavigableString
 
 CHANNEL_HANDLE = "levorules"
 PREVIEW_URL = f"https://telegram.me/s/{CHANNEL_HANDLE}"
@@ -61,11 +61,54 @@ def extract_photo(msg):
     return m.group(1) if m else None
 
 
+def extract_first_line_parts(text_div):
+    """Return safe text segments for Telegram strikethrough in the first line."""
+    chars = []
+    strike_tags = {"s", "strike", "del"}
+
+    for node in text_div.descendants:
+        if getattr(node, "name", None) == "br":
+            break
+        if not isinstance(node, NavigableString):
+            continue
+
+        struck = False
+        parent = node.parent
+        while parent is not None and parent is not text_div:
+            if getattr(parent, "name", None) in strike_tags:
+                struck = True
+                break
+            parent = parent.parent
+
+        for char in str(node):
+            normalized = " " if char.isspace() else char
+            if normalized == " " and chars and chars[-1][0] == " ":
+                continue
+            # Do not extend the line through separator spaces around a word.
+            chars.append((normalized, struck and normalized != " "))
+
+    while chars and chars[0][0] == " ":
+        chars.pop(0)
+    while chars and chars[-1][0] == " ":
+        chars.pop()
+
+    parts = []
+    for char, struck in chars:
+        if parts and parts[-1]["strike"] == struck:
+            parts[-1]["text"] += char
+        else:
+            parts.append({"text": char, "strike": struck})
+    return parts
+
+
 def extract_text(msg):
-    """Return (title, body). Title is first bold line or first sentence."""
+    """Return (title, body, title_parts) from a Telegram message."""
     text_div = msg.find("div", class_="tgme_widget_message_text")
     if not text_div:
-        return "", ""
+        return "", "", None
+
+    first_line_parts = extract_first_line_parts(text_div)
+    first_line_text = "".join(part["text"] for part in first_line_parts)
 
     # Preserve line breaks
     for br in text_div.find_all("br"):
@@ -73,11 +116,11 @@ def extract_text(msg):
 
     full = text_div.get_text("", strip=False).strip()
     if not full:
-        return "", ""
+        return "", "", None
 
-    lines = [ln.strip() for ln in full.split("\n") if ln.strip()]
+    lines = [re.sub(r"\s+", " ", ln.strip()) for ln in full.split("\n") if ln.strip()]
     if not lines:
-        return "", ""
+        return "", "", None
 
     # If first line is SHORT and followed by content, it's the title.
     # Otherwise split at the first sentence end of the first line.
@@ -99,7 +142,11 @@ def extract_text(msg):
     # Clamp body length
     if len(body) > 260:
         body = body[:257].rstrip() + "…"
-    return title, body
+
+    title_parts = None
+    if title == first_line_text and any(part["strike"] for part in first_line_parts):
+        title_parts = first_line_parts
+    return title, body, title_parts
 
 
 def extract_post(msg):
@@ -111,7 +158,7 @@ def extract_post(msg):
     except ValueError:
         return None
 
-    title, body = extract_text(msg)
+    title, body, title_parts = extract_text(msg)
     photo = extract_photo(msg)
 
     # If no text but a photo, fall back to "Фото · <date>" style title
@@ -128,7 +175,7 @@ def extract_post(msg):
     views_tag = msg.find("span", class_="tgme_widget_message_views")
     views = parse_views(views_tag.get_text()) if views_tag else ""
 
-    return {
+    post = {
         "id": pid,
         "url": f"https://telegram.me/{CHANNEL_HANDLE}/{pid}",
         "title": title,
@@ -137,6 +184,9 @@ def extract_post(msg):
         "date": iso,
         "views": views,
     }
+    if title_parts:
+        post["titleParts"] = title_parts
+    return post
 
 
 def main():

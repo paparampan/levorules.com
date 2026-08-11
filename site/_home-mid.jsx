@@ -202,6 +202,19 @@ function formatTelegramDate(iso) {
   return `${dd}.${mm}.${d.getFullYear()}`;
 }
 
+function TelegramPostTitle({ post }) {
+  if (!Array.isArray(post.titleParts) || !post.titleParts.length) {
+    return post.title;
+  }
+  return post.titleParts.map((part, index) => (
+    part.strike ? (
+      <s key={index} style={{ textDecorationThickness: '0.08em' }}>{part.text}</s>
+    ) : (
+      <React.Fragment key={index}>{part.text}</React.Fragment>
+    )
+  ));
+}
+
 function TelegramPosts() {
   const [posts, setPosts] = React.useState(TELEGRAM_FALLBACK);
 
@@ -248,7 +261,9 @@ function TelegramPosts() {
                     <span>▸ Telegram</span>
                     {p.views ? <span style={{ color: 'var(--bone-dim)' }}>{p.views}</span> : null}
                   </div>
-                  <h3 style={{ marginTop: 16, fontSize: 26, lineHeight: 1.05, textTransform: 'uppercase', letterSpacing: '-0.01em' }}>{p.title}</h3>
+                  <h3 style={{ marginTop: 16, fontSize: 26, lineHeight: 1.05, textTransform: 'uppercase', letterSpacing: '-0.01em' }}>
+                    <TelegramPostTitle post={p} />
+                  </h3>
                   {p.body ? (
                     <p style={{ marginTop: 14, color: 'var(--bone-dim)', lineHeight: 1.55 }}>{p.body}</p>
                   ) : null}

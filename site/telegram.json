@@ -1,15 +1,29 @@
 {
-  "updated": "2026-08-11T19:27:42Z",
+  "updated": "2026-08-11T20:58:46Z",
   "channel": "https://telegram.me/levorules",
   "items": [
     {
       "id": 131,
       "url": "https://telegram.me/levorules/131",
-      "title": "ПЯТАЯ НОГА  СИЛА СФИНКСА",
+      "title": "ПЯТАЯ НОГА СИЛА СФИНКСА",
       "body": "Мне тут рассказали, что если сыграть на фортепиано, то получается музыка. Вчера попробовал - музыки не получилось. А еще говорят, что психолог может помочь решить кучу проблем. Сходил один раз - только деньги потратил. Это я к чему. Вот люди пишут: \"Ритуал…",
       "photo": "https://cdn4.telesco.pe/file/oOXeVfJDHz1_IasLflow3rknOHELmfEGVYUDJ9juI4e-4Di0IuKEWta6pGbDV2nVIUEudRGMXQaQtoTACfGFKN4v9j8UxeMmdSLwYl0WkOe33OOUGiySXvNLCMSKmvIv-D3V8wl_LPr8YAvKJldRgi43MeIOMrv328mlyNkd7FOGkU7iTBaF87yXgg6RDqM7qK6JsbBMVqD95_BnX9FQOMfWUnlF6K1y4tlS6zlmWdoFV51dy9MtW8NNWjNd38iGX82x-Tt8xHXeSqMLwk0fsjsTKV9HlPtsG7MAwTuBhqOPHtEgTwQ-cYDWRYQ5k7XCswKCW61fQVbnSD98gSfvNA.jpg",
       "date": "2026-07-21T16:00:00+00:00",
       "views": "268",
+      "titleParts": [
+        {
+          "text": "ПЯТАЯ ",
+          "strike": false
+        },
+        {
+          "text": "НОГА",
+          "strike": true
+        },
+        {
+          "text": " СИЛА СФИНКСА",
+          "strike": false
+        }
+      ],
       "acc": "var(--cyber-cyan)"
     },
     {
