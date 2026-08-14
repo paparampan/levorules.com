@@ -121,7 +121,7 @@ const publicIndex = readFileSync(resolve(HERE, "index.html"), "utf-8")
   .replaceAll("__LR_ASSET_VERSION_VALUE__", assetVersion);
 writeFileSync(resolve(PUBLIC, "index.html"), publicIndex);
 
-for (const directory of ["brand", "dist", "passport-servitora"]) {
+for (const directory of ["brand", "dist", "passport-servitora", "tiktok", "instagram"]) {
   cpSync(resolve(HERE, directory), resolve(PUBLIC, directory), {
     recursive: true,
   });
