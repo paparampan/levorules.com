@@ -1,14 +1,22 @@
 {
-  "updated": "2026-08-16T10:42:10Z",
+  "updated": "2026-08-16T13:02:33Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "MO-E7YhZwn4",
+      "title": "Магическое планирование: как поставить задачу сервитору по SMART",
+      "url": "https://www.youtube.com/shorts/MO-E7YhZwn4",
+      "thumb": "https://i.ytimg.com/vi/MO-E7YhZwn4/hqdefault.jpg",
+      "views": "337",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "qmJlqCBRzGE",
       "title": "Чужой образ для сервитора: кто кем управляет?",
       "url": "https://www.youtube.com/shorts/qmJlqCBRzGE",
       "thumb": "https://i.ytimg.com/vi/qmJlqCBRzGE/hqdefault.jpg",
       "views": "926",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "vmjaZvkzWvA",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/vmjaZvkzWvA",
       "thumb": "https://i.ytimg.com/vi/vmjaZvkzWvA/hqdefault.jpg",
       "views": "1k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "yOWFqITNWuQ",
@@ -24,21 +32,13 @@
       "url": "https://www.youtube.com/shorts/yOWFqITNWuQ",
       "thumb": "https://i.ytimg.com/vi/yOWFqITNWuQ/hqdefault.jpg",
       "views": "988",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "9GkIm1OqDx4",
       "title": "Сервитор может пережить тебя. Что тогда?",
       "url": "https://www.youtube.com/shorts/9GkIm1OqDx4",
       "thumb": "https://i.ytimg.com/vi/9GkIm1OqDx4/hqdefault.jpg",
-      "views": "1k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "uMPscMZnqvY",
-      "title": "5 уровней автономии сервиторов: где заканчивается контроль?",
-      "url": "https://www.youtube.com/shorts/uMPscMZnqvY",
-      "thumb": "https://i.ytimg.com/vi/uMPscMZnqvY/hqdefault.jpg",
       "views": "1k",
       "acc": "var(--cyber-cyan)"
     }
