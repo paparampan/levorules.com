@@ -11,6 +11,7 @@
 
 from __future__ import annotations
 
+import hashlib
 from pathlib import Path
 
 from PIL import Image
@@ -185,13 +186,21 @@ def main() -> None:
 
     img = Image.open(png).convert("RGB")
     assert img.size == (1024, 1024), img.size
-    img.save(ASSETS / "cover.webp", "WEBP", quality=92, method=6)
-    img.save(ASSETS / "cover.jpg", "JPEG", quality=88, optimize=True, progressive=True)
+    # Имя с хешем содержимого: папка assets отдаётся с Cache-Control на 30 дней,
+    # поэтому обложку под тем же именем браузеры и CDN держали бы месяц.
+    img.save(ASSETS / "_tmp.jpg", "JPEG", quality=88, optimize=True, progressive=True)
+    digest = hashlib.sha256((ASSETS / "_tmp.jpg").read_bytes()).hexdigest()[:8]
+    (ASSETS / "_tmp.jpg").rename(ASSETS / f"cover-{digest}.jpg")
+    img.save(ASSETS / f"cover-{digest}.webp", "WEBP", quality=92, method=6)
+    for old in ASSETS.glob("cover-*.*"):
+        if digest not in old.name:
+            old.unlink()
+    print(f"имя обложки: cover-{digest}.jpg / .webp — обнови ссылки, если хеш изменился")
     TRIBUTE.parent.mkdir(parents=True, exist_ok=True)
     img.save(TRIBUTE, "PNG")          # для Tribute — без потерь
     png.unlink()
     tmp.unlink()
-    print(f"обложка: {ASSETS / 'cover.jpg'} и {ASSETS / 'cover.webp'}")
+    print("обложка собрана")
     print(f"для Tribute: {TRIBUTE}")
 
 

@@ -202,7 +202,7 @@ function PassportPromo({ placement = 'site' }) {
         >
           <img
             className="lr-passport-promo__cover"
-            src="/passport-servitora/assets/cover.webp"
+            src="/passport-servitora/assets/cover-fedd2f05.webp"
             alt="Обложка практического гайда «Паспорт сервитора»"
             loading="lazy"
             decoding="async"
