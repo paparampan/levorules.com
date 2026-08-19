@@ -70,6 +70,47 @@ section.page:not(:first-child) { break-before: page !important; }
 """
 
 
+# На нескольких страницах контент на 1–20 px выше листа: колонтитул уезжает
+# вниз и «скачет» от страницы к странице. Ужимаем только такие страницы,
+# компенсируя zoom размерами, чтобы лист остался ровно A4.
+FIT_OVERFLOW = """() => {
+  // На четырёх страницах исходника контент на 1–20 px выше листа: колонтитул
+  // уезжает вниз и «скачет» от страницы к странице. Ужимаем содержимое такой
+  // страницы (кроме самого колонтитула) на доли процента — на глаз незаметно,
+  // а нижняя линия встаёт на общую высоту.
+  const fixed = [];
+  document.querySelectorAll('section.page').forEach((page, i) => {
+    const over = page.scrollHeight - page.clientHeight;
+    if (over <= 0) return;
+    const body = [...page.children].filter((e) => !e.classList.contains('ft'));
+    if (!body.length) return;
+    let zoom = 1;
+    for (let pass = 0; pass < 4; pass += 1) {
+      const diff = page.scrollHeight - page.clientHeight;
+      if (diff <= 0) break;
+      const height = body.reduce((sum, e) => sum + e.getBoundingClientRect().height, 0);
+      zoom *= Math.max(0.9, (height - diff - 1) / height);
+      body.forEach((e) => { e.style.zoom = zoom; });
+    }
+    fixed.push({ page: i + 1, overflowPx: Math.round(over), zoom: Number(zoom.toFixed(4)) });
+  });
+  return fixed;
+}"""
+
+# Колонтитул должен стоять на одной высоте на всех страницах.
+CHECK_FOOTERS = """() => {
+  const gaps = [];
+  document.querySelectorAll('section.page').forEach((page, i) => {
+    const ft = page.querySelector(':scope > .ft');
+    if (!ft) return;
+    const pr = page.getBoundingClientRect();
+    const fr = ft.getBoundingClientRect();
+    gaps.push({ page: i + 1, gap: Math.round((pr.bottom - fr.bottom) / (Number(page.style.zoom) || 1)) });
+  });
+  return gaps;
+}"""
+
+
 def render(source: Path = SOURCE, out: Path = OUT) -> int:
     out.parent.mkdir(parents=True, exist_ok=True)
     with sync_playwright() as pw:
@@ -80,6 +121,16 @@ def render(source: Path = SOURCE, out: Path = OUT) -> int:
         count = page.evaluate(FLATTEN)
         page.add_style_tag(content=PRINT_CSS)
         page.wait_for_timeout(900)
+
+        fixed = page.evaluate(FIT_OVERFLOW)
+        for item in fixed:
+            print(f"  стр. {item['page']}: контент выше листа на "
+                  f"{item['overflowPx']} px — ужат до {item['zoom']}")
+        page.wait_for_timeout(300)
+
+        gaps = {g["gap"] for g in page.evaluate(CHECK_FOOTERS)}
+        assert len(gaps) == 1, f"колонтитул стоит на разной высоте: {sorted(gaps)}"
+        print(f"  колонтитул на всех страницах на одной высоте ({gaps.pop()} px от низа)")
         page.pdf(
             path=str(out),
             print_background=True,
