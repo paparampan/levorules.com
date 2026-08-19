@@ -119,8 +119,8 @@ function SigilServitor({ accent = 'var(--purple)', opacity = 0.3, size = 320 }) 
 
 const PASSPORT_PRODUCT = Object.freeze({
   title: 'Паспорт сервитора',
-  price: '299 ₽',
-  pages: 37,
+  price: '369 ₽',
+  pages: 49,
   landingUrl: '/passport-servitora/',
 });
 
@@ -171,7 +171,7 @@ function PassportPromo({ placement = 'site' }) {
             до имени, сигилы, формы, правил, тестов и завершения сервитора.
           </p>
           <ul className="lr-passport-promo__list">
-            <li>примеры и типичные ошибки на каждом этапе;</li>
+            <li>14 шагов: разбор решения и страница полей к каждому;</li>
             <li>12 чистовых страниц для собственной конструкции;</li>
             <li>понятные границы, ревизия и условия остановки.</li>
           </ul>
