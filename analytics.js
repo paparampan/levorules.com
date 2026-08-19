@@ -6,7 +6,7 @@
     item_id: 'passport_servitora',
     item_name: 'Паспорт сервитора',
     item_category: 'PDF-гайд',
-    price: 299,
+    price: 369,
     quantity: 1,
   });
   const isProduction = /(^|\.)levorules\.com$/i.test(location.hostname);
