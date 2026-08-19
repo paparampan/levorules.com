@@ -25,7 +25,7 @@ ASSETS = REPO / "passport-servitora" / "assets"
 TRIBUTE = HERE / "out" / "tribute-cover.png"
 
 PAGES = 49
-PRICE = "299 ₽"
+PRICE = "369 ₽"
 
 # "photo" — Тенет на обложке, "type" — чистая типографика
 STYLE = "photo"
