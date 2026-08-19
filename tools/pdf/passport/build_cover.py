@@ -27,8 +27,11 @@ TRIBUTE = HERE / "out" / "tribute-cover.png"
 PAGES = 49
 PRICE = "299 ₽"
 
+# "photo" — Тенет на обложке, "type" — чистая типографика
+STYLE = "photo"
 
-def html() -> str:
+
+def _fonts() -> str:
     def face(family: str, filename: str, weight: str) -> str:
         return ("@font-face{font-family:'%s';src:url('%s') format('truetype');"
                 "font-weight:%s;font-style:normal;font-display:block;}"
@@ -42,7 +45,11 @@ def html() -> str:
         + face("Spectral", "Spectral-300.ttf", "300")
         + face("Spectral", "Spectral-400.ttf", "400")
     )
+    return fonts
 
+
+def html() -> str:
+    fonts = _fonts()
     return f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><style>
 {fonts}
 *{{box-sizing:border-box;margin:0;padding:0;}}
@@ -100,11 +107,72 @@ h1{{font-family:'Oswald';font-weight:700;font-size:112px;line-height:.96;
 </div></body></html>"""
 
 
+
+PHOTO = HERE / "tenet-cover-source.jpg"
+
+
+def html_photo() -> str:
+    """Вариант с Тенетом: фотография конструкции + типографика новой редакции."""
+    return f"""<!doctype html><html lang="ru"><head><meta charset="utf-8"><style>
+{_fonts()}
+*{{box-sizing:border-box;margin:0;padding:0;}}
+html,body{{width:1024px;height:1024px;background:#0A0908;}}
+.cover{{position:relative;width:1024px;height:1024px;overflow:hidden;}}
+.photo{{position:absolute;inset:0;background-image:url('{PHOTO.as_uri()}');
+  background-size:1024px auto;background-position:0 -120px;}}
+.scrim{{position:absolute;inset:0;background:
+  linear-gradient(180deg, rgba(8,7,6,.96) 0%, rgba(8,7,6,.92) 26%,
+    rgba(8,7,6,.62) 38%, rgba(8,7,6,.10) 50%, rgba(8,7,6,0) 62%,
+    rgba(8,7,6,.55) 88%, rgba(8,7,6,.86) 100%);}}
+.frame{{position:absolute;inset:26px;border:1px solid rgba(196,168,120,.30);}}
+.body{{position:absolute;inset:0;padding:60px 64px 54px;display:flex;
+  flex-direction:column;justify-content:space-between;color:#EFE9DA;}}
+.top{{display:flex;justify-content:space-between;align-items:baseline;
+  font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.2em;
+  text-transform:uppercase;color:#A79B86;}}
+.top b{{color:#E05252;font-weight:400;}}
+.kicker{{font-family:'IBM Plex Mono';font-size:13.5px;letter-spacing:.24em;
+  text-transform:uppercase;color:#C9BFA9;margin:30px 0 14px;}}
+.kicker i{{color:#E05252;font-style:normal;}}
+h1{{font-family:'Oswald';font-weight:700;font-size:88px;line-height:.94;
+  letter-spacing:-.02em;text-transform:uppercase;color:#F4EEE0;
+  text-shadow:0 6px 30px rgba(0,0,0,.75);}}
+.rule{{width:104px;height:2px;background:#B32020;margin:20px 0 18px;}}
+.sub{{font-family:'Spectral';font-weight:300;font-size:23px;line-height:1.42;
+  color:#D3CBBA;max-width:560px;text-shadow:0 3px 16px rgba(0,0,0,.85);}}
+.bottom{{display:flex;justify-content:space-between;align-items:flex-end;
+  font-family:'IBM Plex Mono';font-size:13px;letter-spacing:.16em;
+  text-transform:uppercase;color:#B7AD98;}}
+.bottom .parts{{color:#DDD5C3;line-height:2;}}
+.bottom .parts i{{color:#E05252;font-style:normal;}}
+.bottom .price{{font-size:16px;color:#F4EEE0;}}
+</style></head><body>
+<div class="cover">
+  <div class="photo"></div><div class="scrim"></div><div class="frame"></div>
+  <div class="body">
+    <div>
+      <div class="top"><span>Лево Руля · антидогматический оккультизм</span><b>@levorules</b></div>
+      <div class="kicker">практический гайд <i>·</i> pdf <i>·</i> {PAGES} страниц</div>
+      <h1>Паспорт<br>сервитора</h1>
+      <div class="rule"></div>
+      <p class="sub">От исходной проблемы до завершения работы: что решать,
+        в каком порядке и по каким признакам проверять результат.</p>
+    </div>
+    <div class="bottom">
+      <div class="parts">14 шагов с полями для заполнения<br>
+        <i>·</i> 12 страниц чистового паспорта</div>
+      <div class="price">{PRICE}</div>
+    </div>
+  </div>
+</div></body></html>"""
+
+
 def main() -> None:
     tmp = HERE / "_cover.html"
-    tmp.write_text(html(), encoding="utf-8")
+    builder = html_photo if STYLE == "photo" else html
+    tmp.write_text(builder(), encoding="utf-8")
     ASSETS.mkdir(parents=True, exist_ok=True)
-    png = ASSETS / "cover.png"
+    png = ASSETS / "_cover_raw.png"
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch()
@@ -118,10 +186,12 @@ def main() -> None:
     img = Image.open(png).convert("RGB")
     assert img.size == (1024, 1024), img.size
     img.save(ASSETS / "cover.webp", "WEBP", quality=92, method=6)
+    img.save(ASSETS / "cover.jpg", "JPEG", quality=88, optimize=True, progressive=True)
     TRIBUTE.parent.mkdir(parents=True, exist_ok=True)
-    img.save(TRIBUTE, "PNG")
+    img.save(TRIBUTE, "PNG")          # для Tribute — без потерь
+    png.unlink()
     tmp.unlink()
-    print(f"обложка: {png} и {ASSETS / 'cover.webp'}")
+    print(f"обложка: {ASSETS / 'cover.jpg'} и {ASSETS / 'cover.webp'}")
     print(f"для Tribute: {TRIBUTE}")
 
 
