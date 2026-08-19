@@ -22,3 +22,7 @@ Icon?
 .vscode/
 .idea/
 *.swp
+
+# сборки паспорта (платный продукт) не попадают в репозиторий
+tools/pdf/passport/out/
+tools/pdf/passport/_preview.html
