@@ -1,44 +1,44 @@
 {
-  "updated": "2026-08-28T06:09:29Z",
+  "updated": "2026-08-28T18:46:21Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "8MhKEAor7_I",
+      "title": "Что такое анкер сервитора? 7 рабочих типов с примерами  #магияхаоса",
+      "url": "https://www.youtube.com/shorts/8MhKEAor7_I",
+      "thumb": "https://i.ytimg.com/vi/8MhKEAor7_I/hqdefault.jpg",
+      "views": "7",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "tmlJapAgO_k",
       "title": "Что в магической сумочке? Набор, который закрывает 90% практики",
       "url": "https://www.youtube.com/shorts/tmlJapAgO_k",
       "thumb": "https://i.ytimg.com/vi/tmlJapAgO_k/hqdefault.jpg",
-      "views": "110",
-      "acc": "var(--magenta)"
+      "views": "118",
+      "acc": "var(--acid-green)"
     },
     {
       "id": "MO-E7YhZwn4",
       "title": "Магическое планирование: как поставить задачу сервитору по SMART",
       "url": "https://www.youtube.com/shorts/MO-E7YhZwn4",
       "thumb": "https://i.ytimg.com/vi/MO-E7YhZwn4/hqdefault.jpg",
-      "views": "809",
-      "acc": "var(--acid-green)"
+      "views": "815",
+      "acc": "var(--purple)"
     },
     {
       "id": "qmJlqCBRzGE",
       "title": "Чужой образ для сервитора: кто кем управляет?",
       "url": "https://www.youtube.com/shorts/qmJlqCBRzGE",
       "thumb": "https://i.ytimg.com/vi/qmJlqCBRzGE/hqdefault.jpg",
-      "views": "943",
-      "acc": "var(--purple)"
+      "views": "950",
+      "acc": "var(--amber)"
     },
     {
       "id": "vmjaZvkzWvA",
       "title": "3 ошибки при создании сервитора: почему он выходит из-под контроля",
       "url": "https://www.youtube.com/shorts/vmjaZvkzWvA",
       "thumb": "https://i.ytimg.com/vi/vmjaZvkzWvA/hqdefault.jpg",
-      "views": "1k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "yOWFqITNWuQ",
-      "title": "Где работает сервитор? Три зоны и их изнанка",
-      "url": "https://www.youtube.com/shorts/yOWFqITNWuQ",
-      "thumb": "https://i.ytimg.com/vi/yOWFqITNWuQ/hqdefault.jpg",
       "views": "1k",
       "acc": "var(--cyber-cyan)"
     }
