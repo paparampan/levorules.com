@@ -1,30 +1,38 @@
 {
-  "updated": "2026-08-30T08:21:22Z",
+  "updated": "2026-08-30T14:52:58Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "pBgrm5Ioj9k",
+      "title": "У бога был ОТЕЦ. Его звали Эль | Краткая история христианского эгрегора",
+      "url": "https://www.youtube.com/shorts/pBgrm5Ioj9k",
+      "thumb": "https://i.ytimg.com/vi/pBgrm5Ioj9k/hqdefault.jpg",
+      "views": "1",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "8MhKEAor7_I",
       "title": "Что такое анкер сервитора? 7 рабочих типов с примерами  #магияхаоса",
       "url": "https://www.youtube.com/shorts/8MhKEAor7_I",
       "thumb": "https://i.ytimg.com/vi/8MhKEAor7_I/hqdefault.jpg",
-      "views": "290",
-      "acc": "var(--magenta)"
+      "views": "295",
+      "acc": "var(--acid-green)"
     },
     {
       "id": "tmlJapAgO_k",
       "title": "Что в магической сумочке? Набор, который закрывает 90% практики",
       "url": "https://www.youtube.com/shorts/tmlJapAgO_k",
       "thumb": "https://i.ytimg.com/vi/tmlJapAgO_k/hqdefault.jpg",
-      "views": "129",
-      "acc": "var(--acid-green)"
+      "views": "133",
+      "acc": "var(--purple)"
     },
     {
       "id": "MO-E7YhZwn4",
       "title": "Магическое планирование: как поставить задачу сервитору по SMART",
       "url": "https://www.youtube.com/shorts/MO-E7YhZwn4",
       "thumb": "https://i.ytimg.com/vi/MO-E7YhZwn4/hqdefault.jpg",
-      "views": "825",
-      "acc": "var(--purple)"
+      "views": "827",
+      "acc": "var(--amber)"
     },
     {
       "id": "qmJlqCBRzGE",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/qmJlqCBRzGE",
       "thumb": "https://i.ytimg.com/vi/qmJlqCBRzGE/hqdefault.jpg",
       "views": "960",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "vmjaZvkzWvA",
-      "title": "3 ошибки при создании сервитора: почему он выходит из-под контроля",
-      "url": "https://www.youtube.com/shorts/vmjaZvkzWvA",
-      "thumb": "https://i.ytimg.com/vi/vmjaZvkzWvA/hqdefault.jpg",
-      "views": "1k",
       "acc": "var(--cyber-cyan)"
     }
   ]
