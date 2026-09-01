@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-01T05:15:13Z",
+  "updated": "2026-09-01T11:43:19Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -15,7 +15,7 @@
       "title": "Что такое анкер сервитора? 7 рабочих типов с примерами  #магияхаоса",
       "url": "https://www.youtube.com/shorts/8MhKEAor7_I",
       "thumb": "https://i.ytimg.com/vi/8MhKEAor7_I/hqdefault.jpg",
-      "views": "399",
+      "views": "401",
       "acc": "var(--acid-green)"
     },
     {
@@ -23,7 +23,7 @@
       "title": "Что в магической сумочке? Набор, который закрывает 90% практики",
       "url": "https://www.youtube.com/shorts/tmlJapAgO_k",
       "thumb": "https://i.ytimg.com/vi/tmlJapAgO_k/hqdefault.jpg",
-      "views": "164",
+      "views": "165",
       "acc": "var(--purple)"
     },
     {
@@ -31,7 +31,7 @@
       "title": "Магическое планирование: как поставить задачу сервитору по SMART",
       "url": "https://www.youtube.com/shorts/MO-E7YhZwn4",
       "thumb": "https://i.ytimg.com/vi/MO-E7YhZwn4/hqdefault.jpg",
-      "views": "845",
+      "views": "846",
       "acc": "var(--amber)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "Чужой образ для сервитора: кто кем управляет?",
       "url": "https://www.youtube.com/shorts/qmJlqCBRzGE",
       "thumb": "https://i.ytimg.com/vi/qmJlqCBRzGE/hqdefault.jpg",
-      "views": "974",
+      "views": "975",
       "acc": "var(--cyber-cyan)"
     }
   ]
