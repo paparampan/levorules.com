@@ -1,14 +1,22 @@
 {
-  "updated": "2026-09-03T12:51:04Z",
+  "updated": "2026-09-03T17:52:51Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "lF3Oyj5XveM",
+      "title": "Знак от вселенной или самообман? Как сервитор сообщает о результате",
+      "url": "https://www.youtube.com/shorts/lF3Oyj5XveM",
+      "thumb": "https://i.ytimg.com/vi/lF3Oyj5XveM/hqdefault.jpg",
+      "views": "8",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "pBgrm5Ioj9k",
       "title": "У бога был ОТЕЦ. Его звали Эль | Краткая история христианского эгрегора",
       "url": "https://www.youtube.com/shorts/pBgrm5Ioj9k",
       "thumb": "https://i.ytimg.com/vi/pBgrm5Ioj9k/hqdefault.jpg",
-      "views": "1.7k",
-      "acc": "var(--magenta)"
+      "views": "1.8k",
+      "acc": "var(--acid-green)"
     },
     {
       "id": "8MhKEAor7_I",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/8MhKEAor7_I",
       "thumb": "https://i.ytimg.com/vi/8MhKEAor7_I/hqdefault.jpg",
       "views": "412",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "tmlJapAgO_k",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/tmlJapAgO_k",
       "thumb": "https://i.ytimg.com/vi/tmlJapAgO_k/hqdefault.jpg",
       "views": "174",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "MO-E7YhZwn4",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/MO-E7YhZwn4",
       "thumb": "https://i.ytimg.com/vi/MO-E7YhZwn4/hqdefault.jpg",
       "views": "852",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "qmJlqCBRzGE",
-      "title": "Чужой образ для сервитора: кто кем управляет?",
-      "url": "https://www.youtube.com/shorts/qmJlqCBRzGE",
-      "thumb": "https://i.ytimg.com/vi/qmJlqCBRzGE/hqdefault.jpg",
-      "views": "982",
       "acc": "var(--cyber-cyan)"
     }
   ]
