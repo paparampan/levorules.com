@@ -1,5 +1,5 @@
 {
-  "updated": "2026-09-06T04:44:40Z",
+  "updated": "2026-09-06T11:02:02Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -7,7 +7,7 @@
       "title": "Знак от вселенной или самообман? Как сервитор сообщает о результате",
       "url": "https://www.youtube.com/shorts/lF3Oyj5XveM",
       "thumb": "https://i.ytimg.com/vi/lF3Oyj5XveM/hqdefault.jpg",
-      "views": "887",
+      "views": "890",
       "acc": "var(--magenta)"
     },
     {
@@ -31,7 +31,7 @@
       "title": "Что в магической сумочке? Набор, который закрывает 90% практики",
       "url": "https://www.youtube.com/shorts/tmlJapAgO_k",
       "thumb": "https://i.ytimg.com/vi/tmlJapAgO_k/hqdefault.jpg",
-      "views": "181",
+      "views": "182",
       "acc": "var(--amber)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "Магическое планирование: как поставить задачу сервитору по SMART",
       "url": "https://www.youtube.com/shorts/MO-E7YhZwn4",
       "thumb": "https://i.ytimg.com/vi/MO-E7YhZwn4/hqdefault.jpg",
-      "views": "865",
+      "views": "864",
       "acc": "var(--cyber-cyan)"
     }
   ]
