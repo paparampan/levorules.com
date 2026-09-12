@@ -1,18 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://levorules.com/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://levorules.com/passport-servitora/</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://levorules.com/uploads/servitors.pdf</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
+  <url><loc>https://levorules.com/</loc></url>
+  <url><loc>https://levorules.com/servitors/</loc></url>
+  <url><loc>https://levorules.com/guides/</loc></url>
+  <url><loc>https://levorules.com/guides/defense-basics/</loc></url>
+  <url><loc>https://levorules.com/who/</loc></url>
+  <url><loc>https://levorules.com/servitors/0/</loc></url>
+  <url><loc>https://levorules.com/servitors/1/</loc></url>
+  <url><loc>https://levorules.com/servitors/2/</loc></url>
+  <url><loc>https://levorules.com/servitors/3/</loc></url>
+  <url><loc>https://levorules.com/servitors/4/</loc></url>
+  <url><loc>https://levorules.com/servitors/5/</loc></url>
+  <url><loc>https://levorules.com/servitors/6/</loc></url>
+  <url><loc>https://levorules.com/servitors/7/</loc></url>
+  <url><loc>https://levorules.com/servitors/8/</loc></url>
+  <url><loc>https://levorules.com/servitors/9/</loc></url>
+  <url><loc>https://levorules.com/servitors/10/</loc></url>
+  <url><loc>https://levorules.com/passport-servitora/</loc></url>
+  <url><loc>https://levorules.com/uploads/servitors.pdf</loc></url>
 </urlset>

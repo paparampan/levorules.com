@@ -109,7 +109,7 @@ function VideoRow() {
   const [videos, setVideos] = React.useState(SHORTS_FALLBACK);
 
   React.useEffect(() => {
-    fetch('site/shorts.json')
+    fetch('/site/shorts.json')
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
         if (data && Array.isArray(data.items) && data.items.length) {
@@ -219,7 +219,7 @@ function TelegramPosts() {
   const [posts, setPosts] = React.useState(TELEGRAM_FALLBACK);
 
   React.useEffect(() => {
-    fetch('site/telegram.json')
+    fetch('/site/telegram.json')
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
         if (data && Array.isArray(data.items) && data.items.length) {
@@ -304,14 +304,15 @@ function ManifestoBand() {
 // Footer
 function Footer() {
   const navigate = (e, route, section) => {
+    if (!lrPlainClick(e)) return;
     e.preventDefault();
     window.dispatchEvent(new CustomEvent('lr:route', { detail: { route, section } }));
   };
   const sectionLinks = [
-    { label: 'Главная', href: '#', route: 'home' },
-    { label: 'Сервиторы', href: '#servitors', route: 'servitors' },
-    { label: 'Гайды', href: '#guides', route: 'guides' },
-    { label: 'Видео', href: '#video', route: 'home', section: 'video' },
+    { label: 'Главная', href: '/', route: 'home' },
+    { label: 'Сервиторы', href: '/servitors/', route: 'servitors' },
+    { label: 'Гайды', href: '/guides/', route: 'guides' },
+    { label: 'Видео', href: '/#video', route: 'home', section: 'video' },
   ];
   return (
     <footer style={{ background: 'var(--ash-2)', borderTop: '1px solid var(--border)' }}>

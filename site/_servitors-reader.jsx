@@ -11,6 +11,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
     window.lrCourseProgress?.read(modules.length).completed || false
   ));
   const contentRef = React.useRef(null);
+  const tocRef = React.useRef(null);
   const didMountReader = React.useRef(false);
 
   React.useEffect(() => {
@@ -21,22 +22,15 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
     }
   }, [initialModule, modules.length]);
 
-  const goToModule = React.useCallback((nextIdx) => {
+  const goToModule = React.useCallback((nextIdx, sectionId = null) => {
     const next = clampModule(nextIdx);
     setActiveIdx(next);
-    setRoute('servitors-reader', null, null, { moduleIndex: next, historyMode: 'replace' });
+    tocRef.current?.close();
+    setRoute('servitors-reader', sectionId, null, { moduleIndex: next, historyMode: 'push' });
   }, [modules.length, setRoute]);
 
   // scroll to top of article when module changes
   React.useEffect(() => {
-    if (didMountReader.current && contentRef.current) {
-      const offset = document.documentElement.clientWidth <= 720 ? 124 : 20;
-      window.scrollTo({
-        top: Math.max(0, contentRef.current.offsetTop - offset),
-        behavior: lrReaderScrollBehavior(),
-      });
-    }
-    didMountReader.current = true;
     if (!modules.length) return;
     const result = window.lrCourseProgress?.visit(activeIdx, modules.length);
     const module = modules[activeIdx];
@@ -69,16 +63,23 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
   // scroll-spy for sections within current module
   React.useEffect(() => {
     let frame = null;
+    let saveTimer = null;
     const update = () => {
       frame = null;
       const hs = contentRef.current?.querySelectorAll('[data-section-id]');
-      if (!hs) return;
-      const scrollY = window.scrollY + 120;
+      if (!hs?.length) return;
+      const toolbar = document.querySelector('.sv-reader-toolbar');
+      const toolbarThreshold = toolbar ? toolbar.getBoundingClientRect().height + (parseFloat(getComputedStyle(toolbar).top) || 0) + 24 : 170;
+      const sectionThreshold = Math.max(toolbarThreshold, (parseFloat(getComputedStyle(hs[0]).scrollMarginTop) || 0) + 4);
       let current = null;
       hs.forEach(h => {
-        if (h.offsetTop <= scrollY) current = h.dataset.sectionId;
+        if (h.getBoundingClientRect().top <= sectionThreshold) current = h.dataset.sectionId;
       });
       setActiveSection((previous) => previous === current ? previous : current);
+      clearTimeout(saveTimer);
+      if (current) saveTimer = setTimeout(() => {
+        try { localStorage.setItem('lr_servitor_section_' + activeIdx, current); } catch {}
+      }, 350);
     };
     const handler = () => {
       if (frame !== null) return;
@@ -89,6 +90,7 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
     return () => {
       window.removeEventListener('scroll', handler);
       if (frame !== null) cancelAnimationFrame(frame);
+      clearTimeout(saveTimer);
     };
   }, [activeIdx]);
 
@@ -122,6 +124,78 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
     setRoute('servitors', 'appendices');
   };
 
+  const toc = <React.Fragment>
+          <CourseSearch modules={modules} setActiveIdx={goToModule} accent={purple} />
+          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10,
+            letterSpacing: '0.16em', textTransform: 'uppercase',
+            color: 'var(--bone-dim)', margin: '20px 0 14px' }}>
+            ▸ оглавление курса
+          </div>
+          <nav style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
+            {modules.map((m, i) => (
+              <div key={m.n}>
+                <a
+                  href={`/servitors/${i}/`}
+                  aria-current={i === activeIdx ? 'step' : undefined}
+                  onClick={(e) => { if (!lrPlainClick(e)) return; e.preventDefault(); goToModule(i); }}
+                  style={{
+                    all: 'unset', cursor: 'pointer',
+                    display: 'grid', gridTemplateColumns: '32px 1fr', gap: 10,
+                    padding: '10px 10px', width: '100%',
+                    alignItems: 'baseline',
+                    borderLeft: `2px solid ${i === activeIdx ? purple : 'transparent'}`,
+                    background: i === activeIdx ? 'var(--ash)' : 'transparent',
+                    color: i === activeIdx ? 'var(--bone)' : 'var(--bone-dim)',
+                    transition: 'all .15s ease',
+                  }}
+                  onMouseEnter={(e) => { if (i !== activeIdx) e.currentTarget.style.color = 'var(--bone)'; }}
+                  onMouseLeave={(e) => { if (i !== activeIdx) e.currentTarget.style.color = 'var(--bone-dim)'; }}
+                >
+                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: purple, fontWeight: 700 }}>
+                    {m.n}
+                  </span>
+                  <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 13,
+                    letterSpacing: '0.02em', textTransform: 'uppercase', lineHeight: 1.2 }}>
+                    {m.title}
+                  </span>
+                </a>
+                {/* inline subsections for active module */}
+                {i === activeIdx && m.sections && (
+                  <div style={{ display: 'flex', flexDirection: 'column',
+                    borderLeft: `1px solid var(--border)`, marginLeft: 15, marginTop: 4, marginBottom: 10 }}>
+                    {m.sections.map(s => (
+                      <a key={s.id} href={`/servitors/${i}/#s-${s.id}`}
+                        aria-current={activeSection === s.id ? 'location' : undefined}
+                        onClick={(e) => {
+                          if (!lrPlainClick(e)) return;
+                          e.preventDefault();
+                          goToModule(i, `s-${s.id}`);
+                        }}
+                        style={{
+                          fontFamily: 'var(--font-mono)', fontSize: 11,
+                          padding: '5px 12px',
+                          color: activeSection === s.id ? purple : 'var(--bone-dim)',
+                          textDecoration: 'none',
+                          borderLeft: `2px solid ${activeSection === s.id ? purple : 'transparent'}`,
+                          marginLeft: -1,
+                          letterSpacing: '0.02em',
+                        }}>
+                        <span style={{ color: 'var(--bone-dim)', opacity: 0.6, marginRight: 6 }}>{s.id}</span>
+                        {s.title}
+                      </a>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
+          </nav>
+          <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid var(--border)',
+            fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.1em',
+            color: 'var(--bone-dim)', lineHeight: 1.5 }}>
+            редакция {window.SERVITORS_META?.edition} · @levorules
+          </div>
+  </React.Fragment>;
+
   return (
     <div>
       {/* READER HEADER — compact, shows current module + breadcrumbs */}
@@ -133,13 +207,13 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
       }}>
         <div className="sv-reader-toolbar-inner" style={{ maxWidth: 1440, margin: '0 auto', padding: '16px 32px',
           display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
-          <a className="sv-reader-home-link" href="#home" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
+          <a className="sv-reader-home-link" href="/" onClick={(e) => { if (!lrPlainClick(e)) return; e.preventDefault(); setRoute('home'); }}
             style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em',
               textTransform: 'uppercase', color: 'var(--bone-dim)', textDecoration: 'none' }}>
             ← ЛЕВО РУЛЯ
           </a>
           <span className="sv-reader-separator" style={{ color: 'var(--border-strong)' }}>/</span>
-          <a className="sv-reader-course-link" href="#servitors" onClick={(e) => { e.preventDefault(); setRoute('servitors'); }}
+          <a className="sv-reader-course-link" href="/servitors/" onClick={(e) => { if (!lrPlainClick(e)) return; e.preventDefault(); setRoute('servitors'); }}
             style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em',
               textTransform: 'uppercase', color: 'var(--bone-dim)', textDecoration: 'none' }}>
             сервиторы
@@ -163,20 +237,23 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
                style={{ color: purple, textDecoration: 'underline', textUnderlineOffset: 2 }}>ТУТ</a>
           </span>
           <div className="sv-reader-controls" style={{ marginLeft: 'auto', display: 'flex', gap: 8, alignItems: 'center' }}>
-            <ShareLinkButton moduleNum={mod.n} />
+            <button className="sv-toc-trigger sv-reader-control" onClick={() => tocRef.current?.showModal()} aria-haspopup="dialog">Оглавление / поиск</button>
+            <ShareLinkButton moduleNum={mod.n} sectionId={activeSection} />
             <button
               className="sv-reader-control"
+              aria-label="Предыдущий модуль"
               disabled={activeIdx === 0}
               onClick={() => goToModule(activeIdx - 1)}
               style={navBtnStyle(activeIdx === 0)}>
-              ← ПРЕД
+              ← <span className="sv-nav-word">ПРЕД</span>
             </button>
             <button
               className="sv-reader-control"
+              aria-label="Следующий модуль"
               disabled={activeIdx === modules.length - 1}
               onClick={() => goToModule(activeIdx + 1)}
               style={navBtnStyle(activeIdx === modules.length - 1)}>
-              СЛЕД →
+              <span className="sv-nav-word">СЛЕД</span> →
             </button>
           </div>
         </div>
@@ -199,6 +276,10 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
         </div>
       </section>
 
+      <dialog className="sv-toc-dialog" ref={tocRef} aria-label="Оглавление и поиск по курсу">
+        <div className="sv-toc-dialog-heading"><h2>КУРС</h2><button onClick={() => tocRef.current.close()} aria-label="Закрыть оглавление" autoFocus>Закрыть ×</button></div>
+        {toc}
+      </dialog>
       {/* 2-COLUMN LAYOUT */}
       <div style={{
         maxWidth: 1440, margin: '0 auto', padding: '48px 32px 96px',
@@ -206,78 +287,11 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
       }} className="sv-reader-grid">
         {/* SIDEBAR: SEARCH + TOC */}
         <aside style={{
-          position: 'sticky', top: 90,
-          maxHeight: 'calc(100vh - 120px)', overflowY: 'auto',
+          position: 'sticky', top: 170,
+          maxHeight: 'calc(100vh - 194px)', overflowY: 'auto',
           paddingRight: 8,
         }}>
-          <CourseSearch modules={modules} setActiveIdx={goToModule} accent={purple} />
-          <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10,
-            letterSpacing: '0.16em', textTransform: 'uppercase',
-            color: 'var(--bone-dim)', margin: '20px 0 14px' }}>
-            ▸ оглавление курса
-          </div>
-          <nav style={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            {modules.map((m, i) => (
-              <div key={m.n}>
-                <button
-                  aria-current={i === activeIdx ? 'step' : undefined}
-                  onClick={() => goToModule(i)}
-                  style={{
-                    all: 'unset', cursor: 'pointer',
-                    display: 'grid', gridTemplateColumns: '32px 1fr', gap: 10,
-                    padding: '10px 10px', width: '100%',
-                    alignItems: 'baseline',
-                    borderLeft: `2px solid ${i === activeIdx ? purple : 'transparent'}`,
-                    background: i === activeIdx ? 'var(--ash)' : 'transparent',
-                    color: i === activeIdx ? 'var(--bone)' : 'var(--bone-dim)',
-                    transition: 'all .15s ease',
-                  }}
-                  onMouseEnter={(e) => { if (i !== activeIdx) e.currentTarget.style.color = 'var(--bone)'; }}
-                  onMouseLeave={(e) => { if (i !== activeIdx) e.currentTarget.style.color = 'var(--bone-dim)'; }}
-                >
-                  <span style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: purple, fontWeight: 700 }}>
-                    {m.n}
-                  </span>
-                  <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 13,
-                    letterSpacing: '0.02em', textTransform: 'uppercase', lineHeight: 1.2 }}>
-                    {m.title}
-                  </span>
-                </button>
-                {/* inline subsections for active module */}
-                {i === activeIdx && m.sections && (
-                  <div style={{ display: 'flex', flexDirection: 'column',
-                    borderLeft: `1px solid var(--border)`, marginLeft: 15, marginTop: 4, marginBottom: 10 }}>
-                    {m.sections.map(s => (
-                      <a key={s.id} href={`#s-${s.id}`}
-                        aria-current={activeSection === s.id ? 'location' : undefined}
-                        onClick={(e) => {
-                          e.preventDefault();
-                          const el = document.getElementById(`s-${s.id}`);
-                          if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: lrReaderScrollBehavior() });
-                        }}
-                        style={{
-                          fontFamily: 'var(--font-mono)', fontSize: 11,
-                          padding: '5px 12px',
-                          color: activeSection === s.id ? purple : 'var(--bone-dim)',
-                          textDecoration: 'none',
-                          borderLeft: `2px solid ${activeSection === s.id ? purple : 'transparent'}`,
-                          marginLeft: -1,
-                          letterSpacing: '0.02em',
-                        }}>
-                        <span style={{ color: 'var(--bone-dim)', opacity: 0.6, marginRight: 6 }}>{s.id}</span>
-                        {s.title}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
-          <div style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid var(--border)',
-            fontFamily: 'var(--font-mono)', fontSize: 10, letterSpacing: '0.1em',
-            color: 'var(--bone-dim)', lineHeight: 1.5 }}>
-            редакция 2026-07-10 · @levorules
-          </div>
+          {toc}
         </aside>
 
         {/* ARTICLE */}
@@ -352,9 +366,9 @@ function ServitorsReader({ setRoute, initialModule = 0 }) {
       </div>
 
       <style>{`
-        @media (max-width: 960px) {
+        @media (max-width: 1100px) {
           .sv-reader-grid { grid-template-columns: 1fr !important; }
-          .sv-reader-grid > aside { position: static !important; max-height: none !important; }
+          .sv-reader-grid > aside { display: none !important; }
         }
       `}</style>
     </div>
@@ -428,7 +442,7 @@ function ModuleRenderer({ mod, accent }) {
   return (
     <div>
       {/* module hero */}
-      <div style={{ marginBottom: 48 }}>
+      <div id="module-start" style={{ marginBottom: 48, scrollMarginTop:190 }}>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.16em',
           color: accent, textTransform: 'uppercase', marginBottom: 12 }}>
           ▸ МОДУЛЬ {mod.n}
@@ -437,12 +451,7 @@ function ModuleRenderer({ mod, accent }) {
           fontSize: 'clamp(44px, 6vw, 76px)', lineHeight: 0.92, letterSpacing: '-0.02em',
           margin: 0,
         }}>{mod.title}</h1>
-        {mod.sub && (
-          <p style={{ marginTop: 20, fontSize: 20, lineHeight: 1.45,
-            color: 'var(--bone)', maxWidth: 640 }}>
-            <RichText text={mod.sub} />
-          </p>
-        )}
+        <div style={{marginTop: 24}}>{(mod.intro || []).map((block, i) => <Block key={i} b={block} accent={accent} />)}</div>
         <div style={{ height: 2, width: 72, background: accent, marginTop: 32 }} />
       </div>
 
@@ -465,7 +474,8 @@ function ModuleRenderer({ mod, accent }) {
       ))}
 
       {mod.practice && (
-        <Callout kind="practice" accent={accent} title="ПРАКТИКА МОДУЛЯ">
+        <Callout id="practice" kind="practice" accent={accent} title="ПРАКТИКА МОДУЛЯ">
+          {mod.practiceBlocks ? mod.practiceBlocks.map((block, i) => <Block key={i} b={block} accent={accent} />) : <React.Fragment>
           {mod.practiceIntro && (
             <div style={{ marginBottom: 18, lineHeight: 1.6 }}>
               <RichText text={mod.practiceIntro} />
@@ -479,11 +489,12 @@ function ModuleRenderer({ mod, accent }) {
               {typeof p === 'string' ? <RichText text={p} /> : p}
             </div>
           ))}
+          </React.Fragment>}
         </Callout>
       )}
 
       {mod.selfcheck && (
-        <Callout kind="check" accent={accent} title="ВОПРОСЫ ДЛЯ САМОПРОВЕРКИ">
+        <Callout id="selfcheck" kind="check" accent={accent} title="ВОПРОСЫ ДЛЯ САМОПРОВЕРКИ">
           <ul style={{ margin: 0, padding: 0, listStyle: 'none' }}>
             {mod.selfcheck.map((q, i) => (
               <li key={i} style={{ padding: '10px 0',
@@ -568,30 +579,10 @@ function Block({ b, accent }) {
     </ol>;
 
   if (b.type === 'table')
-    return <div style={{ margin: '0 0 28px', border: '1px solid var(--border)' }}>
-      {b.rows.map((r, i) => (
-        <div key={i} style={{
-          display: 'grid',
-          gridTemplateColumns: b.cols || '200px 1fr',
-          borderBottom: i < b.rows.length - 1 ? '1px solid var(--border)' : 'none',
-          background: i === 0 && b.header ? 'var(--ash)' : 'transparent',
-        }}>
-          {r.map((c, j) => (
-            <div key={j} style={{
-              padding: '12px 16px', lineHeight: 1.5,
-              borderRight: j < r.length - 1 ? '1px solid var(--border)' : 'none',
-              color: i === 0 && b.header ? accent : 'var(--bone)',
-              fontFamily: i === 0 && b.header ? 'var(--font-mono)' : 'var(--font-body)',
-              fontWeight: i === 0 && b.header ? 700 : (j === 0 && !b.header ? 600 : 400),
-              letterSpacing: i === 0 && b.header ? '0.08em' : 'normal',
-              textTransform: i === 0 && b.header ? 'uppercase' : 'none',
-              fontSize: i === 0 && b.header ? 11 : 14,
-            }}>
-              <RichText text={c} />
-            </div>
-          ))}
-        </div>
-      ))}
+    return <div className="sv-table-wrap" tabIndex={0} role="region" aria-label="Таблица. На узком экране прокручивается горизонтально">
+      <table className="sv-table"><thead><tr>{b.rows[0].map((cell, i) => <th key={i} scope="col"><RichText text={cell} /></th>)}</tr></thead>
+        <tbody>{b.rows.slice(1).map((row, i) => <tr key={i}>{row.map((cell, j) => j === 0 ? <th key={j} scope="row"><RichText text={cell} /></th> : <td key={j}><RichText text={cell} /></td>)}</tr>)}</tbody>
+      </table>
     </div>;
 
   if (b.type === 'callout') return <Callout kind={b.kind} title={b.title} accent={accent}>
@@ -619,6 +610,8 @@ function RichText({ text }) {
   let remaining = text;
   let key = 0;
   const patterns = [
+    { re: /\[([^\]]+)\]\((https?:\/\/[^\s)]+|\/[^\s)]*)\)/, render: (m) => <a key={key++} href={m[2]} rel="noopener" style={{color: 'var(--purple)', textUnderlineOffset: 3, overflowWrap: 'anywhere'}}>{m[1]}</a> },
+    { re: /§\s*(\d+\.\d+)/, render: (m) => <a key={key++} href={`/servitors/${parseInt(m[1], 10)}/#s-${m[1]}`} style={{color: 'var(--purple)', textUnderlineOffset: 3}}>{m[0]}</a> },
     { re: /\*\*([^*]+)\*\*/, render: (m) => <b key={key++} style={{ color: 'var(--bone)' }}>{m[1]}</b> },
     { re: /\*([^*]+)\*/, render: (m) => <i key={key++}>{m[1]}</i> },
     { re: /`([^`]+)`/, render: (m) => <code key={key++} style={{
@@ -641,7 +634,7 @@ function RichText({ text }) {
   return <>{parts}</>;
 }
 
-function Callout({ kind = 'note', title, accent, children }) {
+function Callout({ id, kind = 'note', title, accent, children }) {
   const color = kind === 'danger' ? 'var(--blood-text)'
     : kind === 'warning' ? 'var(--amber)'
     : kind === 'practice' ? accent || 'var(--purple)'
@@ -650,8 +643,8 @@ function Callout({ kind = 'note', title, accent, children }) {
     : accent;
   const glyph = kind === 'danger' ? '⚠' : kind === 'warning' ? '△' : kind === 'practice' ? '▸' : kind === 'check' ? '?' : '·';
   return (
-    <div style={{
-      margin: '28px 0',
+    <div id={id} style={{
+      margin: '28px 0', scrollMarginTop:190,
       border: `1px solid ${color}`,
       background: 'var(--ash-2)',
       padding: 0,
@@ -708,8 +701,19 @@ function buildIndex(modules) {
 
 function CourseSearch({ modules, setActiveIdx, accent }) {
   const [q, setQ] = React.useState('');
-  const index = React.useMemo(() => buildIndex(modules), [modules]);
-  const query = q.trim().toLowerCase();
+  const [index, setIndex] = React.useState(() => window.SERVITORS_SEARCH || []);
+  const [error, setError] = React.useState(false);
+  React.useEffect(() => {
+    if (q.trim().length < 2 || index.length) return;
+    let current = true;
+    setError(false);
+    fetch(`/dist/course/search.json?v=${window.__LR_ASSET_VERSION__ || ''}`).then(r => { if (!r.ok) throw Error(); return r.json(); }).then(data => {
+      window.SERVITORS_SEARCH = data.map(item => ({...item, hay: (item.sectionTitle + ' ' + item.body).toLowerCase().replace(/ё/g, 'е')}));
+      if (current) setIndex(window.SERVITORS_SEARCH);
+    }).catch(() => { if (current) setError(true); });
+    return () => { current = false; };
+  }, [q, index.length]);
+  const query = q.trim().toLowerCase().replace(/ё/g, 'е');
   const hits = query.length >= 2
     ? index.filter((it) => it.hay.includes(query)).slice(0, 20)
     : [];
@@ -731,6 +735,7 @@ function CourseSearch({ modules, setActiveIdx, accent }) {
         ▸ поиск по курсу
       </div>
       <input
+        type="search" aria-label="Поиск по всему курсу"
         value={q}
         onChange={(e) => setQ(e.target.value)}
         placeholder="сигила, гнозис, клипот…"
@@ -747,18 +752,16 @@ function CourseSearch({ modules, setActiveIdx, accent }) {
           maxHeight: 400, overflowY: 'auto', background: 'var(--ash-2)' }}>
           {hits.length === 0 ? (
             <div style={{ padding: '14px 12px', fontSize: 12, color: 'var(--bone-dim)' }}>
-              ничего не найдено
+              {error ? 'Не удалось загрузить поиск. Измени запрос, чтобы повторить.' : !index.length ? 'Загрузка поиска…' : 'Ничего не найдено'}
             </div>
           ) : (
             hits.map((h, i) => (
-              <button key={i}
-                onClick={() => {
-                  setActiveIdx(h.moduleIdx);
+              <a key={i} href={`/servitors/${h.moduleIdx}/#${h.targetId || 's-' + h.sectionId}`}
+                onClick={(e) => {
+                  if (!lrPlainClick(e)) return;
+                  e.preventDefault();
+                  setActiveIdx(h.moduleIdx, h.targetId || 's-' + h.sectionId);
                   setQ('');
-                  setTimeout(() => {
-                    const el = document.getElementById('s-' + h.sectionId);
-                    if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: lrReaderScrollBehavior() });
-                  }, 50);
                 }}
                 style={{
                   all: 'unset', cursor: 'pointer', display: 'block', width: '100%',
@@ -770,7 +773,7 @@ function CourseSearch({ modules, setActiveIdx, accent }) {
                 onMouseLeave={(e) => e.currentTarget.style.background = 'transparent'}
               >
                 <div style={{ fontFamily: 'var(--font-mono)', fontSize: 10, color: accent, letterSpacing: '0.08em' }}>
-                  МОДУЛЬ {h.moduleN} · § {h.sectionId}
+                  МОДУЛЬ {h.moduleN}{h.sectionId ? ` · § ${h.sectionId}` : ''}
                 </div>
                 <div style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 13,
                   marginTop: 2, lineHeight: 1.25, color: 'var(--bone)' }}>
@@ -781,7 +784,7 @@ function CourseSearch({ modules, setActiveIdx, accent }) {
                     {snippet(h.body, query)}
                   </div>
                 )}
-              </button>
+              </a>
             ))
           )}
         </div>
@@ -791,11 +794,11 @@ function CourseSearch({ modules, setActiveIdx, accent }) {
 }
 
 // ---------- SHARE LINK BUTTON ----------
-function ShareLinkButton({ moduleNum }) {
+function ShareLinkButton({ moduleNum, sectionId }) {
   const [copied, setCopied] = React.useState(false);
   const copy = async () => {
     const n = parseInt(moduleNum, 10);
-    const url = `${location.origin}${location.pathname}#servitors-reader/${n}`;
+    const url = `${location.origin}/servitors/${n}/${sectionId ? '#s-' + sectionId : ''}`;
     try {
       await navigator.clipboard.writeText(url);
       setCopied(true);
@@ -806,8 +809,8 @@ function ShareLinkButton({ moduleNum }) {
     }
   };
   return (
-    <button className="sv-share-link" data-copied={copied ? 'true' : 'false'} onClick={copy} title="Скопировать ссылку на этот модуль"
-      aria-label={copied ? '✓ СКОПИРОВАНО — ссылка на модуль' : 'ССЫЛКА — скопировать ссылку на этот модуль'}
+    <button className="sv-share-link" data-copied={copied ? 'true' : 'false'} onClick={copy} title="Скопировать ссылку на текущий раздел"
+      aria-label={copied ? '✓ СКОПИРОВАНО — ссылка на раздел' : 'ССЫЛКА — скопировать ссылку на текущий раздел'}
       style={{
         all: 'unset', cursor: 'pointer',
         fontFamily: 'var(--font-mono)', fontSize: 11,

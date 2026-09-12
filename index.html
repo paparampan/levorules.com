@@ -31,18 +31,17 @@
 <meta name="twitter:image:alt" content="Лево Руля · Магия хаоса, демонология, путь левой руки">
 
 <!-- Favicons / app icons -->
-<link rel="icon" type="image/svg+xml" href="brand/assets/favicon.svg">
-<link rel="icon" type="image/png" sizes="32x32" href="brand/assets/favicon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="brand/assets/favicon-16.png">
-<link rel="apple-touch-icon" sizes="180x180" href="brand/assets/apple-touch-icon.png">
-<link rel="manifest" href="manifest.webmanifest">
-<link rel="alternate icon" href="brand/assets/favicon.ico">
+<link rel="icon" type="image/svg+xml" href="/brand/assets/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="/brand/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/brand/assets/favicon-16.png">
+<link rel="apple-touch-icon" sizes="180x180" href="/brand/assets/apple-touch-icon.png">
+<link rel="manifest" href="/manifest.webmanifest">
+<link rel="alternate icon" href="/brand/assets/favicon.ico">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://unpkg.com">
 <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="brand/colors_and_type.css?v=__LR_ASSET_VERSION_VALUE__">
+<link rel="stylesheet" href="/brand/colors_and_type.css?v=__LR_ASSET_VERSION_VALUE__">
 
 <script type="application/ld+json">
 {
@@ -80,7 +79,7 @@
       "@type": "Course",
       "@id": "https://levorules.com/#servitors-course",
       "name": "Сервиторы",
-      "url": "https://levorules.com/#servitors",
+      "url": "https://levorules.com/servitors/",
       "inLanguage": "ru-RU",
       "description": "Открытый курс про работу с автономными сущностями, сконструированными под волю практика.",
       "isAccessibleForFree": true,
@@ -466,6 +465,61 @@
     .sv-reader-control,
     .sv-share-link { padding: 8px !important; font-size: 9px !important; }
   }
+
+/* Reading/navigation corrections, shared by prerendered and interactive views. */
+.sv-reader-toolbar { top: 64px !important; }
+.sv-reader-grid { grid-template-columns: 280px minmax(0,1fr) !important; }
+.sv-toc-trigger { display:none; }
+.sv-toc-dialog { color:var(--bone); background:var(--ash-2); border:1px solid var(--purple); width:min(540px,calc(100% - 24px)); max-height:calc(100dvh - 24px); padding:20px; overscroll-behavior:contain; }
+.sv-toc-dialog::backdrop { background:rgba(0,0,0,.8); }
+.sv-toc-dialog { color-scheme:dark; }
+.sv-toc-dialog nav a { font-size:13px !important; }
+body:has(.sv-toc-dialog[open]) { overflow:hidden; }
+.sv-toc-dialog-heading { display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:20px; }
+.sv-toc-dialog button,.sv-toc-trigger { font:inherit; color:var(--bone); background:var(--ash); border:1px solid var(--border-strong); padding:10px 12px; min-height:44px; cursor:pointer; }
+.sv-reader-grid aside a,.sv-toc-dialog nav a { box-sizing:border-box !important; min-height:44px; }
+.sv-toc-dialog input { font-size:16px !important; min-height:44px; }
+.sv-reader-grid [data-section-id] { scroll-margin-top:180px !important; }
+.sv-table-wrap { max-width:100%; overflow-x:auto; margin:0 0 28px; border:1px solid var(--border); }
+.sv-table { width:100%; min-width:520px; border-collapse:collapse; font-size:16px; line-height:1.55; }
+.sv-table th,.sv-table td { padding:12px 14px; border:1px solid var(--border); text-align:left; vertical-align:top; }
+.sv-table thead th { color:var(--purple); background:var(--ash); font-family:var(--font-mono); font-size:13px; }
+.sv-table tbody th { font-weight:500; min-width:130px; }
+.lr-about-copy,.lr-edition { max-width:850px; margin:auto; padding:56px 32px 80px; font-size:18px; line-height:1.65; }
+.lr-about-copy h2,.lr-edition h2 { font-size:clamp(28px,4vw,44px); line-height:1.1; }
+.lr-about-copy p,.lr-edition p { margin:24px 0; }
+.lr-about-copy a,.lr-edition a { color:var(--purple); text-underline-offset:4px; }
+.lr-about-cta { display:inline-block; padding:14px 0; }
+.guide-toc { max-width:1280px; margin:auto; padding:32px; }
+.guide-toc h2 { font-size:24px; }
+.guide-toc ol { columns:2; padding-left:22px; }
+.guide-toc li { break-inside:avoid; padding:6px 0; }
+.guide-toc a { color:var(--acid-green); line-height:1.6; text-underline-offset:4px; }
+.guide-anchor,#edition { scroll-margin-top:86px; }
+@media(max-width:1100px) {
+  .sv-reader-grid { grid-template-columns:minmax(0,1fr) !important; gap:0 !important; padding-top:32px !important; }
+  .sv-reader-grid > aside { display:none !important; }
+  .sv-toc-trigger { display:block; }
+  .sv-reader-discuss { display:none; }
+  .sv-reader-grid article { margin-inline:auto; width:100%; }
+}
+@media(max-width:720px) {
+  .sv-reader-toolbar { top:56px !important; }
+  .sv-reader-controls { width:100%; display:flex !important; margin-left:0 !important; }
+  .sv-toc-trigger { flex:1; font-size:12px !important; }
+  .sv-reader-grid { padding-inline:20px !important; }
+  .sv-reader-grid article h1 { font-size:clamp(30px,7.8vw,54px) !important; overflow-wrap:anywhere; hyphens:auto; }
+  .sv-reader-grid article h2,.sv-reader-grid article h3 { overflow-wrap:anywhere; hyphens:auto; }
+  .sv-reader-grid [data-section-id] { scroll-margin-top:190px !important; }
+  .sv-reader-toolbar-inner { gap:8px !important; padding:10px 16px !important; }
+  .sv-reader-toolbar > .sv-reader-toolbar-inner { flex-wrap:wrap !important; }
+  .sv-reader-controls { flex-basis:100%; min-width:0; }
+  .sv-reader-controls > button:not(.sv-toc-trigger) { flex:0 0 40px !important; width:40px !important; min-width:40px !important; padding:8px !important; }
+  .sv-reader-controls .sv-nav-word { display:none; }
+  .sv-reader-control { min-height:44px; box-sizing:border-box; }
+  .guide-toc ol { columns:1; }
+}
+
 </style>
 </head>
 <body>
@@ -480,8 +534,8 @@
   window.__LR_ASSET_VERSION__ = "__LR_ASSET_VERSION_VALUE__";
 </script>
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
-<script src="dist/app.js?v=__LR_ASSET_VERSION_VALUE__" defer></script>
+<script src="/vendor/react-18.3.1.min.js" integrity="sha384-DGyLxAyjq0f9SPpVevD6IgztCFlnMF6oW/XQGmfe+IsZ8TqEiDrcHkMLKI6fiB/Z" crossorigin="anonymous"></script>
+<script src="/vendor/react-dom-18.3.1.min.js" integrity="sha384-gTGxhz21lVGYNMcdJOyq01Edg0jhn/c22nsx0kyqP0TxaV5WVdsSH1fSDUf5YJj1" crossorigin="anonymous"></script>
+<script src="/dist/app.js?v=__LR_ASSET_VERSION_VALUE__" defer></script>
 </body>
 </html>

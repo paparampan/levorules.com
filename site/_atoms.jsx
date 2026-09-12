@@ -2,9 +2,9 @@
 // Tokens come from brand/colors_and_type.css — we reference CSS vars, never hard-code.
 
 function LRLogo({ size = 28, color = 'bone', alt = 'ЛЕВО РУЛЯ' }) {
-  const src = color === 'blood' ? 'brand/assets/logo-mono-blood.svg'
-            : color === 'bone'  ? 'brand/assets/logo-mono-bone.svg'
-            : 'brand/assets/logo-primary.svg';
+  const src = color === 'blood' ? '/brand/assets/logo-mono-blood.svg'
+            : color === 'bone'  ? '/brand/assets/logo-mono-bone.svg'
+            : '/brand/assets/logo-primary.svg';
   return <img src={src} width={size} height={size} style={{ display: 'block' }} alt={alt} aria-hidden={alt === '' ? 'true' : undefined} />;
 }
 
@@ -54,7 +54,7 @@ function Btn({ variant = 'default', accent, children, onClick, href, style = {},
     <Comp
       {...(Comp === 'button' ? { type: 'button' } : {})}
       className={`lr-action ${className}`.trim()}
-      onClick={onClick} href={href}
+      onClick={onClick ? (e) => { if (href) { if (!lrPlainClick(e)) return; e.preventDefault(); } onClick(e); } : undefined} href={href}
       onMouseEnter={() => setHover(true)} onMouseLeave={() => { setHover(false); setActive(false); }}
       onMouseDown={() => setActive(true)} onMouseUp={() => setActive(false)}
       style={{

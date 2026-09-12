@@ -2,8 +2,8 @@
 function WhoPage() {
   const blood = 'var(--blood-display)';
   return (
-    <section style={{
-      minHeight: 'calc(100vh - 64px)',
+    <><section style={{
+      minHeight: '55vh',
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       padding: '96px 32px', position: 'relative', overflow: 'hidden',
       background: 'var(--void)',
@@ -31,6 +31,13 @@ function WhoPage() {
         </p>
       </div>
     </section>
+    <section className="lr-about-copy">
+      <h2>А ЗА ТЕКСТ ОТВЕЧАЮ Я.</h2>
+      <p>Я Антон, автор «Лево Руля». Здесь я разбираю магию хаоса, демонологию и путь левой руки: читаю источники, сопоставляю подходы и собираю из них рабочие инструкции.</p>
+      <p>В курсе я отделяю исторические сведения от авторских моделей и практических договорённостей. Магическое объяснение опыта не становится научным фактом от того, что его уверенно произнесли.</p>
+      <p>Материалы обновляются. Если нашёл неточность — принеси цитату и источник <a href="https://telegram.me/levorules_chat" target="_blank" rel="noopener">в обсуждение</a>. Дата редакции и изменения доступны <a href="/servitors/#edition">на странице курса</a>.</p>
+      <a className="lr-about-cta" href="/servitors/">Читать бесплатный курс →</a>
+    </section></>
   );
 }
 

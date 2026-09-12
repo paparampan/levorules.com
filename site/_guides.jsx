@@ -8,7 +8,7 @@ const GUIDES_ACCENT = 'var(--acid-green)';
 const GUIDES_INDEX = [
   {
     slug: 'defense-basics',
-    eyebrow: 'Протокол',
+    eyebrow: 'Бесплатно · статья',
     title: 'Базовые техники защиты',
     titleAccent: 'защиты',
     intro: 'Защита — не стена и не амулет. Режим работы сознания: индексация входящего потока, удержание оси, разрыв связей, заземление в материи.',
@@ -34,7 +34,7 @@ function GuidesLanding({ setRoute }) {
         </div>
         <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '96px 32px 72px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 16 }}>
-            <a href="#home" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
+            <a href="/" onClick={(e) => { if (!lrPlainClick(e)) return; e.preventDefault(); setRoute('home'); }}
               style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--bone-dim)', textDecoration: 'none' }}>
               ← ЛЕВО РУЛЯ
             </a>
@@ -60,7 +60,6 @@ function GuidesLanding({ setRoute }) {
         </div>
       </section>
 
-      <PassportPromo placement="guides" />
 
       {/* INDEX */}
       <section data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>
@@ -86,6 +85,7 @@ function GuidesLanding({ setRoute }) {
           </div>
         </div>
       </section>
+      <PassportPromo placement="guides" />
     </div>
   );
 }
@@ -99,12 +99,12 @@ function GuideCard({ guide, idx, setRoute }) {
   return (
     <a
       className="lr-reactive-row"
-      href={guide.available ? `#guides/${guide.slug}` : undefined}
+      href={guide.available ? `/guides/${guide.slug}/` : undefined}
       aria-disabled={!guide.available ? 'true' : undefined}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
       onClick={(e) => {
-        if (!guide.available) return;
+        if (!guide.available || !lrPlainClick(e)) return;
         e.preventDefault();
         open();
       }}
@@ -177,17 +177,18 @@ function GuideDefenseBasics({ setRoute }) {
     <article>
       <GuideBreadcrumb setRoute={setRoute} title="базовые техники защиты" />
       <DefenceHero />
-      <DefenceTLDR />
-      <DefenceShattering />
-      <DefenceIndications />
-      <DefenceParadigmBlock />
-      <DefenceVibration />
-      <DefenceDeathPosture />
-      <DefenceSigilPractice />
-      <DefenceRitualFragment />
-      <DefenceChecklist />
-      <DefenceFalseDefence />
-      <DefenceClosing />
+      <nav className="guide-toc" aria-label="Содержание гайда"><h2>В ЭТОМ ГАЙДЕ</h2><ol><li><a href="/guides/defense-basics/#defense-summary">Четыре тезиса</a></li><li><a href="/guides/defense-basics/#defense-principle">Принцип защиты</a></li><li><a href="/guides/defense-basics/#defense-indications">Когда применять</a></li><li><a href="/guides/defense-basics/#defense-paradigms">Две парадигмы</a></li><li><a href="/guides/defense-basics/#defense-vibration">Вибрация</a></li><li><a href="/guides/defense-basics/#defense-posture">Поза смерти</a></li><li><a href="/guides/defense-basics/#defense-sigil">Практика сигилы</a></li><li><a href="/guides/defense-basics/#defense-ritual">Ритуал</a></li><li><a href="/guides/defense-basics/#defense-checklist">Чек-лист</a></li><li><a href="/guides/defense-basics/#defense-mistakes">Ложная защита</a></li><li><a href="/guides/defense-basics/#defense-closing">Завершение</a></li></ol></nav>
+      <div id="defense-summary" className="guide-anchor"><DefenceTLDR /></div>
+      <div id="defense-principle" className="guide-anchor"><DefenceShattering /></div>
+      <div id="defense-indications" className="guide-anchor"><DefenceIndications /></div>
+      <div id="defense-paradigms" className="guide-anchor"><DefenceParadigmBlock /></div>
+      <div id="defense-vibration" className="guide-anchor"><DefenceVibration /></div>
+      <div id="defense-posture" className="guide-anchor"><DefenceDeathPosture /></div>
+      <div id="defense-sigil" className="guide-anchor"><DefenceSigilPractice /></div>
+      <div id="defense-ritual" className="guide-anchor"><DefenceRitualFragment /></div>
+      <div id="defense-checklist" className="guide-anchor"><DefenceChecklist /></div>
+      <div id="defense-mistakes" className="guide-anchor"><DefenceFalseDefence /></div>
+      <div id="defense-closing" className="guide-anchor"><DefenceClosing /></div>
       <GuideFooterNav setRoute={setRoute} />
     </article>
   );
@@ -202,9 +203,9 @@ function GuideBreadcrumb({ setRoute, title }) {
       fontFamily: 'var(--font-mono)', fontSize: 12,
       letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--bone-dim)',
     }}>
-      <a href="#home" onClick={(e) => { e.preventDefault(); setRoute('home'); }} style={linkStyle}>главная</a>
+      <a href="/" onClick={(e) => { if (!lrPlainClick(e)) return; e.preventDefault(); setRoute('home'); }} style={linkStyle}>главная</a>
       <span style={{ margin: '0 10px', color: GUIDES_ACCENT }}>▸</span>
-      <a href="#guides" onClick={(e) => { e.preventDefault(); setRoute('guides'); }} style={linkStyle}>гайды</a>
+      <a href="/guides/" onClick={(e) => { if (!lrPlainClick(e)) return; e.preventDefault(); setRoute('guides'); }} style={linkStyle}>гайды</a>
       <span style={{ margin: '0 10px', color: GUIDES_ACCENT }}>▸</span>
       <span style={{ color: 'var(--bone)' }}>{title}</span>
     </div>

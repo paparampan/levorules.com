@@ -1,6 +1,7 @@
 """Build 7 separate appendix PDFs (A–G)."""
 from pathlib import Path
 import sys
+import re
 
 sys.path.insert(0, str(Path(__file__).parent))
 from render_common import (
@@ -38,6 +39,7 @@ APP_META = {
 
 def main():
     md = load_md()
+    edition = re.search(r'\*Редакция: ([\d-]+)', md).group(1)
     _, _, appendices_md = split_front_modules_appendices(md)
     apps = split_appendices(appendices_md)
 
@@ -54,7 +56,7 @@ def main():
             "eyebrow": f"СЕРВИТОРЫ · ПРИЛОЖЕНИЕ {letter}",
             "meta": "К ОТКРЫТОМУ КУРСУ",
             "lede": lede,
-            "edition": "",
+            "edition": f"РЕДАКЦИЯ {edition}",
         }
         html = build_html(
             title=f"Приложение {letter}. {display_title}",

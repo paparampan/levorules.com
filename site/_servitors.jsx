@@ -29,7 +29,7 @@ function ServitorsPage({ setRoute }) {
         </div>
         <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '96px 32px 80px' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14, marginBottom: 16 }}>
-            <a href="#home" onClick={(e) => { e.preventDefault(); setRoute('home'); }}
+            <a href="/" onClick={(e) => { if (!lrPlainClick(e)) return; e.preventDefault(); setRoute('home'); }}
               style={{ fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--bone-dim)', textDecoration: 'none' }}>
               ← ЛЕВО РУЛЯ
             </a>
@@ -55,7 +55,7 @@ function ServitorsPage({ setRoute }) {
               </div>
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'flex-end' }}>
-              <ContinueOrStartButton goToModule={goToModule} modules={modules} purple={purple} />
+              <ContinueOrStartButton setRoute={setRoute} goToModule={goToModule} modules={modules} purple={purple} />
               <Btn variant="ghostAccent" accent={purple} href="#program">Вся программа ↓</Btn>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)', letterSpacing: '0.08em' }}>
                 без регистрации, оплаты и SMS
@@ -158,8 +158,8 @@ function ServitorsPage({ setRoute }) {
                       </div>
                     )}
                   </div>
-                  <button
-                    onClick={() => goToModule(i, 'course_program')}
+                  <a href={`/servitors/${i}/`}
+                    onClick={(e) => { if (!lrPlainClick(e)) return; e.preventDefault(); goToModule(i, 'course_program'); }}
                     style={{
                       all: 'unset', cursor: 'pointer',
                       display: 'inline-flex', alignItems: 'center', justifyContent: 'center', minHeight: 44,
@@ -173,7 +173,7 @@ function ServitorsPage({ setRoute }) {
                     onMouseLeave={(e) => { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = purple; }}
                   >
                     Читать →
-                  </button>
+                  </a>
                 </div>
               </div>
             ))}
@@ -221,9 +221,9 @@ function ServitorsPage({ setRoute }) {
               { l: 'E', t: '52-недельная программа', d: 'Год прохождения курса с нуля — по неделям. Основа, первый сервитор, углубление и самостоятельная работа. Это ориентир, а не жёсткое расписание.', f: 'prilozhenie-e-52-nedelnaya-programma.pdf' },
               { l: 'F', t: 'FAQ — 50 вопросов', d: 'От «сколько сервиторов одновременно» до «что делать, если сервитор начал сниться каждую ночь». Сжатые ответы по семи темам.', f: 'prilozhenie-f-faq.pdf' },
               { l: 'G', t: 'Дополнительная литература', d: 'Академические исследования, первичные тексты практиков, популярные руководства и отдельный блок источников по безопасности. Уровень доказательности явно различается.', f: 'prilozhenie-g-dopolnitelnaya-literatura.pdf' },
-              { l: '✱', t: 'Курс одним PDF', d: 'Актуальная редакция 2026-07-22: все 11 модулей в одном файле для чтения без интернета и печати. Приложения скачиваются отдельными файлами выше.', f: 'servitors.pdf', isFull: true },
+              { l: '✱', t: 'Курс одним PDF', d: `Актуальная редакция ${window.SERVITORS_META?.edition}: все 11 модулей в одном файле для чтения без интернета и печати. Приложения скачиваются отдельными файлами выше.`, f: 'servitors.pdf', isFull: true },
             ].map((a, i) => (
-              <a key={a.l} className="lr-reactive-card" href={`uploads/${a.isFull ? '' : 'appendices/'}${a.f}`} download
+              <a key={a.l} className="lr-reactive-card" href={`/uploads/${a.isFull ? '' : 'appendices/'}${a.f}?v=${window.SERVITORS_META?.edition}`} download
                 style={{
                   '--lr-interaction-accent': purple,
                   background: 'var(--ash)', padding: 28, minHeight: 160,
@@ -263,6 +263,11 @@ function ServitorsPage({ setRoute }) {
           }}>@levorules →</Btn>
         </div>
       </section>
+      <section id="edition" className="lr-edition">
+        <h2>РЕДАКЦИЯ {window.SERVITORS_META?.edition}</h2>
+        <p>Уточнены описания LBRP и GPR, происхождение техник и библиография. Согласованы условия первого запуска, остановки и автономии. Веб-версия и все приложения PDF собраны из одного текста.</p>
+        <p><a href="https://github.com/paparampan/levorules.com/commits/main/content/servitors-course.md" target="_blank" rel="noopener">История изменений текста ↗</a></p>
+      </section>
     </div>
   );
 }
@@ -270,7 +275,7 @@ function ServitorsPage({ setRoute }) {
 // Primary CTA: adapts to whether user has reading progress.
 // - no progress / module 0 → «Начать с модуля 00 →»
 // - progress > 0         → «Продолжить с модуля NN →» + subtitle with section title
-function ContinueOrStartButton({ goToModule, modules, purple }) {
+function ContinueOrStartButton({ setRoute, goToModule, modules, purple }) {
   const [progress, setProgress] = React.useState(() => (
     window.lrCourseProgress?.read(modules.length) || {
       started: false,
@@ -283,7 +288,7 @@ function ContinueOrStartButton({ goToModule, modules, purple }) {
 
   if (!progress.started || !modules[saved]) {
     return (
-      <Btn variant="accent" accent={purple} onClick={() => goToModule(0, 'course_hero_start')}>
+      <Btn variant="accent" accent={purple} href="/servitors/0/" onClick={() => goToModule(0, 'course_hero_start')}>
         Начать с модуля 00 →
       </Btn>
     );
@@ -342,7 +347,10 @@ function ContinueOrStartButton({ goToModule, modules, purple }) {
           module_title: m.title,
           progress_percent: percent,
         });
-        goToModule(saved, 'course_hero_resume');
+        let section = null;
+        try { section = localStorage.getItem('lr_servitor_section_' + saved); } catch {}
+        if (section) setRoute('servitors-reader', 's-' + section, null, {moduleIndex: saved});
+        else goToModule(saved, 'course_hero_resume');
       }}>{label}</Btn>
       <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)',
         letterSpacing: '0.08em', textTransform: 'uppercase', textAlign: 'right' }}>

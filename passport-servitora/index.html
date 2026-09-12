@@ -186,6 +186,7 @@
       line-height: 0.84;
     }
     .pp-hero h1 span { color: var(--passport-gold-bright); }
+    .pp-hero__copy { min-width: 0; }
     .pp-hero__lead {
       max-width: 700px;
       margin: 30px 0 0;
@@ -524,11 +525,11 @@
     }
 
     @media (max-width: 900px) {
-      .pp-hero__grid { grid-template-columns: 1fr; min-height: auto; }
+      .pp-hero__grid { grid-template-columns: minmax(0, 1fr); min-height: auto; }
       .pp-cover { width: min(84vw, 520px); justify-self: center; transform: none; }
       .pp-cover { grid-row: 1; }
       .pp-hero__copy { grid-row: 2; }
-      .pp-grid-3, .pp-previews { grid-template-columns: 1fr; }
+      .pp-grid-3, .pp-previews { grid-template-columns: minmax(0, 1fr); }
       .pp-route { grid-template-columns: 1fr 1fr; }
     }
 
@@ -537,14 +538,14 @@
       .pp-nav a:not(.pp-nav__buy) { display: none; }
       .pp-shell { padding-left: 20px; padding-right: 20px; }
       .pp-hero__grid { padding-top: 42px; padding-bottom: 56px; gap: 50px; }
-      .pp-hero h1 { font-size: clamp(58px, 20vw, 90px); }
+      .pp-hero h1 { font-size: clamp(44px, 17vw, 90px); overflow-wrap: normal; }
       .pp-hero__lead { font-size: 18px; }
       .pp-cover::before { display: none; }
       .pp-purchase { align-items: flex-start; }
       .pp-button { width: 100%; }
       .pp-section { padding: 64px 0; }
       .pp-section h2 { font-size: clamp(38px, 12vw, 58px); }
-      .pp-route, .pp-compare, .pp-fit { grid-template-columns: 1fr; }
+      .pp-route, .pp-compare, .pp-fit { grid-template-columns: minmax(0, 1fr); }
       .pp-card, .pp-route__step { min-height: 0; }
       .pp-final { padding: 72px 0; }
       .pp-delivery-help { padding: 22px 20px; }
@@ -708,16 +709,16 @@
         </div>
         <div class="pp-previews">
           <figure class="pp-preview">
-            <img src="/passport-servitora/assets/preview-task.webp" alt="Превью страницы гайда с полями для постановки задачи" loading="lazy" width="820" height="1159">
-            <figcaption>задача из четырёх частей</figcaption>
+            <a href="/passport-servitora/assets/preview-task.webp" target="_blank" rel="noopener" aria-label="Открыть страницу крупно в новой вкладке"><img src="/passport-servitora/assets/preview-task.webp" alt="Превью страницы гайда с полями для постановки задачи" loading="lazy" width="820" height="1159"></a>
+            <figcaption><span style="display:block;margin-bottom:8px">Нажми на страницу, чтобы рассмотреть крупно ↗</span>задача из четырёх частей</figcaption>
           </figure>
           <figure class="pp-preview">
-            <img src="/passport-servitora/assets/preview-autonomy.webp" alt="Превью страницы гайда об автономии сервитора" loading="lazy" width="820" height="1159">
-            <figcaption>автономия и границы</figcaption>
+            <a href="/passport-servitora/assets/preview-autonomy.webp" target="_blank" rel="noopener" aria-label="Открыть страницу крупно в новой вкладке"><img src="/passport-servitora/assets/preview-autonomy.webp" alt="Превью страницы гайда об автономии сервитора" loading="lazy" width="820" height="1159"></a>
+            <figcaption><span style="display:block;margin-bottom:8px">Нажми на страницу, чтобы рассмотреть крупно ↗</span>автономия и границы</figcaption>
           </figure>
           <figure class="pp-preview">
-            <img src="/passport-servitora/assets/preview-clean.webp" alt="Превью чистовой страницы паспорта сервитора" loading="lazy" width="820" height="1159">
-            <figcaption>чистовой паспорт для заполнения</figcaption>
+            <a href="/passport-servitora/assets/preview-clean.webp" target="_blank" rel="noopener" aria-label="Открыть страницу крупно в новой вкладке"><img src="/passport-servitora/assets/preview-clean.webp" alt="Превью чистовой страницы паспорта сервитора" loading="lazy" width="820" height="1159"></a>
+            <figcaption><span style="display:block;margin-bottom:8px">Нажми на страницу, чтобы рассмотреть крупно ↗</span>чистовой паспорт для заполнения</figcaption>
           </figure>
         </div>
       </div>

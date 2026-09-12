@@ -123,6 +123,7 @@ function lrResetCourseProgress() {
   try {
     localStorage.removeItem(LR_COURSE_PROGRESS_KEY);
     localStorage.removeItem(LR_COURSE_MODULE_KEY);
+    for (let n = 0; n <= 10; n++) localStorage.removeItem('lr_servitor_section_' + n);
   } catch {}
   return lrReadCourseProgress();
 }
@@ -134,60 +135,46 @@ window.lrCourseProgress = Object.freeze({
   reset: lrResetCourseProgress,
 });
 
-function lrHashValue(hash = location.hash) {
-  return hash.replace(/^#/, '').trim();
-}
-
-function lrRouteFromHash(hash = location.hash) {
+// Canonical paths; old hash links remain valid entry points.
+function lrHashValue(hash = location.hash) { return hash.replace(/^#/, '').trim(); }
+function lrLocationKey() { return location.pathname + location.hash; }
+function lrRouteFromHash(hash = location.hash, path = location.pathname) {
   const h = lrHashValue(hash);
-  if (h === 'servitors' || h === 'program' || h === 'appendices') return 'servitors';
-  if (h === 'servitors-reader' || h.startsWith('servitors-reader/')) return 'servitors-reader';
-  if (h === 'who') return 'who';
-  if (h === 'guides') return 'guides';
+  if (/^(servitors-reader\/|s-\d+\.)/.test(h) || h === 'servitors-reader') return 'servitors-reader';
+  if (['servitors', 'program', 'appendices'].includes(h)) return 'servitors';
+  if (h === 'who' || h === 'guides') return h;
   if (h.startsWith('guides/')) return 'guide';
+  if (h === 'home') return 'home';
+  if (/^\/servitors\/\d+\/?$/.test(path)) return 'servitors-reader';
+  if (/^\/servitors\/?$/.test(path)) return 'servitors';
+  if (/^\/guides\/[^/]+\/?$/.test(path)) return 'guide';
+  if (/^\/guides\/?$/.test(path)) return 'guides';
+  if (/^\/who\/?$/.test(path)) return 'who';
   return 'home';
 }
-
-function lrSectionFromHash(hash = location.hash, route = lrRouteFromHash(hash)) {
+function lrSectionFromHash(hash = location.hash) {
   const h = lrHashValue(hash);
-  if (route === 'home' && ['territories', 'video', 'content'].includes(h)) return h;
-  if (route === 'servitors' && ['program', 'appendices'].includes(h)) return h;
+  if (/^s-\d+\.\d+$/.test(h) || ['territories','video','content','program','appendices','edition','module-start','practice','selfcheck'].includes(h) || h.startsWith('defense-')) return h;
   return null;
 }
-
-function lrGuideSlugFromHash(hash = location.hash) {
-  const h = lrHashValue(hash);
-  const m = h.match(/^guides\/(.+)$/);
-  return m ? m[1] : null;
+function lrGuideSlugFromHash(hash = location.hash, path = location.pathname) {
+  return lrHashValue(hash).match(/^guides\/([^/#]+)/)?.[1] || path.match(/^\/guides\/([^/]+)/)?.[1] || null;
 }
-
-function lrModuleFromHash(hash = location.hash) {
-  const h = lrHashValue(hash);
-  const m = h.match(/^servitors-reader\/(\d+)/);
-  if (!m) return null;
-  const n = parseInt(m[1], 10);
-  return Number.isNaN(n) || n < 0 ? null : n;
+function lrModuleFromHash(hash = location.hash, path = location.pathname) {
+  const m = lrHashValue(hash).match(/^(?:servitors-reader\/|s-)(\d+)/) || path.match(/^\/servitors\/(\d+)/);
+  return m ? lrClampCourseModule(m[1]) : null;
 }
-
 function lrHashForRoute(route, sectionId = null, guideSlug = null, moduleIndex = null) {
-  if (route === 'servitors') return sectionId ? `#${sectionId}` : '#servitors';
-  if (route === 'servitors-reader') {
-    let mod = moduleIndex;
-    if (mod === null || mod === undefined) {
-      const fromHash = lrModuleFromHash();
-      if (fromHash !== null) mod = fromHash;
-      else {
-        try { mod = localStorage.getItem(LR_COURSE_MODULE_KEY) || '0'; }
-        catch { mod = '0'; }
-      }
-    }
-    return `#servitors-reader/${mod}`;
-  }
-  if (route === 'who') return '#who';
-  if (route === 'guides') return '#guides';
-  if (route === 'guide') return `#guides/${guideSlug || 'defense-basics'}`;
-  return sectionId ? `#${sectionId}` : '#';
+  let path = '/';
+  if (route === 'servitors') path = '/servitors/';
+  if (route === 'servitors-reader') path = `/servitors/${lrClampCourseModule(moduleIndex ?? lrModuleFromHash() ?? lrReadCourseProgress().currentModule)}/`;
+  if (route === 'who') path = '/who/';
+  if (route === 'guides') path = '/guides/';
+  if (route === 'guide') path = `/guides/${guideSlug || 'defense-basics'}/`;
+  return path + (sectionId ? `#${sectionId}` : '');
 }
+function lrPlainClick(e) { return e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey; }
+window.lrPlainClick = lrPlainClick;
 
 function lrNeedsServitors(route) {
   return route === 'servitors' || route === 'servitors-reader';
@@ -207,8 +194,8 @@ function lrLoadServitorsBundle() {
     const script = document.createElement('script');
     const version = window.__LR_ASSET_VERSION__;
     script.src = version
-      ? `dist/servitors.js?v=${encodeURIComponent(version)}`
-      : 'dist/servitors.js';
+      ? `/dist/servitors.js?v=${encodeURIComponent(version)}`
+      : '/dist/servitors.js';
     script.defer = true;
     script.onload = () => lrServitorsReady()
       ? resolve()
@@ -259,7 +246,12 @@ function lrFinishRouteNavigation(sectionId, shouldFocus, shouldScrollTop) {
   if (sectionId && !section) return false;
 
   if (section) {
-    section.scrollIntoView({ block: 'start' });
+    section.scrollIntoView({ block: 'start', behavior: 'instant' });
+    const toolbar = document.querySelector('.sv-reader-toolbar');
+    if (toolbar && section.closest('.sv-reader-grid')) {
+      const offset = toolbar.getBoundingClientRect().height + (parseFloat(getComputedStyle(toolbar).top) || 0) + 20;
+      window.scrollTo({top: Math.max(0, window.scrollY + section.getBoundingClientRect().top - offset), behavior: 'instant'});
+    }
   } else if (shouldScrollTop) {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }
@@ -296,12 +288,10 @@ function App() {
   const pendingScrollId = React.useRef(lrSectionFromHash());
   const pendingModuleIndex = React.useRef(null);
   const historyMode = React.useRef('replace');
-  const handledHash = React.useRef(location.hash);
+  const handledHash = React.useRef(lrLocationKey());
   const [navTick, setNavTick] = React.useState(0);
   const [route, setRoute] = React.useState(() => {
-    const h = lrHashValue();
-    if (h) return lrRouteFromHash();
-    return 'home';
+    return lrRouteFromHash();
   });
   const [readerModule, setReaderModule] = React.useState(() => {
     const fromHash = lrModuleFromHash();
@@ -381,6 +371,9 @@ function App() {
       }
       if (!Number.isFinite(nextModule) || nextModule < 0) nextModule = 0;
       setReaderModule(nextModule);
+      if (sectionId?.startsWith('s-')) {
+        try { localStorage.setItem('lr_servitor_section_' + nextModule, sectionId.slice(2)); } catch {}
+      }
     }
     pendingModuleIndex.current = nextModule;
     historyMode.current = options.historyMode || 'push';
@@ -400,16 +393,24 @@ function App() {
     const mode = historyMode.current;
     const visualRouteChanged = previousVisualRouteKey.current !== visualRouteKey;
     previousVisualRouteKey.current = visualRouteKey;
-    pendingRouteFocus.current = visualRouteChanged;
+    pendingRouteFocus.current = visualRouteChanged || Boolean(sectionId) || (route === 'servitors-reader' && mode === 'push');
     pendingScrollTop.current = !sectionId && mode === 'push';
-    const currentHash = location.hash || '#';
+    const currentHash = lrLocationKey();
     if (mode !== 'none' && currentHash !== nextHash) {
       const method = mode === 'replace' ? 'replaceState' : 'pushState';
-      history[method](null, '', nextHash);
+      const [path, fragment] = nextHash.split('#');
+      history[method](null, '', path + location.search + (fragment ? '#' + fragment : ''));
     }
-    handledHash.current = location.hash;
+    handledHash.current = lrLocationKey();
     const analyticsMeta = lrAnalyticsMeta(route, guideSlug, readerModule);
+    const pageMeta = window.__LR_PAGE_META__?.[lrHashForRoute(route, null, guideSlug, readerModule)];
+    if (pageMeta) analyticsMeta.title = pageMeta.title;
     document.title = analyticsMeta.title;
+    const canonical = location.origin + lrHashForRoute(route, null, guideSlug, readerModule);
+    document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical);
+    document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical);
+    for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) document.querySelector(selector)?.setAttribute('content', analyticsMeta.title);
+    if (pageMeta) for (const selector of ['meta[name="description"]', 'meta[property="og:description"]', 'meta[name="twitter:description"]']) document.querySelector(selector)?.setAttribute('content', pageMeta.description);
     window.lrAnalytics?.pageView({
       title: analyticsMeta.title,
       contentGroup: analyticsMeta.contentGroup,
@@ -423,7 +424,7 @@ function App() {
         : undefined,
     });
 
-    if (!lrNeedsServitors(route) || lrServitorsReady()) {
+    if (!lrNeedsServitors(route) || (lrServitorsReady() && (route !== 'servitors-reader' || window.SERVITORS_MODULES?.[readerModule]?.loaded))) {
       requestAnimationFrame(() => {
         const finished = lrFinishRouteNavigation(
           sectionId,
@@ -464,23 +465,34 @@ function App() {
 
   React.useEffect(() => {
     if (!lrNeedsServitors(route)) return;
-    if (lrServitorsReady()) {
+    if (lrServitorsReady() && (route !== 'servitors-reader' || window.SERVITORS_MODULES?.[readerModule]?.loaded)) {
       setServitorsReady(true);
       setServitorsError(null);
       return;
     }
     setServitorsReady(false);
     setServitorsError(null);
+    let current = true;
     lrLoadServitorsBundle()
+      .then(async () => {
+        if (route === 'servitors-reader' && !window.SERVITORS_MODULES[readerModule]?.loaded) {
+          const response = await fetch(`/dist/course/${readerModule}.json?v=${window.__LR_ASSET_VERSION__ || ''}`);
+          if (!response.ok) throw new Error('Module unavailable');
+          window.SERVITORS_MODULES[readerModule] = await response.json();
+        }
+      })
       .then(() => {
+        if (!current) return;
         setServitorsReady(true);
         setServitorsError(null);
       })
       .catch((err) => {
+        if (!current) return;
         console.error(err);
         setServitorsError(err);
       });
-  }, [route]);
+    return () => { current = false; };
+  }, [route, readerModule]);
 
   React.useEffect(() => {
     const handler = (e) => {
@@ -488,19 +500,30 @@ function App() {
       navigate(detail.route, detail.section || null, detail.slug || null, detail.options || {});
     };
     const syncFromLocation = () => {
-      if (handledHash.current === location.hash) return;
-      handledHash.current = location.hash;
+      if (handledHash.current === lrLocationKey()) return;
+      handledHash.current = lrLocationKey();
       const nextRoute = lrRouteFromHash();
       const slug = lrGuideSlugFromHash();
-      navigate(nextRoute, lrSectionFromHash(location.hash, nextRoute), slug, {
+      navigate(nextRoute, lrSectionFromHash(location.hash), slug, {
         historyMode: 'none',
         moduleIndex: lrModuleFromHash(),
       });
     };
+    const linkHandler = (event) => {
+      const link = event.target.closest?.('a[href]');
+      if (event.defaultPrevented || !lrPlainClick(event) || !link || link.target || link.hasAttribute('download')) return;
+      const url = new URL(link.href);
+      if (url.origin !== location.origin || !/^\/(?:servitors(?:\/\d+)?|guides(?:\/defense-basics)?|who)?\/?$/.test(url.pathname)) return;
+      if (url.hash === '#main-content') return;
+      event.preventDefault();
+      navigate(lrRouteFromHash(url.hash, url.pathname), lrSectionFromHash(url.hash), lrGuideSlugFromHash(url.hash, url.pathname), {moduleIndex: lrModuleFromHash(url.hash, url.pathname)});
+    };
+    document.addEventListener('click', linkHandler);
     window.addEventListener('lr:route', handler);
     window.addEventListener('popstate', syncFromLocation);
     window.addEventListener('hashchange', syncFromLocation);
     return () => {
+      document.removeEventListener('click', linkHandler);
       window.removeEventListener('lr:route', handler);
       window.removeEventListener('popstate', syncFromLocation);
       window.removeEventListener('hashchange', syncFromLocation);
@@ -566,4 +589,5 @@ function ServitorsLoading({ error }) {
   );
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+window.App = App;
+if (!window.__LR_PRERENDER__) ReactDOM.createRoot(document.getElementById('root')).render(<App />);

@@ -36,9 +36,7 @@ const APP_FILES = [
 ];
 
 const SERVITORS_FILES = [
-  "_servitors-content-1.jsx",
-  "_servitors-content-2.jsx",
-  "_servitors-content-loader.jsx",
+  "_servitors-catalog.jsx",
   "_servitors-reader.jsx",
   "_servitors.jsx",
 ];
@@ -90,6 +88,7 @@ await buildBundle({
 });
 
 const assetVersionHash = createHash("sha256");
+for (let n = 0; n <= 10; n++) assetVersionHash.update(readFileSync(resolve(DIST, 'course', `${n}.json`)));
 for (const file of [
   resolve(HERE, "index.html"),
   resolve(HERE, "passport-servitora", "index.html"),
@@ -120,6 +119,10 @@ for (const file of [
 const publicIndex = readFileSync(resolve(HERE, "index.html"), "utf-8")
   .replaceAll("__LR_ASSET_VERSION_VALUE__", assetVersion);
 writeFileSync(resolve(PUBLIC, "index.html"), publicIndex);
+
+mkdirSync(resolve(PUBLIC, 'vendor'), {recursive: true});
+cpSync(resolve(HERE, 'node_modules/react/umd/react.production.min.js'), resolve(PUBLIC, 'vendor/react-18.3.1.min.js'));
+cpSync(resolve(HERE, 'node_modules/react-dom/umd/react-dom.production.min.js'), resolve(PUBLIC, 'vendor/react-dom-18.3.1.min.js'));
 
 for (const directory of ["brand", "dist", "passport-servitora", "tiktok", "instagram"]) {
   cpSync(resolve(HERE, directory), resolve(PUBLIC, directory), {
@@ -152,3 +155,7 @@ cpSync(
 );
 
 console.log("\nWrote public/ production artifact (runtime files only)");
+
+// Each public route contains readable HTML and its own metadata before JS runs.
+const { prerender } = await import('./tools/prerender.mjs');
+await prerender({root: HERE, publicDir: PUBLIC});
