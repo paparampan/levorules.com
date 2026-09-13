@@ -1,14 +1,22 @@
 {
-  "updated": "2026-09-13T11:57:54Z",
+  "updated": "2026-09-13T16:22:46Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "k68DZ93-R8g",
+      "title": "Опасности сервитора: когда послушание хуже бунта",
+      "url": "https://www.youtube.com/shorts/k68DZ93-R8g",
+      "thumb": "https://i.ytimg.com/vi/k68DZ93-R8g/hqdefault.jpg",
+      "views": "",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "OwC6pUXE4jI",
       "title": "Лилит: практика, чтобы научиться говорить \"нет\"  #магияхаоса",
       "url": "https://www.youtube.com/shorts/OwC6pUXE4jI",
       "thumb": "https://i.ytimg.com/vi/OwC6pUXE4jI/hqdefault.jpg",
       "views": "1.3k",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "bCkOZKFMFkA",
@@ -16,15 +24,15 @@
       "url": "https://www.youtube.com/shorts/bCkOZKFMFkA",
       "thumb": "https://i.ytimg.com/vi/bCkOZKFMFkA/hqdefault.jpg",
       "views": "1.2k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "lF3Oyj5XveM",
       "title": "Знак от вселенной или самообман? Как сервитор сообщает о результате",
       "url": "https://www.youtube.com/shorts/lF3Oyj5XveM",
       "thumb": "https://i.ytimg.com/vi/lF3Oyj5XveM/hqdefault.jpg",
-      "views": "930",
-      "acc": "var(--purple)"
+      "views": "931",
+      "acc": "var(--amber)"
     },
     {
       "id": "pBgrm5Ioj9k",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/pBgrm5Ioj9k",
       "thumb": "https://i.ytimg.com/vi/pBgrm5Ioj9k/hqdefault.jpg",
       "views": "1.9k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "8MhKEAor7_I",
-      "title": "Что такое анкер сервитора? 7 рабочих типов с примерами  #магияхаоса",
-      "url": "https://www.youtube.com/shorts/8MhKEAor7_I",
-      "thumb": "https://i.ytimg.com/vi/8MhKEAor7_I/hqdefault.jpg",
-      "views": "461",
       "acc": "var(--cyber-cyan)"
     }
   ]
