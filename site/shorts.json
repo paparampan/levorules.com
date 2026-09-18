@@ -1,14 +1,22 @@
 {
-  "updated": "2026-09-18T16:28:18Z",
+  "updated": "2026-09-18T20:56:55Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "lOtCgWXZ5K0",
+      "title": "Как зарядить сигилу: Поза смерти Остина Османа Спейра",
+      "url": "https://www.youtube.com/shorts/lOtCgWXZ5K0",
+      "thumb": "https://i.ytimg.com/vi/lOtCgWXZ5K0/hqdefault.jpg",
+      "views": "24",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "k68DZ93-R8g",
       "title": "Опасности сервитора: когда послушание хуже бунта",
       "url": "https://www.youtube.com/shorts/k68DZ93-R8g",
       "thumb": "https://i.ytimg.com/vi/k68DZ93-R8g/hqdefault.jpg",
-      "views": "154",
-      "acc": "var(--magenta)"
+      "views": "158",
+      "acc": "var(--acid-green)"
     },
     {
       "id": "OwC6pUXE4jI",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/OwC6pUXE4jI",
       "thumb": "https://i.ytimg.com/vi/OwC6pUXE4jI/hqdefault.jpg",
       "views": "1.4k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "bCkOZKFMFkA",
@@ -24,22 +32,14 @@
       "url": "https://www.youtube.com/shorts/bCkOZKFMFkA",
       "thumb": "https://i.ytimg.com/vi/bCkOZKFMFkA/hqdefault.jpg",
       "views": "1.2k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "lF3Oyj5XveM",
       "title": "Знак от вселенной или самообман? Как сервитор сообщает о результате",
       "url": "https://www.youtube.com/shorts/lF3Oyj5XveM",
       "thumb": "https://i.ytimg.com/vi/lF3Oyj5XveM/hqdefault.jpg",
-      "views": "957",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "pBgrm5Ioj9k",
-      "title": "У бога был ОТЕЦ. Его звали Эль | Краткая история христианского эгрегора",
-      "url": "https://www.youtube.com/shorts/pBgrm5Ioj9k",
-      "thumb": "https://i.ytimg.com/vi/pBgrm5Ioj9k/hqdefault.jpg",
-      "views": "1.9k",
+      "views": "958",
       "acc": "var(--cyber-cyan)"
     }
   ]
