@@ -24,7 +24,7 @@ function Header({ ritual, setRitual, route, setRoute }) {
   return (
     <header className={`lr-site-header${route === 'servitors-reader' ? ' lr-site-header--reader' : ''}`} style={{
       position: 'sticky', top: 0, zIndex: 50,
-      background: 'rgba(10,10,10,0.92)', backdropFilter: 'blur(8px)',
+      background: 'rgba(10,10,10,0.82)', backdropFilter: 'blur(10px)',
       borderBottom: '1px solid var(--border)',
     }}>
       <div className="lr-header-inner" style={{
@@ -102,25 +102,64 @@ function navLinkStyle(active, accent) {
   };
 }
 
+// Kinetic word: letters rise in one by one; hover changes Oswald weight (variable font).
+function KineticWord({ text, tone, delay = 0, ghost }) {
+  return (
+    <span className={`lr-kinetic lr-kinetic--${tone}`}>
+      {Array.from(text).map((ch, i) => (
+        <span key={i} style={{ animationDelay: `${delay + i * 0.06}s` }}>{ch}</span>
+      ))}
+      {ghost && <span className="lr-kinetic__ghost" aria-hidden="true">{text}</span>}
+    </span>
+  );
+}
+
+const HERO_MARQUEE = [
+  { text: 'ничто не истинно', accent: 'var(--blood-text)' },
+  { text: 'всё дозволено', accent: 'var(--purple)' },
+  { text: 'сигилы · сервиторы · гнозис', accent: 'var(--amber)' },
+  { text: 'азазель · люцифер · белиал', accent: 'var(--acid-green)' },
+  { text: 'fac ut ardeat', accent: 'var(--cyber-cyan)' },
+  { text: 'технология воли', accent: 'var(--magenta)' },
+];
+
 // Hero
 function Hero({ ritual }) {
+  const sigilRef = React.useRef(null);
+  React.useEffect(() => {
+    if (!window.matchMedia?.('(hover: hover) and (pointer: fine)').matches) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    const onMove = (e) => {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const el = sigilRef.current; if (!el) return;
+      const dx = (e.clientX / window.innerWidth - .5) * 30, dy = (e.clientY / window.innerHeight - .5) * 30;
+      el.style.transform = `translate(${dx}px, ${dy}px)`;
+    };
+    window.addEventListener('mousemove', onMove, { passive: true });
+    return () => window.removeEventListener('mousemove', onMove);
+  }, []);
+
   return (
     <section style={{ position: 'relative', overflow: 'hidden', borderBottom: '1px solid var(--border)' }}>
-      <div style={{ position: 'absolute', right: -80, top: -60, pointerEvents: 'none' }}>
-        <SigilTriad accent="var(--blood)" opacity={0.28} size={560} />
+      <div ref={sigilRef} className="lr-hero-sigil" style={{ position: 'absolute', right: -80, top: -60, pointerEvents: 'none' }}>
+        {typeof ChaosStar !== 'undefined'
+          ? <ChaosStar accent="var(--blood)" opacity={0.42} size={600} />
+          : <SigilTriad accent="var(--blood)" opacity={0.28} size={560} />}
       </div>
       <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '96px 32px 80px' }}>
-        <Eyebrow>канал · MMXXVI · ch. 2026-04</Eyebrow>
-        <h1 className="lr-glitch-text" style={{
+        <h1 aria-label="ЛЕВО РУЛЯ" style={{
           fontSize: 'clamp(80px, 12vw, 180px)',
-          margin: '28px 0 0', lineHeight: 0.85, letterSpacing: '-0.02em',
+          margin: 0, lineHeight: 0.85, letterSpacing: '-0.02em',
+          cursor: 'default', userSelect: 'none',
         }}>
-          <span className={ritual ? 'glitch-rgb' : ''} data-text="ЛЕВО">ЛЕВО</span><br/>
-          <span style={{ color: 'var(--blood-display)' }} className={ritual ? 'glitch-rgb' : ''} data-text="РУЛЯ">РУЛЯ</span>
+          <KineticWord text="ЛЕВО" tone="bone" delay={0.1} />
+          <span style={{ color: 'var(--blood-display)', display: 'block' }}>
+            <KineticWord text="РУЛЯ" tone="blood" delay={0.38} ghost />
+          </span>
         </h1>
 
         <div style={{ marginTop: 36, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'end' }}>
-          <div>
+          <div className="lr-hero-fade">
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, letterSpacing: '0.1em', color: 'var(--bone)', textTransform: 'uppercase' }}>
               магия хаоса · демонология · путь левой руки
             </div>
@@ -134,7 +173,7 @@ function Hero({ ritual }) {
               <Tag>▸ в ногу со временем</Tag>
             </div>
           </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'stretch', minWidth: 260 }}>
+          <div className="lr-hero-fade" style={{ display: 'flex', flexDirection: 'column', gap: 12, alignItems: 'stretch', minWidth: 260, animationDelay: '1s' }}>
             <Btn variant="blood" href="https://telegram.me/levorules">Читать канал →</Btn>
             <Btn variant="ghostAccent" accent="var(--purple)" href="/servitors/" onClick={(e) => {
               e.preventDefault();
@@ -145,6 +184,7 @@ function Hero({ ritual }) {
           </div>
         </div>
       </div>
+      {typeof Marquee !== 'undefined' && <Marquee items={HERO_MARQUEE} />}
     </section>
   );
 }
@@ -152,29 +192,34 @@ function Hero({ ritual }) {
 // Territories (three directions)
 function Territories() {
   const items = [
-    { n: '01', title: 'МАГИЯ ХАОСА', body: 'Сигилы, ритуалы, деконструкция догм. Вера как инструмент, не костыль.' },
-    { n: '02', title: 'ДЕМОНОЛОГИЯ', body: 'Работа с инфернальными сущностями. Азазель, Люцифер, Белиал. Без страха и поклонения.' },
-    { n: '03', title: 'ПУТЬ ЛЕВОЙ РУКИ', body: 'Самообожествление, Чёрное Пламя, индивидуация. Ты и есть бог.' },
+    { n: '01', title: 'МАГИЯ ХАОСА', body: 'Сигилы, ритуалы, деконструкция догм. Вера как инструмент, не костыль.', accent: 'var(--blood-text)' },
+    { n: '02', title: 'ДЕМОНОЛОГИЯ', body: 'Работа с инфернальными сущностями. Азазель, Люцифер, Белиал. Без страха и поклонения.', accent: 'var(--purple)' },
+    { n: '03', title: 'ПУТЬ ЛЕВОЙ РУКИ', body: 'Самообожествление, Чёрное Пламя, индивидуация. Ты и есть бог.', accent: 'var(--amber)' },
   ];
   return (
     <section id="territories" data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '80px 32px' }}>
         <SectionTitle eyebrow="три направления практики" title="ТЕРРИТОРИИ" />
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: 'var(--border)', border: '1px solid var(--border)' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 1, background: 'var(--border)', border: '1px solid var(--border)', perspective: 1200 }}>
           {items.map(c => (
             <div
               key={c.n}
               className="lr-reactive-card"
               style={{
-                '--lr-interaction-accent': 'var(--blood-text)',
-                background: 'var(--ash)', padding: 32, minHeight: 240, position: 'relative',
+                '--lr-interaction-accent': c.accent,
+                background: 'var(--ash)', padding: 32, minHeight: 240, position: 'relative', overflow: 'hidden',
               }}
             >
-              <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--blood-text)', letterSpacing: '0.15em' }}>
+              <div aria-hidden="true" style={{
+                position: 'absolute', right: -30, top: -30,
+                fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: 180, lineHeight: 1,
+                color: c.accent, opacity: 0.06, pointerEvents: 'none',
+              }}>{c.n}</div>
+              <div style={{ position: 'relative', fontFamily: 'var(--font-mono)', fontSize: 11, color: c.accent, letterSpacing: '0.15em' }}>
                 {c.n} / 03
               </div>
-              <h3 style={{ marginTop: 20, fontSize: 28 }}>{c.title}</h3>
-              <p style={{ marginTop: 16, color: 'var(--bone-dim)', lineHeight: 1.55 }}>{c.body}</p>
+              <h3 style={{ position: 'relative', marginTop: 20, fontSize: 28 }}>{c.title}</h3>
+              <p style={{ position: 'relative', marginTop: 16, color: 'var(--bone-dim)', lineHeight: 1.55 }}>{c.body}</p>
             </div>
           ))}
         </div>
