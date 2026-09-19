@@ -27,6 +27,7 @@ const PUBLIC = resolve(HERE, "public");
 mkdirSync(DIST, { recursive: true });
 
 const APP_FILES = [
+  "_effects.jsx",
   "_atoms.jsx",
   "_home-top.jsx",
   "_home-mid.jsx",
@@ -94,6 +95,7 @@ for (const file of [
   resolve(HERE, "passport-servitora", "index.html"),
   resolve(HERE, "analytics.js"),
   resolve(HERE, "brand", "colors_and_type.css"),
+  resolve(HERE, "brand", "effects.css"),
   resolve(DIST, "app.js"),
   resolve(DIST, "servitors.js"),
 ]) {
