@@ -1,14 +1,22 @@
 {
-  "updated": "2026-09-28T20:34:52Z",
+  "updated": "2026-09-29T02:01:03Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "nePi-JDLzLA",
+      "title": "Время в долг: как маги Хаоса придумали Фотамекуса",
+      "url": "https://www.youtube.com/shorts/nePi-JDLzLA",
+      "thumb": "https://i.ytimg.com/vi/nePi-JDLzLA/hqdefault.jpg",
+      "views": "216",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "jvjjWt26yJQ",
       "title": "Откуп в магии: почему нельзя просто заплатить?",
       "url": "https://www.youtube.com/shorts/jvjjWt26yJQ",
       "thumb": "https://i.ytimg.com/vi/jvjjWt26yJQ/hqdefault.jpg",
-      "views": "186",
-      "acc": "var(--magenta)"
+      "views": "188",
+      "acc": "var(--acid-green)"
     },
     {
       "id": "GRCZ2nCNlsw",
@@ -16,15 +24,15 @@
       "url": "https://www.youtube.com/shorts/GRCZ2nCNlsw",
       "thumb": "https://i.ytimg.com/vi/GRCZ2nCNlsw/hqdefault.jpg",
       "views": "1.2k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "lOtCgWXZ5K0",
       "title": "Как зарядить сигилу: Поза смерти Остина Османа Спейра",
       "url": "https://www.youtube.com/shorts/lOtCgWXZ5K0",
       "thumb": "https://i.ytimg.com/vi/lOtCgWXZ5K0/hqdefault.jpg",
-      "views": "324",
-      "acc": "var(--purple)"
+      "views": "328",
+      "acc": "var(--amber)"
     },
     {
       "id": "k68DZ93-R8g",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/k68DZ93-R8g",
       "thumb": "https://i.ytimg.com/vi/k68DZ93-R8g/hqdefault.jpg",
       "views": "218",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "OwC6pUXE4jI",
-      "title": "Лилит: практика, чтобы научиться говорить \"нет\"  #магияхаоса",
-      "url": "https://www.youtube.com/shorts/OwC6pUXE4jI",
-      "thumb": "https://i.ytimg.com/vi/OwC6pUXE4jI/hqdefault.jpg",
-      "views": "1.5k",
       "acc": "var(--cyber-cyan)"
     }
   ]
