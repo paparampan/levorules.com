@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-06T06:27:00Z",
+  "updated": "2026-10-06T15:14:59Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -15,7 +15,7 @@
       "title": "Откуп в магии: почему нельзя просто заплатить?",
       "url": "https://www.youtube.com/shorts/jvjjWt26yJQ",
       "thumb": "https://i.ytimg.com/vi/jvjjWt26yJQ/hqdefault.jpg",
-      "views": "263",
+      "views": "267",
       "acc": "var(--acid-green)"
     },
     {
@@ -23,7 +23,7 @@
       "title": "Мабон и осеннее равноденствие: зачем хранили последний сноп?",
       "url": "https://www.youtube.com/shorts/GRCZ2nCNlsw",
       "thumb": "https://i.ytimg.com/vi/GRCZ2nCNlsw/hqdefault.jpg",
-      "views": "1.2k",
+      "views": "1.3k",
       "acc": "var(--purple)"
     },
     {
@@ -31,7 +31,7 @@
       "title": "Как зарядить сигилу: Поза смерти Остина Османа Спейра",
       "url": "https://www.youtube.com/shorts/lOtCgWXZ5K0",
       "thumb": "https://i.ytimg.com/vi/lOtCgWXZ5K0/hqdefault.jpg",
-      "views": "426",
+      "views": "430",
       "acc": "var(--amber)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "Опасности сервитора: когда послушание хуже бунта",
       "url": "https://www.youtube.com/shorts/k68DZ93-R8g",
       "thumb": "https://i.ytimg.com/vi/k68DZ93-R8g/hqdefault.jpg",
-      "views": "277",
+      "views": "279",
       "acc": "var(--cyber-cyan)"
     }
   ]
