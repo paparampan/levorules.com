@@ -288,7 +288,10 @@ function ContinueOrStartButton({ setRoute, goToModule, modules, purple }) {
 
   if (!progress.started || !modules[saved]) {
     return (
-      <Btn variant="accent" accent={purple} href="/servitors/0/" onClick={() => goToModule(0, 'course_hero_start')}>
+      <Btn variant="accent" accent={purple} href="/servitors/0/" onClick={(e) => {
+        e.preventDefault();
+        goToModule(0, 'course_hero_start');
+      }}>
         Начать с модуля 00 →
       </Btn>
     );

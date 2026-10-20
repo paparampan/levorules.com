@@ -54,7 +54,11 @@ function Btn({ variant = 'default', accent, children, onClick, href, style = {},
     <Comp
       {...(Comp === 'button' ? { type: 'button' } : {})}
       className={`lr-action ${className}`.trim()}
-      onClick={onClick ? (e) => { if (href) { if (!lrPlainClick(e)) return; e.preventDefault(); } onClick(e); } : undefined} href={href}
+      onClick={onClick ? (e) => {
+        if (href && !lrPlainClick(e)) return;
+        // Tracking callbacks must not cancel the link's native navigation.
+        onClick(e);
+      } : undefined} href={href}
       onMouseEnter={() => setHover(true)} onMouseLeave={() => { setHover(false); setActive(false); }}
       onMouseDown={() => setActive(true)} onMouseUp={() => setActive(false)}
       style={{
