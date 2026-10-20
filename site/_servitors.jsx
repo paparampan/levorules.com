@@ -62,7 +62,7 @@ function ServitorsPage({ setRoute }) {
               </div>
               <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)', letterSpacing: '0.08em', textAlign: 'right' }}>
                 Задать вопрос или обсудить можно{' '}
-                <a href="https://telegram.me/levorules_chat" target="_blank" rel="noopener"
+                <a href="https://t.me/+iQufDN8b0kZhY2Ni" target="_blank" rel="noopener"
                    style={{ color: purple, textDecoration: 'underline', textUnderlineOffset: 2 }}>ТУТ</a>
               </div>
             </div>
