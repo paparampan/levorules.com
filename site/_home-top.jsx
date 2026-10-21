@@ -18,6 +18,7 @@ function Header({ ritual, setRitual, route, setRoute }) {
     { id: 'home', label: 'Главная' },
     { id: 'servitors', label: 'Сервиторы', accent: 'var(--purple)' },
     { id: 'guides', label: 'Гайды', accent: 'var(--acid-green)' },
+    { id: 'prints', label: 'Принты', accent: 'var(--amber)' },
     { id: 'who', label: 'Кто я', accent: 'var(--blood-text)' },
     { id: 'tg', label: 'Telegram', href: 'https://telegram.me/levorules', external: true },
   ];
@@ -59,7 +60,8 @@ function Header({ ritual, setRitual, route, setRoute }) {
           {items.map(i => {
             const isActive = route === i.id
               || (i.id === 'servitors' && route === 'servitors-reader')
-              || (i.id === 'guides' && route === 'guide');
+              || (i.id === 'guides' && route === 'guide')
+              || (i.id === 'prints' && route === 'print');
             const accent = i.accent || 'var(--bone)';
             return i.external ? (
               <a key={i.id} href={i.href} target="_blank" rel="noopener"
@@ -69,7 +71,7 @@ function Header({ ritual, setRitual, route, setRoute }) {
                 <span style={{ color: 'var(--blood-text)' }}>▸</span> {i.label} ↗
               </a>
             ) : (
-              <a key={i.id} href={i.id === 'servitors' ? '/servitors/' : i.id === 'guides' ? '/guides/' : i.id === 'who' ? '/who/' : '/#' + i.id}
+              <a key={i.id} href={i.id === 'servitors' ? '/servitors/' : i.id === 'guides' ? '/guides/' : i.id === 'prints' ? '/prints/' : i.id === 'who' ? '/who/' : '/#' + i.id}
                 className="lr-nav-link"
                 aria-current={isActive ? 'page' : undefined}
                 onClick={(e) => {

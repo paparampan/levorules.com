@@ -312,6 +312,7 @@ function Footer() {
     { label: 'Главная', href: '/', route: 'home' },
     { label: 'Сервиторы', href: '/servitors/', route: 'servitors' },
     { label: 'Гайды', href: '/guides/', route: 'guides' },
+    { label: 'Принты', href: '/prints/', route: 'prints' },
     { label: 'Видео', href: '/#video', route: 'home', section: 'video' },
   ];
   return (

@@ -150,27 +150,37 @@ function lrRouteFromHash(hash = location.hash, path = location.pathname) {
   if (/^\/guides\/[^/]+\/?$/.test(path)) return 'guide';
   if (/^\/guides\/?$/.test(path)) return 'guides';
   if (/^\/who\/?$/.test(path)) return 'who';
+  if (/^\/prints\/[^/]+\/?$/.test(path)) return 'print';
+  if (/^\/prints\/?$/.test(path)) return 'prints';
   return 'home';
 }
 function lrSectionFromHash(hash = location.hash) {
   const h = lrHashValue(hash);
-  if (/^s-\d+\.\d+$/.test(h) || ['territories','video','content','program','appendices','edition','module-start','practice','selfcheck'].includes(h) || h.startsWith('defense-')) return h;
+  if (/^s-\d+\.\d+$/.test(h) || ['territories','video','content','program','appendices','edition','module-start','practice','selfcheck'].includes(h) || h.startsWith('defense-') || h.startsWith('print-')) return h;
   return null;
 }
 function lrGuideSlugFromHash(hash = location.hash, path = location.pathname) {
   return lrHashValue(hash).match(/^guides\/([^/#]+)/)?.[1] || path.match(/^\/guides\/([^/]+)/)?.[1] || null;
 }
+function lrPrintSlugFromPath(path = location.pathname) {
+  return path.match(/^\/prints\/([^/]+)/)?.[1] || null;
+}
+function lrSlugForRoute(route, hash = location.hash, path = location.pathname) {
+  return route === 'print' ? lrPrintSlugFromPath(path) : lrGuideSlugFromHash(hash, path);
+}
 function lrModuleFromHash(hash = location.hash, path = location.pathname) {
   const m = lrHashValue(hash).match(/^(?:servitors-reader\/|s-)(\d+)/) || path.match(/^\/servitors\/(\d+)/);
   return m ? lrClampCourseModule(m[1]) : null;
 }
-function lrHashForRoute(route, sectionId = null, guideSlug = null, moduleIndex = null) {
+function lrHashForRoute(route, sectionId = null, slug = null, moduleIndex = null) {
   let path = '/';
   if (route === 'servitors') path = '/servitors/';
   if (route === 'servitors-reader') path = `/servitors/${lrClampCourseModule(moduleIndex ?? lrModuleFromHash() ?? lrReadCourseProgress().currentModule)}/`;
   if (route === 'who') path = '/who/';
   if (route === 'guides') path = '/guides/';
-  if (route === 'guide') path = `/guides/${guideSlug || 'defense-basics'}/`;
+  if (route === 'guide') path = `/guides/${slug || 'defense-basics'}/`;
+  if (route === 'prints') path = '/prints/';
+  if (route === 'print') path = `/prints/${slug}/`;
   return path + (sectionId ? `#${sectionId}` : '');
 }
 function lrPlainClick(e) { return e.button === 0 && !e.metaKey && !e.ctrlKey && !e.shiftKey && !e.altKey; }
@@ -211,10 +221,21 @@ function lrRouteAccent(route) {
   if (route === 'servitors' || route === 'servitors-reader') return 'var(--purple)';
   if (route === 'guides' || route === 'guide') return 'var(--acid-green)';
   if (route === 'who') return 'var(--blood-text)';
+  if (route === 'prints' || route === 'print') return 'var(--amber)';
   return 'var(--blood-display)';
 }
 
-function lrAnalyticsMeta(route, guideSlug, readerModule) {
+function lrAnalyticsMeta(route, slug, readerModule) {
+  if (route === 'prints') {
+    return { title: 'Принты · Лево Руля', contentGroup: 'prints' };
+  }
+  if (route === 'print') {
+    const print = window.lrPrintBySlug?.(slug);
+    return {
+      title: print ? `${print.title} · Принты Лево Руля` : 'Принт не найден · Лево Руля',
+      contentGroup: 'print',
+    };
+  }
   if (route === 'servitors') {
     return { title: 'Сервиторы — открытый курс · Лево Руля', contentGroup: 'course' };
   }
@@ -228,7 +249,7 @@ function lrAnalyticsMeta(route, guideSlug, readerModule) {
     return { title: 'Гайды · Лево Руля', contentGroup: 'guides' };
   }
   if (route === 'guide') {
-    const guide = window.GUIDES_INDEX?.find((item) => item.slug === guideSlug);
+    const guide = window.GUIDES_INDEX?.find((item) => item.slug === slug);
     return {
       title: `${guide?.title || 'Гайд'} · Лево Руля`,
       contentGroup: 'guide',
@@ -305,12 +326,14 @@ function App() {
     try { return localStorage.getItem('lr_guide_slug') || 'defense-basics'; }
     catch { return 'defense-basics'; }
   });
+  const [printSlug, setPrintSlug] = React.useState(() => lrPrintSlugFromPath());
+  const routeSlug = route === 'print' ? printSlug : guideSlug;
   const [ritual, setRitual] = React.useState(TWEAKS.ritual);
   const [servitorsReady, setServitorsReady] = React.useState(() => lrServitorsReady());
   const [servitorsError, setServitorsError] = React.useState(null);
   const firstVisualRoute = React.useRef(true);
   const [routeCutTick, setRouteCutTick] = React.useState(0);
-  const visualRouteKey = route === 'guide' ? `${route}:${guideSlug}` : route;
+  const visualRouteKey = route === 'guide' || route === 'print' ? `${route}:${routeSlug}` : route;
   const previousVisualRouteKey = React.useRef(visualRouteKey);
   const pendingRouteFocus = React.useRef(false);
   const pendingScrollTop = React.useRef(false);
@@ -377,7 +400,8 @@ function App() {
     }
     pendingModuleIndex.current = nextModule;
     historyMode.current = options.historyMode || 'push';
-    if (slug) setGuideSlug(slug);
+    if (nextRoute === 'print') setPrintSlug(slug);
+    else if (slug) setGuideSlug(slug);
     setRoute(nextRoute);
     setNavTick((n) => n + 1);
   }, []);
@@ -389,7 +413,7 @@ function App() {
     if (route === 'guide') {
       try { localStorage.setItem('lr_guide_slug', guideSlug); } catch {}
     }
-    const nextHash = lrHashForRoute(route, sectionId, guideSlug, moduleIndex);
+    const nextHash = lrHashForRoute(route, sectionId, routeSlug, moduleIndex);
     const mode = historyMode.current;
     const visualRouteChanged = previousVisualRouteKey.current !== visualRouteKey;
     previousVisualRouteKey.current = visualRouteKey;
@@ -402,11 +426,11 @@ function App() {
       history[method](null, '', path + location.search + (fragment ? '#' + fragment : ''));
     }
     handledHash.current = lrLocationKey();
-    const analyticsMeta = lrAnalyticsMeta(route, guideSlug, readerModule);
-    const pageMeta = window.__LR_PAGE_META__?.[lrHashForRoute(route, null, guideSlug, readerModule)];
+    const analyticsMeta = lrAnalyticsMeta(route, routeSlug, readerModule);
+    const pageMeta = window.__LR_PAGE_META__?.[lrHashForRoute(route, null, routeSlug, readerModule)];
     if (pageMeta) analyticsMeta.title = pageMeta.title;
     document.title = analyticsMeta.title;
-    const canonical = location.origin + lrHashForRoute(route, null, guideSlug, readerModule);
+    const canonical = location.origin + lrHashForRoute(route, null, routeSlug, readerModule);
     document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical);
     document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonical);
     for (const selector of ['meta[property="og:title"]', 'meta[name="twitter:title"]']) document.querySelector(selector)?.setAttribute('content', analyticsMeta.title);
@@ -438,7 +462,7 @@ function App() {
         pendingScrollTop.current = false;
       });
     }
-  }, [route, navTick, guideSlug, readerModule, visualRouteKey]);
+  }, [route, navTick, guideSlug, printSlug, readerModule, visualRouteKey]);
 
   React.useEffect(() => {
     if (!servitorsReady || !lrNeedsServitors(route)) return;
@@ -503,7 +527,7 @@ function App() {
       if (handledHash.current === lrLocationKey()) return;
       handledHash.current = lrLocationKey();
       const nextRoute = lrRouteFromHash();
-      const slug = lrGuideSlugFromHash();
+      const slug = lrSlugForRoute(nextRoute);
       navigate(nextRoute, lrSectionFromHash(location.hash), slug, {
         historyMode: 'none',
         moduleIndex: lrModuleFromHash(),
@@ -513,10 +537,11 @@ function App() {
       const link = event.target.closest?.('a[href]');
       if (event.defaultPrevented || !lrPlainClick(event) || !link || link.target || link.hasAttribute('download')) return;
       const url = new URL(link.href);
-      if (url.origin !== location.origin || !/^\/(?:servitors(?:\/\d+)?|guides(?:\/defense-basics)?|who)?\/?$/.test(url.pathname)) return;
+      if (url.origin !== location.origin || !/^\/(?:servitors(?:\/\d+)?|guides(?:\/defense-basics)?|who|prints(?:\/[a-z0-9-]+)?)?\/?$/.test(url.pathname)) return;
       if (url.hash === '#main-content') return;
       event.preventDefault();
-      navigate(lrRouteFromHash(url.hash, url.pathname), lrSectionFromHash(url.hash), lrGuideSlugFromHash(url.hash, url.pathname), {moduleIndex: lrModuleFromHash(url.hash, url.pathname)});
+      const nextRoute = lrRouteFromHash(url.hash, url.pathname);
+      navigate(nextRoute, lrSectionFromHash(url.hash), lrSlugForRoute(nextRoute, url.hash, url.pathname), {moduleIndex: lrModuleFromHash(url.hash, url.pathname)});
     };
     document.addEventListener('click', linkHandler);
     window.addEventListener('lr:route', handler);
@@ -560,6 +585,10 @@ function App() {
           <GuidesLanding setRoute={navigate} />
         ) : route === 'guide' ? (
           <GuidePage slug={guideSlug} setRoute={navigate} />
+        ) : route === 'prints' ? (
+          <PrintsIndex />
+        ) : route === 'print' ? (
+          <PrintPage slug={printSlug} />
         ) : (
           <ServitorsPage setRoute={navigate} />
         )}

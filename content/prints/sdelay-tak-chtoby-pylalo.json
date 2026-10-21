@@ -1,0 +1,631 @@
+{
+  "id": "fac-ut-ardeat-14",
+  "slug": "sdelay-tak-chtoby-pylalo",
+  "working_number": 14,
+  "title": "Сделай так, чтобы пылало",
+  "latin": "FAC UT ARDEAT",
+  "latin_note": "перевод с латыни",
+  "intro": "Ждать вдохновения можно долго. Особенно если очень удобно сидеть. FAC UT ARDEAT: сделай так, чтобы пылало. И глагол здесь обращен к тебе.",
+  "artwork": {
+    "master": "assets/print/print_original.png",
+    "sha256": "5a8213bb3a1f8bbdfc2ea9c5e3882d1da1817225a1af96437cef7626b342e581",
+    "width": 4200,
+    "height": 1300,
+    "alt": "FAC UT ARDEAT, красная Тейваз и строка LEVORULES // PROTOCOL 093",
+    "text": [
+      "FAC UT ARDEAT",
+      "[ LEVORULES // PROTOCOL 093 ]"
+    ],
+    "status": "утвержденный оригинал"
+  },
+  "video": {
+    "src": "/media/prints/sdelay-tak-chtoby-pylalo/loop-d98d9d3336.mp4",
+    "width": 1920,
+    "height": 1080,
+    "duration_seconds": 11.54,
+    "aspect_ratio": "16:9",
+    "target_dimensions": [
+      1920,
+      1080
+    ],
+    "planned_duration_seconds": 12,
+    "seamless_verified": false,
+    "poster": {
+      "master": "assets/video/poster.png",
+      "sha256": "abbe7c63834f284077eb968f34993bb673f4677b43519f39ddbc13ed0ea268ab",
+      "width": 1672,
+      "height": 941
+    },
+    "caption": "Великое делание. Одна порция.",
+    "accessible_label": "Аватар в фартуке FAC UT ARDEAT готовит крем-брюле",
+    "pause_label": "Приостановить видео",
+    "play_label": "Включить видео"
+  },
+  "story": {
+    "eyebrow": "разбор",
+    "heading": "От намерения к действию",
+    "spec_title": "Спецификация",
+    "spec": [
+      [
+        "Формула",
+        "FAC UT ARDEAT"
+      ],
+      [
+        "Перевод",
+        "сделай так, чтобы пылало"
+      ],
+      [
+        "Исполнитель",
+        "ты"
+      ],
+      [
+        "Состав",
+        "костяная надпись, красная Тейваз, строка [ LEVORULES // PROTOCOL 093 ]"
+      ],
+      [
+        "Гарантии",
+        "не предусмотрены"
+      ]
+    ],
+    "paragraphs": [
+      {
+        "text": "У желания есть удобная особенность: пока ты ничего не сделал, оно безупречно. Проект существует в голове, жизнь вот-вот изменится, подходящий момент обязательно наступит. Можно даже купить красивый ежедневник. И записать туда, что пора купить другой ежедневник."
+      },
+      {
+        "quote": true,
+        "latin": "FAC UT ARDEAT.",
+        "text": "Сделай так, чтобы пылало."
+      },
+      {
+        "text": "В этой фразе уже есть действие. Никто не обещает доставить вдохновение к двери, согласовать твое намерение с мирозданием и подержать спичку, пока ты собираешься. Хочешь огня? Придется поучаствовать."
+      },
+      {
+        "text": "Мне нравится читать этот рисунок как напоминание о самом неудобном участке любой практики: переходе от намерения к действию. Когда уже хватит подбирать слова, искать идеальную систему и ждать, пока окружающие наконец оценят масштаб замысла. Пора сделать первый ход. Пусть небольшой. Масштаб можно увеличить после того, как появится хоть какой-то результат."
+      }
+    ],
+    "outro_cta": "Выбрать вещь"
+  },
+  "assortment": {
+    "eyebrow": "носители",
+    "title": "На чем будем жечь",
+    "intro": "Выбери вещь и открой ее страницу на FUN.ru. Там можно посмотреть доступные размеры и цвета и оформить заказ.",
+    "colors_label": "Цвета на FUN.ru",
+    "depicted_label": "на фото",
+    "availability_note": "Доступность цветов и размеров проверяй на странице товара.",
+    "styling_note": "Дополнительная одежда и аксессуары на фото служат стилизацией.",
+    "cta": "Смотреть на FUN.ru",
+    "zoom_label": "Рассмотреть"
+  },
+  "film": {
+    "eyebrow": "демонстрация"
+  },
+  "products": [
+    {
+      "id": "fac-ut-ardeat-apron",
+      "order": 1,
+      "name": "Фартук",
+      "avatar": "male",
+      "url": "https://fun.ru/fartuki/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/01_apron_v03.png",
+        "sha256": "187e524f3c35b841e2c34b9909bf1798579bc9e2a45f64468f8b706ccdd8dff0",
+        "width": 1024,
+        "height": 1536,
+        "alt": "Аватар с товаром фартук с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/fartuki/fnord_diskordianstvo_i_glitch1",
+          "label": "Фартук, черный, открыть на FUN.ru",
+          "depicted": true
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-drawstring",
+      "order": 2,
+      "name": "Рюкзак-мешок",
+      "avatar": "male",
+      "url": "https://fun.ru/backpack-tenes/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/02_drawstring_v02.png",
+        "sha256": "5194407c656fda58d7b4d3ca555e4cab78aebd350c3f03a33f531cd394e53610",
+        "width": 1024,
+        "height": 1536,
+        "alt": "Аватар с товаром рюкзак-мешок с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-tenes/fnord_diskordianstvo_i_glitch1",
+          "label": "Рюкзак-мешок, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/backpack-tenes/fnord_diskordianstvo_i_glitch1/color-darkBlue",
+          "label": "Рюкзак-мешок, темно-синий, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-backpack27",
+      "order": 3,
+      "name": "Рюкзак из полиэстера, 27 литров",
+      "avatar": "male",
+      "url": "https://fun.ru/backpack-27-liters/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/03_backpack27_v02.png",
+        "sha256": "d958acebe18c9c35bc452e3487d9b13ce8e13af52f86508b6499eb4c04300f95",
+        "width": 1024,
+        "height": 1536,
+        "alt": "Аватар с товаром рюкзак из полиэстера, 27 литров с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-27-liters/fnord_diskordianstvo_i_glitch1",
+          "label": "Рюкзак из полиэстера, 27 литров, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/backpack-27-liters/fnord_diskordianstvo_i_glitch1/color-blue",
+          "label": "Рюкзак из полиэстера, 27 литров, синий, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-thermos",
+      "order": 4,
+      "name": "Термос",
+      "avatar": "male",
+      "url": "https://fun.ru/thermos/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/04_thermos_v02.png",
+        "sha256": "5a0e69d62257d8b79265032531359331f7ae8bce341221aee552584a4e3213b7",
+        "width": 1024,
+        "height": 1536,
+        "alt": "Аватар с товаром термос с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/thermos/fnord_diskordianstvo_i_glitch1",
+          "label": "Термос, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/thermos/fnord_diskordianstvo_i_glitch1/color-darkBlue",
+          "label": "Термос, темно-синий, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-water-bottle",
+      "order": 5,
+      "name": "Бутылка для воды",
+      "avatar": "male",
+      "url": "https://fun.ru/bottle/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/05_water_bottle_v01.png",
+        "sha256": "8bdbb8f9b7bf7963f474fb6062e9d91c3c5b9d3842c111871566ebc8c69eaf8e",
+        "width": 1024,
+        "height": 1535,
+        "alt": "Аватар с товаром бутылка для воды с принтом FAC UT ARDEAT",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "синий",
+          "url": "https://fun.ru/bottle/fnord_diskordianstvo_i_glitch1",
+          "label": "Бутылка для воды, синий, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "green",
+          "name": "зеленый",
+          "url": "https://fun.ru/bottle/fnord_diskordianstvo_i_glitch1/color-green",
+          "label": "Бутылка для воды, зеленый, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-diary",
+      "order": 6,
+      "name": "Ежедневник",
+      "avatar": "male",
+      "url": "https://fun.ru/diary/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/06_diary_v01.png",
+        "sha256": "fc51f1e323efe64b0ce7631ff3c54b6462b9cf308b7e59b5c097e31fc7354057",
+        "width": 1312,
+        "height": 1199,
+        "alt": "Аватар с товаром ежедневник с принтом FAC UT ARDEAT",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "темно-синий",
+          "url": "https://fun.ru/diary/fnord_diskordianstvo_i_glitch1",
+          "label": "Ежедневник, темно-синий, открыть на FUN.ru",
+          "depicted": true
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-tote",
+      "order": 7,
+      "name": "Сумка",
+      "avatar": "male",
+      "url": "https://fun.ru/bags/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/07_tote_v01.png",
+        "sha256": "4cc3f91fdbce4603f34ad2e60321b5dc3ae78b0f3639dd479b56a5a399d9d77e",
+        "width": 1024,
+        "height": 1536,
+        "alt": "Аватар с товаром сумка с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bags/fnord_diskordianstvo_i_glitch1",
+          "label": "Сумка, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "green",
+          "name": "зеленый",
+          "url": "https://fun.ru/bags/fnord_diskordianstvo_i_glitch1/color-green",
+          "label": "Сумка, зеленый, открыть на FUN.ru",
+          "depicted": false
+        },
+        {
+          "id": "purple",
+          "name": "фиолетовый",
+          "url": "https://fun.ru/bags/fnord_diskordianstvo_i_glitch1/color-purple",
+          "label": "Сумка, фиолетовый, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-sport-bottle",
+      "order": 8,
+      "name": "Бутылка спортивная",
+      "avatar": "male",
+      "url": "https://fun.ru/bottle-speedy/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/08_sport_bottle_v01.png",
+        "sha256": "ccb470bb73fb2fe17020645e8cc80de18d981dd1f3d2dd0a10e41507e87b3d88",
+        "width": 1024,
+        "height": 1535,
+        "alt": "Аватар с товаром бутылка спортивная с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bottle-speedy/fnord_diskordianstvo_i_glitch1",
+          "label": "Бутылка спортивная, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/bottle-speedy/fnord_diskordianstvo_i_glitch1/color-blue",
+          "label": "Бутылка спортивная, синий, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-women-sweatshirt",
+      "order": 9,
+      "name": "Женский свитшот",
+      "avatar": "female",
+      "url": "https://fun.ru/women-sweatshirts/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/09_women_sweatshirt_v02.png",
+        "sha256": "ea671a05693f32838bdf06f134dceba499bad074d9bd75ab32de5cd6ce7b3157",
+        "width": 1024,
+        "height": 1536,
+        "alt": "Женский аватар с товаром женский свитшот с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-sweatshirts/fnord_diskordianstvo_i_glitch1",
+          "label": "Женский свитшот, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-sweatshirts/fnord_diskordianstvo_i_glitch1/color-darkBlue",
+          "label": "Женский свитшот, темно-синий, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-men-sweatshirt",
+      "order": 10,
+      "name": "Мужской свитшот",
+      "avatar": "male",
+      "url": "https://fun.ru/men-sweatshirts/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/10_men_sweatshirt_v01.png",
+        "sha256": "2ba170f343442b7c0b328d9ae797e3e0d741d2bb96764e1fb9b492071ab67379",
+        "width": 1024,
+        "height": 1536,
+        "alt": "Аватар с товаром мужской свитшот с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-sweatshirts/fnord_diskordianstvo_i_glitch1",
+          "label": "Мужской свитшот, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-sweatshirts/fnord_diskordianstvo_i_glitch1/color-darkBlue",
+          "label": "Мужской свитшот, темно-синий, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-men-hoodie",
+      "order": 11,
+      "name": "Мужская толстовка",
+      "avatar": "male",
+      "url": "https://fun.ru/men-hoodies/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/11_men_hoodie_v01.png",
+        "sha256": "0cacce53a690a38cfe3a7deb9f04f71586a9230f198e83515d5b5fc5859b2e29",
+        "width": 1024,
+        "height": 1535,
+        "alt": "Аватар с товаром мужская толстовка с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-hoodies/fnord_diskordianstvo_i_glitch1",
+          "label": "Мужская толстовка, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-hoodies/fnord_diskordianstvo_i_glitch1/color-blue",
+          "label": "Мужская толстовка, синий, открыть на FUN.ru",
+          "depicted": false
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-hoodies/fnord_diskordianstvo_i_glitch1/color-darkBlue",
+          "label": "Мужская толстовка, темно-синий, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-oversize-hoodie",
+      "order": 12,
+      "name": "Худи оверсайз",
+      "avatar": "male",
+      "url": "https://fun.ru/hoodie-oversize/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/12_oversize_hoodie_v01.png",
+        "sha256": "8f86fa1dec1cdf4233475f28194520755692cb0d4483415f3af86488d2aa4fea",
+        "width": 1024,
+        "height": 1536,
+        "alt": "Аватар с товаром худи оверсайз с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/hoodie-oversize/fnord_diskordianstvo_i_glitch1",
+          "label": "Худи оверсайз, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/hoodie-oversize/fnord_diskordianstvo_i_glitch1/color-darkBlue",
+          "label": "Худи оверсайз, темно-синий, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-oversize-tee",
+      "order": 13,
+      "name": "Футболка оверсайз",
+      "avatar": "male",
+      "url": "https://fun.ru/tshirts-oversize/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/13_oversize_tee_v01.png",
+        "sha256": "80c21e82c198ace36043c3b62878aa65c34973b897d74ddc8931e3ff707b36d3",
+        "width": 1024,
+        "height": 1536,
+        "alt": "Аватар с товаром футболка оверсайз с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/tshirts-oversize/fnord_diskordianstvo_i_glitch1",
+          "label": "Футболка оверсайз, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/tshirts-oversize/fnord_diskordianstvo_i_glitch1/color-darkBlue",
+          "label": "Футболка оверсайз, темно-синий, открыть на FUN.ru",
+          "depicted": false
+        },
+        {
+          "id": "darkGrey",
+          "name": "темно-серый",
+          "url": "https://fun.ru/tshirts-oversize/fnord_diskordianstvo_i_glitch1/color-darkGrey",
+          "label": "Футболка оверсайз, темно-серый, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-women-tee",
+      "order": 14,
+      "name": "Женская футболка",
+      "avatar": "female",
+      "url": "https://fun.ru/women-tshirts/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/14_women_tee_v02.png",
+        "sha256": "52b9f8d8ed7fe7b4bd7d246122d9f366dcc481f42fab6b0ee1b205a55fb87221",
+        "width": 941,
+        "height": 1672,
+        "alt": "Женский аватар с товаром женская футболка с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-tshirts/fnord_diskordianstvo_i_glitch1",
+          "label": "Женская футболка, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-tshirts/fnord_diskordianstvo_i_glitch1/color-darkBlue",
+          "label": "Женская футболка, темно-синий, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fac-ut-ardeat-men-tee",
+      "order": 15,
+      "name": "Мужская футболка",
+      "avatar": "male",
+      "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch1",
+      "image": {
+        "master": "assets/products/15_men_tee_v01.png",
+        "sha256": "ae13e38992a14198160d950cdda44c858245f56d90783db42d86a6e3d36a2857",
+        "width": 1024,
+        "height": 1535,
+        "alt": "Аватар с товаром мужская футболка с принтом FAC UT ARDEAT",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch1",
+          "label": "Мужская футболка, черный, открыть на FUN.ru",
+          "depicted": true
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch1/color-blue",
+          "label": "Мужская футболка, синий, открыть на FUN.ru",
+          "depicted": false
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch1/color-darkBlue",
+          "label": "Мужская футболка, темно-синий, открыть на FUN.ru",
+          "depicted": false
+        },
+        {
+          "id": "green",
+          "name": "зеленый",
+          "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch1/color-green",
+          "label": "Мужская футболка, зеленый, открыть на FUN.ru",
+          "depicted": false
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    }
+  ],
+  "seo": {
+    "title": "Сделай так, чтобы пылало · Принты Лево Руля",
+    "description": "FAC UT ARDEAT: сделай так, чтобы пылало. История принта Лево Руля и 15 вещей с этим рисунком, у каждой своя страница на FUN.ru.",
+    "og_title": "Сделай так, чтобы пылало",
+    "og_description": "От намерения к действию. История FAC UT ARDEAT и вещи с этим принтом.",
+    "og_image_alt": "Принт FAC UT ARDEAT: костяная надпись, красная Тейваз и строка LEVORULES // PROTOCOL 093 на черном фоне"
+  },
+  "editorial": {
+    "status": "на просмотре",
+    "note": "Текст, товарные сцены и кадр видео на просмотре. Рисунок утвержден. Служебные поля не выводятся на страницу."
+  }
+}

@@ -9,6 +9,13 @@
 /brand/colors_and_type.css
   Cache-Control: public, max-age=3600, must-revalidate
 
+/brand/prints.css
+  Cache-Control: public, max-age=3600, must-revalidate
+
+# File names carry a content hash (tools/prints_media.py), so they never change in place.
+/media/*
+  Cache-Control: public, max-age=31536000, immutable
+
 /brand/assets/*
   Cache-Control: public, max-age=3600, must-revalidate
 

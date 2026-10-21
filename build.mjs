@@ -19,6 +19,7 @@ import {
 } from "node:fs";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
+import { loadPrints } from "./tools/prints-data.mjs";
 
 const HERE = dirname(fileURLToPath(import.meta.url));
 const SITE = resolve(HERE, "site");
@@ -33,6 +34,7 @@ const APP_FILES = [
   "_home-mid.jsx",
   "_who.jsx",
   "_guides.jsx",
+  "_prints.jsx",
   "_app.jsx",
 ];
 
@@ -42,12 +44,13 @@ const SERVITORS_FILES = [
   "_servitors.jsx",
 ];
 
-async function buildBundle({ files, tmpName, outfile, label }) {
+async function buildBundle({ files, tmpName, outfile, label, prelude }) {
   const parts = files.map((f) => {
     const path = resolve(SITE, f);
     const src = readFileSync(path, "utf-8");
     return `// ====== ${f} ======\n${src}`;
   });
+  if (prelude) parts.unshift(prelude);
 
   const tmpIn = resolve(DIST, tmpName);
   writeFileSync(tmpIn, parts.join("\n\n"));
@@ -74,11 +77,16 @@ async function buildBundle({ files, tmpName, outfile, label }) {
   if (result.warnings.length) console.warn(result.warnings);
 }
 
+// PRINTS data is validated here and shipped inside the app bundle, so the
+// prerendered HTML and the client render read the same object.
+const PRINTS = loadPrints(HERE);
+
 await buildBundle({
   files: APP_FILES,
   tmpName: "_source-app.jsx",
   outfile: "app.js",
   label: "app bundle",
+  prelude: `window.LR_PRINTS = ${JSON.stringify(PRINTS).replaceAll("<", "\\u003c")};`,
 });
 
 await buildBundle({
@@ -96,6 +104,7 @@ for (const file of [
   resolve(HERE, "analytics.js"),
   resolve(HERE, "brand", "colors_and_type.css"),
   resolve(HERE, "brand", "effects.css"),
+  resolve(HERE, "brand", "prints.css"),
   resolve(DIST, "app.js"),
   resolve(DIST, "servitors.js"),
 ]) {
@@ -126,7 +135,7 @@ mkdirSync(resolve(PUBLIC, 'vendor'), {recursive: true});
 cpSync(resolve(HERE, 'node_modules/react/umd/react.production.min.js'), resolve(PUBLIC, 'vendor/react-18.3.1.min.js'));
 cpSync(resolve(HERE, 'node_modules/react-dom/umd/react-dom.production.min.js'), resolve(PUBLIC, 'vendor/react-dom-18.3.1.min.js'));
 
-for (const directory of ["brand", "dist", "passport-servitora", "tiktok", "instagram"]) {
+for (const directory of ["brand", "dist", "media", "passport-servitora", "tiktok", "instagram"]) {
   cpSync(resolve(HERE, directory), resolve(PUBLIC, directory), {
     recursive: true,
   });

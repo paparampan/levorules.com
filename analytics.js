@@ -49,6 +49,8 @@
 
   function contentGroupForPath() {
     if (location.pathname.startsWith('/passport-servitora')) return 'product';
+    if (/^\/prints\/[^/]+/.test(location.pathname)) return 'print';
+    if (location.pathname.startsWith('/prints')) return 'prints';
     if (location.hash.startsWith('#servitors-reader')) return 'course_reader';
     if (location.hash.startsWith('#servitors')) return 'course';
     if (location.hash.startsWith('#guides/')) return 'guide';

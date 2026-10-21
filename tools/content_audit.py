@@ -2,6 +2,7 @@
 """Fast regression checks for course content and the production artifact."""
 
 from pathlib import Path
+import json
 import re
 import sys
 
@@ -100,12 +101,36 @@ if public.exists():
             ".git" in parts
             or "node_modules" in parts
             or path.suffix == ".jsx"
-            or (parts and parts[0] in {"tools", "frames", "screenshots"})
+            or (parts and parts[0] in {"tools", "frames", "screenshots", "content", "reference"})
             or path.name == "servitors.txt"
+            # PRINTS media: only hashed web copies, never masters, briefs or archives.
+            or (parts[:1] == ("media",) and path.is_file() and path.suffix not in {".webp", ".png", ".mp4"})
         ):
             forbidden_public.append(str(rel))
     if forbidden_public:
         errors.append("forbidden files in public/: " + ", ".join(forbidden_public))
+
+# PRINTS copy rule from the brief: new Russian text uses е, plain quotes and no long dash.
+def prints_strings(value):
+    if isinstance(value, str):
+        yield value
+    elif isinstance(value, list):
+        for item in value:
+            yield from prints_strings(item)
+    elif isinstance(value, dict):
+        for item in value.values():
+            yield from prints_strings(item)
+
+prints_copy = [
+    (path.name, text)
+    for path in sorted((REPO / "content" / "prints").glob("*.json"))
+    for text in prints_strings(json.loads(path.read_text(encoding="utf-8")))
+]
+prints_copy += [("_prints.jsx", (REPO / "site" / "_prints.jsx").read_text(encoding="utf-8"))]
+for name, text in prints_copy:
+    found = sorted(set(re.findall(r"[ёЁ«»—]", text)))
+    if found:
+        errors.append(f"PRINTS copy in {name} uses {''.join(found)}: {text[:60]}")
 
 if errors:
     print("Content audit failed:")

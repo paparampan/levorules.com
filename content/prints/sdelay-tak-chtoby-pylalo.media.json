@@ -1,0 +1,297 @@
+{
+  "generated_by": "tools/prints_media.py images",
+  "slug": "sdelay-tak-chtoby-pylalo",
+  "artwork": {
+    "full": {
+      "src": "/media/prints/sdelay-tak-chtoby-pylalo/artwork-5a8213bb3a.png",
+      "width": 4200,
+      "height": 1300
+    },
+    "variants": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/artwork-1400-a540641520.webp",
+        "width": 1400,
+        "height": 433
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/artwork-2800-94800927f9.webp",
+        "width": 2800,
+        "height": 867
+      }
+    ]
+  },
+  "poster": [
+    {
+      "src": "/media/prints/sdelay-tak-chtoby-pylalo/poster-960-56816f7c3c.webp",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "src": "/media/prints/sdelay-tak-chtoby-pylalo/poster-1920-03686e1984.webp",
+      "width": 1920,
+      "height": 1080
+    }
+  ],
+  "og": {
+    "src": "/media/prints/sdelay-tak-chtoby-pylalo/og-3921c9d97d.png",
+    "width": 1200,
+    "height": 630
+  },
+  "products": {
+    "fac-ut-ardeat-apron": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/01-apron-480-40cc923982.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/01-apron-800-590ddb3392.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/01-apron-1024-7b60b8d7aa.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "fac-ut-ardeat-drawstring": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/02-drawstring-480-86b1566a8a.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/02-drawstring-800-0301660eee.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/02-drawstring-1024-a7b191fa0c.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "fac-ut-ardeat-backpack27": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/03-backpack27-480-70841da0ba.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/03-backpack27-800-e3443420e8.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/03-backpack27-1024-923afed4bc.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "fac-ut-ardeat-thermos": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/04-thermos-480-fd6cc4ab82.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/04-thermos-800-4eeb4bccbd.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/04-thermos-1024-2cb81e8510.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "fac-ut-ardeat-water-bottle": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/05-water-bottle-480-42ccbeda88.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/05-water-bottle-800-6980e48935.webp",
+        "width": 800,
+        "height": 1199
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/05-water-bottle-1024-80c57d9fee.webp",
+        "width": 1024,
+        "height": 1535
+      }
+    ],
+    "fac-ut-ardeat-diary": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/06-diary-480-cf41dfef8c.webp",
+        "width": 480,
+        "height": 439
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/06-diary-800-3324223331.webp",
+        "width": 800,
+        "height": 731
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/06-diary-1312-9b25d0ced0.webp",
+        "width": 1312,
+        "height": 1199
+      }
+    ],
+    "fac-ut-ardeat-tote": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/07-tote-480-698f308d1c.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/07-tote-800-fa773f12e8.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/07-tote-1024-4dd3f00317.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "fac-ut-ardeat-sport-bottle": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/08-sport-bottle-480-e59ba18cd2.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/08-sport-bottle-800-56d8a9a15e.webp",
+        "width": 800,
+        "height": 1199
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/08-sport-bottle-1024-090e71dce3.webp",
+        "width": 1024,
+        "height": 1535
+      }
+    ],
+    "fac-ut-ardeat-women-sweatshirt": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/09-women-sweatshirt-480-1bb30e9f54.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/09-women-sweatshirt-800-7e196575b5.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/09-women-sweatshirt-1024-f3971dd01b.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "fac-ut-ardeat-men-sweatshirt": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/10-men-sweatshirt-480-fb382ebf05.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/10-men-sweatshirt-800-9765252347.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/10-men-sweatshirt-1024-dd447bebfb.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "fac-ut-ardeat-men-hoodie": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/11-men-hoodie-480-e2fe8b9214.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/11-men-hoodie-800-3e66dfcce6.webp",
+        "width": 800,
+        "height": 1199
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/11-men-hoodie-1024-399803a15a.webp",
+        "width": 1024,
+        "height": 1535
+      }
+    ],
+    "fac-ut-ardeat-oversize-hoodie": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/12-oversize-hoodie-480-384a1ca614.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/12-oversize-hoodie-800-bed63615e8.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/12-oversize-hoodie-1024-9099323bf3.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "fac-ut-ardeat-oversize-tee": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/13-oversize-tee-480-72589fbe7c.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/13-oversize-tee-800-f9d25bb60e.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/13-oversize-tee-1024-ea4cbe8fb3.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "fac-ut-ardeat-women-tee": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/14-women-tee-480-e24e97971c.webp",
+        "width": 480,
+        "height": 853
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/14-women-tee-800-818afa4b33.webp",
+        "width": 800,
+        "height": 1421
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/14-women-tee-941-36a79c3977.webp",
+        "width": 941,
+        "height": 1672
+      }
+    ],
+    "fac-ut-ardeat-men-tee": [
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/15-men-tee-480-a8872ee8ca.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/15-men-tee-800-1d05c5a878.webp",
+        "width": 800,
+        "height": 1199
+      },
+      {
+        "src": "/media/prints/sdelay-tak-chtoby-pylalo/15-men-tee-1024-ccbffb6cc8.webp",
+        "width": 1024,
+        "height": 1535
+      }
+    ]
+  }
+}
