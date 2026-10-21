@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20T21:40:36Z",
+  "updated": "2026-10-21T00:39:25Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -7,7 +7,7 @@
       "title": "Выгорание в магии: когда практика стала второй работой",
       "url": "https://www.youtube.com/shorts/fzqsUh-8eAI",
       "thumb": "https://i.ytimg.com/vi/fzqsUh-8eAI/hqdefault.jpg",
-      "views": "735",
+      "views": "747",
       "acc": "var(--magenta)"
     },
     {
@@ -23,7 +23,7 @@
       "title": "Откуп в магии: почему нельзя просто заплатить?",
       "url": "https://www.youtube.com/shorts/jvjjWt26yJQ",
       "thumb": "https://i.ytimg.com/vi/jvjjWt26yJQ/hqdefault.jpg",
-      "views": "343",
+      "views": "344",
       "acc": "var(--purple)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "Как зарядить сигилу: Поза смерти Остина Османа Спейра",
       "url": "https://www.youtube.com/shorts/lOtCgWXZ5K0",
       "thumb": "https://i.ytimg.com/vi/lOtCgWXZ5K0/hqdefault.jpg",
-      "views": "510",
+      "views": "512",
       "acc": "var(--cyber-cyan)"
     }
   ]
