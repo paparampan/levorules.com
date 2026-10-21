@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T13:51:33Z",
+  "updated": "2026-10-21T18:41:12Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -7,7 +7,7 @@
       "title": "Выгорание в магии: когда практика стала второй работой",
       "url": "https://www.youtube.com/shorts/fzqsUh-8eAI",
       "thumb": "https://i.ytimg.com/vi/fzqsUh-8eAI/hqdefault.jpg",
-      "views": "757",
+      "views": "767",
       "acc": "var(--magenta)"
     },
     {
@@ -15,7 +15,7 @@
       "title": "Время в долг: как маги Хаоса придумали Фотамекуса",
       "url": "https://www.youtube.com/shorts/nePi-JDLzLA",
       "thumb": "https://i.ytimg.com/vi/nePi-JDLzLA/hqdefault.jpg",
-      "views": "1.4k",
+      "views": "1.5k",
       "acc": "var(--acid-green)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "Как зарядить сигилу: Поза смерти Остина Османа Спейра",
       "url": "https://www.youtube.com/shorts/lOtCgWXZ5K0",
       "thumb": "https://i.ytimg.com/vi/lOtCgWXZ5K0/hqdefault.jpg",
-      "views": "512",
+      "views": "513",
       "acc": "var(--cyber-cyan)"
     }
   ]
