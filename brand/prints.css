@@ -49,6 +49,20 @@
   }
 }
 
+/* Per-print key-word accent ("theme" in content/prints/<slug>.json).
+   noise: the flame turns into slowly rolling TV interference in bone tones. */
+.pr-print--noise {
+  --pr-fire: repeating-linear-gradient(180deg, #f2ecdc 0 3px, #8c8879 3px 4px, #d9d2c1 4px 7px, #5f5b51 7px 8px);
+}
+.pr-print--noise .pr-fire { color: var(--bone); }
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+  .pr-print--noise .pr-fire {
+    color: transparent;
+    background-size: 100% 16px;
+    animation: pr-static 3.2s linear infinite;
+  }
+}
+
 .pr-btn {
   display: inline-flex; align-items: center; justify-content: center; gap: 10px;
   min-height: 48px; padding: 12px 20px;
@@ -162,7 +176,12 @@
   color: var(--bone-dim);
 }
 .pr-hero__latin [lang] { color: var(--pr-accent); }
-.pr-hero__title { margin: 0; font-size: clamp(48px, 8.6vw, 132px); line-height: 0.88; letter-spacing: -0.02em; }
+/* --pr-title-chars (longest word, set in _prints.jsx) caps the size so a long
+   word like "Информационный" never runs past the edge: ~0.62em per letter. */
+.pr-hero__title {
+  margin: 0; line-height: 0.88; letter-spacing: -0.02em;
+  font-size: min(clamp(48px, 8.6vw, 132px), calc((100vw - 64px) / (var(--pr-title-chars, 1) * 0.64)));
+}
 .pr-hero__grid {
   display: grid; grid-template-columns: minmax(0, 660px) auto; justify-content: space-between;
   gap: 24px 64px; align-items: end;
@@ -400,6 +419,7 @@ body:has(.pr-viewer[open]) { overflow: hidden; }
 /* ---------- motion ---------- */
 @keyframes pr-ember { 0%, 100% { opacity: 0.6; } 50% { opacity: 0.95; } }
 @keyframes pr-flame { from { background-position: 0% 50%; } to { background-position: 100% 50%; } }
+@keyframes pr-static { to { background-position: 0 32px; } }
 
 @media (prefers-reduced-motion: reduce) {
   .pr-plate::before, .pr-fire { animation: none !important; }
@@ -440,7 +460,7 @@ body:has(.pr-viewer[open]) { overflow: hidden; }
   .pr-hero .pr-plate { overflow: visible; margin-bottom: 52px; }
   .pr-plate__zoom { right: 0; bottom: -52px; }
   .pr-hero__grid { margin-top: 32px; gap: 24px; }
-  .pr-hero__title { font-size: clamp(40px, 12.5vw, 64px); }
+  .pr-hero__title { font-size: min(clamp(40px, 12.5vw, 64px), calc((100vw - 40px) / (var(--pr-title-chars, 1) * 0.64))); }
   .pr-hero__lead { font-size: 17px; }
   .pr-hero__actions .pr-btn { flex: 1 1 auto; }
   .pr-film { padding: 64px 0; }

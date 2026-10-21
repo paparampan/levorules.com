@@ -7,11 +7,16 @@ hashed web copies to media/prints/<slug>/ and the map of those copies to
 content/prints/<slug>.media.json. npm run build only copies media/ to public/.
 
   python tools/prints_media.py images --source <unpacked package dir>
-  python tools/prints_media.py video --slug sdelay-tak-chtoby-pylalo --input loop.mp4 [--poster-from-video]
+  python tools/prints_media.py video --slug sdelay-tak-chtoby-pylalo --input loop.mp4 [--poster-from-video] [--x264-params ...]
 
 The video command strips audio, checks 16:9, writes a hashed MP4 and sets
 video.src/width/height/duration_seconds in the print JSON. With
 --poster-from-video the poster copies are rebuilt from the first frame.
+
+A loop restarts on a keyframe whose coding grain differs from the last
+P-frames, which shows as a grain flash at the seam. --x264-params passes
+libx264 options, e.g. bitrate zones rising toward the end (informatsionnyy-shum):
+  zones=0,2,b=4/120,139,b=1.15/140,159,b=1.35/160,179,b=1.6/180,199,b=2/200,214,b=2.6/215,230,b=3.5
 """
 
 from __future__ import annotations
@@ -212,7 +217,7 @@ def poster_from_video(slug: str, video: Path) -> None:
     print("poster from the first frame:\n" + "\n".join(report))
 
 
-def build_video(slug: str, source: Path, crf: int, poster: bool = False) -> None:
+def build_video(slug: str, source: Path, crf: int, poster: bool = False, x264_params: str | None = None) -> None:
     if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
         raise SystemExit("ffmpeg and ffprobe are required")
     probe = ffprobe(source)
@@ -230,6 +235,7 @@ def build_video(slug: str, source: Path, crf: int, poster: bool = False) -> None
         "ffmpeg", "-y", "-v", "error", "-i", str(source),
         "-map", "0:v:0", "-an", "-sn", "-dn",
         "-c:v", "libx264", "-preset", "slow", "-crf", str(crf),
+        *(["-x264-params", x264_params] if x264_params else []),
         "-pix_fmt", "yuv420p", "-profile:v", "high", "-movflags", "+faststart",
         str(temp),
     ], check=True)
@@ -265,13 +271,14 @@ def main() -> None:
     video.add_argument("--input", type=Path, required=True)
     video.add_argument("--crf", type=int, default=20)
     video.add_argument("--poster-from-video", action="store_true", help="replace the poster with the first frame")
+    video.add_argument("--x264-params", help="extra libx264 options, e.g. zones toward the loop seam")
     args = parser.parse_args()
 
     if args.command == "images":
         for slug in args.slug or section_slugs():
             build_images(args.source.resolve(), slug)
     else:
-        build_video(args.slug, args.input.resolve(), args.crf, args.poster_from_video)
+        build_video(args.slug, args.input.resolve(), args.crf, args.poster_from_video, args.x264_params)
 
 
 if __name__ == "__main__":

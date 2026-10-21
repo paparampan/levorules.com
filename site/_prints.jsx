@@ -127,7 +127,7 @@ function PrintsIndex() {
                     </a>
                   </h2>
                   <p className="pr-entry__meta">
-                    <span lang="la">{print.latin}</span> · {lrThings(print.products.length)}
+                    <span lang={print.latinLang}>{print.latin}</span> · {lrThings(print.products.length)}
                   </p>
                   <span className="pr-entry__go" aria-hidden="true">Открыть <span>→</span></span>
                 </div>
@@ -159,7 +159,7 @@ function PrintPageBody({ print }) {
   };
 
   return (
-    <article className="pr pr-print">
+    <article className={`pr pr-print${print.theme ? ` pr-print--${print.theme}` : ''}`}>
       <PrintHero print={print} onZoom={(event) => openViewer({ kind: 'artwork' }, event)} />
       <PrintFilm print={print} />
       <PrintStory print={print} />
@@ -208,8 +208,10 @@ function PrintHero({ print, onZoom }) {
           </a>
         </PrintPlate>
         <div className="pr-hero__head">
-          <p className="pr-hero__latin"><span lang="la">{print.latin}</span> · {print.latinNote}</p>
-          <h1 className="pr-hero__title"><PrintTitle title={print.title} /></h1>
+          <p className="pr-hero__latin"><span lang={print.latinLang}>{print.latin}</span> · {print.latinNote}</p>
+          <h1 className="pr-hero__title" style={{ '--pr-title-chars': Math.max(...print.title.split(/\s+/).map((word) => word.length)) }}>
+            <PrintTitle title={print.title} />
+          </h1>
         </div>
         <div className="pr-hero__grid">
           <p className="pr-hero__lead"><PrintText text={print.intro} /></p>
@@ -374,7 +376,7 @@ function PrintStory({ print }) {
             {story.paragraphs.map((paragraph, index) => paragraph.quote ? (
               <blockquote key={index} className="pr-quote">
                 <p>
-                  <span className="pr-quote__latin" lang="la">{paragraph.latin}</span>{' '}
+                  <span className="pr-quote__latin" lang={print.latinLang}>{paragraph.latin}</span>{' '}
                   <span className="pr-fire"><PrintText text={paragraph.text} /></span>
                 </p>
               </blockquote>
@@ -423,7 +425,7 @@ function PrintAssortment({ print, onZoom }) {
           </div>
           <div className="pr-assort__notes">
             <p><PrintText text={copy.intro} /></p>
-            <p className="pr-assort__fine"><PrintText text={`${copy.availability_note} ${copy.styling_note}`} /></p>
+            <p className="pr-assort__fine"><PrintText text={[copy.availability_note, copy.styling_note].filter(Boolean).join(' ')} /></p>
           </div>
         </div>
         <ol className="pr-grid">
@@ -497,14 +499,16 @@ function PrintColors({ print, product, placement }) {
   );
 }
 
+// The CTA opens the color variant shown in the photo, not the default one.
 function PrintCta({ print, product, placement }) {
+  const depicted = product.colors.find((color) => color.depicted);
   return (
     <a
       className="pr-cta"
-      href={product.url}
+      href={depicted?.url || product.url}
       target="_blank"
       rel={PRINT_FUN_REL}
-      onClick={() => lrTrackProduct(print, product, placement, product.colors.find((color) => color.depicted))}
+      onClick={() => lrTrackProduct(print, product, placement, depicted)}
     >
       {print.assortment.cta}
       <span className="pr-sr">: {product.name}, откроется в новой вкладке</span>
@@ -617,7 +621,7 @@ function PrintViewer({ print, state, onChange, onClose }) {
         <p id="pr-viewer-title" className="pr-viewer__title">
           {isProduct
             ? <><span className="pr-viewer__count">{lrPad(state.index + 1)} / {lrPad(total)}</span> {product.name}</>
-            : <><span lang="la">{print.latin}</span> · оригинал принта</>}
+            : <><span lang={print.latinLang}>{print.latin}</span> · оригинал принта</>}
         </p>
         <div className="pr-viewer__tools">
           {isProduct && (

@@ -75,7 +75,9 @@ export function loadPrints(root) {
       slug,
       href: `/prints/${slug}/`,
       title: print.title,
+      theme: print.theme || null,
       latin: print.latin,
+      latinLang: print.latin_lang || 'la',
       latinNote: print.latin_note,
       intro: print.intro,
       artwork: {

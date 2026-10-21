@@ -1,0 +1,760 @@
+{
+  "id": "fnord-15",
+  "slug": "informatsionnyy-shum",
+  "working_number": 15,
+  "title": "Информационный шум",
+  "theme": "noise",
+  "latin": "FNORD",
+  "latin_lang": "en",
+  "latin_note": "слово из \"Illuminatus!\"",
+  "intro": "Включил смартфон, чтобы проверить уведомления, а через десять минут у тебя куча новых тревог? FNORD. Кажется, что-то сработало.",
+  "artwork": {
+    "master": "v02/assets/print/15_FNORD_original.png",
+    "sha256": "813911f8f5851bfdc156c0df6dc046a5f6840a53e701f6605452e9b493cb082b",
+    "width": 3840,
+    "height": 1340,
+    "alt": "Принт FNORD: прозрачные буквы в костяной плашке с горизонтальными глитч-срезами.",
+    "text": [
+      "FNORD"
+    ],
+    "status": "утвержденный оригинал"
+  },
+  "video": {
+    "src": "/media/prints/informatsionnyy-shum/loop-36bdc22548.mp4",
+    "width": 1344,
+    "height": 756,
+    "duration_seconds": 9.62,
+    "aspect_ratio": "16:9",
+    "planned_duration_seconds": 10,
+    "seamless_verified": false,
+    "poster": {
+      "master": "v02/assets/video/poster.png",
+      "sha256": "2ef23e716a849176c78f7643a9dd5b2c6ffe9e764ea959fb4a55e469dbf1f5f4",
+      "width": 1664,
+      "height": 936
+    },
+    "caption": "Тишина продержалась недолго.",
+    "accessible_label": "Аватар в зеленой футболке FNORD выключает кнопкой три экрана с помехами, но они включаются снова",
+    "pause_label": "Приостановить видео",
+    "play_label": "Включить видео",
+    "processing": "Исходник пользователя nordrouter-video (1).mp4: 1344x768, 24 fps, 243 кадра, 10,125 с, AAC-дорожка. Кроп по центру до 1344x756 (16:9), звук удален. Последние 12 кадров (стоп-кадр) растворены в первые 12, чтобы убрать скачок яркости и зерна на стыке: 231 кадр, 9,625 с. H.264 CRF 20 с зонами битрейта к концу петли (см. tools/prints_media.py), чтобы опорный кадр не давал вспышку зерна. Постер взят из первого кадра ролика."
+  },
+  "story": {
+    "eyebrow": "разбор",
+    "heading": "Рука на кнопке",
+    "spec_title": "Спецификация",
+    "spec": [
+      [
+        "Слово",
+        "FNORD"
+      ],
+      [
+        "Источник",
+        "\"Illuminatus!\", Роберт Ши и Роберт Антон Уилсон"
+      ],
+      [
+        "Состав",
+        "пять прозрачных букв в костяной плашке, края сбиты срезами помех"
+      ],
+      [
+        "Сквозь буквы",
+        "цвет самой вещи"
+      ]
+    ],
+    "paragraphs": [
+      {
+        "text": "У FNORD есть литературная подкладка. В \"Illuminatus!\" Роберта Ши и Роберта Антона Уилсона это слово в новостях вызывает у читателей тревогу, хотя само слово они приучены не замечать. Так устроен вымышленный механизм контроля. Для знакомства с ним достаточно принта на футболке, тайное правительство вызывать необязательно."
+      },
+      {
+        "quote": true,
+        "latin": "FNORD.",
+        "text": "Кажется, что-то сработало."
+      },
+      {
+        "text": "В повседневном прочтении этот принт про момент между \"мне это показали\" и \"я уже на это отреагировал\". Что именно сейчас продают твоему вниманию? Факт, чужую панику, готового врага, удобное объяснение? Иногда полезно заметить собственную руку на кнопке раньше, чем она ее нажмет."
+      }
+    ],
+    "outro_cta": "Выбрать вещь"
+  },
+  "assortment": {
+    "eyebrow": "носители",
+    "title": "Шум можно носить",
+    "intro": "Футболки, свитшоты, худи и вещи на каждый день. Выбери модель и открой ее страницу на FUN.ru.",
+    "colors_label": "Цвета на FUN.ru",
+    "depicted_label": "на фото",
+    "availability_note": "Доступность цветов и размеров проверяй на странице товара.",
+    "cta": "Смотреть на FUN.ru",
+    "zoom_label": "Рассмотреть"
+  },
+  "film": {
+    "eyebrow": "демонстрация"
+  },
+  "seo": {
+    "title": "Информационный шум · Принты Лево Руля",
+    "description": "FNORD на одежде и аксессуарах Лево Руля. История принта про информационный шум, 15 моделей, цвета и ссылки на товары FUN.ru.",
+    "og_title": "Информационный шум",
+    "og_description": "Между \"мне показали\" и \"я уже отреагировал\". История FNORD и вещи с этим принтом.",
+    "og_image_alt": "Принт FNORD: прозрачные буквы в костяной плашке с горизонтальными глитч-срезами на черном фоне"
+  },
+  "editorial": {
+    "status": "на просмотре",
+    "source_package": "outputs/showcase/15_informatsionnyy_shum/v02",
+    "note": "Рисунок утвержден. Текст, товарные сцены и ролик на просмотре. thermos: полоса FNORD сдвинута на 59 px вниз (центр 0,39 -> 0,50 высоты корпуса, как на фото FUN.ru), без генерации; файл corrections/thermos_v03.png. Служебные поля не выводятся на страницу.",
+    "gallery_gaps_current": "21 из 46 цветовых галерей основаны на кеше FUN.ru от 20.10 (403 при проверке 21.10); перед публикацией сверить по snapshot_date."
+  },
+  "products": [
+    {
+      "id": "fnord-fartuki",
+      "order": 1,
+      "name": "Фартук",
+      "avatar": "male",
+      "url": "https://fun.ru/fartuki/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/fartuki.png",
+        "sha256": "d5ac031a274f1b0c0cedaad4e60d0cf1ba0605ae66f10d2c94a1e69753947898",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Фарфоровый аватар в черном фартуке FNORD держит лист бумаги у рабочего стола.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/fartuki/fnord_diskordianstvo_i_glitch",
+          "label": "Фартук, черный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-21"
+        }
+      ],
+      "color_snapshot_date": "2026-10-21",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-backpack-tenes",
+      "order": 2,
+      "name": "Рюкзак-мешок",
+      "avatar": "male",
+      "url": "https://fun.ru/backpack-tenes/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/backpack-tenes.png",
+        "sha256": "e180eb4888636a1e6c1ddb19a324b39425d7884419402676b5fc94cc0cde9e64",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Красный рюкзак-мешок FNORD с белыми шнурами на спине аватара у пневмопочты.",
+        "depicted_color": "красный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-tenes/fnord_diskordianstvo_i_glitch",
+          "label": "Рюкзак-мешок, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/backpack-tenes/fnord_diskordianstvo_i_glitch/color-red",
+          "label": "Рюкзак-мешок, красный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/backpack-tenes/fnord_diskordianstvo_i_glitch/color-darkBlue",
+          "label": "Рюкзак-мешок, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        }
+      ],
+      "color_snapshot_date": "2026-10-21",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-backpack-27-liters",
+      "order": 3,
+      "name": "Рюкзак из полиэстера, 27 литров",
+      "avatar": "male",
+      "url": "https://fun.ru/backpack-27-liters/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/backpack-27-liters.png",
+        "sha256": "d51e6238a5fc571c58d85fc0ab2c8cbf48fa2fb622ad1c7bf15e31e1f016d669",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Синий рюкзак FNORD на скамье рядом с фарфоровым аватаром.",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-27-liters/fnord_diskordianstvo_i_glitch",
+          "label": "Рюкзак из полиэстера, 27 литров, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/backpack-27-liters/fnord_diskordianstvo_i_glitch/color-blue",
+          "label": "Рюкзак из полиэстера, 27 литров, синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-21"
+        }
+      ],
+      "color_snapshot_date": "2026-10-21",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-thermos",
+      "order": 4,
+      "name": "Термос",
+      "avatar": "male",
+      "url": "https://fun.ru/thermos/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "corrections/thermos_v03.png",
+        "sha256": "09bfc6e2973ff9e6c8ab0b159967d21e1faeb0f3df39947660043c4549f4c21f",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Красный термос с крупным круговым принтом FNORD перед аватаром у радиомикрофона.",
+        "depicted_color": "красный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/thermos/fnord_diskordianstvo_i_glitch",
+          "label": "Термос, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/thermos/fnord_diskordianstvo_i_glitch/color-red",
+          "label": "Термос, красный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/thermos/fnord_diskordianstvo_i_glitch/color-darkBlue",
+          "label": "Термос, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        }
+      ],
+      "color_snapshot_date": "2026-10-21",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-bottle",
+      "order": 5,
+      "name": "Бутылка для воды",
+      "avatar": "male",
+      "url": "https://fun.ru/bottle/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/bottle.png",
+        "sha256": "1c9414ceee6135a256e19158fceb65badc4c177ffe296bd028ec964b958e0636",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Оранжевая бутылка для воды FNORD на подоконнике рядом с аватаром и громкоговорителем.",
+        "depicted_color": "оранжевый"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "синий",
+          "url": "https://fun.ru/bottle/fnord_diskordianstvo_i_glitch",
+          "label": "Бутылка для воды, синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "purple",
+          "name": "фиолетовый",
+          "url": "https://fun.ru/bottle/fnord_diskordianstvo_i_glitch/color-purple",
+          "label": "Бутылка для воды, фиолетовый, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "orange",
+          "name": "оранжевый",
+          "url": "https://fun.ru/bottle/fnord_diskordianstvo_i_glitch/color-orange",
+          "label": "Бутылка для воды, оранжевый, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-21"
+        }
+      ],
+      "color_snapshot_date": "2026-10-21",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-diary",
+      "order": 6,
+      "name": "Ежедневник",
+      "avatar": "male",
+      "url": "https://fun.ru/diary/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/diary.png",
+        "sha256": "0583bb042a2a04368a6d0985301ffb905ab5164b77b6d1a21a50ce792eeffd75",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Аватар держит зеленый ежедневник FNORD между переполненным и пустым лотками для бумаг.",
+        "depicted_color": "зеленый"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "темно-синий",
+          "url": "https://fun.ru/diary/fnord_diskordianstvo_i_glitch",
+          "label": "Ежедневник, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/diary/fnord_diskordianstvo_i_glitch/color-blue",
+          "label": "Ежедневник, синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "green",
+          "name": "зеленый",
+          "url": "https://fun.ru/diary/fnord_diskordianstvo_i_glitch/color-green",
+          "label": "Ежедневник, зеленый, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/diary/fnord_diskordianstvo_i_glitch/color-red",
+          "label": "Ежедневник, красный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        }
+      ],
+      "color_snapshot_date": "2026-10-21",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-bags",
+      "order": 7,
+      "name": "Сумка",
+      "avatar": "female_03",
+      "url": "https://fun.ru/bags/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/bags.png",
+        "sha256": "bb3b3a9470de8a447ecf4bf33b017a7616cd74c89c9a2c3f5215519de28f45dd",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Женский фарфоровый аватар с винной сумкой FNORD у старого телефонного коммутатора.",
+        "depicted_color": "винный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bags/fnord_diskordianstvo_i_glitch",
+          "label": "Сумка, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/bags/fnord_diskordianstvo_i_glitch/color-red",
+          "label": "Сумка, красный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "purple",
+          "name": "фиолетовый",
+          "url": "https://fun.ru/bags/fnord_diskordianstvo_i_glitch/color-purple",
+          "label": "Сумка, фиолетовый, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "green",
+          "name": "зеленый",
+          "url": "https://fun.ru/bags/fnord_diskordianstvo_i_glitch/color-green",
+          "label": "Сумка, зеленый, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "wine",
+          "name": "винный",
+          "url": "https://fun.ru/bags/fnord_diskordianstvo_i_glitch/color-wine",
+          "label": "Сумка, винный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-21"
+        }
+      ],
+      "color_snapshot_date": "2026-10-21",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-bottle-speedy",
+      "order": 8,
+      "name": "Бутылка спортивная",
+      "avatar": "male",
+      "url": "https://fun.ru/bottle-speedy/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/bottle-speedy.png",
+        "sha256": "90688a99c4a2519825de20f9e282f4f2c599e14874fec2027eac1b2c6c0aa187",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Синяя спортивная бутылка FNORD на скамье рядом с аватаром и заваленной бумагой беговой дорожкой.",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bottle-speedy/fnord_diskordianstvo_i_glitch",
+          "label": "Бутылка спортивная, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/bottle-speedy/fnord_diskordianstvo_i_glitch/color-blue",
+          "label": "Бутылка спортивная, синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-21"
+        }
+      ],
+      "color_snapshot_date": "2026-10-21",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-women-sweatshirts",
+      "order": 9,
+      "name": "Женский свитшот",
+      "avatar": "female_03",
+      "url": "https://fun.ru/women-sweatshirts/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/women-sweatshirts.png",
+        "sha256": "65cd6b0b7388bddbbd7e62981f27fa8f2441ba450f266d4d3f4f5e52e069b73e",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Женский аватар в красном свитшоте FNORD держит телефонную трубку у бедра.",
+        "depicted_color": "красный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-sweatshirts/fnord_diskordianstvo_i_glitch",
+          "label": "Женский свитшот, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/women-sweatshirts/fnord_diskordianstvo_i_glitch/color-red",
+          "label": "Женский свитшот, красный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-21"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-sweatshirts/fnord_diskordianstvo_i_glitch/color-darkBlue",
+          "label": "Женский свитшот, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-men-sweatshirts",
+      "order": 10,
+      "name": "Мужской свитшот",
+      "avatar": "male",
+      "url": "https://fun.ru/men-sweatshirts/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/men-sweatshirts.png",
+        "sha256": "37bd598f95a3ac82a5a3db84c9d0647dd5102c64f6af8377cfe19b7e465fc046",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Мужской аватар в темно-синем свитшоте FNORD рядом с вентилятором и стопкой бумаги.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-sweatshirts/fnord_diskordianstvo_i_glitch",
+          "label": "Мужской свитшот, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/men-sweatshirts/fnord_diskordianstvo_i_glitch/color-red",
+          "label": "Мужской свитшот, красный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-sweatshirts/fnord_diskordianstvo_i_glitch/color-darkBlue",
+          "label": "Мужской свитшот, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-men-hoodies",
+      "order": 11,
+      "name": "Мужская толстовка",
+      "avatar": "male",
+      "url": "https://fun.ru/men-hoodies/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/men-hoodies.png",
+        "sha256": "bc2aa7fc1abe54fd9ca84e4c3eefe6f9ed3ae915181ef792f222f44a295d2fea",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Мужской аватар в синей толстовке FNORD со шнурками у стопки радиоприемников.",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-hoodies/fnord_diskordianstvo_i_glitch",
+          "label": "Мужская толстовка, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-hoodies/fnord_diskordianstvo_i_glitch/color-blue",
+          "label": "Мужская толстовка, синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-hoodies/fnord_diskordianstvo_i_glitch/color-darkBlue",
+          "label": "Мужская толстовка, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/men-hoodies/fnord_diskordianstvo_i_glitch/color-red",
+          "label": "Мужская толстовка, красный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-hoodie-oversize",
+      "order": 12,
+      "name": "Худи оверсайз",
+      "avatar": "male",
+      "url": "https://fun.ru/hoodie-oversize/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/hoodie-oversize.png",
+        "sha256": "327d560c8c2c797438931839e02d4302752b5372795a5408ef0c2571ac05b759",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Мужской аватар в темно-синем худи оверсайз FNORD без шнурков в архивном проходе.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/hoodie-oversize/fnord_diskordianstvo_i_glitch",
+          "label": "Худи оверсайз, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/hoodie-oversize/fnord_diskordianstvo_i_glitch/color-darkBlue",
+          "label": "Худи оверсайз, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-tshirts-oversize",
+      "order": 13,
+      "name": "Футболка оверсайз",
+      "avatar": "male",
+      "url": "https://fun.ru/tshirts-oversize/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/tshirts-oversize.png",
+        "sha256": "b9e1b119668b212432aa59f2af133c8c041dd73124d1daf5e8028defd07be2e9",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Мужской аватар в темно-серой футболке оверсайз FNORD между катушечными магнитофонами.",
+        "depicted_color": "темно-серый"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "темно-серый",
+          "url": "https://fun.ru/tshirts-oversize/fnord_diskordianstvo_i_glitch",
+          "label": "Футболка оверсайз, темно-серый, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "black",
+          "name": "черный",
+          "url": "https://fun.ru/tshirts-oversize/fnord_diskordianstvo_i_glitch/color-black",
+          "label": "Футболка оверсайз, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/tshirts-oversize/fnord_diskordianstvo_i_glitch/color-darkBlue",
+          "label": "Футболка оверсайз, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-women-tshirts",
+      "order": 14,
+      "name": "Женская футболка",
+      "avatar": "female_02",
+      "url": "https://fun.ru/women-tshirts/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/women-tshirts.png",
+        "sha256": "0b6b811eaaa499e679f638cc01867d7e995b667d23284d7dce633f2391d8934a",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Женский аватар в темно-синей приталенной футболке FNORD стоит у двери радиорубки.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-tshirts/fnord_diskordianstvo_i_glitch",
+          "label": "Женская футболка, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-tshirts/fnord_diskordianstvo_i_glitch/color-darkBlue",
+          "label": "Женская футболка, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/women-tshirts/fnord_diskordianstvo_i_glitch/color-red",
+          "label": "Женская футболка, красный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "fnord-men-tshirts",
+      "order": 15,
+      "name": "Мужская футболка",
+      "avatar": "male",
+      "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch",
+      "image": {
+        "master": "v02/assets/products/men-tshirts.png",
+        "sha256": "8246baf8d038a1960de30f84295a18a7a7874ad7946055d423b1c16f82b93771",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Мужской аватар в зеленой футболке FNORD перед экранами с телевизионными помехами.",
+        "depicted_color": "зеленый"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "зеленый",
+          "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch",
+          "label": "Мужская футболка, зеленый, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "black",
+          "name": "черный",
+          "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch/color-black",
+          "label": "Мужская футболка, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch/color-darkBlue",
+          "label": "Мужская футболка, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch/color-red",
+          "label": "Мужская футболка, красный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-tshirts/fnord_diskordianstvo_i_glitch/color-blue",
+          "label": "Мужская футболка, синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    }
+  ]
+}

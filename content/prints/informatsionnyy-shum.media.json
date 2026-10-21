@@ -1,0 +1,297 @@
+{
+  "generated_by": "tools/prints_media.py images",
+  "slug": "informatsionnyy-shum",
+  "artwork": {
+    "full": {
+      "src": "/media/prints/informatsionnyy-shum/artwork-813911f8f5.png",
+      "width": 3840,
+      "height": 1340
+    },
+    "variants": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/artwork-1400-4f8de0c228.webp",
+        "width": 1400,
+        "height": 489
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/artwork-2800-7485c9e0bb.webp",
+        "width": 2800,
+        "height": 977
+      }
+    ]
+  },
+  "poster": [
+    {
+      "src": "/media/prints/informatsionnyy-shum/poster-960-9c015d89f8.webp",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "src": "/media/prints/informatsionnyy-shum/poster-1344-7e655cf62a.webp",
+      "width": 1344,
+      "height": 756
+    }
+  ],
+  "og": {
+    "src": "/media/prints/informatsionnyy-shum/og-b646039cec.png",
+    "width": 1200,
+    "height": 630
+  },
+  "products": {
+    "fnord-fartuki": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/01-fartuki-480-6fe525c34e.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/01-fartuki-800-b5f62edab0.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/01-fartuki-1086-8b27de551c.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-backpack-tenes": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/02-backpack-tenes-480-20d3959639.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/02-backpack-tenes-800-a93853e8c0.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/02-backpack-tenes-1086-82969adcce.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-backpack-27-liters": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/03-backpack-27-liters-480-224fb424b1.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/03-backpack-27-liters-800-baee6cc594.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/03-backpack-27-liters-1086-e2dd52d420.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-thermos": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/04-thermos-480-a2ef84186b.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/04-thermos-800-63fa16ade5.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/04-thermos-1086-d455d7d48f.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-bottle": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/05-bottle-480-392072b669.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/05-bottle-800-87a83500ce.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/05-bottle-1086-7bc54c26b5.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-diary": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/06-diary-480-2e82087b27.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/06-diary-800-737127f223.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/06-diary-1086-6b487c8f0a.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-bags": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/07-bags-480-f377519bb8.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/07-bags-800-3392c691dc.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/07-bags-1086-4aae6810a1.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-bottle-speedy": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/08-bottle-speedy-480-01e0d6d7f8.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/08-bottle-speedy-800-29d24d4b16.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/08-bottle-speedy-1086-0f0ceea92e.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-women-sweatshirts": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/09-women-sweatshirts-480-b264e49464.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/09-women-sweatshirts-800-127c90b841.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/09-women-sweatshirts-1086-bfe3d28843.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-men-sweatshirts": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/10-men-sweatshirts-480-9767b21a18.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/10-men-sweatshirts-800-3f6fe437bc.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/10-men-sweatshirts-1086-3659704eb1.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-men-hoodies": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/11-men-hoodies-480-d6c8587639.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/11-men-hoodies-800-cd9576c655.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/11-men-hoodies-1086-9de6fd9eb3.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-hoodie-oversize": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/12-hoodie-oversize-480-4db57da843.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/12-hoodie-oversize-800-e51f566d8f.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/12-hoodie-oversize-1086-646d00f03b.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-tshirts-oversize": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/13-tshirts-oversize-480-3bf9091e61.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/13-tshirts-oversize-800-87e04e0aa1.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/13-tshirts-oversize-1086-f8527118d8.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-women-tshirts": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/14-women-tshirts-480-07ecf531a5.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/14-women-tshirts-800-13ba579696.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/14-women-tshirts-1086-142fc6e080.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "fnord-men-tshirts": [
+      {
+        "src": "/media/prints/informatsionnyy-shum/15-men-tshirts-480-d8f2d2efb7.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/15-men-tshirts-800-ac79644281.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/informatsionnyy-shum/15-men-tshirts-1086-6126c438f6.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ]
+  }
+}
