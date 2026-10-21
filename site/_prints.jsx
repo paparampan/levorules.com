@@ -78,7 +78,7 @@ function PrintArtwork({ print, sizes, eager }) {
   const art = print.artwork;
   return (
     <img
-      className="pr-artwork"
+      className={`pr-artwork${art.height > art.width ? ' pr-artwork--tall' : ''}`}
       src={art.src}
       srcSet={art.srcset}
       sizes={sizes}

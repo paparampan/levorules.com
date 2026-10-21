@@ -126,8 +126,9 @@ def webp_variants(writer: Writer, stem: str, image: Image.Image, widths, quality
 def og_card(artwork: Image.Image) -> bytes:
     card = Image.new("RGB", OG_SIZE, VOID)
     # Scale and centre by the visible lettering; the canvas keeps its own print margins.
+    # A tall artwork is capped by height so it stays whole above the caption line.
     left, top, right, bottom = artwork.getchannel("A").getbbox()
-    scale = 980 / (right - left)
+    scale = min(980 / (right - left), 440 / (bottom - top))
     art = resize(artwork, round(artwork.width * scale))
     x = round(OG_SIZE[0] / 2 - (left + right) / 2 * scale)
     y = round(250 - (top + bottom) / 2 * scale)
@@ -161,7 +162,8 @@ def build_images(source: Path, slug: str) -> None:
         "full": {"src": writer.write("artwork", "png", artwork_master), "width": artwork.width, "height": artwork.height},
         "variants": [],
     }
-    for width in ARTWORK_WIDTHS:
+    # No upscaled duplicates: an artwork narrower than every target ships at its own width.
+    for width in [w for w in ARTWORK_WIDTHS if w < artwork.width] or [artwork.width]:
         scaled = resize(artwork, width)
         url, encoded = writer.webp(f"artwork-{width}", scaled, lossless=True, quality=100, exact=False)
         decoded = Image.open(io.BytesIO(encoded)).convert("RGBA")

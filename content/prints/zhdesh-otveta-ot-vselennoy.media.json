@@ -1,0 +1,241 @@
+{
+  "generated_by": "tools/prints_media.py images",
+  "slug": "zhdesh-otveta-ot-vselennoy",
+  "artwork": {
+    "full": {
+      "src": "/media/prints/zhdesh-otveta-ot-vselennoy/artwork-96a4668a08.png",
+      "width": 1199,
+      "height": 1921
+    },
+    "variants": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/artwork-1199-1ed8fb7deb.webp",
+        "width": 1199,
+        "height": 1921
+      }
+    ]
+  },
+  "poster": [
+    {
+      "src": "/media/prints/zhdesh-otveta-ot-vselennoy/poster-960-15f568bac9.webp",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "src": "/media/prints/zhdesh-otveta-ot-vselennoy/poster-1344-1accdf1b36.webp",
+      "width": 1344,
+      "height": 756
+    }
+  ],
+  "og": {
+    "src": "/media/prints/zhdesh-otveta-ot-vselennoy/og-1ee0842ce2.png",
+    "width": 1200,
+    "height": 630
+  },
+  "products": {
+    "zhdesh-fartuki": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/01-fartuki-480-ffd1167773.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/01-fartuki-800-baf053cda6.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/01-fartuki-1086-542b3443e0.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "zhdesh-backpack-tenes": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/02-backpack-tenes-480-e9bcb23841.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/02-backpack-tenes-800-c7e5d77346.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/02-backpack-tenes-1086-16e9bf5ad5.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "zhdesh-backpack-27-liters": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/03-backpack-27-liters-480-4a945f1e06.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/03-backpack-27-liters-800-e52733e990.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/03-backpack-27-liters-1086-d88f77d6bb.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "zhdesh-thermos": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/04-thermos-480-81e8f23cb9.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/04-thermos-800-989f390b56.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/04-thermos-1086-3908487c16.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "zhdesh-diary": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/05-diary-480-06e8fe7358.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/05-diary-800-8b5ed20afd.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/05-diary-1086-126763c855.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "zhdesh-bags": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/06-bags-480-e09d109f6e.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/06-bags-800-dd1ed324b6.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/06-bags-1086-fa9d59efaf.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "zhdesh-bottle-speedy": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/07-bottle-speedy-480-d9c6b864f9.webp",
+        "width": 480,
+        "height": 639
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/07-bottle-speedy-800-c62d0497e0.webp",
+        "width": 800,
+        "height": 1065
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/07-bottle-speedy-1087-caf70915f3.webp",
+        "width": 1087,
+        "height": 1447
+      }
+    ],
+    "zhdesh-women-sweatshirts": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/08-women-sweatshirts-480-284a72ad8d.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/08-women-sweatshirts-800-d8ba22338d.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/08-women-sweatshirts-1086-6c6c388fb3.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "zhdesh-men-sweatshirts": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/09-men-sweatshirts-480-86c84afe02.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/09-men-sweatshirts-800-0a821dc135.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/09-men-sweatshirts-1086-5cc5a577ce.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "zhdesh-tshirts-oversize": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/10-tshirts-oversize-480-3390730ab4.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/10-tshirts-oversize-800-7eafd77b5c.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/10-tshirts-oversize-1086-4079ae6100.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "zhdesh-women-tshirts": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/11-women-tshirts-480-d3d46a6b3c.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/11-women-tshirts-800-5a268f7e20.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/11-women-tshirts-1086-9111c21121.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "zhdesh-men-tshirts": [
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/12-men-tshirts-480-afc6d2ee41.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/12-men-tshirts-800-34ba20199a.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/zhdesh-otveta-ot-vselennoy/12-men-tshirts-1086-b93273a626.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ]
+  }
+}

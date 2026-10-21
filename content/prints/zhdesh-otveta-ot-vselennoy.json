@@ -1,0 +1,520 @@
+{
+  "id": "zhdesh-12",
+  "slug": "zhdesh-otveta-ot-vselennoy",
+  "working_number": 12,
+  "title": "Ждешь ответа от Вселенной",
+  "latin": "Вселенная не в курсе",
+  "latin_lang": "ru",
+  "latin_note": "надпись на принте",
+  "intro": "Запрос отправлен. Знаки отслеживаются. Вселенная, правда, не в курсе, что у вас переписка.",
+  "artwork": {
+    "master": "v01/assets/print/original.png",
+    "sha256": "96a4668a08067b0d1457c1dd56e02fc8245cdaec79c9b28f355a0512cfaf469e",
+    "width": 1199,
+    "height": 1921,
+    "alt": "Открытый сквозной почтовый ящик со звездами и красным флажком. Надпись: Ждешь ответа от Вселенной? Вселенная не в курсе.",
+    "text": [
+      "ЖДЕШЬ ОТВЕТА ОТ ВСЕЛЕННОЙ?",
+      "ВСЕЛЕННАЯ НЕ В КУРСЕ."
+    ],
+    "status": "утвержденный оригинал"
+  },
+  "video": {
+    "src": "/media/prints/zhdesh-otveta-ot-vselennoy/loop-584599f68b.mp4",
+    "aspect_ratio": "16:9",
+    "planned_duration_seconds": 10,
+    "seamless_verified": false,
+    "poster": {
+      "master": "v01/assets/video/poster.png",
+      "sha256": "ef572b49e5bc21515a480245a428b83dd5030643078825441bc726e1b46b0757",
+      "width": 1664,
+      "height": 936
+    },
+    "caption": "Обратный адрес сработал.",
+    "accessible_label": "Аватар отправляет письмо через пустой почтовый ящик и получает собственный конверт обратно.",
+    "pause_label": "Приостановить видео",
+    "play_label": "Включить видео",
+    "processing": "Исходник пользователя nordrouter-video (3).mp4 (MiniMax H3 Reference по промпту v03): 1344x768, 24 fps, 243 кадра, 10,125 с, AAC-дорожка. Один план без склеек, один конверт. Кроп по центру до 1344x756 (16:9), звук удален. Последние 12 кадров растворены в первые 12 (стык: SSIM 0,77 -> 0,98): 231 кадр, 9,625 с. H.264 CRF 20 с зонами битрейта к концу петли, как у informatsionnyy-shum. Постер взят из первого кадра ролика.",
+    "width": 1344,
+    "height": 756,
+    "duration_seconds": 9.62
+  },
+  "story": {
+    "eyebrow": "разбор",
+    "heading": "Космические входящие",
+    "spec_title": "Спецификация",
+    "spec": [
+      [
+        "Надпись",
+        "Ждешь ответа от Вселенной? Вселенная не в курсе."
+      ],
+      [
+        "Рисунок",
+        "почтовый ящик, открытый насквозь, флажок поднят"
+      ],
+      [
+        "Сквозь ящик",
+        "звезды"
+      ],
+      [
+        "Писем",
+        "нет"
+      ]
+    ],
+    "paragraphs": [
+      {
+        "text": "Снова ожидаешь, что Вселенная сформулирует за тебя твой запрос и решит проблему? А Вселенная-то в курсе? Или, может, она уже шлет тебе намеки, но тебе их недостаточно?"
+      },
+      {
+        "text": "На рисунке почтовый ящик открыт насквозь. Флажок поднят, звезды на месте. Письма нет. Через заднюю стенку прекрасно видно мироздание, которое занимается своими делами."
+      },
+      {
+        "quote": true,
+        "latin": "Ждешь ответа от Вселенной?",
+        "text": "Вселенная не в курсе."
+      },
+      {
+        "text": "Особенно неловко, когда вопрос вполне земной. Написать человеку. Назвать цену за свою работу. Закончить то, что уже полгода находится в стадии очень важного внутреннего созревания. Но вместо первого шага ты снова проверяешь космические входящие. Зачем?"
+      },
+      {
+        "text": "Сигила, ритуал, расклад могут помочь собрать внимание и разобраться с намерением. А вот бесконечное ожидание ответа отлично помогает ничего не делать. И при этом чувствовать себя участником сложного процесса. Я тоже понимаю привлекательность этой схемы. Перекладывать ответственность на что-то высшее - это очень удобно."
+      },
+      {
+        "text": "Возможно, стоит наконец отправить обычное сообщение тому, от кого действительно нужен ответ."
+      }
+    ],
+    "outro_cta": "Выбрать вещь"
+  },
+  "assortment": {
+    "eyebrow": "носители",
+    "title": "В чем проверишь ответ от Вселенной?",
+    "intro": "Футболки, свитшоты и вещи для повседневных дел. Выбери модель и открой ее страницу на FUN.ru.",
+    "colors_label": "Цвета на FUN.ru",
+    "depicted_label": "на фото",
+    "availability_note": "Доступность цветов и размеров проверяй на странице товара.",
+    "cta": "Смотреть на FUN.ru",
+    "zoom_label": "Рассмотреть"
+  },
+  "film": {
+    "eyebrow": "демонстрация"
+  },
+  "seo": {
+    "title": "Ждешь ответа от Вселенной · Принты Лево Руля",
+    "description": "Открытый почтовый ящик, звезды и ни одного ответа. Ироничный принт Лево Руля на футболках, свитшотах и аксессуарах. Модели и ссылки на FUN.ru.",
+    "og_title": "Ждешь ответа от Вселенной",
+    "og_description": "Запрос отправлен. Знаки отслеживаются. Вселенная, правда, не в курсе, что у вас переписка.",
+    "og_image_alt": "Принт Лево Руля: открытый насквозь почтовый ящик со звездами и надписью \"Ждешь ответа от Вселенной? Вселенная не в курсе.\" на черном фоне"
+  },
+  "editorial": {
+    "status": "на просмотре",
+    "source_package": "outputs/showcase/12_zhdesh_otveta_ot_vselennoy/v01",
+    "note": "Рисунок утвержден (brand_v02). Тексты, товарные сцены и ролик на просмотре. Заголовок разбора и спецификация добавлены при сборке страницы. Служебные поля не выводятся на страницу.",
+    "gallery_gaps_current": "Цвета и ссылки из кеша FUN.ru от 20.10 (403 при проверке 21.10); перед публикацией сверить по snapshot_date."
+  },
+  "products": [
+    {
+      "id": "zhdesh-fartuki",
+      "order": 1,
+      "name": "Фартук",
+      "avatar": "male",
+      "url": "https://fun.ru/fartuki/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_fartuki.png",
+        "sha256": "f9fb75e264e8dd2c6a85eef184636c4a7ebf97363aa73d11fc2a83fbbfc22601",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Мужской фарфоровый аватар в черном фартуке с принтом у стола с письмами.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/fartuki/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Фартук, черный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-backpack-tenes",
+      "order": 2,
+      "name": "Рюкзак-мешок",
+      "avatar": "male",
+      "url": "https://fun.ru/backpack-tenes/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_backpack_tenes.png",
+        "sha256": "7f41f2053e78a0f5cd3fb79b06e2e3e7b822428e5346a18c6c120e64b2329614",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Аватар и темно-синий рюкзак-мешок с белыми шнурками на скамье почтовой станции.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-tenes/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Рюкзак-мешок, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/backpack-tenes/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse/color-darkBlue",
+          "label": "Рюкзак-мешок, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-backpack-27-liters",
+      "order": 3,
+      "name": "Рюкзак из полиэстера, 27 литров",
+      "avatar": "male",
+      "url": "https://fun.ru/backpack-27-liters/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_backpack_27_liters.png",
+        "sha256": "07a81759d5df3d79f82b623c3c85cca49aeb058cb497cdb7118240c3309ccedb",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Аватар в бордовом свитере рядом с синим рюкзаком; рисунок на переднем кармане.",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-27-liters/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Рюкзак из полиэстера, 27 литров, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/backpack-27-liters/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse/color-blue",
+          "label": "Рюкзак из полиэстера, 27 литров, синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-thermos",
+      "order": 4,
+      "name": "Термос",
+      "avatar": "male",
+      "url": "https://fun.ru/thermos/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_thermos.png",
+        "sha256": "16b8d3ed98324e09946ca35e0392d8e0cc779a559fe54135496047aef49615c7",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Аватар в полный рост держит темно-синий термос за крышку.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/thermos/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Термос, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/thermos/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse/color-darkBlue",
+          "label": "Термос, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-diary",
+      "order": 5,
+      "name": "Ежедневник",
+      "avatar": "male",
+      "url": "https://fun.ru/diary/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_diary.png",
+        "sha256": "aa158d9d44fe734d8dddf0283d4125ab8047a0bebe5eb8a3037216a45f84ff1e",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Аватар в зеленом свитере держит темно-синий ежедневник у бедра.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "темно-синий",
+          "url": "https://fun.ru/diary/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Ежедневник, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-bags",
+      "order": 6,
+      "name": "Сумка",
+      "avatar": "female_02",
+      "url": "https://fun.ru/bags/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_bags.png",
+        "sha256": "a54ae5d57fa5be6e7e41fc01814c29ead865bbce52c9dd24066b1d5f95e9d37d",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Женский фарфоровый аватар с черной сумкой у входа в ночную почтовую станцию.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bags/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Сумка, черный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-bottle-speedy",
+      "order": 7,
+      "name": "Бутылка спортивная",
+      "avatar": "male",
+      "url": "https://fun.ru/bottle-speedy/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_bottle_speedy.png",
+        "sha256": "297606cdca000bb60dd6138d924cd0278967e8cc4e4cbd4c667aa2e6c4da9792",
+        "width": 1087,
+        "height": 1447,
+        "alt": "Аватар в полный рост с черной спортивной бутылкой у почтового отделения.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bottle-speedy/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Бутылка спортивная, черный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-women-sweatshirts",
+      "order": 8,
+      "name": "Женский свитшот",
+      "avatar": "female_02",
+      "url": "https://fun.ru/women-sweatshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_women_sweatshirts.png",
+        "sha256": "2ef00ac3285fc33305a35a5adfd5274aef411af695696bb09451c53877063216",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Женский аватар в темно-синем свитшоте с открытым почтовым ящиком на рисунке.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-sweatshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Женский свитшот, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-sweatshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse/color-darkBlue",
+          "label": "Женский свитшот, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-men-sweatshirts",
+      "order": 9,
+      "name": "Мужской свитшот",
+      "avatar": "male",
+      "url": "https://fun.ru/men-sweatshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_men_sweatshirts.png",
+        "sha256": "5abbd9e65605d5d4d71a584d7b20d00259e820cca8a7c2deab572bcf014b1604",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Мужской аватар в темно-синем свитшоте рядом с почтовыми ячейками.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-sweatshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Мужской свитшот, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-sweatshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse/color-darkBlue",
+          "label": "Мужской свитшот, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-tshirts-oversize",
+      "order": 10,
+      "name": "Футболка оверсайз",
+      "avatar": "male",
+      "url": "https://fun.ru/tshirts-oversize/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_tshirts_oversize.png",
+        "sha256": "3bae17c06b4cfabf33ae73dd43c41173375f8e60dbe387b85b90b4a96828b1bd",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Мужской аватар в темно-серой футболке оверсайз на ночной платформе.",
+        "depicted_color": "темно-серый"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/tshirts-oversize/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Футболка оверсайз, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/tshirts-oversize/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse/color-darkBlue",
+          "label": "Футболка оверсайз, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkGrey",
+          "name": "темно-серый",
+          "url": "https://fun.ru/tshirts-oversize/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse/color-darkGrey",
+          "label": "Футболка оверсайз, темно-серый, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-women-tshirts",
+      "order": 11,
+      "name": "Женская футболка",
+      "avatar": "female_02",
+      "url": "https://fun.ru/women-tshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_women_tshirts.png",
+        "sha256": "85c924b91e81a85378b178adc6d83001f26ab04d5760e6434fad95a49ddaa185",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Женский аватар в приталенной синей футболке с принтом у пустого почтового окна.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-tshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Женская футболка, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-tshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse/color-darkBlue",
+          "label": "Женская футболка, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    },
+    {
+      "id": "zhdesh-men-tshirts",
+      "order": 12,
+      "name": "Мужская футболка",
+      "avatar": "male",
+      "url": "https://fun.ru/men-tshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+      "image": {
+        "master": "v01/assets/products/p12_men_tshirts.png",
+        "sha256": "74405b4f980aee6e863c94c7248a085742aea94206ef6d6382d4129787ebe771",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Мужской аватар в синей футболке с принтом и конвертом рядом с почтовым ящиком.",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-tshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse",
+          "label": "Мужская футболка, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-tshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse/color-blue",
+          "label": "Мужская футболка, синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-20"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-tshirts/zhdesh_otveta_ot_vselennoy_vselennaya_ne_v_kurse/color-darkBlue",
+          "label": "Мужская футболка, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-20"
+        }
+      ],
+      "color_snapshot_date": "2026-10-20",
+      "availability_verified_current": false
+    }
+  ]
+}
