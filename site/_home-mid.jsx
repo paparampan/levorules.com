@@ -100,7 +100,7 @@ function CourseCallout({ setRoute }) {
 const SHORTS_FALLBACK = [
   { id: null, title: 'Почему 432 Гц — ложь', url: 'https://www.youtube.com/@levorules/shorts', thumb: null, views: '', acc: 'var(--magenta)' },
   { id: null, title: 'Сигилы за 6 шагов', url: 'https://www.youtube.com/@levorules/shorts', thumb: null, views: '', acc: 'var(--acid-green)' },
-  { id: null, title: 'К чёрту Гоэтию', url: 'https://www.youtube.com/@levorules/shorts', thumb: null, views: '', acc: 'var(--purple)' },
+  { id: null, title: 'Откуп в магии', url: 'https://www.youtube.com/@levorules/shorts', thumb: null, views: '', acc: 'var(--purple)' },
   { id: null, title: '8 цветов магии', url: 'https://www.youtube.com/@levorules/shorts', thumb: null, views: '', acc: 'var(--amber)' },
   { id: null, title: 'Код Теслы 3·6·9', url: 'https://www.youtube.com/@levorules/shorts', thumb: null, views: '', acc: 'var(--cyber-cyan)' },
 ];

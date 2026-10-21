@@ -120,7 +120,7 @@ const HERO_MARQUEE = [
   { text: 'ничто не истинно', accent: 'var(--blood-text)' },
   { text: 'всё дозволено', accent: 'var(--purple)' },
   { text: 'сигилы · сервиторы · гнозис', accent: 'var(--amber)' },
-  { text: 'азазель · люцифер · белиал', accent: 'var(--acid-green)' },
+  { text: 'вера как инструмент', accent: 'var(--acid-green)' },
   { text: 'fac ut ardeat', accent: 'var(--cyber-cyan)' },
   { text: 'технология воли', accent: 'var(--magenta)' },
 ];
@@ -163,7 +163,7 @@ function Hero({ ritual }) {
         <div style={{ marginTop: 36, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'end' }}>
           <div className="lr-hero-fade">
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: 14, letterSpacing: '0.1em', color: 'var(--bone)', textTransform: 'uppercase' }}>
-              магия хаоса · демонология · путь левой руки
+              магия хаоса · сервиторы · путь левой руки
             </div>
             <p style={{ marginTop: 20, fontSize: 19, lineHeight: 1.5, color: 'var(--bone)', maxWidth: 520 }}>
               <b>Антидогматический оккультизм.</b> Без пыли и ванили.
@@ -195,7 +195,7 @@ function Hero({ ritual }) {
 function Territories() {
   const items = [
     { n: '01', title: 'МАГИЯ ХАОСА', body: 'Сигилы, ритуалы, деконструкция догм. Вера как инструмент, не костыль.', accent: 'var(--blood-text)' },
-    { n: '02', title: 'ДЕМОНОЛОГИЯ', body: 'Работа с инфернальными сущностями. Азазель, Люцифер, Белиал. Без страха и поклонения.', accent: 'var(--purple)' },
+    { n: '02', title: 'СЕРВИТОРЫ', body: 'Созданные сущности под конкретную задачу. От сигилы и правил до завершения. Инструмент, а не хозяин.', accent: 'var(--purple)' },
     { n: '03', title: 'ПУТЬ ЛЕВОЙ РУКИ', body: 'Самообожествление, Чёрное Пламя, индивидуация. Ты и есть бог.', accent: 'var(--amber)' },
   ];
   return (
