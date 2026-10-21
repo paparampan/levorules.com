@@ -20,6 +20,11 @@ export function loadPrints(root) {
     return url;
   };
 
+  // Item type for the /prints/ filter, matched by the FUN.ru product name; the
+  // type with an empty pattern takes everything else (accessories).
+  const types = section.item_types.map((type) => ({ ...type, test: new RegExp(type.match || '.', 'i') }));
+  const typeOf = (name) => types.find((type) => type.test.test(name)).id;
+
   const prints = section.prints.map((slug) => {
     if (!SLUG.test(slug)) fail(`bad slug ${slug}`);
     const print = readJson(resolve(dir, `${slug}.json`));
@@ -50,6 +55,7 @@ export function loadPrints(root) {
         id: product.id,
         order: product.order,
         name: product.name,
+        type: typeOf(product.name),
         avatar: product.avatar,
         url: product.url,
         image: {
@@ -119,6 +125,13 @@ export function loadPrints(root) {
       eyebrow: section.eyebrow,
       intro: section.intro,
       orderNote: section.order_note,
+      catalogTitle: section.catalog_title,
+      filterLabel: section.filter_label,
+      filterAll: section.filter_all,
+      tileCta: section.tile_cta,
+      types: section.item_types.map(({ id, label }) => ({ id, label })),
+      stepsTitle: section.steps_title,
+      steps: section.steps,
       seo: section.seo,
     },
     prints,

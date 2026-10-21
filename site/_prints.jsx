@@ -92,51 +92,130 @@ function PrintArtwork({ print, sizes, eager }) {
 }
 
 // ----------- /prints/ ----------
+// A catalog, not a feed: every print is a tile of the same size, filtered by
+// the kind of item it comes on. Tiles show the artwork itself, never products.
 function PrintsIndex() {
   const { section, prints } = LR_PRINTS_DATA;
+  const [type, setType] = React.useState('all');
+  const filters = [{ id: 'all', label: section.filterAll }, ...section.types]
+    .map((filter) => ({ ...filter, count: prints.filter((print) => filter.id === 'all' || print.products.some((p) => p.type === filter.id)).length }))
+    .filter((filter) => filter.count > 0);
+  const current = filters.find((filter) => filter.id === type) || filters[0];
+  const shown = prints.filter((print) => type === 'all' || print.products.some((p) => p.type === type));
+  const items = prints.reduce((sum, print) => sum + print.products.length, 0);
+
   return (
     <div className="pr pr-index">
       <section className="pr-index__hero">
         <div className="pr-wrap">
           <PrintsCrumbs items={[{ label: 'Лево Руля', href: '/' }, { label: 'принты' }]} />
-          <Eyebrow accent={PRINTS_ACCENT} style={{ marginTop: 40 }}>{section.eyebrow}</Eyebrow>
-          <h1 className="pr-index__title lr-glitch-text">ПРИН<span>ТЫ.</span></h1>
-          <div className="pr-index__intro">
-            <p className="pr-index__lead"><PrintText text={section.intro} /></p>
-            <p className="pr-index__note">{section.orderNote}</p>
+          <div className="pr-index__head">
+            <div>
+              <Eyebrow accent={PRINTS_ACCENT}>{section.eyebrow}</Eyebrow>
+              <h1 className="pr-index__title lr-glitch-text">ПРИН<span>ТЫ.</span></h1>
+            </div>
+            <div className="pr-index__intro">
+              <p className="pr-index__lead"><PrintText text={section.intro} /></p>
+              <dl className="pr-index__stats">
+                <div><dt>принтов</dt><dd>{prints.length}</dd></div>
+                <div><dt>вещей</dt><dd>{items}</dd></div>
+                <div><dt>заказ</dt><dd>FUN.ru</dd></div>
+              </dl>
+            </div>
           </div>
         </div>
       </section>
-      <section className="pr-registry" aria-label="Все принты">
+
+      <section className="pr-shop" aria-labelledby="pr-shop-title">
         <div className="pr-wrap">
-          <ol className="pr-registry__list">
-            {prints.map((print, index) => (
-              <li key={print.id} className="pr-entry">
-                <PrintPlate className="pr-plate--entry">
-                  <PrintArtwork print={print} eager={index === 0} sizes="(min-width: 1280px) 1120px, calc(100vw - 72px)" />
-                </PrintPlate>
-                <div className="pr-entry__caption">
-                  <span className="pr-entry__num" aria-hidden="true">{lrPad(index + 1)}</span>
-                  <h2 className="pr-entry__title">
-                    <a
-                      className="pr-entry__link"
-                      href={print.href}
-                      onClick={() => lrPrintTrack('print_select', { print_id: print.id, print_title: print.title })}
-                    >
-                      {print.title}
-                    </a>
-                  </h2>
-                  <p className="pr-entry__meta">
-                    <span lang={print.latinLang}>{print.latin}</span> · {lrThings(print.products.length)}
-                  </p>
-                  <span className="pr-entry__go" aria-hidden="true">Открыть <span>→</span></span>
-                </div>
+          <div className="pr-shop__bar">
+            <h2 id="pr-shop-title" className="pr-shop__title">
+              {type === 'all' ? section.catalogTitle : current.label}
+              <span className="pr-shop__count">{shown.length}</span>
+            </h2>
+            <div className="pr-filter" role="group" aria-label={section.filterLabel}>
+              {filters.map((filter) => (
+                <button
+                  key={filter.id}
+                  type="button"
+                  className="pr-filter__chip"
+                  aria-pressed={filter.id === current.id}
+                  onClick={() => setType(filter.id)}
+                >
+                  {filter.label}<span className="pr-filter__n"><span className="pr-sr">, принтов: </span>{filter.count}</span>
+                </button>
+              ))}
+            </div>
+          </div>
+          <ul className="pr-shop__grid">
+            {shown.map((print) => (
+              <PrintTile key={print.id} print={print} number={prints.indexOf(print) + 1} type={type} cta={section.tileCta} />
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      <section className="pr-steps" aria-labelledby="pr-steps-title">
+        <div className="pr-wrap">
+          <h2 id="pr-steps-title" className="pr-steps__title">{section.stepsTitle}</h2>
+          <ol className="pr-steps__list">
+            {section.steps.map((step, index) => (
+              <li key={step.title} className="pr-step">
+                <span className="pr-step__n" aria-hidden="true">{lrPad(index + 1)}</span>
+                <h3 className="pr-step__title">{step.title}</h3>
+                <p className="pr-step__text"><PrintText text={step.text} /></p>
               </li>
             ))}
           </ol>
         </div>
       </section>
     </div>
+  );
+}
+
+const LR_TILE_SWATCHES = 6;
+
+// The whole tile is one link (stretched from the title); colors are listed
+// for the chosen item type so the count and the dots always agree.
+function PrintTile({ print, number, type, cta }) {
+  const items = type === 'all' ? print.products : print.products.filter((p) => p.type === type);
+  const colors = [];
+  items.forEach((product) => product.colors.forEach((color) => {
+    if (!colors.some((c) => c.name === color.name)) colors.push(color);
+  }));
+  const extra = colors.length - LR_TILE_SWATCHES;
+  return (
+    <li className="pr-tile">
+      <PrintPlate className="pr-plate--tile">
+        <PrintArtwork print={print} eager={number <= 3} sizes="(min-width: 1100px) 400px, (min-width: 600px) 46vw, calc(100vw - 40px)" />
+      </PrintPlate>
+      <div className="pr-tile__body">
+        <p className="pr-tile__meta">
+          <span className="pr-tile__num">№ {lrPad(number)}</span>
+          <span>{lrThings(items.length)}</span>
+        </p>
+        <h3 className="pr-tile__title">
+          <a
+            className="pr-tile__link"
+            href={print.href}
+            onClick={() => lrPrintTrack('print_select', { print_id: print.id, print_title: print.title })}
+          >
+            {print.title}
+          </a>
+        </h3>
+        <p className="pr-tile__phrase" lang={print.latinLang}>{print.latin}</p>
+        <div className="pr-tile__foot">
+          <p className="pr-tile__colors">
+            <span className="pr-sr">Цвета: {colors.map((c) => c.name).join(', ')}</span>
+            {colors.slice(0, LR_TILE_SWATCHES).map((color) => (
+              <span key={color.name} className="pr-tile__dot" style={{ '--pr-swatch': color.swatch }} title={color.name} aria-hidden="true" />
+            ))}
+            {extra > 0 && <span className="pr-tile__more" aria-hidden="true">+{extra}</span>}
+          </p>
+          <span className="pr-tile__go" aria-hidden="true">{cta} <span>→</span></span>
+        </div>
+      </div>
+    </li>
   );
 }
 
