@@ -1,0 +1,292 @@
+{
+  "generated_by": "tools/prints_media.py images",
+  "slug": "magicheskie-svyazi",
+  "artwork": {
+    "full": {
+      "src": "/media/prints/magicheskie-svyazi/artwork-5a92ce608b.png",
+      "width": 1024,
+      "height": 1536
+    },
+    "variants": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/artwork-1024-9f44c792b4.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ]
+  },
+  "poster": [
+    {
+      "src": "/media/prints/magicheskie-svyazi/poster-960-5bcc50d4c4.webp",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "src": "/media/prints/magicheskie-svyazi/poster-1344-669fb71648.webp",
+      "width": 1344,
+      "height": 756
+    }
+  ],
+  "og": {
+    "src": "/media/prints/magicheskie-svyazi/og-7f06845311.png",
+    "width": 1200,
+    "height": 630
+  },
+  "products": {
+    "fartuki": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/01-fartuki-480-98a29f1826.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/01-fartuki-800-edbab98b66.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/01-fartuki-1024-5c9e061b2a.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "backpack-tenes": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/02-backpack-tenes-480-de12ac35dc.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/02-backpack-tenes-800-d7cf6cbb9b.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/02-backpack-tenes-1024-35bbee451e.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "backpack-27-liters": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/03-backpack-27-liters-480-a064c4c2d4.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/03-backpack-27-liters-800-93595c2f97.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/03-backpack-27-liters-1024-6227e1b38d.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "thermos": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/04-thermos-480-33bdeb8c52.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/04-thermos-800-cf90700a0b.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/04-thermos-1024-6c7aea13f7.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "bottle": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/05-bottle-480-a8d856b1c7.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/05-bottle-800-16c56b7e92.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/05-bottle-1024-313f8141d0.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "diary": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/06-diary-480-7eb45b0e63.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/06-diary-800-69bdc09724.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/06-diary-1024-78a2f2001d.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "bags": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/07-bags-480-8eeeae7985.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/07-bags-800-fb872e225f.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/07-bags-1024-fbc63aa407.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "bottle-speedy": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/08-bottle-speedy-480-94cf4a99a7.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/08-bottle-speedy-800-642302a62b.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/08-bottle-speedy-1024-e68d6f9964.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "women-sweatshirts": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/09-women-sweatshirts-480-77a68b5428.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/09-women-sweatshirts-800-2bd6b4b69e.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/09-women-sweatshirts-1024-b911afc320.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "men-sweatshirts": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/10-men-sweatshirts-480-e6100a6259.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/10-men-sweatshirts-800-52aadc0075.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/10-men-sweatshirts-1024-e6cc0a9023.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "men-hoodies": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/11-men-hoodies-480-feb3d3146b.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/11-men-hoodies-800-9d5d671c36.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/11-men-hoodies-1024-729b0b32d8.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "hoodie-oversize": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/12-hoodie-oversize-480-f95455c147.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/12-hoodie-oversize-800-f25c2b7470.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/12-hoodie-oversize-1024-40471fb6e1.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "tshirts-oversize": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/13-tshirts-oversize-480-575d8b88aa.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/13-tshirts-oversize-800-52bc5ff15a.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/13-tshirts-oversize-1024-ff0409aba9.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "women-tshirts": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/14-women-tshirts-480-f6ffceb219.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/14-women-tshirts-800-109642d46b.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/14-women-tshirts-1024-89eba963c6.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ],
+    "men-tshirts": [
+      {
+        "src": "/media/prints/magicheskie-svyazi/15-men-tshirts-480-42de5e9729.webp",
+        "width": 480,
+        "height": 720
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/15-men-tshirts-800-13833e0a3b.webp",
+        "width": 800,
+        "height": 1200
+      },
+      {
+        "src": "/media/prints/magicheskie-svyazi/15-men-tshirts-1024-71505ed040.webp",
+        "width": 1024,
+        "height": 1536
+      }
+    ]
+  }
+}
