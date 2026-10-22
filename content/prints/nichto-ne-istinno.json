@@ -1,0 +1,648 @@
+{
+  "id": "nichto-04",
+  "slug": "nichto-ne-istinno",
+  "working_number": 4,
+  "title": "Ничто не истинно (но это не точно)",
+  "latin": "НИЧТО НЕ ИСТИННО",
+  "latin_lang": "ru",
+  "latin_note": "// НО ЭТО НЕ ТОЧНО",
+  "intro": "Уверенность выглядит хорошо. Особенно когда умеет читать мелкий шрифт.",
+  "artwork": {
+    "master": "assets/print/04_original.png",
+    "sha256": "86c9a432f9c927db54cb835113008768c9c0b967b5cb163301b7eeee741329c3",
+    "width": 4200,
+    "height": 2200,
+    "alt": "Рисунок без вещи: костяные глитч-буквы \"НИЧТО НЕ ИСТИННО\" и красная ремарка \"// НО ЭТО НЕ ТОЧНО\" на прозрачном фоне.",
+    "text": [
+      "НИЧТО НЕ ИСТИННО",
+      "// НО ЭТО НЕ ТОЧНО"
+    ],
+    "status": "утвержденный оригинал"
+  },
+  "video": {
+    "src": "/media/prints/nichto-ne-istinno/loop-f50a2be4a3.mp4",
+    "width": 1920,
+    "height": 1080,
+    "duration_seconds": 10.04,
+    "aspect_ratio": "16:9",
+    "seamless_verified": false,
+    "poster": {
+      "master": "assets/video/poster.png",
+      "sha256": "e58d7977427cfebc035ecfda4614dbb998120067cd1bd7a8db79f8b600b5f883",
+      "width": 1920,
+      "height": 1080
+    },
+    "caption": "Левитация прошла проверку. Обнаружена нить.",
+    "accessible_label": "Аватар в черной футболке поднимает стеклянный шар на красной нити и возвращает его к ладони",
+    "pause_label": "Приостановить видео",
+    "play_label": "Включить видео",
+    "processing": "Ролик предоставлен пользователем. Звука нет. Веб-копия H.264, faststart. Стык повторения заметен из-за движения камеры; бесшовность не подтверждена."
+  },
+  "story": {
+    "eyebrow": "разбор",
+    "heading": "Поправка к собственной уверенности",
+    "spec_title": "Спецификация",
+    "spec": [
+      [
+        "Фраза",
+        "НИЧТО НЕ ИСТИННО"
+      ],
+      [
+        "Поправка",
+        "// НО ЭТО НЕ ТОЧНО"
+      ],
+      [
+        "Рисунок",
+        "две строки костяного гротеска, горизонтальный глитч и красные акценты"
+      ],
+      [
+        "Смысл",
+        "уметь пользоваться идеей и вовремя ее пересмотреть"
+      ]
+    ],
+    "paragraphs": [
+      {
+        "text": "\"Ничто не истинно\". Сказано так уверенно, что уже хочется попросить доказательства."
+      },
+      {
+        "text": "Для этого внизу есть красная поправка: \"// НО ЭТО НЕ ТОЧНО\". Она относится ко всему, что написано выше. Очень полезная привычка для любой большой идеи. И для человека, который эту идею носит."
+      },
+      {
+        "text": "Можно увлекаться магией, собирать свою систему, работать с символами и при этом замечать, когда тебе продают уверенный голос вместо смысла. Особенно если голос обещает открыть последнюю истину. Последнюю, окончательную. Следующий уровень доступа оплачивается отдельно."
+      },
+      {
+        "text": "Но чужой пафос проверять легко. Самое интересное начинается, когда под проверку попадает собственное объяснение. Совпадение было красивым. Вывод получился еще красивее. Доказательств пока меньше, чем хотелось бы. Ничего, переживем. Иногда фраза \"я пока не знаю\" требует куда больше уверенности, чем очередная лекция об устройстве мироздания."
+      },
+      {
+        "text": "На рисунке крупные костяные буквы разрезаны горизонтальным глитчем. Красные линии сбивают строй, а маленькая техническая ремарка подрывает торжественность всей конструкции. Главная фраза уже заняла стену. Поправке хватило одной строки."
+      },
+      {
+        "text": "Это принт для человека, который способен пользоваться идеей и вовремя ее пересмотреть. В том числе этой. Красиво выглядеть, задавать неудобные вопросы, не отдавать собственную голову на аутсорс. Вполне нормальный набор на каждый день."
+      }
+    ],
+    "outro_cta": "Выбрать вещь"
+  },
+  "assortment": {
+    "eyebrow": "носители",
+    "title": "Убеждения можно менять. Вещь можно выбрать.",
+    "intro": "Один рисунок на разных вещах. Выбери свою модель и цвет, затем открой карточку FUN.ru.",
+    "colors_label": "Цвета на FUN.ru",
+    "depicted_label": "на фото",
+    "availability_note": "Доступность цветов и размеров уточняйте на странице товара.",
+    "cta": "Смотреть на FUN.ru",
+    "zoom_label": "Рассмотреть"
+  },
+  "film": {
+    "eyebrow": "проверка левитации"
+  },
+  "seo": {
+    "title": "Ничто не истинно (но это не точно) | LEVORULES",
+    "description": "Принт с крупной фразой, красным глитчем и полезной поправкой к собственной уверенности. Одежда и аксессуары LEVORULES со ссылками на FUN.ru.",
+    "og_title": "Ничто не истинно (но это не точно)",
+    "og_description": "Уверенность выглядит хорошо. Особенно когда умеет читать мелкий шрифт.",
+    "og_image_alt": "Рисунок без вещи: костяные глитч-буквы \"НИЧТО НЕ ИСТИННО\" и красная ремарка \"// НО ЭТО НЕ ТОЧНО\" на прозрачном фоне."
+  },
+  "editorial": {
+    "status": "публикация поручена пользователем",
+    "source_package": "outputs/showcase/04_nichto_ne_istinno/v02",
+    "authorization_date": "2026-10-22",
+    "open_limitations": [
+      "Микрогеометрия глитч-срезов в генерированных сценах приближенная; посимвольная точность мелкой ремарки на всех цилиндрах не подтверждена. Точный печатный оригинал приложен отдельно."
+    ]
+  },
+  "products": [
+    {
+      "id": "p04_fartuki",
+      "order": 1,
+      "name": "Фартук",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/fartuki/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/fartuki.png",
+        "sha256": "356f30339ca05579d7bbca6087c80ef5afc47d4b38df6e1c6e51e2efbbfa5f8c",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Мужской аватар в черном фартуке проверяет прозрачную подставку под стеклянным шаром. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/fartuki/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Фартук, черный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_backpack-tenes",
+      "order": 2,
+      "name": "Рюкзак-мешок",
+      "avatar": "female_03",
+      "url": "https://fun.ru/backpack-tenes/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/backpack-tenes.png",
+        "sha256": "f88d08d3bc2eaf27b5a94dd414ae9e969c7bda33adfb92f530b99a5c5514b1f0",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Женский аватар у открытой стиральной машины с красной нитью в руке; рядом темно-синий рюкзак-мешок с принтом \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-tenes/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Рюкзак-мешок, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/backpack-tenes/nichto_ne_istinno_no_eto_ne_tochno/color-darkBlue",
+          "label": "Рюкзак-мешок, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_backpack-27-liters",
+      "order": 3,
+      "name": "Рюкзак из полиэстера, 27 литров",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/backpack-27-liters/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/backpack-27-liters.png",
+        "sha256": "e8bdeb8c8e612d5edead6b35bf126140c1c6f05efba0781f0caeb2004a70f816",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Мужской аватар с синим рюкзаком на 27 литров проходит через стеклянную дверь. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-27-liters/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Рюкзак из полиэстера, 27 литров, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/backpack-27-liters/nichto_ne_istinno_no_eto_ne_tochno/color-blue",
+          "label": "Рюкзак из полиэстера, 27 литров, синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_thermos",
+      "order": 4,
+      "name": "Термос",
+      "avatar": "female_02",
+      "url": "https://fun.ru/thermos/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/thermos.png",
+        "sha256": "c5d0158dd192b1abfc941b284e4b8f7df66ba8e0c23c84725c39607906b6626c",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Темно-синий термос на стойке кафе рядом с женским аватаром и стеклянным шаром на красной нити. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/thermos/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Термос, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/thermos/nichto_ne_istinno_no_eto_ne_tochno/color-darkBlue",
+          "label": "Термос, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_bottle",
+      "order": 5,
+      "name": "Бутылка для воды",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/bottle/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/bottle.png",
+        "sha256": "29146f794a6739ca58fcc2e13d1ed248b696fcf5365a98d7b6bc67210b3e23dc",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Синяя бутылка для воды на парапете; мужской аватар проверяет ветер красной нитью. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "синий",
+          "url": "https://fun.ru/bottle/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Бутылка для воды, синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_diary",
+      "order": 6,
+      "name": "Ежедневник",
+      "avatar": "female_03",
+      "url": "https://fun.ru/diary/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/diary.png",
+        "sha256": "2de86c427f941dd2950b385023de841acd9f85d73c9eedb8f59933fc3714a16d",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Женский аватар держит зеленый ежедневник обложкой к зрителю рядом с пустым креслом. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "зеленый"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "темно-синий",
+          "url": "https://fun.ru/diary/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Ежедневник, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/diary/nichto_ne_istinno_no_eto_ne_tochno/color-blue",
+          "label": "Ежедневник, синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "green",
+          "name": "зеленый",
+          "url": "https://fun.ru/diary/nichto_ne_istinno_no_eto_ne_tochno/color-green",
+          "label": "Ежедневник, зеленый, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_bags",
+      "order": 7,
+      "name": "Сумка",
+      "avatar": "female_02",
+      "url": "https://fun.ru/bags/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/bags.png",
+        "sha256": "d8a73c514a96c2ad2ed6695b00eb51abaa31a312fbad121ea8de96f96bf219bf",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Женский аватар с черной сумкой на плече снимает красную нить музейного ограждения. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bags/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Сумка, черный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_bottle-speedy",
+      "order": 8,
+      "name": "Бутылка спортивная",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/bottle-speedy/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/bottle-speedy.png",
+        "sha256": "be4f367bf8fc98bfa2be9dddc2f0eb605d523ddaa58457d35a36995cc235ff0d",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Мужской аватар после тренировки держит синюю спортивную бутылку за ручку крышки. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bottle-speedy/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Бутылка спортивная, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/bottle-speedy/nichto_ne_istinno_no_eto_ne_tochno/color-blue",
+          "label": "Бутылка спортивная, синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_women-sweatshirts",
+      "order": 9,
+      "name": "Женский свитшот",
+      "avatar": "female_03",
+      "url": "https://fun.ru/women-sweatshirts/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/women-sweatshirts.png",
+        "sha256": "54277b686bd2d3979d661cfd0fd0f38531e34b6c90c99ee40b30685cc27e9346",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Женский аватар в темно-синем свитшоте и медной юбке рядом с кольцевым светильником. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-sweatshirts/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Женский свитшот, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-sweatshirts/nichto_ne_istinno_no_eto_ne_tochno/color-darkBlue",
+          "label": "Женский свитшот, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_men-sweatshirts",
+      "order": 10,
+      "name": "Мужской свитшот",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/men-sweatshirts/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/men-sweatshirts.png",
+        "sha256": "7e06f3fb8014e4bd9fbb8cdf95371736d9de6ef214d1d8470069423bac3ad48c",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Мужской аватар в черном свитшоте проверяет бильярдный стол строительным уровнем. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-sweatshirts/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Мужской свитшот, черный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-sweatshirts/nichto_ne_istinno_no_eto_ne_tochno/color-darkBlue",
+          "label": "Мужской свитшот, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_men-hoodies",
+      "order": 11,
+      "name": "Мужская толстовка",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/men-hoodies/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/men-hoodies.png",
+        "sha256": "360828a4d3a173235b013e68399b7af8e147e64d6929d9cec81b4e0bd03d90f8",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Мужской аватар в синей толстовке с принтом \"Ничто не истинно (но это не точно)\" держит плоскую кисть с красной краской рядом с кругом на стекле.",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-hoodies/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Мужская толстовка, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-hoodies/nichto_ne_istinno_no_eto_ne_tochno/color-blue",
+          "label": "Мужская толстовка, синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-hoodies/nichto_ne_istinno_no_eto_ne_tochno/color-darkBlue",
+          "label": "Мужская толстовка, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_hoodie-oversize",
+      "order": 12,
+      "name": "Худи оверсайз",
+      "avatar": "female_02",
+      "url": "https://fun.ru/hoodie-oversize/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/hoodie-oversize.png",
+        "sha256": "c6fd7b49eab99e13bb8e0e4fd86024b3d9011c03e616dc6a80f6d0f68b30fe13",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Женский аватар в темно-синем худи оверсайз держит стеклянного шахматного коня. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/hoodie-oversize/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Худи оверсайз, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/hoodie-oversize/nichto_ne_istinno_no_eto_ne_tochno/color-darkBlue",
+          "label": "Худи оверсайз, темно-синий, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_tshirts-oversize",
+      "order": 13,
+      "name": "Футболка оверсайз",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/tshirts-oversize/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/tshirts-oversize.png",
+        "sha256": "877a5fa00382eda3a666b836b7b4352334114d8224ef21840a6c37f4ff2e9e81",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Мужской аватар в темно-серой футболке оверсайз с принтом \"Ничто не истинно (но это не точно)\"; красные нити от доски привязаны к ручке чашки.",
+        "depicted_color": "темно-серый"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/tshirts-oversize/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Футболка оверсайз, черный, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/tshirts-oversize/nichto_ne_istinno_no_eto_ne_tochno/color-darkBlue",
+          "label": "Футболка оверсайз, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkGrey",
+          "name": "темно-серый",
+          "url": "https://fun.ru/tshirts-oversize/nichto_ne_istinno_no_eto_ne_tochno/color-darkGrey",
+          "label": "Футболка оверсайз, темно-серый, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_women-tshirts",
+      "order": 14,
+      "name": "Женская футболка",
+      "avatar": "female_03",
+      "url": "https://fun.ru/women-tshirts/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/women-tshirts.png",
+        "sha256": "4475efaa559b460f48b8c53104a1d95a8550778c5a56c6feaf2a1c72f7a57c6c",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Женский аватар в черной приталенной футболке рассматривает отключенный штекер наушников. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-tshirts/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Женская футболка, черный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-tshirts/nichto_ne_istinno_no_eto_ne_tochno/color-darkBlue",
+          "label": "Женская футболка, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    },
+    {
+      "id": "p04_men-tshirts",
+      "order": 15,
+      "name": "Мужская футболка",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/men-tshirts/nichto_ne_istinno_no_eto_ne_tochno",
+      "image": {
+        "master": "assets/products/men-tshirts.png",
+        "sha256": "a31fecb27eaa41ce9119f18f2699da1c618d6a55200017efc5cf30fdb5abd561",
+        "width": 1122,
+        "height": 1402,
+        "alt": "Мужской аватар в черной футболке поднимает стеклянный шар над ладонью с помощью красной нити. На товаре принт \"Ничто не истинно (но это не точно)\".",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-tshirts/nichto_ne_istinno_no_eto_ne_tochno",
+          "label": "Мужская футболка, черный, открыть на FUN.ru",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-tshirts/nichto_ne_istinno_no_eto_ne_tochno/color-blue",
+          "label": "Мужская футболка, синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-tshirts/nichto_ne_istinno_no_eto_ne_tochno/color-darkBlue",
+          "label": "Мужская футболка, темно-синий, открыть на FUN.ru",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false
+    }
+  ]
+}
