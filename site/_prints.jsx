@@ -634,6 +634,7 @@ function PrintProductCard({ print, product, index, shares, onZoom }) {
       <div className="pr-card__body">
         <p className="pr-card__num" aria-hidden="true">{lrPad(index + 1)} / {lrPad(total)}</p>
         <h3 className="pr-card__name"><PrintText text={product.name} /></h3>
+        {product.caption && <p className="pr-card__caption"><PrintText text={product.caption} /></p>}
         <PrintColors print={print} product={product} placement="card" />
         <PrintCta print={print} product={product} placement="card" />
       </div>

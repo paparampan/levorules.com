@@ -400,6 +400,7 @@
   margin: 0; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.12em; color: var(--bone-dim);
 }
 .pr-card__name { margin: -6px 0 0; font-size: clamp(22px, 2vw, 28px); line-height: 1.02; }
+.pr-card__caption { margin: 0; font-size: 15px; line-height: 1.5; color: var(--bone-dim); }
 
 .pr-colors__label {
   margin: 0 0 8px;

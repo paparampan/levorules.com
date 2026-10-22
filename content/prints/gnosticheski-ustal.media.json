@@ -1,0 +1,280 @@
+{
+  "generated_by": "tools/prints_media.py images",
+  "slug": "gnosticheski-ustal",
+  "artwork": {
+    "full": {
+      "src": "/media/prints/gnosticheski-ustal/artwork-f9c7483571.png",
+      "width": 1122,
+      "height": 1402
+    },
+    "variants": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/artwork-1122-e9fdd1a76c.webp",
+        "width": 1122,
+        "height": 1402
+      }
+    ],
+    "thumb": {
+      "src": "/media/prints/gnosticheski-ustal/thumb-246a20d591.webp",
+      "width": 349,
+      "height": 288
+    }
+  },
+  "poster": [
+    {
+      "src": "/media/prints/gnosticheski-ustal/poster-960-d838db2688.webp",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "src": "/media/prints/gnosticheski-ustal/poster-1344-a4e1024150.webp",
+      "width": 1344,
+      "height": 756
+    }
+  ],
+  "og": {
+    "src": "/media/prints/gnosticheski-ustal/og-ea48d30d38.png",
+    "width": 1200,
+    "height": 630
+  },
+  "products": {
+    "03_gnosticheski_ustal_fartuki": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/01-03_gnosticheski_ustal_fartuki-480-f6f94bf2df.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/01-03_gnosticheski_ustal_fartuki-800-44e4ce611d.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/01-03_gnosticheski_ustal_fartuki-1086-d24a73f5b8.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_backpack-tenes": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/02-03_gnosticheski_ustal_backpack-tenes-480-2bfd806ddc.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/02-03_gnosticheski_ustal_backpack-tenes-800-50916adebf.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/02-03_gnosticheski_ustal_backpack-tenes-1086-94c4a4989a.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_backpack-27-liters": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/03-03_gnosticheski_ustal_backpack-27-liters-480-2769708c2d.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/03-03_gnosticheski_ustal_backpack-27-liters-800-db8fb8c9d2.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/03-03_gnosticheski_ustal_backpack-27-liters-1086-250a59792f.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_thermos": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/04-03_gnosticheski_ustal_thermos-480-3a1e28ffc5.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/04-03_gnosticheski_ustal_thermos-800-e9664d7b3d.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/04-03_gnosticheski_ustal_thermos-1086-fe8f433c53.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_diary": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/05-03_gnosticheski_ustal_diary-480-ff0bbf04a2.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/05-03_gnosticheski_ustal_diary-800-36a9b367c1.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/05-03_gnosticheski_ustal_diary-1086-f0b7de6bef.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_bags": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/06-03_gnosticheski_ustal_bags-480-e0f6492016.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/06-03_gnosticheski_ustal_bags-800-195012e669.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/06-03_gnosticheski_ustal_bags-1086-03ce55976b.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_bottle-speedy": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/07-03_gnosticheski_ustal_bottle-speedy-480-b79c6d1629.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/07-03_gnosticheski_ustal_bottle-speedy-800-0bb773e287.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/07-03_gnosticheski_ustal_bottle-speedy-1086-440cfae22c.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_women-sweatshirts": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/08-03_gnosticheski_ustal_women-sweatshirts-480-072a6cab45.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/08-03_gnosticheski_ustal_women-sweatshirts-800-b93f7720ce.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/08-03_gnosticheski_ustal_women-sweatshirts-1086-1e22b02b80.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_men-sweatshirts": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/09-03_gnosticheski_ustal_men-sweatshirts-480-27b7e11f6a.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/09-03_gnosticheski_ustal_men-sweatshirts-800-264c60b165.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/09-03_gnosticheski_ustal_men-sweatshirts-1086-ae97a7cf00.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_men-hoodies": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/10-03_gnosticheski_ustal_men-hoodies-480-91d08f18b8.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/10-03_gnosticheski_ustal_men-hoodies-800-0899a5d11f.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/10-03_gnosticheski_ustal_men-hoodies-1086-e387cd6da1.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_hoodie-oversize": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/11-03_gnosticheski_ustal_hoodie-oversize-480-7c1a3bc6ba.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/11-03_gnosticheski_ustal_hoodie-oversize-800-b0218f8830.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/11-03_gnosticheski_ustal_hoodie-oversize-1086-e66714edd8.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_tshirts-oversize": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/12-03_gnosticheski_ustal_tshirts-oversize-480-c97eae7328.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/12-03_gnosticheski_ustal_tshirts-oversize-800-7c117573a9.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/12-03_gnosticheski_ustal_tshirts-oversize-1086-6822fd6f67.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_women-tshirts": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/13-03_gnosticheski_ustal_women-tshirts-480-a4d4659509.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/13-03_gnosticheski_ustal_women-tshirts-800-c80bff23c3.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/13-03_gnosticheski_ustal_women-tshirts-1086-21fdd2ab2d.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "03_gnosticheski_ustal_men-tshirts": [
+      {
+        "src": "/media/prints/gnosticheski-ustal/14-03_gnosticheski_ustal_men-tshirts-480-b5d5bce68b.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/14-03_gnosticheski_ustal_men-tshirts-800-8936ff94ac.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/gnosticheski-ustal/14-03_gnosticheski_ustal_men-tshirts-1086-a97c9589dc.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ]
+  }
+}

@@ -57,6 +57,7 @@ export function loadPrints(root) {
         id: product.id,
         order: product.order,
         name: product.name,
+        caption: product.caption || null,
         type: typeOf(product.name),
         avatar: product.avatar,
         url: product.url,

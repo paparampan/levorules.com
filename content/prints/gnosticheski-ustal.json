@@ -1,0 +1,704 @@
+{
+  "id": "03_gnosticheski_ustal",
+  "slug": "gnosticheski-ustal",
+  "working_number": 3,
+  "title": "Гностически устал: магия хаоса",
+  "latin": "ГНОСТИЧЕСКИ УСТАЛ",
+  "latin_lang": "ru",
+  "latin_note": "Воля к выходному",
+  "intro": "Восемь щупалец. Ни одного свободного вечера. Кажется, пора сворачивать великое делание.",
+  "artwork": {
+    "sha256": "f9c7483571eab86f6fd8051499d9a6638a9fb2e6218584564bb12a96e48ab900",
+    "width": 1122,
+    "height": 1402,
+    "master": "v02/assets/print/03_gnosticheski_ustal_original.png",
+    "alt": "Уставший осьминог с восемью щупальцами-стрелами и двухстрочной надписью с пиксельной цензурой и двумя красными клетками, прозрачный фон.",
+    "text": [
+      "ГНОСТИЧЕСКИ",
+      "ЗАЕБАЛСЯ"
+    ],
+    "status": "утвержденный оригинал"
+  },
+  "video": {
+    "src": "/media/prints/gnosticheski-ustal/loop-5556ab3824.mp4",
+    "width": 1344,
+    "height": 756,
+    "duration_seconds": 12.25,
+    "aspect_ratio": "16:9",
+    "seamless_verified": false,
+    "poster": {
+      "master": "publication_2026-10-22/video_poster.png",
+      "sha256": "8ebcdc5dbd73f86a0066ecfefad4c3bdaa73378c66f1f8597298f3fb944f5b51",
+      "width": 1344,
+      "height": 756
+    },
+    "caption": "Обязательное просветление? Передайте, что я занят.",
+    "accessible_label": "Фарфоровый аватар в темно-синем свитшоте отдыхает в кресле и ботинком возвращает папку Магическому Бюрократу за меловой круг.",
+    "pause_label": "Приостановить видео",
+    "play_label": "Включить видео",
+    "source_sha256": "f2b7a391ee0f5ccb8ed1f6080a0816a70f2de425761f31fe3b9356ea19bd20d5",
+    "sha256": "5556ab382467bf7b8eb803ee4bb981773a33eb9653e740777aedd1aa5b8f39a5",
+    "fps": 24,
+    "audio_verified": true,
+    "processing": "Видео предоставлено пользователем вместе с поручением публикации. Удалена аудиодорожка; кадрировано по 6 пикселей сверху и снизу до 1344x756, без увеличения разрешения. В исходной анимации появились уши у аватара, есть смена крупности и заметный стык повтора. Художественные детали видео не изменены; seamless_verified=false."
+  },
+  "film": {
+    "eyebrow": "Воля к выходному"
+  },
+  "story": {
+    "eyebrow": "история принта",
+    "heading": "Воля к выходному",
+    "spec_title": "В деталях",
+    "spec": [
+      [
+        "Рисунок",
+        "Уставший осьминог, восемь щупалец со стрелами"
+      ],
+      [
+        "Надпись",
+        "ГНОСТИЧЕСКИ ЗАЕБАЛСЯ"
+      ],
+      [
+        "Цензура",
+        "Пиксельная сетка и две красные клетки"
+      ]
+    ],
+    "paragraphs": [
+      {
+        "text": "Начиналось прилично. Пара книг, десять минут медитации, одна сигила. Потом понадобился сервитор. Потом еще девять. Теперь у тебя расписание практик, журнал результатов и начальник в астрале. Начальника, кстати, ты придумал сам. Зато мудак получился убедительный."
+      },
+      {
+        "text": "На рисунке осьминог со стрелами вместо концов щупалец. Восемь направлений, в которых можно одновременно себя заебать. Он уже проверил. Надпись снизу сообщает результат, а пиксельная цензура старается сохранить остатки приличия. Два красных квадрата особенно стараются."
+      },
+      {
+        "text": "В моем ролике о гностическом истощении увлечение постепенно обрастает обязанностями, магический пафос требует все больше реквизита, а человек забывает, зачем вообще во все это полез. Потом наступает тишина. Даже карты больше не хотят участвовать. У осьминога на принте явно был похожий график."
+      },
+      {
+        "text": "У этой истории есть хороший поворот. Можно выйти погулять. Испечь шарлотку. Встретиться с друзьями, пока они помнят твое человеческое имя. И не превращать каждое из этих действий в отдельный ритуал с подготовительным курсом."
+      },
+      {
+        "text": "Для страницы я оставил герою меловой круг. Внутри теперь кресло и свободный вечер. Магический Бюрократ со своей папкой стоит снаружи. Согласование отдыха в его полномочия больше не входит."
+      },
+      {
+        "text": "Мне нравится эта степень взрослости: заметить, что уже хватит, и остановиться. Закрыть начатое, убрать инструменты, назначить себе паузу. Без торжественной клятвы вернуться еще более продуктивным. У отдыха опять появилась работа? Ну вот, приехали."
+      },
+      {
+        "text": "Магия связана с волей. Сегодня воля такая: отъебитесь, у меня выходной."
+      }
+    ],
+    "outro_cta": "Выбрать вещь"
+  },
+  "assortment": {
+    "eyebrow": "вещи",
+    "title": "Собираемся по своим делам",
+    "intro": "Футболка для прогулки, фартук для шарлотки, рюкзак для выхода из магического кабинета. Выбирай вещь под свою жизнь.",
+    "colors_label": "Цвета на FUN.ru",
+    "depicted_label": "на фото",
+    "availability_note": "Доступность цветов и размеров уточняй на странице товара.",
+    "styling_note": "В карточке указан один товар. Остальная одежда и предметы в кадре используются для стилизации.",
+    "cta": "Смотреть на FUN.ru",
+    "zoom_label": "Рассмотреть"
+  },
+  "seo": {
+    "title": "Гностически устал: магия хаоса | Принты LEVORULES",
+    "description": "Уставший осьминог, восемь стрел и право на выходной. Принт LEVORULES и история о гностическом истощении. Одежда и аксессуары на FUN.ru.",
+    "og_title": "Гностически устал. Воля к выходному.",
+    "og_description": "Восемь щупалец. Ни одного свободного вечера. Одежда и аксессуары для тех, кто решил, что на сегодня магии хватит.",
+    "og_image_alt": "Уставший осьминог с восемью щупальцами-стрелами и двухстрочной надписью с пиксельной цензурой и двумя красными клетками, прозрачный фон."
+  },
+  "editorial": {
+    "status": "публикация поручена пользователем",
+    "source_package": "outputs/showcase/03_gnosticheski_ustal/v02",
+    "authorization_date": "2026-10-22",
+    "authorization": "Direct user instruction: supplied nordrouter-video (7).mp4 and requested publication on a separate PRINTS page.",
+    "catalog_snapshot_date": "2026-10-22",
+    "availability_verified_current": false,
+    "video_limitations": [
+      "Уши аватара на крупном плане в предоставленном пользователем ролике.",
+      "Заметный стык повторения; бесшовность не подтверждена."
+    ]
+  },
+  "products": [
+    {
+      "id": "03_gnosticheski_ustal_fartuki",
+      "order": 1,
+      "name": "Фартук",
+      "avatar": "male",
+      "url": "https://fun.ru/fartuki/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "c93d09d84e84d27abff634efaadc3f0d3651a3fa3fa47f285ab09715a9c29a5e",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/fartuki.png",
+        "alt": "Мужской фарфоровый аватар готовит яблочный пирог в черном фартуке с принтом уставшего осьминога.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/fartuki/gnosticheski_ustal_magiya_haosa",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Великое делание сегодня с яблоками."
+    },
+    {
+      "id": "03_gnosticheski_ustal_backpack-tenes",
+      "order": 2,
+      "name": "Рюкзак-мешок",
+      "avatar": "female_brunette",
+      "url": "https://fun.ru/backpack-tenes/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "bd6af001953d1edcc48aff4f3469d547c02d15d41c30417a319c4777aca9b20c",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/backpack-tenes.png",
+        "alt": "Женский аватар с темными волосами держит красный рюкзак-мешок за собранную ткань горловины; белые боковые шнуры служат лямками, спереди принт уставшего осьминога.",
+        "depicted_color": "красный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-tenes/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/backpack-tenes/gnosticheski_ustal_magiya_haosa/color-red",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/backpack-tenes/gnosticheski_ustal_magiya_haosa/color-darkBlue",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Собрала вещи. Астрал обойдется."
+    },
+    {
+      "id": "03_gnosticheski_ustal_backpack-27-liters",
+      "order": 3,
+      "name": "Рюкзак из полиэстера, 27 литров",
+      "avatar": "male",
+      "url": "https://fun.ru/backpack-27-liters/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "8f93c68a7858b8f3570513cfdda43e874b7cd24b4066c34aa1c67b351fa35cb9",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/backpack-27-liters.png",
+        "alt": "Мужской аватар выходит на городскую улицу с синим рюкзаком; принт расположен на переднем кармане.",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-27-liters/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/backpack-27-liters/gnosticheski_ustal_magiya_haosa/color-blue",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Из кабинета вышел. Уже результат."
+    },
+    {
+      "id": "03_gnosticheski_ustal_thermos",
+      "order": 4,
+      "name": "Термос",
+      "avatar": "male",
+      "url": "https://fun.ru/thermos/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "884f5ce9a0398ea83fb6a40d8670cdef520fee837457ae4216c925d2b5e867b6",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/thermos.png",
+        "alt": "Темно-синий термос с рисунком вокруг корпуса стоит у руки мужского аватара на деревянном подоконнике.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/thermos/gnosticheski_ustal_magiya_haosa/color-red",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/thermos/gnosticheski_ustal_magiya_haosa/color-darkBlue",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/thermos/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Тонкий план закрыт. Чай открыт."
+    },
+    {
+      "id": "03_gnosticheski_ustal_diary",
+      "order": 5,
+      "name": "Ежедневник",
+      "avatar": "male",
+      "url": "https://fun.ru/diary/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "55621dbb5facd7a8e6e12ac1bbfc1eb8e1e318c4d76512b5cb2c82fc8ee0f035",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/diary.png",
+        "alt": "Зеленый ежедневник с принтом уставшего осьминога на обложке стоит перед мужским аватаром на письменном столе.",
+        "depicted_color": "зеленый"
+      },
+      "colors": [
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/diary/gnosticheski_ustal_magiya_haosa/color-blue",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "default",
+          "name": "темно-синий",
+          "url": "https://fun.ru/diary/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "green",
+          "name": "зеленый",
+          "url": "https://fun.ru/diary/gnosticheski_ustal_magiya_haosa/color-green",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/diary/gnosticheski_ustal_magiya_haosa/color-red",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Свободный вечер. Записал, чтобы не занять."
+    },
+    {
+      "id": "03_gnosticheski_ustal_bags",
+      "order": 6,
+      "name": "Сумка",
+      "avatar": "female_brunette",
+      "url": "https://fun.ru/bags/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "27b43f59f28806e8f604eceb8626bd55380456d4ec955fc8eedac4b8c0a25c04",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/bags.png",
+        "alt": "Женский аватар с темными волосами и винной тканевой сумкой с принтом уставшего осьминога на городских ступенях.",
+        "depicted_color": "винный"
+      },
+      "colors": [
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/bags/gnosticheski_ustal_magiya_haosa/color-red",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bags/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "purple",
+          "name": "фиолетовый",
+          "url": "https://fun.ru/bags/gnosticheski_ustal_magiya_haosa/color-purple",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "green",
+          "name": "зеленый",
+          "url": "https://fun.ru/bags/gnosticheski_ustal_magiya_haosa/color-green",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "wine",
+          "name": "винный",
+          "url": "https://fun.ru/bags/gnosticheski_ustal_magiya_haosa/color-wine",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "В сумке планы на вечер. Великих нет."
+    },
+    {
+      "id": "03_gnosticheski_ustal_bottle-speedy",
+      "order": 7,
+      "name": "Бутылка спортивная",
+      "avatar": "female_copper",
+      "url": "https://fun.ru/bottle-speedy/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "d1a1fc20cefff6ac656714a3091a977e4cadeeca886d219d1b0dff3b02532f3d",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/bottle-speedy.png",
+        "alt": "Синяя спортивная бутылка с рисунком вокруг корпуса стоит рядом с рыжеволосым женским аватаром после тренировки.",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bottle-speedy/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/bottle-speedy/gnosticheski_ustal_magiya_haosa/color-blue",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Заземление. Воду с собой."
+    },
+    {
+      "id": "03_gnosticheski_ustal_women-sweatshirts",
+      "order": 8,
+      "name": "Женский свитшот",
+      "avatar": "female_brunette",
+      "url": "https://fun.ru/women-sweatshirts/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "46b80ebd114cb4f15fed7ebb9f11ceb52c9cf679079a50c93f8771d9ac96fb31",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/women-sweatshirts.png",
+        "alt": "Женский аватар с темными волосами отдыхает в кресле в красном женском свитшоте с принтом уставшего осьминога.",
+        "depicted_color": "красный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-sweatshirts/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/women-sweatshirts/gnosticheski_ustal_magiya_haosa/color-red",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-sweatshirts/gnosticheski_ustal_magiya_haosa/color-darkBlue",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Разрешение на отдых не требуется."
+    },
+    {
+      "id": "03_gnosticheski_ustal_men-sweatshirts",
+      "order": 9,
+      "name": "Мужской свитшот",
+      "avatar": "male",
+      "url": "https://fun.ru/men-sweatshirts/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "0f5cf5507d7233b95cc55cb482f6a19423f1a4108650781735ec6c75cba7ea81",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/men-sweatshirts.png",
+        "alt": "Мужской аватар в темно-синем свитшоте с принтом уставшего осьминога сидит в кожаном кресле внутри мелового круга.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-sweatshirts/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/men-sweatshirts/gnosticheski_ustal_magiya_haosa/color-red",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-sweatshirts/gnosticheski_ustal_magiya_haosa/color-darkBlue",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Обязательное просветление? Я занят."
+    },
+    {
+      "id": "03_gnosticheski_ustal_men-hoodies",
+      "order": 10,
+      "name": "Мужская толстовка",
+      "avatar": "male",
+      "url": "https://fun.ru/men-hoodies/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "a7dd23fe12d7ffb94f439729493ec25195a1ee45bf7320b78dd5acb4336859b5",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/men-hoodies.png",
+        "alt": "Мужской аватар в синей толстовке с капюшоном и принтом уставшего осьминога стоит на городской спортивной площадке.",
+        "depicted_color": "синий"
+      },
+      "colors": [
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-hoodies/gnosticheski_ustal_magiya_haosa/color-blue",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-hoodies/gnosticheski_ustal_magiya_haosa/color-darkBlue",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-hoodies/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/men-hoodies/gnosticheski_ustal_magiya_haosa/color-red",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Практику закончил. Прогулку начал."
+    },
+    {
+      "id": "03_gnosticheski_ustal_hoodie-oversize",
+      "order": 11,
+      "name": "Худи оверсайз",
+      "avatar": "female_copper",
+      "url": "https://fun.ru/hoodie-oversize/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "530a0242a521661b7dc671db95f45076079a112c7b89b478929019a848195fde",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/hoodie-oversize.png",
+        "alt": "Рыжеволосый женский аватар в черном худи оверсайз с принтом уставшего осьминога сидит на краю дивана.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/hoodie-oversize/gnosticheski_ustal_magiya_haosa",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/hoodie-oversize/gnosticheski_ustal_magiya_haosa/color-darkBlue",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "На сегодня все. Это полное предложение."
+    },
+    {
+      "id": "03_gnosticheski_ustal_tshirts-oversize",
+      "order": 12,
+      "name": "Футболка оверсайз",
+      "avatar": "male",
+      "url": "https://fun.ru/tshirts-oversize/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "067e14221236af4f1d082dfb20c6936b45557e7b4dab36eefbe355a132356612",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/tshirts-oversize.png",
+        "alt": "Мужской аватар отдыхает на зеленом диване в темно-серой футболке оверсайз с принтом уставшего осьминога.",
+        "depicted_color": "темно-серый"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/tshirts-oversize/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/tshirts-oversize/gnosticheski_ustal_magiya_haosa/color-darkBlue",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkGrey",
+          "name": "темно-серый",
+          "url": "https://fun.ru/tshirts-oversize/gnosticheski_ustal_magiya_haosa/color-darkGrey",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Восемь направлений. Я выбрал диван."
+    },
+    {
+      "id": "03_gnosticheski_ustal_women-tshirts",
+      "order": 13,
+      "name": "Женская футболка",
+      "avatar": "female_copper",
+      "url": "https://fun.ru/women-tshirts/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "61037244c14cb2e5d2680581cbed3886bd5d042b27004891dda25bc39e179b92",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/women-tshirts.png",
+        "alt": "Рыжеволосый женский аватар в красной женской футболке с принтом уставшего осьминога стоит у открытой двери.",
+        "depicted_color": "красный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-tshirts/gnosticheski_ustal_magiya_haosa",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-tshirts/gnosticheski_ustal_magiya_haosa/color-darkBlue",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/women-tshirts/gnosticheski_ustal_magiya_haosa/color-red",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Знаки подождут. Меня уже ждут."
+    },
+    {
+      "id": "03_gnosticheski_ustal_men-tshirts",
+      "order": 14,
+      "name": "Мужская футболка",
+      "avatar": "male",
+      "url": "https://fun.ru/men-tshirts/gnosticheski_ustal_magiya_haosa",
+      "image": {
+        "sha256": "06e33ad17a23209750317b1b38dae18ecf21d98df55ffc20260960a88fff27d1",
+        "width": 1086,
+        "height": 1448,
+        "master": "v02/assets/products/men-tshirts.png",
+        "alt": "Мужской аватар в черной мужской футболке с принтом уставшего осьминога стоит в дверях, держа куртку ниже рисунка.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-tshirts/gnosticheski_ustal_magiya_haosa",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-tshirts/gnosticheski_ustal_magiya_haosa/color-darkBlue",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "red",
+          "name": "красный",
+          "url": "https://fun.ru/men-tshirts/gnosticheski_ustal_magiya_haosa/color-red",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "green",
+          "name": "зеленый",
+          "url": "https://fun.ru/men-tshirts/gnosticheski_ustal_magiya_haosa/color-green",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-tshirts/gnosticheski_ustal_magiya_haosa/color-blue",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "caption": "Ритуал отменен. Жизнь состоится."
+    }
+  ]
+}
