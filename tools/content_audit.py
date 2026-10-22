@@ -127,8 +127,15 @@ prints_copy = [
     for text in prints_strings(json.loads(path.read_text(encoding="utf-8")))
 ]
 prints_copy += [("_prints.jsx", (REPO / "site" / "_prints.jsx").read_text(encoding="utf-8"))]
+# The author's exact replacement on 2026-10-23 keeps ё in this paragraph.
+author_character_exceptions = {
+    (
+        "gnosticheski-ustal.json",
+        "А начиналось-то всё прилично. Пара книг, десять минут медитации, одна сигила. Потом понадобился сервитор. Потом еще девять. Теперь у тебя плотное расписание практик, журнал результатов и обязательства в астрале.",
+    ): {"ё"},
+}
 for name, text in prints_copy:
-    found = sorted(set(re.findall(r"[ёЁ«»—]", text)))
+    found = sorted(set(re.findall(r"[ёЁ«»—]", text)) - author_character_exceptions.get((name, text), set()))
     if found:
         errors.append(f"PRINTS copy in {name} uses {''.join(found)}: {text[:60]}")
 
