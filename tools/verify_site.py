@@ -99,6 +99,7 @@ for route in ('/','/servitors/','/who/'):
 if any('/artwork-' not in src for src in pages['/prints/'].images if src.startswith('/media/')):errors.append('/prints/: product photos on the index page')
 sitemap=(PUBLIC/'sitemap.xml').read_text(encoding='utf8')
 fun_links=0
+FUN_PROFILE='https://fun.ru/designer/levorules'  # footer link on every page, not a product
 for slug,data in prints.items():
     route=f'/prints/{slug}/';page=pages[route];visible=normalize(' '.join(page.content))
     if f'/prints/{slug}/' not in ' '.join(pages['/prints/'].links):errors.append(f'/prints/: no link to {slug}')
@@ -115,9 +116,10 @@ for slug,data in prints.items():
     found=set()
     for a in page.anchors:
         if urlsplit(a['href']).netloc!='fun.ru':continue
+        if a.get('target')!='_blank' or not {'noopener','noreferrer'}<=set(a.get('rel','').split()):errors.append(f'{route}: FUN.ru link without new tab/noopener noreferrer: {a["href"]}')
+        if a['href']==FUN_PROFILE:continue
         fun_links+=1;found.add(a['href'])
         if a['href'] not in expected:errors.append(f'{route}: unexpected FUN.ru link {a["href"]}')
-        if a.get('target')!='_blank' or not {'noopener','noreferrer'}<=set(a.get('rel','').split()):errors.append(f'{route}: FUN.ru link without new tab/noopener noreferrer: {a["href"]}')
     for url in expected-found:errors.append(f'{route}: missing FUN.ru link {url}')
     for product in data['products']:
         if not any(src.startswith(f'/media/prints/{slug}/{product["order"]:02d}-') for src in page.images):errors.append(f'{route}: no image for {product["id"]}')

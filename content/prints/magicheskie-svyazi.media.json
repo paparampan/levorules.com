@@ -13,7 +13,12 @@
         "width": 1024,
         "height": 1536
       }
-    ]
+    ],
+    "thumb": {
+      "src": "/media/prints/magicheskie-svyazi/thumb-78a167ba74.webp",
+      "width": 192,
+      "height": 288
+    }
   },
   "poster": [
     {

@@ -7,7 +7,12 @@ hashed web copies to media/prints/<slug>/ and the map of those copies to
 content/prints/<slug>.media.json. npm run build only copies media/ to public/.
 
   python tools/prints_media.py images --source <unpacked package dir>
+  python tools/prints_media.py thumbs [--slug ...]
   python tools/prints_media.py video --slug sdelay-tak-chtoby-pylalo --input loop.mp4 [--poster-from-video] [--x264-params ...]
+
+The thumbs command rebuilds only the small artwork copy for the home page
+teaser (images makes it too). It reads the published artwork PNG, which is
+the master byte for byte, so the package is not needed.
 
 The video command strips audio, checks 16:9, writes a hashed MP4 and sets
 video.src/width/height/duration_seconds in the print JSON. With
@@ -42,6 +47,8 @@ PRODUCT_QUALITY = 86
 POSTER_WIDTHS = (960,)
 POSTER_QUALITY = 84
 ARTWORK_WIDTHS = (1400, 2800)
+THUMB_BOX = (480, 288)  # 2x the 5:3 window of the home page teaser
+THUMB_QUALITY = 90
 OG_SIZE = (1200, 630)
 VOID = (10, 10, 10)
 
@@ -123,6 +130,19 @@ def webp_variants(writer: Writer, stem: str, image: Image.Image, widths, quality
     return variants
 
 
+def artwork_thumb(writer: Writer, artwork: Image.Image, report: list[str]) -> dict:
+    # Only the transparent margin is trimmed, nothing visible: the lettering
+    # then fits the small teaser window instead of floating in empty canvas.
+    left, top, right, bottom = artwork.getchannel("A").getbbox()
+    pad = round(max(right - left, bottom - top) * 0.02)
+    art = artwork.crop((max(left - pad, 0), max(top - pad, 0), min(right + pad, artwork.width), min(bottom + pad, artwork.height)))
+    scale = min(THUMB_BOX[0] / art.width, THUMB_BOX[1] / art.height, 1)
+    thumb = resize(art, math.floor(art.width * scale))
+    url, data = writer.webp("thumb", thumb, quality=THUMB_QUALITY, alpha_quality=100)
+    report.append(f"  thumb {thumb.width}x{thumb.height} {len(data) / 1024:6.1f} KB")
+    return {"src": url, "width": thumb.width, "height": thumb.height}
+
+
 def og_card(artwork: Image.Image) -> bytes:
     card = Image.new("RGB", OG_SIZE, VOID)
     # Scale and centre by the visible lettering; the canvas keeps its own print margins.
@@ -170,6 +190,7 @@ def build_images(source: Path, slug: str) -> None:
         exact = ImageChops.difference(decoded, scaled).getbbox() is None or psnr(decoded, scaled) > 60
         report.append(f"  artwork {width}w lossless {len(encoded) / 1024:6.1f} KB  identical to resample: {exact}")
         media["artwork"]["variants"].append({"src": url, "width": scaled.width, "height": scaled.height})
+    media["artwork"]["thumb"] = artwork_thumb(writer, artwork, report)
 
     poster = read_master(source, data["video"]["poster"]).convert("RGB")
     media["poster"] = webp_variants(writer, "poster", poster, POSTER_WIDTHS, POSTER_QUALITY, report, "poster")
@@ -262,12 +283,30 @@ def build_video(slug: str, source: Path, crf: int, poster: bool = False, x264_pa
     print("Check the loop seam by eye, then run npm run build.")
 
 
+def build_thumb(slug: str) -> None:
+    data = load_print(slug)
+    media_path = CONTENT / f"{slug}.media.json"
+    media = json.loads(media_path.read_text(encoding="utf-8"))
+    published = REPO / media["artwork"]["full"]["src"].lstrip("/")
+    artwork = read_master(published.parent, {**data["artwork"], "master": published.name})
+    writer = Writer(slug)
+    report: list[str] = [f"{slug}:"]
+    media["artwork"]["thumb"] = artwork_thumb(writer, artwork, report)
+    for path in writer.dir.glob("thumb-*.webp"):
+        if path.name not in writer.keep:
+            path.unlink()
+    media_path.write_text(json.dumps(media, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    print("\n".join(report))
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     commands = parser.add_subparsers(dest="command", required=True)
     images = commands.add_parser("images")
     images.add_argument("--source", type=Path, required=True)
     images.add_argument("--slug", action="append")
+    thumbs = commands.add_parser("thumbs")
+    thumbs.add_argument("--slug", action="append")
     video = commands.add_parser("video")
     video.add_argument("--slug", required=True)
     video.add_argument("--input", type=Path, required=True)
@@ -279,6 +318,9 @@ def main() -> None:
     if args.command == "images":
         for slug in args.slug or section_slugs():
             build_images(args.source.resolve(), slug)
+    elif args.command == "thumbs":
+        for slug in args.slug or section_slugs():
+            build_thumb(slug)
     else:
         build_video(args.slug, args.input.resolve(), args.crf, args.poster_from_video, args.x264_params)
 

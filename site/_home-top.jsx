@@ -149,16 +149,23 @@ function Hero({ ritual }) {
           : <SigilTriad accent="var(--blood)" opacity={0.28} size={560} />}
       </div>
       <div style={{ position: 'relative', maxWidth: 1280, margin: '0 auto', padding: '96px 32px 80px' }}>
-        <h1 aria-label="ЛЕВО РУЛЯ" style={{
-          fontSize: 'clamp(80px, 12vw, 180px)',
-          margin: 0, lineHeight: 0.85, letterSpacing: '-0.02em',
-          cursor: 'default', userSelect: 'none',
-        }}>
-          <KineticWord text="ЛЕВО" tone="bone" delay={0.1} />
-          <span style={{ color: 'var(--blood-display)', display: 'block' }}>
-            <KineticWord text="РУЛЯ" tone="blood" delay={0.38} ghost />
-          </span>
-        </h1>
+        {/* The PRINTS teaser uses the empty space beside the logotype, so the
+            hero keeps its height and the buttons below stay where they were. */}
+        <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'end' }}>
+          <h1 aria-label="ЛЕВО РУЛЯ" style={{
+            fontSize: 'clamp(80px, 12vw, 180px)',
+            margin: 0, lineHeight: 0.85, letterSpacing: '-0.02em',
+            cursor: 'default', userSelect: 'none',
+          }}>
+            <KineticWord text="ЛЕВО" tone="bone" delay={0.1} />
+            <span style={{ color: 'var(--blood-display)', display: 'block' }}>
+              <KineticWord text="РУЛЯ" tone="blood" delay={0.38} ghost />
+            </span>
+          </h1>
+          {typeof PrintsTeaser !== 'undefined' && (
+            <div className="lr-hero-fade" style={{ animationDelay: '1.2s' }}><PrintsTeaser /></div>
+          )}
+        </div>
 
         <div style={{ marginTop: 36, display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: 48, alignItems: 'end' }}>
           <div className="lr-hero-fade">
@@ -181,7 +188,7 @@ function Hero({ ritual }) {
               e.preventDefault();
               window.dispatchEvent(new CustomEvent('lr:route', { detail: 'servitors' }));
             }}>
-              Бесплатный курс
+              Бесплатный курс по сервиторам
             </Btn>
           </div>
         </div>

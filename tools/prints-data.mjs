@@ -34,6 +34,8 @@ export function loadPrints(root) {
     const art = media.artwork;
     publicFile(art.full.src, `${slug} artwork`);
     art.variants.forEach((v) => publicFile(v.src, `${slug} artwork`));
+    if (!art.thumb) fail(`${slug}: no artwork thumb, run python tools/prints_media.py thumbs`);
+    else publicFile(art.thumb.src, `${slug} thumb`);
     media.poster.forEach((v) => publicFile(v.src, `${slug} poster`));
     publicFile(media.og.src, `${slug} og`);
     if (print.video.src) publicFile(print.video.src, `${slug} video`);
@@ -93,6 +95,7 @@ export function loadPrints(root) {
         src: art.variants[0].src,
         srcset: srcset(art.variants),
         full: art.full.src,
+        thumb: art.thumb,
       },
       video: {
         src: print.video.src || null,

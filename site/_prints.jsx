@@ -12,12 +12,13 @@ function lrPrintBySlug(slug) {
 
 function lrPad(n) { return String(n).padStart(2, '0'); }
 
-function lrThings(n) {
+function lrPlural(n, one, few, many) {
   const mod10 = n % 10, mod100 = n % 100;
-  const word = mod10 === 1 && mod100 !== 11 ? 'вещь'
-    : mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14) ? 'вещи' : 'вещей';
+  const word = mod10 === 1 && mod100 !== 11 ? one
+    : mod10 >= 2 && mod10 <= 4 && (mod100 < 12 || mod100 > 14) ? few : many;
   return `${n} ${word}`;
 }
+const lrThings = (n) => lrPlural(n, 'вещь', 'вещи', 'вещей');
 
 function lrPrintTrack(name, params) {
   window.lrAnalytics?.event(name, params);
@@ -751,4 +752,76 @@ function PrintNotFound() {
   );
 }
 
-Object.assign(window, { PrintsIndex, PrintPage, lrPrintBySlug });
+// ----------- home page teaser ----------
+// A ticket beside the hero logotype, quieter than the buttons: the artworks take
+// turns in a small proof window. Turns pause on hover, focus and off screen,
+// stop after a few rounds on the first print, and never start with reduced motion.
+const LR_TEASER_STEP_MS = 2800;
+const LR_TEASER_ROUNDS = 3;
+
+function PrintsTeaser() {
+  const { section, prints } = LR_PRINTS_DATA;
+  const ref = React.useRef(null);
+  const [step, setStep] = React.useState(0);
+  const [visible, setVisible] = React.useState(false);
+  const [held, setHeld] = React.useState(false);
+  const done = step >= prints.length * LR_TEASER_ROUNDS;
+
+  React.useEffect(() => {
+    if (!ref.current) return;
+    if (!('IntersectionObserver' in window)) { setVisible(true); return; }
+    const observer = new IntersectionObserver(([entry]) => setVisible(entry.isIntersecting));
+    observer.observe(ref.current);
+    return () => observer.disconnect();
+  }, []);
+
+  React.useEffect(() => {
+    if (!visible || held || done || prints.length < 2) return;
+    if (window.matchMedia?.('(prefers-reduced-motion: reduce)').matches) return;
+    const timer = setInterval(() => { if (!document.hidden) setStep((s) => s + 1); }, LR_TEASER_STEP_MS);
+    return () => clearInterval(timer);
+  }, [visible, held, done]);
+
+  if (!section || !prints.length) return null;
+  const active = step % prints.length;
+  const shown = prints[active];
+  const printCount = lrPlural(prints.length, 'принт', 'принта', 'принтов');
+  const thingCount = lrThings(prints.reduce((sum, print) => sum + print.products.length, 0));
+  const hold = () => setHeld(true), release = () => setHeld(false);
+
+  return (
+    <a
+      ref={ref}
+      className="pr-teaser"
+      href={section.href}
+      aria-label={`Новый раздел "${section.title}": ${printCount}, ${thingCount} на FUN.ru`}
+      onClick={() => lrPrintTrack('prints_teaser_click', { link_kind: 'home_hero', print_id: shown.id })}
+      onMouseEnter={hold} onMouseLeave={release} onFocus={hold} onBlur={release}
+    >
+      <span className="pr-teaser__window" aria-hidden="true">
+        <span className="pr-plate__marks"><i /><i /><i /><i /></span>
+        {prints.map((print, i) => (
+          <img
+            key={print.id}
+            className="pr-teaser__art"
+            data-on={i === active ? '' : undefined}
+            src={print.artwork.thumb.src}
+            width={print.artwork.thumb.width}
+            height={print.artwork.thumb.height}
+            alt=""
+            decoding="async"
+          />
+        ))}
+        {step > 0 && <span key={step} className="pr-teaser__scan" />}
+      </span>
+      <span className="pr-teaser__body" aria-hidden="true">
+        <span className="pr-teaser__kicker">новый раздел</span>
+        <span className="pr-teaser__title">ПРИН<span className="pr-fire">ТЫ.</span></span>
+        <span className="pr-teaser__now">№ {lrPad(active + 1)} · {shown.title}</span>
+        <span className="pr-teaser__meta">{printCount} · {thingCount} <span className="pr-teaser__go">→</span></span>
+      </span>
+    </a>
+  );
+}
+
+Object.assign(window, { PrintsIndex, PrintPage, PrintsTeaser, lrPrintBySlug });
