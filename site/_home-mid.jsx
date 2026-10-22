@@ -241,14 +241,15 @@ function TelegramPosts() {
                 '--lr-interaction-accent': p.acc,
                 border: '1px solid var(--border)', background: 'var(--ash)', position: 'relative', overflow: 'hidden', height: '100%',
               }}>
-                <div style={{ height: 180, position: 'relative', borderBottom: '1px solid var(--border)', overflow: 'hidden' }}>
+                {/* Channel covers are 16:9; contain keeps any other shape whole too. */}
+                <div style={{ ...(p.photo ? { aspectRatio: '16 / 9', background: 'var(--ash-2)' } : { height: 180 }),
+                  position: 'relative', borderBottom: '1px solid var(--border)', overflow: 'hidden' }}>
                   {p.photo ? (
                     <img src={p.photo} alt="" loading="lazy"
-                         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }} />
-                  ) : null}
-                  <div style={{ position: 'absolute', inset: 0, background: p.photo
-                    ? `linear-gradient(to bottom, rgba(10,10,10,0.25) 0%, rgba(10,10,10,0.75) 100%)`
-                    : `radial-gradient(ellipse at 70% 40%, ${p.acc}33, transparent 60%)` }} />
+                         style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'contain' }} />
+                  ) : (
+                    <div style={{ position: 'absolute', inset: 0, background: `radial-gradient(ellipse at 70% 40%, ${p.acc}33, transparent 60%)` }} />
+                  )}
                   {!p.photo && (
                     <svg viewBox="0 0 100 100" style={{ position: 'absolute', right: -20, top: '10%', width: 260, opacity: 0.5 }} fill="none" stroke={p.acc} strokeWidth="0.6">
                       <circle cx="50" cy="50" r="48"/><circle cx="50" cy="50" r="34"/>
@@ -276,9 +277,6 @@ function TelegramPosts() {
               </article>
             </a>
           ))}
-        </div>
-        <div style={{ marginTop: 32, textAlign: 'center' }}>
-          <Btn href="https://telegram.me/levorules">Читать всё на канале →</Btn>
         </div>
       </div>
     </section>

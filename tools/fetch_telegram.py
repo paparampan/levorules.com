@@ -14,6 +14,8 @@ from pathlib import Path
 
 from bs4 import BeautifulSoup, NavigableString
 
+from feed_stoplist import blocked
+
 CHANNEL_HANDLE = "levorules"
 PREVIEW_URL = f"https://telegram.me/s/{CHANNEL_HANDLE}"
 COUNT = 6  # fetch a bit more than the 2 shown; frontend can pick
@@ -205,7 +207,15 @@ def main():
 
     # Newest last on the page → reverse so index 0 = newest
     posts.reverse()
-    posts = posts[:COUNT]
+    # The home page shows title and body, so only those are checked.
+    kept = []
+    for p in posts:
+        stop = blocked(p["title"], p["body"])
+        if stop:
+            print(f"skipped by stop list ({stop}): #{p['id']} {p['title']}")
+            continue
+        kept.append(p)
+    posts = kept[:COUNT]
     for i, p in enumerate(posts):
         p["acc"] = ACCENTS[i % len(ACCENTS)]
 
@@ -215,7 +225,7 @@ def main():
         "items": posts,
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote {len(posts)} posts to {OUT}")
 
 

@@ -4,6 +4,8 @@
 yt-dlp --flat-playlist gives IDs and view counts (no auth, no API key), but its
 title field gets auto-translated. YouTube's public oEmbed endpoint returns the
 original-language title for each video, also without auth. We combine both.
+Shorts whose title hits content/feed-stoplist.json are skipped, and the next
+ones fill their place.
 """
 import json
 import subprocess
@@ -12,8 +14,11 @@ import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
 
+from feed_stoplist import blocked
+
 CHANNEL = "https://www.youtube.com/@levorules/shorts"
 COUNT = 5
+CANDIDATES = 20  # enough to fill COUNT after the stop list
 # Write directly to the repo's site/shorts.json so both local runs and
 # GitHub Actions leave an immediately-committable result in the working tree.
 OUT = Path(__file__).resolve().parents[1] / "site" / "shorts.json"
@@ -41,7 +46,7 @@ def fetch_ids_and_views():
     cmd = [
         "yt-dlp",
         "--flat-playlist",
-        "--playlist-end", str(COUNT),
+        "--playlist-end", str(CANDIDATES),
         "--dump-json",
         "--no-warnings",
         CHANNEL,
@@ -75,11 +80,17 @@ def fetch_original_title(video_id):
 
 
 def main():
-    raw = fetch_ids_and_views()[:COUNT]
     items = []
-    for i, e in enumerate(raw):
+    for e in fetch_ids_and_views():
+        if len(items) == COUNT:
+            break
         vid = e["id"]
         title = fetch_original_title(vid) or e["fallback_title"]
+        stop = blocked(title)
+        if stop:
+            print(f"skipped by stop list ({stop}): {title}")
+            continue
+        i = len(items)
         items.append({
             "id": vid,
             "title": title,
@@ -96,7 +107,7 @@ def main():
     }
 
     OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2))
+    OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"Wrote {len(items)} shorts to {OUT}")
 
 

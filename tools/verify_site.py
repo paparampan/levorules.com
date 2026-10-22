@@ -136,5 +136,12 @@ for slug,data in prints.items():
             if any(s['codec_type']=='audio' for s in streams):errors.append(f'{route}: video has an audio stream')
             if abs(int(v['width'])/int(v['height'])-16/9)>0.002:errors.append(f'{route}: video is not 16:9')
 
+# Auto-fetched feeds on the home page: nothing from content/feed-stoplist.json.
+from feed_stoplist import blocked
+for file in ('shorts.json','telegram.json'):
+    for item in json.loads((PUBLIC/'site'/file).read_text(encoding='utf8'))['items']:
+        stop=blocked(item.get('title'),item.get('body'))
+        if stop:errors.append(f'site/{file}: "{item.get("title")}" hits the stop list ({stop})')
+
 assert not errors,'\n'.join(errors[:70])
 print(f'Publication verification passed: {checked} source lines/cells, common preface, {len(paths)} HTML pages, local assets and section links, {len(prints)} print page(s) with {fun_links} FUN.ru links')

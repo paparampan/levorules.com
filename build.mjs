@@ -32,6 +32,7 @@ const APP_FILES = [
   "_atoms.jsx",
   "_home-top.jsx",
   "_home-mid.jsx",
+  "_community.jsx",
   "_who.jsx",
   "_guides.jsx",
   "_prints.jsx",
@@ -150,9 +151,27 @@ writeFileSync(
   publicPassportIndex,
 );
 
+// The feed files are refreshed by a bot. The stop list (same rules as
+// tools/feed_stoplist.py) keeps unwanted topics off the home page even if a
+// feed was written before the list changed.
+const STOP = JSON.parse(readFileSync(resolve(HERE, "content", "feed-stoplist.json"), "utf-8"));
+const STOP_WORDS = new RegExp(
+  `(?<![\\p{L}\\p{N}_])(${STOP.words.map((w) => w.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})[\\p{L}\\p{N}_]{0,3}(?![\\p{L}\\p{N}_])`,
+  "u",
+);
+const feedBlocked = (...texts) => texts.some((text) => {
+  const low = (text || "").toLowerCase();
+  return STOP.substrings.some((s) => low.includes(s.toLowerCase())) || STOP_WORDS.test(low);
+});
+
 mkdirSync(resolve(PUBLIC, "site"), { recursive: true });
 for (const file of ["shorts.json", "telegram.json"]) {
-  cpSync(resolve(SITE, file), resolve(PUBLIC, "site", file));
+  const feed = JSON.parse(readFileSync(resolve(SITE, file), "utf-8"));
+  const items = feed.items.filter((item) => !feedBlocked(item.title, item.body));
+  if (items.length !== feed.items.length) {
+    console.log(`site/${file}: ${feed.items.length - items.length} item(s) hidden by the stop list`);
+  }
+  writeFileSync(resolve(PUBLIC, "site", file), JSON.stringify({ ...feed, items }, null, 2));
 }
 
 mkdirSync(resolve(PUBLIC, "uploads", "appendices"), { recursive: true });

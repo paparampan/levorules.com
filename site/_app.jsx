@@ -575,6 +575,7 @@ function App() {
             <PassportPromo placement="home" />
             <VideoRow />
             <TelegramPosts />
+            <CommunityDoors />
             <ManifestoBand />
           </>
         ) : route === 'servitors-reader' ? (
