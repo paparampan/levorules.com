@@ -1,0 +1,586 @@
+{
+  "id": "07_fac_ut_ardeat_goryaschaya_spichka",
+  "slug": "fac-ut-ardeat-match",
+  "working_number": 7,
+  "title": "FAC UT ARDEAT: горящая спичка",
+  "latin": "FAC UT ARDEAT",
+  "latin_lang": "la",
+  "latin_note": "сделай так, чтобы пылало",
+  "intro": "Спичка маленькая. Намерения, как обычно, грандиозные. Осталось выяснить, кто из вас сегодня хоть что-нибудь сделает.",
+  "artwork": {
+    "sha256": "c42fc4f67ee54d1fd7d7b93a72eb7ceb13902502eb57ed152814004a8a7e2fee",
+    "width": 1122,
+    "height": 1402,
+    "master": "assets/print/07_original.png",
+    "alt": "FAC UT ARDEAT: костяная спичечная этикетка с красным полем, диагональной спичкой и черным пламенем.",
+    "text": [
+      "FAC UT",
+      "ARDEAT"
+    ],
+    "status": "утвержденный оригинал"
+  },
+  "video": {
+    "src": "/media/prints/fac-ut-ardeat-match/loop-7b07be61a8.mp4",
+    "width": 1344,
+    "height": 756,
+    "aspect_ratio": "16:9",
+    "seamless_verified": false,
+    "poster": {
+      "sha256": "e54077ff1fa7a7bdc93b3bed6fa2eaf5902c05a9c173ab526ed9ca6f2f8b8a91",
+      "width": 1664,
+      "height": 936,
+      "master": "assets/video/poster.png",
+      "alt": "Аватар в футболке FAC UT ARDEAT со спичкой и большим канделябром, в котором стоит одна свеча."
+    },
+    "caption": "Огонь вызван. Масштаб уточняется.",
+    "accessible_label": "Аватар в футболке FAC UT ARDEAT со спичкой и большим канделябром, в котором стоит одна свеча.",
+    "pause_label": "Приостановить видео",
+    "play_label": "Включить видео",
+    "duration_seconds": 10.12
+  },
+  "film": {
+    "eyebrow": "демонстрация"
+  },
+  "story": {
+    "eyebrow": "разбор",
+    "heading": "FAC UT ARDEAT: горящая спичка",
+    "spec_title": "Спецификация",
+    "spec": [
+      [
+        "Надпись",
+        "FAC UT ARDEAT"
+      ],
+      [
+        "Рисунок",
+        "Горящая спичка"
+      ]
+    ],
+    "paragraphs": [
+      {
+        "text": "Для большого замысла у нас обычно все готово. Название, настроение, папка с референсами. Иногда даже вторая папка, потому что первая недостаточно точно передает масштаб. Не хватает сущей мелочи: начатого дела."
+      },
+      {
+        "text": "FAC UT ARDEAT. Здесь я читаю это как короткое распоряжение: сделай так, чтобы пылало. Без приложения на сорок страниц о том, почему сейчас не время."
+      },
+      {
+        "text": "На рисунке одна спичка пересекает красное поле. Черное пламя, резкая диагональ, крупные буквы. Похоже на спичечную этикетку, которая слишком серьезно отнеслась к своей работе и решила агитировать. Причем агитировать приходится владельца. Спичка хотя бы уже горит."
+      },
+      {
+        "text": "В этой картинке мне нравится разница масштабов. Обещание почти космическое, инструмент бытовой. Ни посоха, ни алтаря на полкомнаты. Чтобы начать, выдали одну палочку. Очень неприятная новость для человека, который собирался еще месяц подбирать инвентарь."
+      },
+      {
+        "text": "С намерением та же история. Можно придать ему форму, выбрать символ, устроить себе убедительный ритуал. Но письмо все равно придется отправить. Файл открыть. Первую кривую строчку написать. Красивый жест вполне может помочь, если за ним следует хоть что-то, кроме следующего красивого жеста."
+      },
+      {
+        "text": "И нет, пылать круглосуточно не требуется. Спичка для этого вообще плохой образец. Иногда весь сегодняшний огонь помещается в одно небольшое действие. Зато оно произошло."
+      },
+      {
+        "text": "На вещи остается напоминание. Очень выразительное. Работать за тебя оно, к счастью или к сожалению, не умеет."
+      }
+    ],
+    "outro_cta": "Выбрать вещь"
+  },
+  "assortment": {
+    "eyebrow": "носители",
+    "title": "Спичка на каждый день",
+    "intro": "Выбери вещь, которая будет рядом, когда закончится подготовка и начнется дело. Дополнительная одежда и реквизит на изображениях служат оформлением сцены и в комплект товара не входят.",
+    "colors_label": "Цвета на FUN.ru",
+    "depicted_label": "на фото",
+    "availability_note": "Доступность цветов и размеров уточняйте на странице товара.",
+    "cta": "Смотреть на FUN.ru",
+    "zoom_label": "Рассмотреть"
+  },
+  "seo": {
+    "title": "FAC UT ARDEAT: горящая спичка | Принты LEVORULES",
+    "description": "Горящая спичка, красное поле и FAC UT ARDEAT. Принт о намерении, которое пора превратить в действие. История рисунка и вещи на FUN.ru.",
+    "og_title": "FAC UT ARDEAT: горящая спичка",
+    "og_description": "Спичка маленькая. Намерения грандиозные. Принт о том самом моменте, когда пора уже начать.",
+    "og_image_alt": "FAC UT ARDEAT: костяная спичечная этикетка с красным полем, диагональной спичкой и черным пламенем."
+  },
+  "editorial": {
+    "source_package": "v03_shoulders",
+    "publication_authorized": "Direct user instruction 2026-10-22 with supplied video",
+    "availability_verified_current": false,
+    "catalog_snapshot_date": "2026-10-22"
+  },
+  "products": [
+    {
+      "id": "fartuki",
+      "order": 1,
+      "name": "Фартук",
+      "avatar": "female_ref02",
+      "url": "https://fun.ru/fartuki/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "cc0d8c59f5ba6cc3c92b4b19b86892392e5ae50f668c052ff6fc819eb48658c5",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/fartuki.png",
+        "alt": "Женский фарфоровый аватар в длинном черном фартуке FAC UT ARDEAT в мастерской декораций.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/fartuki/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "avatar_dimensions": {
+        "height_cm": 170,
+        "weight_kg": 50,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "backpack-tenes",
+      "order": 2,
+      "name": "Рюкзак-мешок",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/backpack-tenes/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "94295983cc8b83855b830fac891152876777674eddf22b7933e87edd2b652233",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/backpack-tenes.png",
+        "alt": "Черный рюкзак-мешок FAC UT ARDEAT с белыми шнурами на ящике рядом с мужским фарфоровым аватаром.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-tenes/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "physical_dimensions": {
+        "width_cm": 33,
+        "height_cm": 44,
+        "height_tolerance_cm": 2,
+        "source": "user instruction 2026-10-22"
+      },
+      "avatar_dimensions": {
+        "height_cm": 185,
+        "weight_kg": 75,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "backpack-27-liters",
+      "order": 3,
+      "name": "Рюкзак из полиэстера, 27 литров",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/backpack-27-liters/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "37c526fbb451727ef7f517c875a61cb95b5a989c50099d5836f120fd84824c32",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/backpack-27-liters.png",
+        "alt": "Черный рюкзак на 27 литров с принтом FAC UT ARDEAT на переднем кармане рядом с мужским фарфоровым аватаром.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-27-liters/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "physical_dimensions": {
+        "width_cm": 35,
+        "depth_cm": 15,
+        "height_cm": 44,
+        "capacity_l": 27,
+        "source": "user instruction 2026-10-22"
+      },
+      "avatar_dimensions": {
+        "height_cm": 185,
+        "weight_kg": 75,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "thermos",
+      "order": 4,
+      "name": "Термос",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/thermos/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "0c3412ad56653471fd808a4da1b0de19971c5e98b0f7af3fb6b80dd952530c89",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/thermos.png",
+        "alt": "Черный термос с крупным принтом FAC UT ARDEAT на парапете рядом с мужским фарфоровым аватаром.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/thermos/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "physical_dimensions": {
+        "diameter_cm": 6.7,
+        "height_cm": 22.5,
+        "volume_ml": 420,
+        "source": "user instruction 2026-10-22"
+      },
+      "avatar_dimensions": {
+        "height_cm": 185,
+        "weight_kg": 75,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "diary",
+      "order": 5,
+      "name": "Ежедневник",
+      "avatar": "female_ref02",
+      "url": "https://fun.ru/diary/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "6027b93a2e7bc7751dff432c96ce0304907618ede204ec4c0ecee9ce0b8ae129",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/diary.png",
+        "alt": "Темно-синий ежедневник FAC UT ARDEAT на столе перед женским фарфоровым аватаром с карандашом.",
+        "depicted_color": "темно-синий"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "темно-синий",
+          "url": "https://fun.ru/diary/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "physical_dimensions": {
+        "width_cm": 14.5,
+        "height_cm": 20.5,
+        "source": "user instruction 2026-10-22"
+      },
+      "avatar_dimensions": {
+        "height_cm": 170,
+        "weight_kg": 50,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "bags",
+      "order": 6,
+      "name": "Сумка",
+      "avatar": "female_ref02",
+      "url": "https://fun.ru/bags/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "3af802465e966984fee77c9838b110404a022a4443e8a0f8533bfc59b53e0be3",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/bags.png",
+        "alt": "Женский фарфоровый аватар с черной сумкой FAC UT ARDEAT на плече в театральном гардеробе.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bags/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "physical_dimensions": {
+        "width_cm": 35,
+        "height_cm": 38,
+        "handle_length_cm": 72,
+        "source": "user instruction 2026-10-22"
+      },
+      "avatar_dimensions": {
+        "height_cm": 170,
+        "weight_kg": 50,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "bottle-speedy",
+      "order": 7,
+      "name": "Бутылка спортивная",
+      "avatar": "female_ref02",
+      "url": "https://fun.ru/bottle-speedy/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "a1e1cc56f4fbfbce175fea931b6eeb1c14dc3871d8281472796e7fd513fc59e7",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/bottle-speedy.png",
+        "alt": "Черная спортивная бутылка FAC UT ARDEAT с носиком и петлей на скамье рядом с женским фарфоровым аватаром.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/bottle-speedy/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "physical_dimensions": {
+        "diameter_cm": 6.7,
+        "max_width_cm": 8,
+        "height_cm": 23,
+        "volume_ml": 700,
+        "source": "user instruction 2026-10-22"
+      },
+      "avatar_dimensions": {
+        "height_cm": 170,
+        "weight_kg": 50,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "women-sweatshirts",
+      "order": 8,
+      "name": "Женский свитшот",
+      "avatar": "female_ref02",
+      "url": "https://fun.ru/women-sweatshirts/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "6ae894c7f6b3220740524b20df24cbf52bb3d18beadf627daabb6fbd2af5d232",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/women-sweatshirts.png",
+        "alt": "Женский фарфоровый аватар в черном свитшоте FAC UT ARDEAT у пульта сценического света.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-sweatshirts/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "avatar_dimensions": {
+        "height_cm": 170,
+        "weight_kg": 50,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "men-sweatshirts",
+      "order": 9,
+      "name": "Мужской свитшот",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/men-sweatshirts/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "7da9de8a07ea3a9bc611d69f8aed21b8f37ebac1f830d9cb7d31d670c45243f8",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/men-sweatshirts.png",
+        "alt": "Мужской фарфоровый аватар в черном свитшоте FAC UT ARDEAT рядом с большой бутафорской короной.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-sweatshirts/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "avatar_dimensions": {
+        "height_cm": 185,
+        "weight_kg": 75,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "men-hoodies",
+      "order": 10,
+      "name": "Мужская толстовка",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/men-hoodies/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "d47406ef305e6696db78594747c345ae5a7630f86151c77ab174eed3e68811d8",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/men-hoodies.png",
+        "alt": "Мужской фарфоровый аватар в черной толстовке с маленьким принтом FAC UT ARDEAT у служебного входа театра.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-hoodies/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "avatar_dimensions": {
+        "height_cm": 185,
+        "weight_kg": 75,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "hoodie-oversize",
+      "order": 11,
+      "name": "Худи оверсайз",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/hoodie-oversize/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "edda76e58996b386770dd712f11105670df2919fcf84f57c84353afaf10d8916",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/hoodie-oversize.png",
+        "alt": "Мужской фарфоровый аватар в черном худи оверсайз FAC UT ARDEAT рядом с декорацией луны.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/hoodie-oversize/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "avatar_dimensions": {
+        "height_cm": 185,
+        "weight_kg": 75,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "tshirts-oversize",
+      "order": 12,
+      "name": "Футболка оверсайз",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/tshirts-oversize/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "72f22b68651f17c752820795cf2f42ecfb2e637e7029c5a906f777e69eafec86",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/tshirts-oversize.png",
+        "alt": "Мужской фарфоровый аватар в темно-серой футболке оверсайз FAC UT ARDEAT у макета сцены.",
+        "depicted_color": "темно-серый"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/tshirts-oversize/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": false,
+          "snapshot_date": "2026-10-22"
+        },
+        {
+          "id": "darkGrey",
+          "name": "темно-серый",
+          "url": "https://fun.ru/tshirts-oversize/fac_ut_ardeat_goryaschaya_spichka/color-darkGrey",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "avatar_dimensions": {
+        "height_cm": 185,
+        "weight_kg": 75,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "women-tshirts",
+      "order": 13,
+      "name": "Женская футболка",
+      "avatar": "female_ref02",
+      "url": "https://fun.ru/women-tshirts/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "232ac38ac7127ef111861a665eb37aa7a5d67a0b9c5d6b2d2ca41aeda508b6b7",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/women-tshirts.png",
+        "alt": "Женский фарфоровый аватар в черной приталенной футболке FAC UT ARDEAT в театральной костюмерной.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-tshirts/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "avatar_dimensions": {
+        "height_cm": 170,
+        "weight_kg": 50,
+        "source": "user instruction 2026-10-22"
+      }
+    },
+    {
+      "id": "men-tshirts",
+      "order": 14,
+      "name": "Мужская футболка",
+      "avatar": "male_alt",
+      "url": "https://fun.ru/men-tshirts/fac_ut_ardeat_goryaschaya_spichka",
+      "image": {
+        "sha256": "103100b7b045716036a85c04971925f80e4f335c1bdbd6176e22ee251246164a",
+        "width": 1086,
+        "height": 1448,
+        "master": "assets/products/men-tshirts.png",
+        "alt": "Мужской фарфоровый аватар в черной футболке FAC UT ARDEAT у бордового театрального занавеса.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-tshirts/fac_ut_ardeat_goryaschaya_spichka",
+          "depicted": true,
+          "snapshot_date": "2026-10-22"
+        }
+      ],
+      "color_snapshot_date": "2026-10-22",
+      "availability_verified_current": false,
+      "avatar_dimensions": {
+        "height_cm": 185,
+        "weight_kg": 75,
+        "source": "user instruction 2026-10-22"
+      }
+    }
+  ]
+}
