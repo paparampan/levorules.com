@@ -228,4 +228,5 @@ Object.assign(window, {
   SigilTriad,
   SigilServitor,
   PassportPromo,
+  PASSPORT_PRODUCT,
 });

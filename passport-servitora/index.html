@@ -425,6 +425,64 @@
       text-transform: uppercase;
     }
 
+    .pp-try {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      margin-top: 12px;
+      color: var(--passport-gold-bright);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-underline-offset: 3px;
+    }
+
+    /* Free first step: the 90% who do not buy still leave with something. */
+    .pp-sample {
+      display: grid;
+      grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+      gap: 56px;
+      align-items: center;
+    }
+    .pp-sample .pp-section__head { margin-bottom: 0; }
+    .pp-sample__actions {
+      margin-top: 30px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 14px 20px;
+    }
+    .pp-button--ghost {
+      background: transparent;
+      color: var(--passport-gold-bright);
+    }
+    .pp-sample__pages {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+    .pp-sample__pages figcaption { padding: 12px 14px; }
+
+    .pp-card--link {
+      display: flex;
+      flex-direction: column;
+      color: var(--bone);
+      text-decoration: none;
+      transition: background 0.15s ease;
+    }
+    .pp-card--link:hover { background: #15120d; }
+    .pp-card--link:focus-visible { outline: 2px solid var(--passport-gold-bright); outline-offset: -2px; }
+    .pp-card__go {
+      margin-top: auto;
+      padding-top: 22px;
+      color: var(--passport-gold-bright);
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
     .pp-fit {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -531,6 +589,7 @@
       .pp-hero__copy { grid-row: 2; }
       .pp-grid-3, .pp-previews { grid-template-columns: minmax(0, 1fr); }
       .pp-route { grid-template-columns: 1fr 1fr; }
+      .pp-sample { grid-template-columns: minmax(0, 1fr); gap: 36px; }
     }
 
     @media (max-width: 640px) {
@@ -547,6 +606,8 @@
       .pp-section h2 { font-size: clamp(38px, 12vw, 58px); }
       .pp-route, .pp-compare, .pp-fit { grid-template-columns: minmax(0, 1fr); }
       .pp-card, .pp-route__step { min-height: 0; }
+      .pp-sample__pages { gap: 10px; }
+      .pp-sample__pages figcaption { padding: 10px; font-size: 10px; }
       .pp-final { padding: 72px 0; }
       .pp-delivery-help { padding: 22px 20px; }
       .pp-footer__inner { padding: 36px 20px; flex-direction: column; }
@@ -562,8 +623,8 @@
         <span>ЛЕВО РУЛЯ</span>
       </a>
       <nav class="pp-nav" aria-label="Основная навигация">
-        <a href="/#servitors">Сервиторы</a>
-        <a href="/#guides">Гайды</a>
+        <a href="/servitors/">Сервиторы</a>
+        <a href="/guides/">Гайды</a>
         <a class="pp-nav__buy" href="https://web.tribute.tg/p/CnL" target="_blank" rel="noopener sponsored" data-tribute="header">Купить · 369 ₽ ↗</a>
       </nav>
     </div>
@@ -576,8 +637,8 @@
           <div class="pp-eyebrow">практический гайд · PDF · 49 страниц</div>
           <h1>ПАСПОРТ<br><span>СЕРВИТОРА.</span></h1>
           <p class="pp-hero__lead">
-            Не очередная теория, а последовательный маршрут: от реальной задачи
-            и критериев успеха до имени, сигилы, правил, тестов и завершения.
+            Последовательный маршрут: от реальной задачи и критериев успеха
+            до имени, сигилы, правил, тестов и завершения.
           </p>
           <div class="pp-tags" aria-label="Особенности гайда">
             <span class="pp-tag">сквозной пример</span>
@@ -592,6 +653,7 @@
               PDF приходит на email после оплаты · <a href="#delivery-help">Что делать, если письма нет</a>
             </div>
           </div>
+          <a class="pp-try" href="#probnik">А ещё попробовать: шаг 01 бесплатно ↓</a>
         </div>
         <div class="pp-cover">
           <img src="/passport-servitora/assets/cover-fedd2f05.webp" alt="Обложка практического гайда «Паспорт сервитора»" width="1024" height="1024">
@@ -680,7 +742,7 @@
               <li>разбор рисков и типичных ошибок</li>
               <li>справочные приложения</li>
             </ul>
-            <a class="pp-text-link" href="/#servitors">Открыть курс →</a>
+            <a class="pp-text-link" href="/servitors/">Открыть курс →</a>
           </article>
           <article class="pp-compare__card pp-compare__card--paid">
             <div class="pp-compare__label">паспорт · 369 ₽</div>
@@ -700,7 +762,7 @@
       <div class="pp-shell">
         <div class="pp-section__head">
           <div class="pp-eyebrow">внутри PDF</div>
-          <h2>НЕ КОТ В МЕШКЕ. ВОТ КАК ЭТО ВЫГЛЯДИТ.</h2>
+          <h2>ВОТ КАК ЭТО ВЫГЛЯДИТ.</h2>
           <p class="pp-section__lead">
             Каждый шаг — разворот из двух страниц: сначала разбор решения,
             затем страница полей. В конце — чистовой паспорт, который можно
@@ -724,6 +786,34 @@
       </div>
     </section>
 
+    <section class="pp-section" id="probnik">
+      <div class="pp-shell pp-sample">
+        <div class="pp-section__head">
+          <div class="pp-eyebrow">бесплатный пробник</div>
+          <h2>ШАГ 01 ЦЕЛИКОМ. БЕСПЛАТНО.</h2>
+          <p class="pp-section__lead">
+            Первый разворот гайда без сокращений: разбор решения со сквозным
+            примером «Тенет» и страница полей. Распечатай, заполни и реши,
+            нужен ли тебе весь маршрут.
+          </p>
+          <div class="pp-sample__actions">
+            <a class="pp-button pp-button--ghost" href="/passport-servitora/assets/passport-step01-975e345b.pdf" download data-sample="probnik">Скачать шаг 01 · PDF ↓</a>
+            <div class="pp-purchase__note">2 страницы A4 · без email и регистрации</div>
+          </div>
+        </div>
+        <div class="pp-sample__pages">
+          <figure class="pp-preview">
+            <a href="/passport-servitora/assets/sample-step01-theory-5324c1b0.webp" target="_blank" rel="noopener" aria-label="Открыть страницу разбора шага 01 крупно в новой вкладке"><img src="/passport-servitora/assets/sample-step01-theory-5324c1b0.webp" alt="Страница гайда «Шаг 01 · Точка старта»: разбор решения и пример «Тенет»" loading="lazy" width="820" height="1160"></a>
+            <figcaption>разбор и пример «Тенет» ↗</figcaption>
+          </figure>
+          <figure class="pp-preview">
+            <a href="/passport-servitora/assets/sample-step01-fields-f292c9f1.webp" target="_blank" rel="noopener" aria-label="Открыть страницу полей шага 01 крупно в новой вкладке"><img src="/passport-servitora/assets/sample-step01-fields-f292c9f1.webp" alt="Страница полей шага 01: ситуация тремя предложениями и чек-лист проверки записи" loading="lazy" width="820" height="1160"></a>
+            <figcaption>страница полей ↗</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <section class="pp-section">
       <div class="pp-shell">
         <div class="pp-fit">
@@ -741,10 +831,43 @@
             <ul class="pp-list">
               <li>ищешь гарантированный результат без собственных действий</li>
               <li>хочешь передать сервитору ответственность за решения</li>
-              <li>тебе нужна только общая теория — она уже есть в бесплатном курсе</li>
-              <li>не готов остановить практику, если она мешает сну, работе или отношениям</li>
+              <li>тебе достаточно теории — она уже есть в бесплатном курсе</li>
+              <li>не готов остановить практику, если она может тебе помешать</li>
             </ul>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="pp-section pp-section--panel" id="nachni">
+      <div class="pp-shell">
+        <div class="pp-section__head">
+          <div class="pp-eyebrow">если пока не готов</div>
+          <h2>СОМНЕВАЕШЬСЯ? НАЧНИ БЕСПЛАТНО.</h2>
+          <p class="pp-section__lead">
+            Паспорт никуда не денется. Сначала можно разобраться в теме,
+            посмотреть, как я работаю, и поговорить с теми, кто уже пробовал.
+          </p>
+        </div>
+        <div class="pp-grid-3">
+          <a class="pp-card pp-card--link" href="/servitors/0/" data-free-path="course">
+            <div class="pp-card__num">[курс]</div>
+            <h3>ОТКРЫТЫЙ КУРС</h3>
+            <p>11 модулей без регистрации, оплаты и SMS. Начни с модуля 00: что такое сервитор и с чем его не путать.</p>
+            <span class="pp-card__go">Читать модуль 00 →</span>
+          </a>
+          <a class="pp-card pp-card--link" href="https://telegram.me/levorules" target="_blank" rel="noopener" data-free-path="channel">
+            <div class="pp-card__num">[канал]</div>
+            <h3>КАНАЛ В TELEGRAM</h3>
+            <p>Разборы, практики и эксперименты, в том числе провальные. Чуть больше практик и мыслей.</p>
+            <span class="pp-card__go">Читать канал ↗</span>
+          </a>
+          <a class="pp-card pp-card--link" href="https://t.me/+iQufDN8b0kZhY2Ni" target="_blank" rel="noopener" data-free-path="group">
+            <div class="pp-card__num">[группа]</div>
+            <h3>ГРУППА ПРАКТИКОВ</h3>
+            <p>Сервиторы, сигилы, кейсы, медитации и болталка. Градус посвящения на входе никто не проверяет.</p>
+            <span class="pp-card__go">Зайти в группу ↗</span>
+          </a>
         </div>
       </div>
     </section>
@@ -760,7 +883,7 @@
           <div class="pp-price">369 ₽</div>
           <a class="pp-button" href="https://web.tribute.tg/p/CnL" target="_blank" rel="noopener sponsored" data-tribute="final">Купить в Tribute →</a>
           <div class="pp-purchase__note">
-            Цифровой товар · PDF · 49 страниц · <a href="#delivery-help">Помощь с получением</a>
+            Цифровой товар · PDF · 49 страниц
           </div>
         </div>
         <aside class="pp-delivery-help" id="delivery-help" aria-labelledby="delivery-help-title">
@@ -793,6 +916,18 @@
       document.querySelectorAll("[data-tribute]").forEach(function (link) {
         link.addEventListener("click", function () {
           window.lrAnalytics?.passportCheckout(link.dataset.tribute);
+        });
+      });
+
+      document.querySelectorAll("[data-sample]").forEach(function (link) {
+        link.addEventListener("click", function () {
+          window.lrAnalytics?.event("passport_sample_download", { placement: link.dataset.sample });
+        });
+      });
+
+      document.querySelectorAll("[data-free-path]").forEach(function (link) {
+        link.addEventListener("click", function () {
+          window.lrAnalytics?.event("passport_free_path", { path: link.dataset.freePath });
         });
       });
     });

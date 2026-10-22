@@ -470,6 +470,7 @@ function ModuleRenderer({ mod, accent }) {
             {s.title}
           </h2>
           {s.blocks && s.blocks.map((b, i) => <Block key={i} b={b} accent={accent} />)}
+          <PassportStep sectionId={s.id} />
         </section>
       ))}
 
@@ -641,7 +642,7 @@ function Callout({ id, kind = 'note', title, accent, children }) {
     : kind === 'check' ? 'var(--cyber-cyan)'
     : kind === 'note' ? 'var(--bone-dim)'
     : accent;
-  const glyph = kind === 'danger' ? '⚠' : kind === 'warning' ? '△' : kind === 'practice' ? '▸' : kind === 'check' ? '?' : '·';
+  const glyph = kind === 'danger' ? '⚠' : kind === 'warning' ? '△' : kind === 'practice' || kind === 'passport' ? '▸' : kind === 'check' ? '?' : '·';
   return (
     <div id={id} style={{
       margin: '28px 0', scrollMarginTop:190,
@@ -667,6 +668,59 @@ function Callout({ id, kind = 'note', title, accent, children }) {
         fontSize: 15, lineHeight: 1.6,
         color: 'var(--bone)',
       }}>{children}</div>
+    </div>
+  );
+}
+
+// Passport steps inside the course: shown only after the sections that cover
+// the same decisions the passport walks through on paper. Text, not a banner.
+const PASSPORT_STEPS = {
+  '4.1': {
+    label: 'шаги 01–03 из 14',
+    text: 'Задачу и критерии лучше записать, пока они не расплылись. В «Паспорте сервитора» это шаги 01–03: разбор решения, сквозной пример и страница полей к каждому.',
+  },
+  '4.10': {
+    label: 'все 14 шагов',
+    text: 'Ядро курса прочитано. Чтобы не держать все решения в голове, пройди их по порядку на бумаге: 14 шагов от задачи до тестов и завершения и 12 чистовых страниц.',
+  },
+  '7.2': {
+    label: 'шаг 14 из 14',
+    text: 'Срок, ревизию, плановое завершение и срочную остановку стоит записать до запуска, а не вспоминать, когда они понадобятся. В паспорте это шаг 14 и отдельная чистовая страница.',
+  },
+};
+
+function PassportStep({ sectionId }) {
+  const step = PASSPORT_STEPS[sectionId];
+  const product = window.PASSPORT_PRODUCT;
+  const placement = 'course_' + sectionId.replace('.', '_');
+  const ref = React.useRef(null);
+
+  React.useEffect(() => {
+    const node = ref.current;
+    if (!node) return;
+    const trackView = () => window.lrAnalytics?.passportPromotion('view_promotion', placement);
+    if (!('IntersectionObserver' in window)) { trackView(); return; }
+    const observer = new IntersectionObserver((entries) => {
+      if (!entries.some((entry) => entry.isIntersecting)) return;
+      trackView();
+      observer.disconnect();
+    }, { threshold: 0.5 });
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [placement]);
+
+  if (!step || !product) return null;
+  const select = () => window.lrAnalytics?.passportPromotion('select_promotion', placement);
+  const link = { color: 'var(--amber)', fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.06em', textTransform: 'uppercase', textUnderlineOffset: 3 };
+  return (
+    <div ref={ref}>
+      <Callout id={`passport-${placement}`} kind="passport" accent="var(--amber)" title={`протокол сборки · ${step.label}`}>
+        <p style={{ margin: 0 }}>{step.text}</p>
+        <p style={{ margin: '14px 0 0', display: 'flex', flexWrap: 'wrap', gap: '6px 22px' }}>
+          <a href={product.landingUrl} onClick={select} style={link}>{product.title} · {product.price} →</a>
+          <a href={`${product.landingUrl}#probnik`} onClick={select} style={{ ...link, color: 'var(--bone-dim)' }}>Шаг 01 бесплатно</a>
+        </p>
+      </Callout>
     </div>
   );
 }
