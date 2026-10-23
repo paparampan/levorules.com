@@ -23,13 +23,15 @@ module_bodies=re.split(r'^# МОДУЛЬ \d+\. [^\n]+\n',source,flags=re.M)[1:]
 module_bodies[-1]=module_bodies[-1].split('# ПРИЛОЖЕНИЕ A.',1)[0]
 checked=0
 expected_by_module={}
+figures_by_module={}
 for n,body in enumerate(module_bodies):
     data=json.loads((PUBLIC/f'dist/course/{n}.json').read_text(encoding='utf8'))
     published=normalize(' '.join(strings(data)))
     expected_by_module[n]=[]
+    figures_by_module[n]=re.findall(r'^::fig ([a-z0-9-]+)$',body,flags=re.M)
     for line in body.splitlines():
         line=line.strip()
-        if not line or line in ('---','```') or line.startswith(('### Практика Модуля','### Вопросы для самопроверки')):continue
+        if not line or line in ('---','```') or line.startswith(('### Практика Модуля','### Вопросы для самопроверки','::fig ')):continue
         line=re.sub(r'^## \d+\.\d+\. ','',line)
         line=re.sub(r'^\d+\. ','',line)
         cells=line.strip('|').split('|') if line.startswith('|') else [line]
@@ -45,10 +47,11 @@ for paragraph in preface.split('\n\n'):
 
 class Page(HTMLParser):
     def __init__(self):
-        super().__init__(convert_charrefs=True);self.ids=set();self.links=[];self.assets=[];self.meta={};self.content=[];self.hide=0;self.h1=0;self.anchors=[];self.images=[];self.videos=0;self.cards=0
+        super().__init__(convert_charrefs=True);self.ids=set();self.links=[];self.assets=[];self.meta={};self.content=[];self.hide=0;self.h1=0;self.anchors=[];self.images=[];self.videos=0;self.cards=0;self.figures=[]
     def handle_starttag(self,tag,attrs):
         a=dict(attrs)
         if tag in ('script','style'):self.hide+=1
+        if tag=='figure' and a.get('data-figure'):self.figures.append(a['data-figure'])
         if tag=='h1':self.h1+=1
         if 'id' in a:self.ids.add(a['id'])
         if tag=='a' and a.get('href'):self.links.append(a['href']);self.anchors.append(a)
@@ -91,6 +94,9 @@ for n,expected in expected_by_module.items():
     visible=normalize(' '.join(pages[f'/servitors/{n}/'].content))
     for item in expected:
         if normalize(item) not in visible:errors.append(f'Module {n}: missing in rendered HTML: {item[:95]}')
+    # Every "::fig" marker becomes exactly one inline figure in the static page, in source order.
+    if pages[f'/servitors/{n}/'].figures!=figures_by_module[n]:errors.append(f'Module {n}: figures {pages[f"/servitors/{n}/"].figures} in HTML, expected {figures_by_module[n]}')
+figure_count=sum(len(v) for v in figures_by_module.values())
 
 # PRINTS: the index shows artwork only; each print page carries its full text,
 # the approved artwork byte for byte and every product/color link from JSON.
@@ -144,4 +150,4 @@ for file in ('shorts.json','telegram.json'):
         if stop:errors.append(f'site/{file}: "{item.get("title")}" hits the stop list ({stop})')
 
 assert not errors,'\n'.join(errors[:70])
-print(f'Publication verification passed: {checked} source lines/cells, common preface, {len(paths)} HTML pages, local assets and section links, {len(prints)} print page(s) with {fun_links} FUN.ru links')
+print(f'Publication verification passed: {checked} source lines/cells, {figure_count} figures, common preface, {len(paths)} HTML pages, local assets and section links, {len(prints)} print page(s) with {fun_links} FUN.ru links')

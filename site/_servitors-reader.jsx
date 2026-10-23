@@ -601,6 +601,13 @@ function Block({ b, accent }) {
   if (b.type === 'hr')
     return <div style={{ height: 1, background: 'var(--border)', margin: '40px 0' }} />;
 
+  // SVG comes from content/figures (our own files), inlined so it uses the site's fonts.
+  if (b.type === 'figure')
+    return <figure className="sv-figure" data-figure={b.id}>
+      <div className="sv-figure-art" dangerouslySetInnerHTML={{ __html: b.svg }} />
+      <figcaption><RichText text={b.caption} /></figcaption>
+    </figure>;
+
   return null;
 }
 

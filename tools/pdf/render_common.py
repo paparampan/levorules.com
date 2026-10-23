@@ -627,8 +627,13 @@ MD_PATH = REPO / "content" / "servitors-course.md"
 
 
 def load_md() -> str:
-    """Load canonical source MD."""
-    return MD_PATH.read_text(encoding="utf-8")
+    """Load canonical source MD.
+
+    "::fig <id>" lines are web-only: the figures are drawn for the dark site,
+    and the PDF keeps the full text they illustrate, so the markers are dropped.
+    """
+    md = MD_PATH.read_text(encoding="utf-8")
+    return re.sub(r"^::fig [a-z0-9-]+\n\n?", "", md, flags=re.MULTILINE)
 
 
 def split_front_modules_appendices(md: str):
