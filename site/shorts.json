@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-23T00:42:04Z",
+  "updated": "2026-10-23T07:36:23Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -23,7 +23,7 @@
       "title": "Откуп в магии: почему нельзя просто заплатить?",
       "url": "https://www.youtube.com/shorts/jvjjWt26yJQ",
       "thumb": "https://i.ytimg.com/vi/jvjjWt26yJQ/hqdefault.jpg",
-      "views": "347",
+      "views": "349",
       "acc": "var(--purple)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "Как зарядить сигилу: Поза смерти Остина Османа Спейра",
       "url": "https://www.youtube.com/shorts/lOtCgWXZ5K0",
       "thumb": "https://i.ytimg.com/vi/lOtCgWXZ5K0/hqdefault.jpg",
-      "views": "538",
+      "views": "548",
       "acc": "var(--cyber-cyan)"
     }
   ]
