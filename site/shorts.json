@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-24T22:31:35Z",
+  "updated": "2026-10-25T04:49:08Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
     {
@@ -7,7 +7,7 @@
       "title": "Выгорание в магии: когда практика стала второй работой",
       "url": "https://www.youtube.com/shorts/fzqsUh-8eAI",
       "thumb": "https://i.ytimg.com/vi/fzqsUh-8eAI/hqdefault.jpg",
-      "views": "836",
+      "views": "841",
       "acc": "var(--magenta)"
     },
     {
@@ -39,7 +39,7 @@
       "title": "Как зарядить сигилу: Поза смерти Остина Османа Спейра",
       "url": "https://www.youtube.com/shorts/lOtCgWXZ5K0",
       "thumb": "https://i.ytimg.com/vi/lOtCgWXZ5K0/hqdefault.jpg",
-      "views": "600",
+      "views": "601",
       "acc": "var(--cyber-cyan)"
     }
   ]
