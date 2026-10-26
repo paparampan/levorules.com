@@ -121,6 +121,10 @@ function SigilServitor({ accent = 'var(--purple)', opacity = 0.3, size = 320 }) 
   );
 }
 
+// Web donation link from Tribute settings: opens in a browser, any amount,
+// Russian and foreign cards. While it is empty no donate link is rendered.
+const DONATE_URL = '';
+
 const PASSPORT_PRODUCT = Object.freeze({
   title: 'Паспорт сервитора',
   price: '369 ₽',
@@ -229,4 +233,5 @@ Object.assign(window, {
   SigilServitor,
   PassportPromo,
   PASSPORT_PRODUCT,
+  DONATE_URL,
 });
