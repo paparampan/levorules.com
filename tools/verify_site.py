@@ -148,6 +148,8 @@ for file in ('shorts.json','telegram.json'):
     for item in json.loads((PUBLIC/'site'/file).read_text(encoding='utf8'))['items']:
         stop=blocked(item.get('title'),item.get('body'),item_id=item.get('id'))
         if stop:errors.append(f'site/{file}: "{item.get("title")}" hits the stop list ({stop})')
+for pid,post in json.loads((ROOT/'content/telegram-manual.json').read_text(encoding='utf8'))['posts'].items():
+    if post.get('photo') and not (PUBLIC/post['photo'].lstrip('/')).exists():errors.append(f'telegram-manual.json: #{pid} photo {post["photo"]} missing')
 
 assert not errors,'\n'.join(errors[:70])
 print(f'Publication verification passed: {checked} source lines/cells, {figure_count} figures, common preface, {len(paths)} HTML pages, local assets and section links, {len(prints)} print page(s) with {fun_links} FUN.ru links')
