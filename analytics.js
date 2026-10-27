@@ -159,6 +159,15 @@
       return;
     }
 
+    if (link.dataset.donate) {
+      event('donate_click', {
+        link_url: url.href,
+        creative_slot: link.dataset.donate,
+        page_path: `${location.pathname}${location.hash}`,
+      });
+      return;
+    }
+
     if (!['t.me', 'telegram.me'].includes(url.hostname)) return;
     event('telegram_click', {
       link_url: url.href,

@@ -21,7 +21,8 @@ function Header({ ritual, setRitual, route, setRoute }) {
     { id: 'prints', label: 'Принты', accent: 'var(--amber)' },
     { id: 'who', label: 'Кто я', accent: 'var(--blood-text)' },
     { id: 'tg', label: 'Telegram', href: 'https://telegram.me/levorules', external: true },
-  ];
+    DONATE_URL && { id: 'donate', label: 'Задонатить', href: DONATE_URL, external: true },
+  ].filter(Boolean);
   return (
     <header className={`lr-site-header${route === 'servitors-reader' ? ' lr-site-header--reader' : ''}`} style={{
       position: 'sticky', top: 0, zIndex: 50,
@@ -63,6 +64,15 @@ function Header({ ritual, setRitual, route, setRoute }) {
               || (i.id === 'guides' && route === 'guide')
               || (i.id === 'prints' && route === 'print');
             const accent = i.accent || 'var(--bone)';
+            // The donate link is styled by .lr-nav-donate in index.html (gold with a periodic shine).
+            if (i.id === 'donate') return (
+              <a key={i.id} href={i.href} target="_blank" rel="noopener"
+                className="lr-nav-donate"
+                data-donate="header"
+                onClick={() => setMobileNavOpen(false)}>
+                <span>{i.label} ↗</span>
+              </a>
+            );
             return i.external ? (
               <a key={i.id} href={i.href} target="_blank" rel="noopener"
                 className="lr-nav-link"

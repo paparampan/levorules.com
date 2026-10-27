@@ -347,8 +347,9 @@ function Footer() {
               ['Instagram', 'https://www.instagram.com/levorules/'],
               // FUN.ru links never pass the referrer, same as on the print pages.
               ['FUN.ru', 'https://fun.ru/designer/levorules', 'noopener noreferrer'],
-              ].map(([l, h, rel = 'noopener']) => (
-              <a key={l} href={h} target="_blank" rel={rel} style={{ display: 'flex', alignItems: 'center', minHeight: 44, color: 'var(--bone)', textDecoration: 'none', fontSize: 14 }}>{l} ↗</a>
+              ...(DONATE_URL ? [['Задонатить', DONATE_URL, 'noopener', 'footer']] : []),
+              ].map(([l, h, rel = 'noopener', donate]) => (
+              <a key={l} href={h} target="_blank" rel={rel} data-donate={donate} style={{ display: 'flex', alignItems: 'center', minHeight: 44, color: 'var(--bone)', textDecoration: 'none', fontSize: 14 }}>{l} ↗</a>
             ))}
           </div>
         </div>
