@@ -1,14 +1,22 @@
 {
-  "updated": "2026-10-27T01:29:50Z",
+  "updated": "2026-10-27T05:38:14Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "QXjdEcnS2GQ",
+      "title": "Почему при сонном параличе видишь демона? Это не демон",
+      "url": "https://www.youtube.com/shorts/QXjdEcnS2GQ",
+      "thumb": "https://i.ytimg.com/vi/QXjdEcnS2GQ/hqdefault.jpg",
+      "views": "148",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "fzqsUh-8eAI",
       "title": "Выгорание в магии: когда практика стала второй работой",
       "url": "https://www.youtube.com/shorts/fzqsUh-8eAI",
       "thumb": "https://i.ytimg.com/vi/fzqsUh-8eAI/hqdefault.jpg",
-      "views": "856",
-      "acc": "var(--magenta)"
+      "views": "857",
+      "acc": "var(--acid-green)"
     },
     {
       "id": "nePi-JDLzLA",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/nePi-JDLzLA",
       "thumb": "https://i.ytimg.com/vi/nePi-JDLzLA/hqdefault.jpg",
       "views": "1.5k",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "jvjjWt26yJQ",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/jvjjWt26yJQ",
       "thumb": "https://i.ytimg.com/vi/jvjjWt26yJQ/hqdefault.jpg",
       "views": "357",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "GRCZ2nCNlsw",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/GRCZ2nCNlsw",
       "thumb": "https://i.ytimg.com/vi/GRCZ2nCNlsw/hqdefault.jpg",
       "views": "1.3k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "lOtCgWXZ5K0",
-      "title": "Как зарядить сигилу: Поза смерти Остина Османа Спейра",
-      "url": "https://www.youtube.com/shorts/lOtCgWXZ5K0",
-      "thumb": "https://i.ytimg.com/vi/lOtCgWXZ5K0/hqdefault.jpg",
-      "views": "606",
       "acc": "var(--cyber-cyan)"
     }
   ]
