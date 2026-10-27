@@ -264,8 +264,40 @@
     height: auto;
   }
 
+  /* Donate link in the main nav: gold plate, a light sweep runs across it once per cycle. */
+  .lr-nav-donate {
+    position: relative;
+    overflow: hidden;
+    display: inline-flex; align-items: center;
+    margin-left: 6px;
+    padding: 8px 14px;
+    font-family: var(--font-mono); font-size: 12px; font-weight: 700;
+    letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
+    color: var(--void);
+    background: linear-gradient(135deg, #8C6A1E 0%, #D9B048 28%, #F6DE8D 50%, #D9B048 72%, #8C6A1E 100%);
+    box-shadow: inset 0 0 0 1px rgba(246, 222, 141, 0.55), 0 0 18px rgba(255, 184, 0, 0.22);
+    transition: filter .15s ease, box-shadow .15s ease;
+  }
+  .lr-nav-donate::after {
+    content: "";
+    position: absolute; top: 0; bottom: 0; left: 0; width: 60%;
+    background: linear-gradient(105deg, rgba(255, 255, 255, 0) 20%, rgba(255, 250, 230, 0.8) 50%, rgba(255, 255, 255, 0) 80%);
+    transform: translateX(-170%);
+    animation: lr-donate-shine 6s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .lr-nav-donate > span { position: relative; z-index: 1; } /* the shine passes behind the label */
+  @keyframes lr-donate-shine {
+    0%, 70% { transform: translateX(-170%); }
+    85%, 100% { transform: translateX(270%); }
+  }
+  .lr-nav-donate:hover { filter: brightness(1.08); box-shadow: inset 0 0 0 1px rgba(246, 222, 141, 0.8), 0 0 24px rgba(255, 184, 0, 0.35); }
+  .lr-nav-donate:focus-visible { outline: 2px solid var(--bone); outline-offset: 2px; }
+
   @media (prefers-reduced-motion: reduce) {
     .lr-glitch-text { animation: none; }
+    .lr-nav-donate::after { animation: none; display: none; }
   }
 
   @media (max-width: 720px) {
@@ -395,6 +427,12 @@
       white-space: nowrap;
     }
     .lr-main-nav a:last-child:nth-child(odd) { grid-column: 1 / -1; }
+    .lr-main-nav a.lr-nav-donate {
+      margin-left: 0;
+      justify-content: center;
+      background: linear-gradient(135deg, #8C6A1E 0%, #D9B048 28%, #F6DE8D 50%, #D9B048 72%, #8C6A1E 100%);
+      font-size: 12px !important;
+    }
 
     /* Hero decorative sigils pushed off-screen should fade further so they don't overpower. */
     section > div[style*="right: -"],
@@ -465,9 +503,13 @@
     .lr-main-nav { gap: 0 !important; }
     .lr-main-nav a { padding: 8px 7px !important; font-size: 11px !important; letter-spacing: 0.04em !important; white-space: nowrap; }
   }
+  @media (min-width: 721px) and (max-width: 1100px) {
+    .lr-main-nav a.lr-nav-donate { padding: 8px 10px !important; }
+  }
   @media (min-width: 721px) and (max-width: 800px) {
     .lr-header-inner { gap: 12px !important; }
     .lr-main-nav a { padding: 8px 4px !important; letter-spacing: 0.02em !important; }
+    .lr-main-nav a.lr-nav-donate { padding: 8px 7px !important; margin-left: 2px; }
   }
 
   @media (max-width: 400px) {

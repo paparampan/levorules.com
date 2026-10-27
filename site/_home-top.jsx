@@ -64,10 +64,18 @@ function Header({ ritual, setRitual, route, setRoute }) {
               || (i.id === 'guides' && route === 'guide')
               || (i.id === 'prints' && route === 'print');
             const accent = i.accent || 'var(--bone)';
+            // The donate link is styled by .lr-nav-donate in index.html (gold with a periodic shine).
+            if (i.id === 'donate') return (
+              <a key={i.id} href={i.href} target="_blank" rel="noopener"
+                className="lr-nav-donate"
+                data-donate="header"
+                onClick={() => setMobileNavOpen(false)}>
+                <span>{i.label} ↗</span>
+              </a>
+            );
             return i.external ? (
               <a key={i.id} href={i.href} target="_blank" rel="noopener"
                 className="lr-nav-link"
-                data-donate={i.id === 'donate' ? 'header' : undefined}
                 onClick={() => setMobileNavOpen(false)}
                 style={navLinkStyle(false, accent)}>
                 <span style={{ color: 'var(--blood-text)' }}>▸</span> {i.label} ↗
