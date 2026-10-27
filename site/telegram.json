@@ -1,7 +1,17 @@
 {
-  "updated": "2026-10-27T05:38:15Z",
+  "updated": "2026-10-27T05:41:54Z",
   "channel": "https://telegram.me/levorules",
   "items": [
+    {
+      "id": 141,
+      "url": "https://telegram.me/levorules/141",
+      "title": "ЧТО ВЫБРАТЬ НА ОДИН РАЗ",
+      "body": "Спрашивали - отвечаю. С долговременными конструкциями все понятно: повесил на сервитора фоновую защиту или найти инсайт, или случайное полезное знакомство... затем кормишь по расписанию, проверяешь метрики. Но зачем заморачиваться с именем, формой, прошивко…",
+      "photo": null,
+      "date": "2026-10-24T11:46:47+00:00",
+      "views": "147",
+      "acc": "var(--cyber-cyan)"
+    },
     {
       "id": 140,
       "url": "https://telegram.me/levorules/140",
@@ -10,7 +20,7 @@
       "photo": "https://cdn4.telesco.pe/file/k72h-np45YGQ9PJz-1psLxyTwxXxqV3ECH4-UDXYTVKsKeRWUyxIFytu7rL0_ucK-Oyg6nMvWGnOJ-f8A25gPk8mCDNSAjs-opApYsoV0x5U9Vbyy0f-RdsAWffmevaAvG8xZx48l5D_tuBMtchpUeJNDRmmZpUnmCD1JyrP92VvzD7GkcRXSv_gPl1waaJgw3KsTjOQlyfCX5ne0iFUntsDCTWZP8JvV_q0OBYMPG9l3ZiiZkkqxbpSfpW3vcalWn0-3V5Amalw5nsJdcS1MssmzEZS9tnSshYOpvxN0e667gXXMxLaZVCaZefOV9QNXGwHrqS1OxuJg85muaTJCQ.jpg",
       "date": "2026-09-22T05:39:58+00:00",
       "views": "567",
-      "acc": "var(--cyber-cyan)"
+      "acc": "var(--magenta)"
     },
     {
       "id": 138,
@@ -20,7 +30,7 @@
       "photo": "https://cdn4.telesco.pe/file/nssmBCvb2xJ_iS_iQlmK1r5J1i9rf8XuRHhMs33w7pEQlpBSrz3RCCBg8nu1qDVozFUAFzxVRWbye-7O0UY0sFBa5ruBZa3xXqTm7n6S4GqhPCok2CSmX8LlkiOo4H9D2xKjgFJ7NZshRJF7Gjbp6VoMUuu3W-dKqRbZ6UGMHZXeliCJy0_s64GOASmSduZFqTALzsnGzqiMITPfNgso1hfsrsrvdTA1hYZumC4q5VTJt9UcASXZVrIBo1t-Ns_0s3Wq48J2JT_PJKm221esR5MNCNHRAyCPfJxDaSfMQD2Tn06zW3Ah8RhI06vL8Fi9lLQ5Q8cWg33Q4AJuiad1Uw.jpg",
       "date": "2026-09-11T16:45:59+00:00",
       "views": "783",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": 136,
@@ -30,7 +40,7 @@
       "photo": null,
       "date": "2026-09-10T12:53:20+00:00",
       "views": "672",
-      "acc": "var(--acid-green)"
+      "acc": "var(--amber)"
     },
     {
       "id": 135,
@@ -40,7 +50,7 @@
       "photo": "https://cdn4.telesco.pe/file/WZ38Gz3YSmJrjP-4nJEpVkSomJrkXO84s0kSIj1Di_OcONxUpYD1QeAEP1WqCbo03MNARnlwYrHQiALaslEh5mnkMqPuWFuOv7iMUHdwldqf8sStpCnGmotDynzYV3yzbFYxp1v0Lej1HxxgQyAzFVW9n9Mws_1GL85j_1heS7ebKI1ok_Y03gK6kPBVbjTozm4x0u6jqKxgoa1UxXIr0aPcvdTyLTvo0BOCYMdIAcK_GHxdsoW4kmpnu9JEg_YYnA6qlwf1YcOEq5H3S2IACelb9SavT1zJpKCjrYqeV7VpMtNsCY7_5wl0_RVcDjYLzDB-VWd9qZL0WPXB3qA6gQ.jpg",
       "date": "2026-09-03T17:18:59+00:00",
       "views": "745",
-      "acc": "var(--amber)"
+      "acc": "var(--purple)"
     },
     {
       "id": 134,
@@ -50,30 +60,6 @@
       "photo": "https://cdn4.telesco.pe/file/QkYOnzUtKvymbKx6FF7GTLiEqjlVFqFW86gbxV7rs7yZj0oTsqs9DVVJD4aMHiz42XKp56eVAd0vFYww8EDjuKamSKz2ksQzB9nXhBH3OQqWoDhVTkWLRqh4C4Qam54WGyS--kL1odNTRsSxqb9PCZm5Ib5xx9Yg1ZiuCmVyEGpzWzt9jeToeODntCJ2lsI8itFovkAE9ammtyYgockPJTWQ7SdIn8tllpitWF4PweHKuVMjBSKuOswK_7W4j45XIQuEeGPLL5nBrhpB5un9MeAIeZ-IfVjfqU04sDnUGoSyvt_mJU_FJkmbtK_y9NpqCY1_J7gMgUgfIGaK5eeRIw.jpg",
       "date": "2026-08-31T17:01:44+00:00",
       "views": "664",
-      "acc": "var(--purple)"
-    },
-    {
-      "id": 131,
-      "url": "https://telegram.me/levorules/131",
-      "title": "ПЯТАЯ НОГА СИЛА СФИНКСА",
-      "body": "Мне тут рассказали, что если сыграть на фортепиано, то получается музыка. Вчера попробовал - музыки не получилось. А еще говорят, что психолог может помочь решить кучу проблем. Сходил один раз - только деньги потратил. Это я к чему. Вот люди пишут: \"Ритуал…",
-      "photo": "https://cdn4.telesco.pe/file/qHpEp-sD9UUIdGEIitF-R54h12h7kl2SgtglJ9bIefBxdk5758FB8YKhohFpZ7dGLwTCmxYBcll7uqh3OkNB8Q1FENep-RaIrWtLoZX5CQwvwr3nXTI_L0zrfb389_ZPM2vY4ZkOmTXSVUrbQtQkGoj4vDObNOWTNHbKhlTiQYQMzE_8xdEi9qSvUHJISuG5drzKp0LTCAmCKxCRn--FWZIg5KZQg2bsTjja6UADgwY4a6AuV6cI5_LOyKrveM_3Vp7KAT1QoZQQUgz93ZjZkvUZy5phweMzzKlYSoOL771S1vYLk7DTVsc_5ajpItWqDQNHaEO2EzTggecptlWhVg.jpg",
-      "date": "2026-07-21T16:00:00+00:00",
-      "views": "646",
-      "titleParts": [
-        {
-          "text": "ПЯТАЯ ",
-          "strike": false
-        },
-        {
-          "text": "НОГА",
-          "strike": true
-        },
-        {
-          "text": " СИЛА СФИНКСА",
-          "strike": false
-        }
-      ],
       "acc": "var(--blood-text)"
     }
   ]

@@ -201,9 +201,9 @@ function Hero({ ritual }) {
 // Territories (three directions)
 function Territories() {
   const items = [
-    { n: '01', title: 'МАГИЯ ХАОСА', body: 'Сигилы, ритуалы, деконструкция догм. Вера как инструмент, не костыль.', accent: 'var(--blood-text)' },
-    { n: '02', title: 'СЕРВИТОРЫ', body: 'Созданные сущности под конкретную задачу. От сигилы и правил до завершения. Инструмент, а не хозяин.', accent: 'var(--purple)' },
-    { n: '03', title: 'ПУТЬ ЛЕВОЙ РУКИ', body: 'Самообожествление, Чёрное Пламя, индивидуация. Ты и есть бог.', accent: 'var(--amber)' },
+    { n: '01', title: 'МАГИЯ ХАОСА', body: 'Сигилы, ритуалы, деконструкция догм. Вера — это инструмент.', accent: 'var(--blood-text)' },
+    { n: '02', title: 'СЕРВИТОРЫ', body: 'Созданные сущности под конкретную задачу. От сигилы и правил до завершения. Сервитор — это твой помощник.', accent: 'var(--purple)' },
+    { n: '03', title: 'ПУТЬ ЛЕВОЙ РУКИ', body: 'Индивидуация, личная воля, свобода от чужих авторитетов. Свой путь прокладываешь сам.', accent: 'var(--amber)' },
   ];
   return (
     <section id="territories" data-lr-reveal="section" style={{ borderBottom: '1px solid var(--border)' }}>
