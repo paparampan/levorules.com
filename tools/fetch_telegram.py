@@ -210,7 +210,7 @@ def main():
     # The home page shows title and body, so only those are checked.
     kept = []
     for p in posts:
-        stop = blocked(p["title"], p["body"])
+        stop = blocked(p["title"], p["body"], item_id=p["id"])
         if stop:
             print(f"skipped by stop list ({stop}): #{p['id']} {p['title']}")
             continue

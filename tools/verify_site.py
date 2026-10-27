@@ -146,7 +146,7 @@ for slug,data in prints.items():
 from feed_stoplist import blocked
 for file in ('shorts.json','telegram.json'):
     for item in json.loads((PUBLIC/'site'/file).read_text(encoding='utf8'))['items']:
-        stop=blocked(item.get('title'),item.get('body'))
+        stop=blocked(item.get('title'),item.get('body'),item_id=item.get('id'))
         if stop:errors.append(f'site/{file}: "{item.get("title")}" hits the stop list ({stop})')
 
 assert not errors,'\n'.join(errors[:70])

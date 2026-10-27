@@ -86,7 +86,7 @@ def main():
             break
         vid = e["id"]
         title = fetch_original_title(vid) or e["fallback_title"]
-        stop = blocked(title)
+        stop = blocked(title, item_id=vid)
         if stop:
             print(f"skipped by stop list ({stop}): {title}")
             continue

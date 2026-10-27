@@ -159,6 +159,7 @@ const STOP_WORDS = new RegExp(
   `(?<![\\p{L}\\p{N}_])(${STOP.words.map((w) => w.toLowerCase().replace(/[.*+?^${}()|[\]\\]/g, "\\$&")).join("|")})[\\p{L}\\p{N}_]{0,3}(?![\\p{L}\\p{N}_])`,
   "u",
 );
+const STOP_ALLOW = new Set((STOP.allow_ids || []).map(String));
 const feedBlocked = (...texts) => texts.some((text) => {
   const low = (text || "").toLowerCase();
   return STOP.substrings.some((s) => low.includes(s.toLowerCase())) || STOP_WORDS.test(low);
@@ -167,7 +168,7 @@ const feedBlocked = (...texts) => texts.some((text) => {
 mkdirSync(resolve(PUBLIC, "site"), { recursive: true });
 for (const file of ["shorts.json", "telegram.json"]) {
   const feed = JSON.parse(readFileSync(resolve(SITE, file), "utf-8"));
-  const items = feed.items.filter((item) => !feedBlocked(item.title, item.body));
+  const items = feed.items.filter((item) => STOP_ALLOW.has(String(item.id)) || !feedBlocked(item.title, item.body));
   if (items.length !== feed.items.length) {
     console.log(`site/${file}: ${feed.items.length - items.length} item(s) hidden by the stop list`);
   }
