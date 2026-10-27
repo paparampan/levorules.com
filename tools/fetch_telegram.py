@@ -21,6 +21,10 @@ PREVIEW_URL = f"https://telegram.me/s/{CHANNEL_HANDLE}"
 COUNT = 6  # fetch a bit more than the 2 shown; frontend can pick
 # Write directly to the repo's site/telegram.json (same rationale as fetch_shorts.py).
 OUT = Path(__file__).resolve().parents[1] / "site" / "telegram.json"
+# Text for posts the preview page hides behind "Please open Telegram to view this post".
+MANUAL = json.loads(
+    (Path(__file__).resolve().parents[1] / "content" / "telegram-manual.json").read_text(encoding="utf-8")
+)["posts"]
 
 ACCENTS = [
     "var(--cyber-cyan)",
@@ -103,6 +107,12 @@ def extract_first_line_parts(text_div):
     return parts
 
 
+def clamp_body(body):
+    if len(body) > 260:
+        return body[:257].rstrip() + "…"
+    return body
+
+
 def extract_text(msg):
     """Return (title, body, title_parts) from a Telegram message."""
     text_div = msg.find("div", class_="tgme_widget_message_text")
@@ -141,9 +151,7 @@ def extract_text(msg):
             title = first[:100].strip()
             body = (first[100:] + " " + " ".join(lines[1:])).strip()
 
-    # Clamp body length
-    if len(body) > 260:
-        body = body[:257].rstrip() + "…"
+    body = clamp_body(body)
 
     title_parts = None
     if title == first_line_text and any(part["strike"] for part in first_line_parts):
@@ -162,6 +170,12 @@ def extract_post(msg):
 
     title, body, title_parts = extract_text(msg)
     photo = extract_photo(msg)
+
+    manual = MANUAL.get(str(pid))
+    if manual and not title and not body and not photo:
+        title = manual["title"]
+        body = clamp_body(manual.get("body", ""))
+        photo = manual.get("photo")
 
     # If no text but a photo, fall back to "Фото · <date>" style title
     if not title and not body:
@@ -210,7 +224,7 @@ def main():
     # The home page shows title and body, so only those are checked.
     kept = []
     for p in posts:
-        stop = blocked(p["title"], p["body"])
+        stop = blocked(p["title"], p["body"], item_id=p["id"])
         if stop:
             print(f"skipped by stop list ({stop}): #{p['id']} {p['title']}")
             continue
