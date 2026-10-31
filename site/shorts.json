@@ -1,14 +1,22 @@
 {
-  "updated": "2026-10-31T05:51:12Z",
+  "updated": "2026-10-31T12:40:44Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "4Q9sHMlQU-U",
+      "title": "Почему на Хэллоуин наряжаются в нечисть?",
+      "url": "https://www.youtube.com/shorts/4Q9sHMlQU-U",
+      "thumb": "https://i.ytimg.com/vi/4Q9sHMlQU-U/hqdefault.jpg",
+      "views": "274",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "QXjdEcnS2GQ",
       "title": "Почему при сонном параличе видишь демона? Это не демон",
       "url": "https://www.youtube.com/shorts/QXjdEcnS2GQ",
       "thumb": "https://i.ytimg.com/vi/QXjdEcnS2GQ/hqdefault.jpg",
       "views": "175",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "fzqsUh-8eAI",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/fzqsUh-8eAI",
       "thumb": "https://i.ytimg.com/vi/fzqsUh-8eAI/hqdefault.jpg",
       "views": "880",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "nePi-JDLzLA",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/nePi-JDLzLA",
       "thumb": "https://i.ytimg.com/vi/nePi-JDLzLA/hqdefault.jpg",
       "views": "1.6k",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "jvjjWt26yJQ",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/jvjjWt26yJQ",
       "thumb": "https://i.ytimg.com/vi/jvjjWt26yJQ/hqdefault.jpg",
       "views": "369",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "GRCZ2nCNlsw",
-      "title": "Мабон и осеннее равноденствие: зачем хранили последний сноп?",
-      "url": "https://www.youtube.com/shorts/GRCZ2nCNlsw",
-      "thumb": "https://i.ytimg.com/vi/GRCZ2nCNlsw/hqdefault.jpg",
-      "views": "1.3k",
       "acc": "var(--cyber-cyan)"
     }
   ]
