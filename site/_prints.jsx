@@ -466,6 +466,11 @@ function PrintStory({ print }) {
                 <PrintText text={paragraph.text} />
               </p>
             ))}
+            {story.related_link && (
+              <p className="pr-story__p">
+                <a href={story.related_link.href}>{story.related_link.label}</a>
+              </p>
+            )}
             <a className="pr-btn pr-btn--fire pr-story__cta" href="#print-assortment">
               {story.outro_cta} <span aria-hidden="true">↓</span>
             </a>

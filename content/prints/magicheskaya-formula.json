@@ -1,0 +1,251 @@
+{
+  "id": "magicheskaya-formula",
+  "slug": "magicheskaya-formula",
+  "working_number": null,
+  "title": "Магическая формула",
+  "latin": "ЧУДЕС НЕ БЫВАЕТ",
+  "latin_lang": "ru",
+  "latin_note": "Шансы есть",
+  "intro": "Планы на чудо есть. Запасной план тоже.",
+  "artwork": {
+    "master": "assets/print/chudes-ne-byvaet_fun_v02.png",
+    "sha256": "8c2264d9c17655f3ab68d7cafaabaa348e9c0dfc1cacefa0b91470a3409a6628",
+    "width": 4200,
+    "height": 1800,
+    "alt": "Рукописная формула Pₘ = P + (1 − P) · M в степени 1/P костяным цветом и красная подпись \"// ЧУДЕС НЕ БЫВАЕТ\" на прозрачном фоне.",
+    "text": [
+      "P_m = P + (1 − P) · M^(1/P)",
+      "// ЧУДЕС НЕ БЫВАЕТ"
+    ],
+    "status": "Оригинал v02; публикация поручена пользователем 2026-11-06"
+  },
+  "video": {
+    "src": "/media/prints/magicheskaya-formula/loop-d61f343d8c.mp4",
+    "width": 1280,
+    "height": 720,
+    "duration_seconds": 11.5,
+    "fps": 24,
+    "aspect_ratio": "16:9",
+    "seamless_verified": false,
+    "poster": {
+      "master": "assets/video/poster.png",
+      "sha256": "d055514f27be4a6a48a494a41011a0be085dca002042f088be677434e18c8c95",
+      "width": 1280,
+      "height": 720
+    },
+    "caption": "Вероятность высокая. Зонт все равно взял.",
+    "accessible_label": "Фарфоровый студент в черной футболке с формулой стоит под дождем: капля прорывается сквозь защитную дугу, он смотрит вверх и на закрытый зонт. Кадр обрезан выше колен.",
+    "pause_label": "Приостановить видео",
+    "play_label": "Включить видео",
+    "sha256": "d61f343d8c3eb5af57ab1879870aa1b008407d6380d274cdd959b818d871b1db",
+    "audio_verified": true,
+    "processing": "Подрезанная пользователю версия v02: план выше колен, плавный наезд с возвратом, 12 кадров перекрытия на стыке петли. Скопирована побайтово без повторного кодирования. Стык просмотрен покадрово, абсолютная бесшовность не заявлена."
+  },
+  "film": {
+    "eyebrow": "почти наверняка"
+  },
+  "story": {
+    "eyebrow": "история принта",
+    "heading": "Шансы есть. Гарантий нет.",
+    "spec_title": "В деталях",
+    "spec": [
+      [
+        "Формула",
+        "Вероятность результата по модели Питера Кэрролла"
+      ],
+      [
+        "Ремарка",
+        "// ЧУДЕС НЕ БЫВАЕТ"
+      ],
+      [
+        "Рисунок",
+        "Рукописная формула и красная моноширинная подпись"
+      ]
+    ],
+    "paragraphs": [
+      {
+        "text": "Ритуал проведен, намерение сформулировано. Теперь хочется узнать, сработает ли. Желательно в процентах."
+      },
+      {
+        "text": "На принте - формула вероятности из модели Питера Кэрролла. В ней есть исходный шанс события P, величина магического воздействия M и вероятность результата Pₘ. Рукописная запись выглядит как заметка с лекции, которую захотелось унести с собой."
+      },
+      {
+        "text": "Под формулой красным: \"// ЧУДЕС НЕ БЫВАЕТ\". Полезная ремарка для тех, кто уже все рассчитал. К экзамену все равно готовимся, за ужином следим, зонт берем."
+      }
+    ],
+    "related_link": {
+      "href": "/guides/magic-probability/",
+      "label": "Разбор формулы и калькулятор →"
+    },
+    "outro_cta": "Выбрать вещь"
+  },
+  "assortment": {
+    "eyebrow": "вещи",
+    "title": "Формула на каждый день",
+    "intro": "Фартук для кухни, рюкзаки для учебы и футболка для прогулки. Выбирай, где сегодня проверять теорию.",
+    "colors_label": "Цвета на FUN.ru",
+    "depicted_label": "на фото",
+    "availability_note": "Доступность цветов и размеров уточняй на странице товара.",
+    "cta": "Смотреть на FUN.ru",
+    "zoom_label": "Рассмотреть"
+  },
+  "seo": {
+    "title": "Магическая формула - Чудес не бывает | Принты LEVORULES",
+    "description": "Рукописная формула вероятности и красная подпись \"Чудес не бывает\". Фартук, два рюкзака и мужская футболка LEVORULES: фото и ссылки на FUN.ru.",
+    "og_title": "Магическая формула. Чудес не бывает.",
+    "og_description": "Планы на чудо есть. Запасной план тоже. Четыре вещи с формулой вероятности и маленькой красной ремаркой.",
+    "og_image_alt": "Рукописная формула Pₘ = P + (1 − P) · M в степени 1/P костяным цветом и красная подпись \"// ЧУДЕС НЕ БЫВАЕТ\" на прозрачном фоне."
+  },
+  "editorial": {
+    "status": "публикация поручена пользователем",
+    "authorization_date": "2026-11-06",
+    "source_package": "outputs/showcase/magicheskaya_formula/v01/publication",
+    "scope": "Только четыре согласованных товарных фото 01, 02, 03 и 15; остальные товары на паузе.",
+    "source_artwork_thread": "01a1aff1-0461-7bc0-84d1-3bfa41c418dc"
+  },
+  "products": [
+    {
+      "id": "formula-fartuki",
+      "order": 1,
+      "name": "Фартук",
+      "avatar": "female",
+      "caption": "Чудеса на кухне. Посуду все равно мыть.",
+      "url": "https://fun.ru/fartuki/magicheskaya_formula",
+      "image": {
+        "master": "assets/products/fartuki.png",
+        "sha256": "92db59248c0036255907c7fd4345eb07e94f74f2c282852ed593e27f4637670b",
+        "width": 1254,
+        "height": 1254,
+        "alt": "Фарфоровая девушка готовит в черном фартуке с магической формулой; рядом парень моет посуду.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/fartuki/magicheskaya_formula",
+          "depicted": true,
+          "snapshot_date": "2026-11-06"
+        }
+      ],
+      "color_snapshot_date": "2026-11-06",
+      "availability_verified_current": true
+    },
+    {
+      "id": "formula-backpack-tenes",
+      "order": 2,
+      "name": "Рюкзак-мешок",
+      "avatar": "male",
+      "caption": "Срезал путь на пару.",
+      "url": "https://fun.ru/backpack-tenes/magicheskaya_formula",
+      "image": {
+        "master": "assets/products/backpack-tenes.png",
+        "sha256": "8e4ad07a3bb24d6f3c920e69c03073abfd7d172e4b71df8f200ab51d36dd038b",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Фарфоровый студент с черным рюкзаком-мешком с магической формулой проходит через нарисованную мелом дверь в аудиторию.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-tenes/magicheskaya_formula",
+          "depicted": true,
+          "snapshot_date": "2026-11-06"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/backpack-tenes/magicheskaya_formula/color-darkBlue",
+          "depicted": false,
+          "snapshot_date": "2026-11-06"
+        }
+      ],
+      "color_snapshot_date": "2026-11-06",
+      "availability_verified_current": true
+    },
+    {
+      "id": "formula-backpack-27-liters",
+      "order": 3,
+      "name": "Рюкзак 27 л",
+      "avatar": "female",
+      "caption": "По объему - 27 литров. По планам - вся библиотека.",
+      "url": "https://fun.ru/backpack-27-liters/magicheskaya_formula",
+      "image": {
+        "master": "assets/products/backpack-27-liters.png",
+        "sha256": "58c9bf4bdc85fe2be7fc04f7143fdfa837ac3e199be21a988bb5a7d2e8246faf",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Фарфоровая студентка в библиотеке укладывает высокую стопку книг в черный рюкзак 27 литров с магической формулой.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/backpack-27-liters/magicheskaya_formula",
+          "depicted": true,
+          "snapshot_date": "2026-11-06"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/backpack-27-liters/magicheskaya_formula/color-blue",
+          "depicted": false,
+          "snapshot_date": "2026-11-06"
+        }
+      ],
+      "color_snapshot_date": "2026-11-06",
+      "availability_verified_current": true
+    },
+    {
+      "id": "formula-men-tshirts",
+      "order": 15,
+      "name": "Мужская футболка",
+      "avatar": "male",
+      "caption": "Прогноз учел. Магию тоже.",
+      "url": "https://fun.ru/men-tshirts/magicheskaya_formula",
+      "image": {
+        "master": "assets/products/men-tshirts.png",
+        "sha256": "2023f3977570c2d7f6f580e32a7e81ad8329e3ef68ca1fac298038c4682caaa5",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Фарфоровый студент в черной мужской футболке с магической формулой и джинсовых шортах стоит под дождем с закрытым зонтом.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-tshirts/magicheskaya_formula",
+          "depicted": true,
+          "snapshot_date": "2026-11-06"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-tshirts/magicheskaya_formula/color-darkBlue",
+          "depicted": false,
+          "snapshot_date": "2026-11-06"
+        },
+        {
+          "id": "green",
+          "name": "зеленый",
+          "url": "https://fun.ru/men-tshirts/magicheskaya_formula/color-green",
+          "depicted": false,
+          "snapshot_date": "2026-11-06"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-tshirts/magicheskaya_formula/color-blue",
+          "depicted": false,
+          "snapshot_date": "2026-11-06"
+        }
+      ],
+      "color_snapshot_date": "2026-11-06",
+      "availability_verified_current": true
+    }
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "generated_by": "tools/prints_media.py images",
+  "slug": "magicheskaya-formula",
+  "artwork": {
+    "full": {
+      "src": "/media/prints/magicheskaya-formula/artwork-8c2264d9c1.png",
+      "width": 4200,
+      "height": 1800
+    },
+    "variants": [
+      {
+        "src": "/media/prints/magicheskaya-formula/artwork-1400-b9631a333d.webp",
+        "width": 1400,
+        "height": 600
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/artwork-2800-4a94a3d15c.webp",
+        "width": 2800,
+        "height": 1200
+      }
+    ],
+    "thumb": {
+      "src": "/media/prints/magicheskaya-formula/thumb-77d9cc9583.webp",
+      "width": 480,
+      "height": 115
+    }
+  },
+  "poster": [
+    {
+      "src": "/media/prints/magicheskaya-formula/poster-960-2fcf2fca51.webp",
+      "width": 960,
+      "height": 540
+    },
+    {
+      "src": "/media/prints/magicheskaya-formula/poster-1280-23f3fa0905.webp",
+      "width": 1280,
+      "height": 720
+    }
+  ],
+  "og": {
+    "src": "/media/prints/magicheskaya-formula/og-33be8f3f4b.png",
+    "width": 1200,
+    "height": 630
+  },
+  "products": {
+    "formula-fartuki": [
+      {
+        "src": "/media/prints/magicheskaya-formula/01-formula-fartuki-480-3e2832cefc.webp",
+        "width": 480,
+        "height": 480
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/01-formula-fartuki-800-713f8b58f3.webp",
+        "width": 800,
+        "height": 800
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/01-formula-fartuki-1254-686a58fc94.webp",
+        "width": 1254,
+        "height": 1254
+      }
+    ],
+    "formula-backpack-tenes": [
+      {
+        "src": "/media/prints/magicheskaya-formula/02-formula-backpack-tenes-480-c4581143cb.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/02-formula-backpack-tenes-800-d7e213e3de.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/02-formula-backpack-tenes-1086-5906e9313b.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "formula-backpack-27-liters": [
+      {
+        "src": "/media/prints/magicheskaya-formula/03-formula-backpack-27-liters-480-82c5cf9b21.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/03-formula-backpack-27-liters-800-f3a246551f.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/03-formula-backpack-27-liters-1086-4676b595d4.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ],
+    "formula-men-tshirts": [
+      {
+        "src": "/media/prints/magicheskaya-formula/15-formula-men-tshirts-480-9ad1e9f23a.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/15-formula-men-tshirts-800-d6f9929f23.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/15-formula-men-tshirts-1086-ff8c73594c.webp",
+        "width": 1086,
+        "height": 1448
+      }
+    ]
+  }
+}
