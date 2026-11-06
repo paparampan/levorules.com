@@ -16,6 +16,14 @@ function magicProbability(value) {
   if (percent < 100 && percent >= 99.995) return '> 99,99';
   return magicNumber(percent);
 }
+function magicResultBand(value) {
+  // Match the displayed percentage so rounding cannot disagree with its color.
+  const percent = Number(magicNumber(value * 100).replace(',', '.'));
+  if (percent < 31) return 'red';
+  if (percent < 50) return 'orange';
+  if (percent < 66) return 'yellow';
+  return 'green';
+}
 function magicStrength(value) {
   return value > 0 && value < 0.000001 ? '< 0,000001' : magicNumber(value, 6);
 }
@@ -85,7 +93,7 @@ function MagicCalculator() {
         <div className="magic-input-footer"><p>Стартовые значения условные. Замени их своими оценками.</p><button type="button" onClick={() => setValues({ ...MAGIC_DEFAULTS })}>Сбросить</button></div>
       </div>
       <div className="magic-results-column">
-        <div className="magic-result" aria-live="polite" aria-atomic="true">
+        <div className="magic-result" data-result-band={result.valid ? magicResultBand(result.Pm) : 'neutral'} aria-live="polite" aria-atomic="true">
           <span className="magic-kicker">Результат по модели</span>
           {result.valid ? <>
             <div className="magic-result-value"><span>{magicProbability(result.Pm)}</span><span className="magic-percent">%</span></div>
