@@ -23,6 +23,7 @@ const GUIDES_INDEX = [
     eyebrow: 'Бесплатно · памятка',
     title: 'Формула магии',
     titleAccent: 'магии',
+    accent: 'var(--purple)',
     intro: 'Пять показателей, две формулы и калькулятор вероятности результата по модели Питера Кэрролла.',
     tags: ['Калькулятор', 'Теория', 'Практика'],
     date: '06.11.2026',
@@ -103,6 +104,7 @@ function GuidesLanding({ setRoute }) {
 }
 
 function GuideCard({ guide, idx, setRoute }) {
+  const accent = guide.accent || GUIDES_ACCENT;
   const [hover, setHover] = React.useState(false);
   const open = () => {
     try { localStorage.setItem('lr_guide_slug', guide.slug); } catch {}
@@ -121,7 +123,7 @@ function GuideCard({ guide, idx, setRoute }) {
         open();
       }}
       style={{
-        '--lr-interaction-accent': GUIDES_ACCENT,
+        '--lr-interaction-accent': accent,
         all: 'unset', boxSizing: 'border-box', width: '100%', textAlign: 'left',
         background: hover && guide.available ? 'var(--ash-2)' : 'var(--void)',
         padding: '32px 32px',
@@ -130,12 +132,12 @@ function GuideCard({ guide, idx, setRoute }) {
         display: 'grid', gridTemplateColumns: '80px 1fr auto', gap: 28, alignItems: 'center',
         transition: 'background .15s ease, transform .18s ease',
       }}>
-      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: GUIDES_ACCENT, letterSpacing: '0.1em' }}>
+      <div style={{ fontFamily: 'var(--font-mono)', fontSize: 13, color: accent, letterSpacing: '0.1em' }}>
         [{String(idx + 1).padStart(2, '0')}]
       </div>
       <div>
         <div style={{ display: 'flex', gap: 14, marginBottom: 10, fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.1em', textTransform: 'uppercase', color: 'var(--bone-dim)' }}>
-          <span style={{ color: GUIDES_ACCENT }}>▸ {guide.eyebrow}</span>
+          <span style={{ color: accent }}>▸ {guide.eyebrow}</span>
           <span>·</span>
           <span>{guide.date}</span>
           <span>·</span>
@@ -152,7 +154,7 @@ function GuideCard({ guide, idx, setRoute }) {
           {guide.intro}
         </div>
         <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
-          {guide.tags.map(t => <Tag key={t} accent={GUIDES_ACCENT}>▸ {t}</Tag>)}
+          {guide.tags.map(t => <Tag key={t} accent={accent}>▸ {t}</Tag>)}
         </div>
       </div>
       <span
@@ -161,10 +163,10 @@ function GuideCard({ guide, idx, setRoute }) {
         style={{
           display: 'inline-block',
           fontFamily: 'var(--font-mono)', fontSize: 12, letterSpacing: '0.1em', textTransform: 'uppercase',
-          color: guide.available ? GUIDES_ACCENT : 'var(--bone-dim)',
-          border: `1px solid ${guide.available ? GUIDES_ACCENT : 'var(--border-strong)'}`,
+          color: guide.available ? accent : 'var(--bone-dim)',
+          border: `1px solid ${guide.available ? accent : 'var(--border-strong)'}`,
           padding: '10px 16px', cursor: guide.available ? 'pointer' : 'not-allowed',
-          background: hover && guide.available ? GUIDES_ACCENT : 'transparent',
+          background: hover && guide.available ? accent : 'transparent',
           transition: 'background .15s ease, color .15s ease, transform .18s ease',
         }}
       >
