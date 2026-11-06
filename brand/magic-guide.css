@@ -90,6 +90,15 @@
 .magic-equation sup { font-size:.65em; }
 .magic-formula-block p { font-size:15px; line-height:1.7; }
 .magic-rule { border-top:1px solid var(--border); padding-top:16px; font-size:13px; line-height:1.65; color:var(--bone-dim); }
+.magic-antispell { margin-top:24px; border:1px solid var(--border); background:var(--ash-2); }
+.magic-antispell summary { padding:20px 24px; min-height:44px; cursor:pointer; color:var(--bone); font-family:var(--font-display); font-size:22px; line-height:1.4; }
+.magic-antispell summary::marker { color:var(--magic-accent); }
+.magic-antispell summary:focus-visible { outline:2px solid var(--magic-accent); outline-offset:3px; }
+.magic-antispell[open] summary { border-bottom:1px solid var(--border); }
+.magic-antispell-content { padding:0 24px 8px; max-width:860px; }
+.magic-antispell-content p { font-size:15px; line-height:1.7; }
+.magic-antispell-content .magic-antispell-note { padding-top:16px; border-top:1px solid var(--border); color:var(--bone-dim); font-size:13px; }
+.magic-antispell a { color:var(--bone); text-underline-offset:3px; }
 .magic-takeaways { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:32px; }
 .magic-takeaways>div>span { font:12px var(--font-mono); color:var(--magic-accent); }
 .magic-takeaways h3 { margin:12px 0; font-size:22px; line-height:1.3; }
