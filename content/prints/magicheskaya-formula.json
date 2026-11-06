@@ -82,7 +82,7 @@
   "assortment": {
     "eyebrow": "вещи",
     "title": "Формула на каждый день",
-    "intro": "Фартук для кухни, рюкзаки для учебы и футболка для прогулки. Выбирай, где сегодня проверять теорию.",
+    "intro": "Фартук для кухни, рюкзаки для учебы и футболки для прогулки. Выбирай, где сегодня проверять теорию.",
     "colors_label": "Цвета на FUN.ru",
     "depicted_label": "на фото",
     "availability_note": "Доступность цветов и размеров уточняй на странице товара.",
@@ -91,16 +91,16 @@
   },
   "seo": {
     "title": "Магическая формула - Чудес не бывает | Принты LEVORULES",
-    "description": "Рукописная формула вероятности и красная подпись \"Чудес не бывает\". Фартук, два рюкзака и мужская футболка LEVORULES: фото и ссылки на FUN.ru.",
+    "description": "Рукописная формула вероятности и красная подпись \"Чудес не бывает\". Фартук, два рюкзака, мужская и женская футболки LEVORULES: фото и ссылки на FUN.ru.",
     "og_title": "Магическая формула. Чудес не бывает.",
-    "og_description": "Планы на чудо есть. Запасной план тоже. Четыре вещи с формулой вероятности и маленькой красной ремаркой.",
+    "og_description": "Планы на чудо есть. Запасной план тоже. Пять вещей с формулой вероятности и маленькой красной ремаркой.",
     "og_image_alt": "Рукописная формула Pₘ = P + (1 − P) · M в степени 1/P костяным цветом и красная подпись \"// ЧУДЕС НЕ БЫВАЕТ\" на прозрачном фоне."
   },
   "editorial": {
     "status": "публикация поручена пользователем",
     "authorization_date": "2026-11-06",
     "source_package": "outputs/showcase/magicheskaya_formula/v01/publication",
-    "scope": "Только четыре согласованных товарных фото 01, 02, 03 и 15; остальные товары на паузе.",
+    "scope": "Пять согласованных товарных фото 01, 02, 03, 14 и 15; остальные товары на паузе.",
     "source_artwork_thread": "01a1aff1-0461-7bc0-84d1-3bfa41c418dc"
   },
   "products": [
@@ -192,6 +192,40 @@
           "id": "blue",
           "name": "синий",
           "url": "https://fun.ru/backpack-27-liters/magicheskaya_formula/color-blue",
+          "depicted": false,
+          "snapshot_date": "2026-11-06"
+        }
+      ],
+      "color_snapshot_date": "2026-11-06",
+      "availability_verified_current": true
+    },
+    {
+      "id": "formula-women-tshirts",
+      "order": 14,
+      "name": "Женская футболка",
+      "avatar": "female",
+      "caption": "Магия большого перерыва.",
+      "url": "https://fun.ru/women-tshirts/magicheskaya_formula",
+      "image": {
+        "master": "assets/products/women-tshirts.png",
+        "sha256": "778f27902bfea7d3964b473283a0d2ea7968f3f608077feca313843ef7a11cdf",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Фарфоровая студентка в черной женской футболке с магической формулой притягивает шоколадку из автомата в университетском коридоре.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/women-tshirts/magicheskaya_formula",
+          "depicted": true,
+          "snapshot_date": "2026-11-06"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/women-tshirts/magicheskaya_formula/color-darkBlue",
           "depicted": false,
           "snapshot_date": "2026-11-06"
         }

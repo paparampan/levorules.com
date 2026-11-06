@@ -110,6 +110,23 @@
         "width": 1086,
         "height": 1448
       }
+    ],
+    "formula-women-tshirts": [
+      {
+        "src": "/media/prints/magicheskaya-formula/14-formula-women-tshirts-480-7397586779.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/14-formula-women-tshirts-800-8eeb127201.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/14-formula-women-tshirts-1086-ccc5171086.webp",
+        "width": 1086,
+        "height": 1448
+      }
     ]
   }
 }
