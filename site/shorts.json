@@ -1,14 +1,22 @@
 {
-  "updated": "2026-11-06T06:54:33Z",
+  "updated": "2026-11-06T10:18:11Z",
   "channel": "https://www.youtube.com/@levorules/shorts",
   "items": [
+    {
+      "id": "74G2c2_a5D4",
+      "title": "Как посчитать магию? Формула Питера Кэрролла",
+      "url": "https://www.youtube.com/shorts/74G2c2_a5D4",
+      "thumb": "https://i.ytimg.com/vi/74G2c2_a5D4/hqdefault.jpg",
+      "views": "56",
+      "acc": "var(--magenta)"
+    },
     {
       "id": "4Q9sHMlQU-U",
       "title": "Почему на Хэллоуин наряжаются в нечисть?",
       "url": "https://www.youtube.com/shorts/4Q9sHMlQU-U",
       "thumb": "https://i.ytimg.com/vi/4Q9sHMlQU-U/hqdefault.jpg",
       "views": "1.7k",
-      "acc": "var(--magenta)"
+      "acc": "var(--acid-green)"
     },
     {
       "id": "QXjdEcnS2GQ",
@@ -16,7 +24,7 @@
       "url": "https://www.youtube.com/shorts/QXjdEcnS2GQ",
       "thumb": "https://i.ytimg.com/vi/QXjdEcnS2GQ/hqdefault.jpg",
       "views": "219",
-      "acc": "var(--acid-green)"
+      "acc": "var(--purple)"
     },
     {
       "id": "fzqsUh-8eAI",
@@ -24,7 +32,7 @@
       "url": "https://www.youtube.com/shorts/fzqsUh-8eAI",
       "thumb": "https://i.ytimg.com/vi/fzqsUh-8eAI/hqdefault.jpg",
       "views": "908",
-      "acc": "var(--purple)"
+      "acc": "var(--amber)"
     },
     {
       "id": "nePi-JDLzLA",
@@ -32,14 +40,6 @@
       "url": "https://www.youtube.com/shorts/nePi-JDLzLA",
       "thumb": "https://i.ytimg.com/vi/nePi-JDLzLA/hqdefault.jpg",
       "views": "1.6k",
-      "acc": "var(--amber)"
-    },
-    {
-      "id": "jvjjWt26yJQ",
-      "title": "Откуп в магии: почему нельзя просто заплатить?",
-      "url": "https://www.youtube.com/shorts/jvjjWt26yJQ",
-      "thumb": "https://i.ytimg.com/vi/jvjjWt26yJQ/hqdefault.jpg",
-      "views": "399",
       "acc": "var(--cyber-cyan)"
     }
   ]
