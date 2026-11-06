@@ -127,6 +127,23 @@
         "width": 1086,
         "height": 1448
       }
+    ],
+    "formula-men-hoodies": [
+      {
+        "src": "/media/prints/magicheskaya-formula/11-formula-men-hoodies-480-3745336e12.webp",
+        "width": 480,
+        "height": 640
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/11-formula-men-hoodies-800-5f6f17d40d.webp",
+        "width": 800,
+        "height": 1067
+      },
+      {
+        "src": "/media/prints/magicheskaya-formula/11-formula-men-hoodies-1086-4d75bd14d8.webp",
+        "width": 1086,
+        "height": 1448
+      }
     ]
   }
 }

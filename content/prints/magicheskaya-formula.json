@@ -82,7 +82,7 @@
   "assortment": {
     "eyebrow": "вещи",
     "title": "Формула на каждый день",
-    "intro": "Фартук для кухни, рюкзаки для учебы и футболки для прогулки. Выбирай, где сегодня проверять теорию.",
+    "intro": "Фартук для кухни, рюкзаки для учебы, футболки и толстовка для прогулки. Выбирай, где сегодня проверять теорию.",
     "colors_label": "Цвета на FUN.ru",
     "depicted_label": "на фото",
     "availability_note": "Доступность цветов и размеров уточняй на странице товара.",
@@ -91,16 +91,16 @@
   },
   "seo": {
     "title": "Магическая формула - Чудес не бывает | Принты LEVORULES",
-    "description": "Рукописная формула вероятности и красная подпись \"Чудес не бывает\". Фартук, два рюкзака, мужская и женская футболки LEVORULES: фото и ссылки на FUN.ru.",
+    "description": "Рукописная формула вероятности и красная подпись \"Чудес не бывает\". Фартук, два рюкзака, две футболки и мужская толстовка LEVORULES: фото и ссылки на FUN.ru.",
     "og_title": "Магическая формула. Чудес не бывает.",
-    "og_description": "Планы на чудо есть. Запасной план тоже. Пять вещей с формулой вероятности и маленькой красной ремаркой.",
+    "og_description": "Планы на чудо есть. Запасной план тоже. Шесть вещей с формулой вероятности и маленькой красной ремаркой.",
     "og_image_alt": "Рукописная формула Pₘ = P + (1 − P) · M в степени 1/P костяным цветом и красная подпись \"// ЧУДЕС НЕ БЫВАЕТ\" на прозрачном фоне."
   },
   "editorial": {
     "status": "публикация поручена пользователем",
     "authorization_date": "2026-11-06",
     "source_package": "outputs/showcase/magicheskaya_formula/v01/publication",
-    "scope": "Пять согласованных товарных фото 01, 02, 03, 14 и 15; остальные товары на паузе.",
+    "scope": "Шесть согласованных товарных фото 01, 02, 03, 11, 14 и 15; остальные товары на паузе.",
     "source_artwork_thread": "01a1aff1-0461-7bc0-84d1-3bfa41c418dc"
   },
   "products": [
@@ -192,6 +192,47 @@
           "id": "blue",
           "name": "синий",
           "url": "https://fun.ru/backpack-27-liters/magicheskaya_formula/color-blue",
+          "depicted": false,
+          "snapshot_date": "2026-11-06"
+        }
+      ],
+      "color_snapshot_date": "2026-11-06",
+      "availability_verified_current": true
+    },
+    {
+      "id": "formula-men-hoodies",
+      "order": 11,
+      "name": "Мужская толстовка",
+      "avatar": "male",
+      "caption": "Пока сохнут джинсы.",
+      "url": "https://fun.ru/men-hoodies/magicheskaya_formula",
+      "image": {
+        "master": "assets/products/men-hoodies.png",
+        "sha256": "c732936ba20506ccbf0cf8c957577ce4c2aa724d5baa1cbe9a9b0ed13ca92996",
+        "width": 1086,
+        "height": 1448,
+        "alt": "Фарфоровый студент в черной толстовке с магической формулой и свободных трусах в сердечко стоит у стиральной машины; рядом над лужей левитируют мокрые джинсы.",
+        "depicted_color": "черный"
+      },
+      "colors": [
+        {
+          "id": "default",
+          "name": "черный",
+          "url": "https://fun.ru/men-hoodies/magicheskaya_formula",
+          "depicted": true,
+          "snapshot_date": "2026-11-06"
+        },
+        {
+          "id": "blue",
+          "name": "синий",
+          "url": "https://fun.ru/men-hoodies/magicheskaya_formula/color-blue",
+          "depicted": false,
+          "snapshot_date": "2026-11-06"
+        },
+        {
+          "id": "darkBlue",
+          "name": "темно-синий",
+          "url": "https://fun.ru/men-hoodies/magicheskaya_formula/color-darkBlue",
           "depicted": false,
           "snapshot_date": "2026-11-06"
         }
