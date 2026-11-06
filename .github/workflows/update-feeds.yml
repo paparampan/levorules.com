@@ -31,11 +31,16 @@ jobs:
           python -m pip install --upgrade pip
           pip install yt-dlp beautifulsoup4
 
+      - name: Test Telegram parser
+        run: python -m unittest discover -s tools -p "test_fetch_telegram.py"
+
       - name: Fetch YouTube Shorts
+        id: shorts
         run: python tools/fetch_shorts.py
         continue-on-error: true
 
       - name: Fetch Telegram posts
+        id: telegram
         run: python tools/fetch_telegram.py
         continue-on-error: true
 
@@ -50,3 +55,9 @@ jobs:
             git commit -m "feeds: auto-refresh $(date -u +%Y-%m-%dT%H:%MZ)"
             git push
           fi
+
+      - name: Report failed refresh
+        if: steps.telegram.outcome == 'failure' || steps.shorts.outcome == 'failure'
+        run: |
+          echo "::error::A feed refresh failed. Check the fetch step above; the previous feed file was preserved."
+          exit 1

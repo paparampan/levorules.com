@@ -219,7 +219,7 @@ function TelegramPosts() {
   const [posts, setPosts] = React.useState(TELEGRAM_FALLBACK);
 
   React.useEffect(() => {
-    fetch('/site/telegram.json')
+    fetch('/site/telegram.json', { cache: 'no-cache' })
       .then((r) => (r.ok ? r.json() : null))
       .then((data) => {
         if (data && Array.isArray(data.items) && data.items.length) {

@@ -38,7 +38,7 @@
   Cache-Control: public, max-age=1800
 
 /site/telegram.json
-  Cache-Control: public, max-age=1800
+  Cache-Control: public, max-age=0, must-revalidate
 
 /manifest.webmanifest
   Content-Type: application/manifest+json

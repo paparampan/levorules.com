@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
-"""Fetch latest @levorules Telegram posts from telegram.me/s/levorules preview page.
+"""Fetch public @levorules posts for the homepage «ПОСЛЕДНИЕ ПОСТЫ» block.
 
-Writes site/telegram.json for the homepage «ПОСЛЕДНИЕ ПОСТЫ» block.
-Real file lives in ~/Library/Application Support/levorules/ so launchd can
-write it (Desktop is TCC-guarded). A symlink in the site points to it.
+For posts hidden in the web feed, use the individual post's link preview.
 """
 import json
 import re
 import sys
+import time
 import urllib.request
 from datetime import datetime, timezone
 from pathlib import Path
+from urllib.error import HTTPError
+from urllib.parse import urlsplit
 
 from bs4 import BeautifulSoup, NavigableString
 
@@ -21,7 +22,7 @@ PREVIEW_URL = f"https://telegram.me/s/{CHANNEL_HANDLE}"
 COUNT = 6  # fetch a bit more than the 2 shown; frontend can pick
 # Write directly to the repo's site/telegram.json (same rationale as fetch_shorts.py).
 OUT = Path(__file__).resolve().parents[1] / "site" / "telegram.json"
-# Text for posts the preview page hides behind "Please open Telegram to view this post".
+# Optional text or local covers for posts hidden in the public preview page.
 MANUAL = json.loads(
     (Path(__file__).resolve().parents[1] / "content" / "telegram-manual.json").read_text(encoding="utf-8")
 )["posts"]
@@ -36,9 +37,9 @@ ACCENTS = [
 ]
 
 
-def fetch_html():
+def fetch_html(url=PREVIEW_URL):
     req = urllib.request.Request(
-        PREVIEW_URL,
+        url,
         headers={
             "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
                           "AppleWebKit/537.36 (KHTML, like Gecko) "
@@ -46,8 +47,26 @@ def fetch_html():
             "Accept-Language": "ru-RU,ru;q=0.9,en;q=0.8",
         },
     )
-    with urllib.request.urlopen(req, timeout=20) as r:
-        return r.read().decode("utf-8")
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(req, timeout=20) as r:
+                return r.read().decode("utf-8")
+        except OSError as exc:
+            if isinstance(exc, HTTPError) and exc.code not in (408, 425, 429, 500, 502, 503, 504):
+                raise
+            if attempt == 2:
+                raise
+            time.sleep(attempt + 1)
+
+
+def load_previous_posts():
+    """Keep a known article available when its link preview temporarily fails."""
+    try:
+        payload = json.loads(OUT.read_text(encoding="utf-8"))
+        return {str(post["id"]): post for post in payload["items"]}
+    except (OSError, ValueError, KeyError, TypeError) as exc:
+        print(f"previous Telegram feed unavailable: {exc}", file=sys.stderr)
+        return {}
 
 
 def parse_views(text):
@@ -127,12 +146,20 @@ def extract_text(msg):
         br.replace_with("\n")
 
     full = text_div.get_text("", strip=False).strip()
-    if not full:
-        return "", "", None
+    title, body = split_text(full)
+
+    title_parts = None
+    if title == first_line_text and any(part["strike"] for part in first_line_parts):
+        title_parts = first_line_parts
+    return title, body, title_parts
+
+
+def split_text(full):
+    """Use the same title and excerpt rules for message text and link previews."""
 
     lines = [re.sub(r"\s+", " ", ln.strip()) for ln in full.split("\n") if ln.strip()]
     if not lines:
-        return "", "", None
+        return "", ""
 
     # If first line is SHORT and followed by content, it's the title.
     # Otherwise split at the first sentence end of the first line.
@@ -151,15 +178,33 @@ def extract_text(msg):
             title = first[:100].strip()
             body = (first[100:] + " " + " ".join(lines[1:])).strip()
 
-    body = clamp_body(body)
-
-    title_parts = None
-    if title == first_line_text and any(part["strike"] for part in first_line_parts):
-        title_parts = first_line_parts
-    return title, body, title_parts
+    return title, clamp_body(body)
 
 
-def extract_post(msg):
+def extract_link_preview(html, post_id, channel_photo=None):
+    """Read a real post's metadata, excluding channel pages and their avatar."""
+    soup = BeautifulSoup(html, "html.parser")
+    # Missing/deleted posts return HTTP 200 with the channel's description.
+    # A deep link alone is not proof that the requested post exists.
+    widget = soup.find("script", attrs={"data-telegram-post": f"{CHANNEL_HANDLE}/{post_id}"})
+    if not soup.select_one(".tgme_page_post") or not widget:
+        return "", "", None
+
+    description = soup.find("meta", property="og:description")
+    title, body = split_text(description.get("content", "") if description else "")
+    if not title:
+        return "", "", None
+
+    image = soup.find("meta", property="og:image")
+    photo = image.get("content", "") if image else ""
+    # Telegram uses the channel avatar when an article has no public cover.
+    # Without the feed's avatar to compare against, omit the ambiguous image.
+    if not channel_photo or photo == channel_photo or urlsplit(photo).scheme != "https":
+        photo = None
+    return title, body, photo
+
+
+def extract_post(msg, channel_photo=None, previous_posts=None):
     post_id_attr = msg.get("data-post", "")  # "levorules/96"
     if "/" not in post_id_attr:
         return None
@@ -172,10 +217,38 @@ def extract_post(msg):
     photo = extract_photo(msg)
 
     manual = MANUAL.get(str(pid))
-    if manual and not title and not body and not photo:
+    hidden_post = not title and not body and not photo
+    if manual and manual.get("title") and hidden_post:
         title = manual["title"]
         body = clamp_body(manual.get("body", ""))
         photo = manual.get("photo")
+
+    if not title and not body and not photo and msg.find(class_="message_media_not_supported"):
+        try:
+            title, body, photo = extract_link_preview(
+                fetch_html(f"https://t.me/{CHANNEL_HANDLE}/{pid}"), pid, channel_photo
+            )
+            if title:
+                print(f"read link preview: #{pid} {title}")
+            else:
+                print(f"no public link preview: #{pid}", file=sys.stderr)
+        except (OSError, ValueError) as exc:
+            # One unavailable post must not prevent refreshing the rest of the feed.
+            print(f"could not read link preview for #{pid}: {exc}", file=sys.stderr)
+
+        # Reuse only IDs still present in today's public feed as unsupported posts.
+        # Never append old entries wholesale: that would resurrect deleted posts.
+        previous = (previous_posts or {}).get(str(pid))
+        if not title and previous and previous.get("title"):
+            title = previous["title"]
+            body = clamp_body(previous.get("body", ""))
+            photo = previous.get("photo")
+            title_parts = previous.get("titleParts")
+            print(f"kept previous link preview: #{pid} {title}")
+
+    # A cover-only entry keeps the article's title and excerpt automatic.
+    if hidden_post and title and manual and manual.get("photo"):
+        photo = manual["photo"]
 
     # If no text but a photo, fall back to "Фото · <date>" style title
     if not title and not body:
@@ -208,10 +281,13 @@ def extract_post(msg):
 def main():
     html = fetch_html()
     soup = BeautifulSoup(html, "html.parser")
+    channel_image = soup.find("meta", property="og:image")
+    channel_photo = channel_image.get("content") if channel_image else None
     messages = soup.find_all("div", class_="tgme_widget_message")
+    previous_posts = load_previous_posts()
     posts = []
     for msg in messages:
-        p = extract_post(msg)
+        p = extract_post(msg, channel_photo, previous_posts)
         if p:
             posts.append(p)
 
