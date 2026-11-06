@@ -35,8 +35,8 @@ function MagicEquation({ probability = false }) {
     ? 'P m равно P плюс (1 минус P), умноженное на M в степени (1 делить на P)'
     : 'M равно G умножить на L умножить на (1 минус A) умножить на (1 минус R)'}>
     <span aria-hidden="true">{probability
-      ? <><i>P</i><sub>m</sub> = <i>P</i> + (1 − <i>P</i>) · <i>M</i><sup>1/<i>P</i></sup></>
-      : <><i>M</i> = <i>G</i> · <i>L</i> · (1 − <i>A</i>) · (1 − <i>R</i>)</>}
+      ? <><i>P</i><sub>m</sub> = <i>P</i> + (1 − <i>P</i>) × <i>M</i><sup>1/<i>P</i></sup></>
+      : <><i>M</i> = <i>G</i> × <i>L</i> × (1 − <i>A</i>) × (1 − <i>R</i>)</>}
     </span>
   </span>;
 }
@@ -110,10 +110,10 @@ function MagicCalculator() {
             {result.M === 1 && <p className="magic-result-note">M = 1 означает идеальный магический акт в этой модели. Полученные 100% не служат гарантией реального события.</p>}
             {numbers.P === 100 && <p className="magic-result-note">При P = 100% событие уже считается неизбежным. Прибавлять к этому нечего.</p>}
             <details className="magic-substitution"><summary>Посмотреть подстановку</summary>
-              <p><strong>M</strong> = {magicNumber(numbers.G, 8)} · {magicNumber(numbers.L, 8)} · (1 − {magicNumber(numbers.A, 8)}) · (1 − {magicNumber(numbers.R, 8)})<br />= {magicStrength(result.M)}</p>
+              <p><strong>M</strong> = {magicNumber(numbers.G, 8)} × {magicNumber(numbers.L, 8)} × (1 − {magicNumber(numbers.A, 8)}) × (1 − {magicNumber(numbers.R, 8)})<br />= {magicStrength(result.M)}</p>
               <p><strong>P</strong> = {magicSubstitutionNumber(numbers.P)} / 100 = {magicSubstitutionNumber(numbers.P / 100)}</p>
               <MagicEquation probability />
-              <p className="magic-substitution-line">P<sub>m</sub> ≈ {magicSubstitutionNumber(numbers.P / 100)} + (1 − {magicSubstitutionNumber(numbers.P / 100)}) · ({magicSubstitutionNumber(result.M)})<sup>1/({magicSubstitutionNumber(numbers.P / 100)})</sup></p>
+              <p className="magic-substitution-line">P<sub>m</sub> ≈ {magicSubstitutionNumber(numbers.P / 100)} + (1 − {magicSubstitutionNumber(numbers.P / 100)}) × ({magicSubstitutionNumber(result.M)})<sup>1/({magicSubstitutionNumber(numbers.P / 100)})</sup></p>
               <p>Результат в долях умножаем на 100 и получаем {magicProbability(result.Pm)}%. В расчете используются полные значения, на экране числа округлены.</p>
             </details>
           </> : <div className="magic-empty"><strong>Проверь исходные значения</strong><p>{validationMessage}</p><p>Исправь отмеченные поля, и расчет появится автоматически.</p></div>}
@@ -133,7 +133,7 @@ function GuideMagicProbability({ setRoute }) {
         <p>Как исходный шанс, гнозис, связь с целью и внутренние помехи складываются в вероятность результата.</p>
         <nav className="magic-hero-nav" aria-label="Разделы памятки"><a className="magic-primary-link" href="/guides/magic-probability/#magic-calculator">Рассчитать ↓</a><a href="/guides/magic-probability/#magic-formulas">Разобрать формулы ↗</a></nav>
       </div>
-      <div className="magic-hero-diagram" aria-hidden="true"><div className="magic-kicker">МОДЕЛЬ ПИТЕРА КЭРРОЛЛА</div><div className="magic-diagram-line"><span>G · L · (1 − A) · (1 − R)</span><b>↓</b><strong>M</strong></div><div className="magic-diagram-result"><span>P</span><span>+</span><span>(1 − P) · M<sup>1/P</sup></span><b>= P<sub>m</sub></b></div><div className="magic-diagram-caption">Исходный шанс + вклад магии</div></div>
+      <div className="magic-hero-diagram" aria-hidden="true"><div className="magic-kicker">МОДЕЛЬ ПИТЕРА КЭРРОЛЛА</div><div className="magic-diagram-line"><span>G × L × (1 − A) × (1 − R)</span><b>↓</b><strong>M</strong></div><div className="magic-diagram-result"><span>P</span><span>+</span><span>(1 − P) × M<sup>1/P</sup></span><b>= P<sub>m</sub></b></div><div className="magic-diagram-caption">Исходный шанс + вклад магии</div></div>
     </header>
     <div className="magic-content">
       <MagicCalculator />
@@ -148,7 +148,7 @@ function GuideMagicProbability({ setRoute }) {
           <div className="magic-antispell-content">
             <p>У Кэрролла есть парная формула для работы на предотвращение события:</p>
             <span className="magic-equation" role="math" aria-label="P m равно P минус P умножить на M в степени (один делить на (один минус P))">
-              <span aria-hidden="true"><i>P</i><sub>m</sub> = <i>P</i> − <i>P</i> · <i>M</i><sup>1/(1 − <i>P</i>)</sup></span>
+              <span aria-hidden="true"><i>P</i><sub>m</sub> = <i>P</i> − <i>P</i> × <i>M</i><sup>1/(1 − <i>P</i>)</sup></span>
             </span>
             <p>Здесь P обозначает исходный шанс нежелательного события, M относится к работе на его предотвращение, а P<sub>m</sub> показывает оставшийся шанс события по модели.</p>
             <p>При M = 0 вероятность остается равной P. При M = 1 формула дает ноль. Эта запись определена при 0 ≤ P &lt; 1: при P = 1 в степени возникает деление на ноль. Все значения подставляются в долях.</p>
