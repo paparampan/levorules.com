@@ -2,6 +2,7 @@
 // First guide: «Базовые техники защиты». Hash routes:
 //   #guides                       → landing
 //   #guides/defense-basics        → guide
+//   #guides/magic-probability     → guide
 
 const GUIDES_ACCENT = 'var(--acid-green)';
 
@@ -14,6 +15,17 @@ const GUIDES_INDEX = [
     intro: 'Защита — не стена и не амулет. Режим работы сознания: индексация входящего потока, удержание оси, разрыв связей, заземление в материи.',
     tags: ['База', 'Теория', 'Практика', 'ПЛР'],
     date: '02.05.2026',
+    version: 'v.1',
+    available: true,
+  },
+  {
+    slug: 'magic-probability',
+    eyebrow: 'Бесплатно · памятка',
+    title: 'Формула магии',
+    titleAccent: 'магии',
+    intro: 'Пять показателей, две формулы и калькулятор вероятности результата по модели Питера Кэрролла.',
+    tags: ['Калькулятор', 'Теория', 'Практика'],
+    date: '06.11.2026',
     version: 'v.1',
     available: true,
   },
@@ -167,6 +179,7 @@ function GuideCard({ guide, idx, setRoute }) {
 // ----------- GUIDE ROUTER ----------
 function GuidePage({ slug, setRoute }) {
   if (slug === 'defense-basics') return <GuideDefenseBasics setRoute={setRoute} />;
+  if (slug === 'magic-probability') return <GuideMagicProbability setRoute={setRoute} />;
   // Unknown slug — fall back to landing.
   return <GuidesLanding setRoute={setRoute} />;
 }
@@ -212,14 +225,14 @@ function GuideBreadcrumb({ setRoute, title }) {
   );
 }
 
-function GuideFooterNav({ setRoute }) {
+function GuideFooterNav({ setRoute, slug = 'defense-basics' }) {
   return (
     <section style={{ borderTop: '1px solid var(--border)' }}>
       <div style={{ maxWidth: 1280, margin: '0 auto', padding: '40px 32px 64px',
         display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 16 }}>
         <Btn variant="ghost" onClick={() => setRoute('guides')}>← К списку гайдов</Btn>
         <div style={{ fontFamily: 'var(--font-mono)', fontSize: 11, color: 'var(--bone-dim)', letterSpacing: '0.1em' }}>
-          guide · defense-basics · v.1
+          guide · {slug} · v.1
         </div>
       </div>
     </section>

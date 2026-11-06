@@ -70,7 +70,7 @@ class Page(HTMLParser):
 
 prints_section=json.loads((ROOT/'content/prints/index.json').read_text(encoding='utf8'))
 prints={slug:json.loads((ROOT/f'content/prints/{slug}.json').read_text(encoding='utf8')) for slug in prints_section['prints']}
-paths=['/','/servitors/','/guides/','/guides/defense-basics/','/who/','/passport-servitora/','/prints/']+[f'/prints/{slug}/' for slug in prints]+[f'/servitors/{n}/' for n in range(11)]
+paths=['/','/servitors/','/guides/','/guides/defense-basics/','/guides/magic-probability/','/who/','/passport-servitora/','/prints/']+[f'/prints/{slug}/' for slug in prints]+[f'/servitors/{n}/' for n in range(11)]
 pages={}
 for route in paths:
     page=Page();page.feed((PUBLIC/route.lstrip('/')/'index.html').read_text(encoding='utf8'));pages[route]=page

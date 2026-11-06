@@ -11,7 +11,8 @@
     "build": "node build.mjs",
     "preview": "python3 -m http.server 4173 --bind 127.0.0.1",
     "start": "npm run preview",
-    "test": "npm run content:jsx && npm run build && npm run audit:content && npm run verify:site",
+    "test": "npm run test:magic && npm run content:jsx && npm run build && npm run audit:content && npm run verify:site",
+    "test:magic": "node tools/test-magic-probability.cjs",
     "verify:site": "node tools/python.mjs tools/verify_site.py"
   },
   "keywords": [],

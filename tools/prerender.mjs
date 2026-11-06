@@ -17,6 +17,7 @@ export async function prerender({root, publicDir}) {
     ['/servitors/', 'Сервиторы — бесплатный курс · Лево Руля', 'Авторский курс о сервиторах: история, проектирование, критическая проверка и завершение. 11 модулей, бесплатные PDF и шаблоны.'],
     ['/guides/', 'Гайды · Лево Руля', 'Открытые статьи, протоколы и разборы магической практики. Базовые техники защиты и рабочая тетрадь «Паспорт сервитора».'],
     ['/guides/defense-basics/', 'Базовые техники защиты · Лево Руля', 'Бесплатный гайд: две парадигмы защиты, работа с вниманием, сигилы, заземление и проверка ощущения угрозы.'],
+    ['/guides/magic-probability/', 'Формула магии · Лево Руля', 'Пять показателей, две формулы и калькулятор вероятности результата по модели Питера Кэрролла.'],
     ['/who/', 'Об авторе · Лево Руля', 'Антон, автор «Лево Руля»: подход к источникам, авторским моделям, практике и исправлению материалов.'],
     [prints.section.href, prints.section.seo.title, prints.section.seo.description, prints.prints[0] && {...printSocial(prints.prints[0]), ogTitle: prints.section.seo.title, ogDescription: prints.section.seo.description}],
     ...prints.prints.map((print) => [print.href, print.seo.title, print.seo.description, printSocial(print)]),

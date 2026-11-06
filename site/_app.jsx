@@ -156,7 +156,7 @@ function lrRouteFromHash(hash = location.hash, path = location.pathname) {
 }
 function lrSectionFromHash(hash = location.hash) {
   const h = lrHashValue(hash);
-  if (/^s-\d+\.\d+$/.test(h) || ['territories','video','content','program','appendices','edition','module-start','practice','selfcheck'].includes(h) || h.startsWith('defense-') || h.startsWith('print-')) return h;
+  if (/^s-\d+\.\d+$/.test(h) || ['territories','video','content','program','appendices','edition','module-start','practice','selfcheck'].includes(h) || h.startsWith('defense-') || h.startsWith('magic-') || h.startsWith('print-')) return h;
   return null;
 }
 function lrGuideSlugFromHash(hash = location.hash, path = location.pathname) {
@@ -537,7 +537,7 @@ function App() {
       const link = event.target.closest?.('a[href]');
       if (event.defaultPrevented || !lrPlainClick(event) || !link || link.target || link.hasAttribute('download')) return;
       const url = new URL(link.href);
-      if (url.origin !== location.origin || !/^\/(?:servitors(?:\/\d+)?|guides(?:\/defense-basics)?|who|prints(?:\/[a-z0-9-]+)?)?\/?$/.test(url.pathname)) return;
+      if (url.origin !== location.origin || !/^\/(?:servitors(?:\/\d+)?|guides(?:\/(?:defense-basics|magic-probability))?|who|prints(?:\/[a-z0-9-]+)?)?\/?$/.test(url.pathname)) return;
       if (url.hash === '#main-content') return;
       event.preventDefault();
       const nextRoute = lrRouteFromHash(url.hash, url.pathname);

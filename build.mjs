@@ -36,6 +36,8 @@ const APP_FILES = [
   "_who.jsx",
   "_guides.jsx",
   "_prints.jsx",
+  "_magic-math.js",
+  "_magic-guide.jsx",
   "_app.jsx",
 ];
 
@@ -106,6 +108,7 @@ for (const file of [
   resolve(HERE, "brand", "colors_and_type.css"),
   resolve(HERE, "brand", "effects.css"),
   resolve(HERE, "brand", "prints.css"),
+  resolve(HERE, "brand", "magic-guide.css"),
   resolve(DIST, "app.js"),
   resolve(DIST, "servitors.js"),
 ]) {
