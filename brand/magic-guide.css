@@ -1,5 +1,5 @@
 /* Formula guide: existing site tokens, one functional accent. */
-.magic-guide { --magic-accent: var(--acid-green); }
+.magic-guide { --magic-accent: var(--purple); }
 .magic-hero { max-width:1280px; margin:auto; padding:64px 32px 64px; display:grid; grid-template-columns:1.2fr 1fr; gap:60px; align-items:center; border-bottom:1px solid var(--border); }
 .magic-hero h1 { font-size:clamp(64px,8vw,112px); line-height:.96; letter-spacing:-.02em; margin:26px 0; }
 .magic-hero h1 span { color:var(--magic-accent); }
@@ -7,7 +7,7 @@
 .magic-hero-nav { display:flex; flex-wrap:wrap; align-items:center; gap:24px; margin-top:30px; }
 .magic-hero-nav a { color:var(--bone); font-size:14px; text-underline-offset:5px; }
 .magic-hero-nav .magic-primary-link { padding:14px 22px; color:var(--void); background:var(--magic-accent); font-family:var(--font-display); font-weight:700; font-size:17px; text-transform:uppercase; text-decoration:none; }
-.magic-hero-diagram { padding:32px; border:1px solid var(--border-strong); border-top:2px solid var(--magic-accent); background:linear-gradient(135deg,rgba(57,255,20,.05),transparent 70%); }
+.magic-hero-diagram { padding:32px; border:1px solid var(--border-strong); border-top:2px solid var(--magic-accent); background:linear-gradient(135deg,rgba(192,80,255,.05),transparent 70%); }
 .magic-kicker { display:block; color:var(--magic-accent); font-family:var(--font-mono); font-size:11px; letter-spacing:.09em; text-transform:uppercase; line-height:1.7; }
 .magic-diagram-line { display:flex; flex-direction:column; align-items:center; gap:12px; padding:34px 0 20px; }
 .magic-diagram-line>span { font:italic clamp(18px,2vw,24px) Georgia,serif; }
@@ -24,7 +24,7 @@
 .magic-calculator-grid { display:grid; grid-template-columns:minmax(0,1.2fr) minmax(0,1fr); gap:32px; align-items:start; }
 .magic-inputs { border:1px solid var(--border-strong); background:var(--void); }
 .magic-field { padding:22px 26px; border-bottom:1px solid var(--border); }
-.magic-field-p { background:rgba(57,255,20,.035); }
+.magic-field-p { background:rgba(192,80,255,.035); }
 .magic-field-heading { display:flex; align-items:center; gap:14px; }
 .magic-letter { display:grid; place-items:center; width:42px; height:42px; border:1px solid var(--border-strong); color:var(--magic-accent); font:italic 28px Georgia,serif; flex-shrink:0; }
 .magic-field-heading label { flex:1; min-width:0; cursor:text; }

@@ -126,9 +126,9 @@ function MagicCalculator() {
 
 function GuideMagicProbability({ setRoute }) {
   return <article className="magic-guide">
-    <GuideBreadcrumb setRoute={setRoute} title="формула магии" />
+    <GuideBreadcrumb setRoute={setRoute} title="формула магии" accent="var(--magic-accent)" />
     <header className="magic-hero">
-      <div className="magic-hero-main"><Eyebrow accent="var(--acid-green)">Памятка + калькулятор · 06.11.2026 · v.1</Eyebrow>
+      <div className="magic-hero-main"><Eyebrow accent="var(--magic-accent)">Памятка + калькулятор · 06.11.2026 · v.1</Eyebrow>
         <h1>ФОРМУЛА<br /><span>МАГИИ.</span></h1>
         <p>Как исходный шанс, гнозис, связь с целью и внутренние помехи складываются в вероятность результата.</p>
         <nav className="magic-hero-nav" aria-label="Разделы памятки"><a className="magic-primary-link" href="/guides/magic-probability/#magic-calculator">Рассчитать ↓</a><a href="/guides/magic-probability/#magic-formulas">Разобрать формулы ↗</a></nav>

@@ -207,7 +207,7 @@ function GuideDefenseBasics({ setRoute }) {
   );
 }
 
-function GuideBreadcrumb({ setRoute, title }) {
+function GuideBreadcrumb({ setRoute, title, accent = GUIDES_ACCENT }) {
   const linkStyle = { color: 'var(--bone-dim)', textDecoration: 'none' };
   return (
     <div style={{
@@ -217,9 +217,9 @@ function GuideBreadcrumb({ setRoute, title }) {
       letterSpacing: '0.08em', textTransform: 'uppercase', color: 'var(--bone-dim)',
     }}>
       <a href="/" onClick={(e) => { if (!lrPlainClick(e)) return; e.preventDefault(); setRoute('home'); }} style={linkStyle}>главная</a>
-      <span style={{ margin: '0 10px', color: GUIDES_ACCENT }}>▸</span>
+      <span style={{ margin: '0 10px', color: accent }}>▸</span>
       <a href="/guides/" onClick={(e) => { if (!lrPlainClick(e)) return; e.preventDefault(); setRoute('guides'); }} style={linkStyle}>гайды</a>
-      <span style={{ margin: '0 10px', color: GUIDES_ACCENT }}>▸</span>
+      <span style={{ margin: '0 10px', color: accent }}>▸</span>
       <span style={{ color: 'var(--bone)' }}>{title}</span>
     </div>
   );

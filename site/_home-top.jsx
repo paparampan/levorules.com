@@ -1,5 +1,5 @@
 // Header — sticky top nav with Ritual mode toggle
-function Header({ ritual, setRitual, route, setRoute }) {
+function Header({ ritual, setRitual, route, setRoute, guideAccent = 'var(--acid-green)' }) {
   const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
   const mobileNavToggleRef = React.useRef(null);
   React.useEffect(() => setMobileNavOpen(false), [route]);
@@ -17,7 +17,7 @@ function Header({ ritual, setRitual, route, setRoute }) {
   const items = [
     { id: 'home', label: 'Главная' },
     { id: 'servitors', label: 'Сервиторы', accent: 'var(--purple)' },
-    { id: 'guides', label: 'Гайды', accent: 'var(--acid-green)' },
+    { id: 'guides', label: 'Гайды', accent: guideAccent },
     { id: 'prints', label: 'Принты', accent: 'var(--amber)' },
     { id: 'who', label: 'Кто я', accent: 'var(--blood-text)' },
     { id: 'tg', label: 'Telegram', href: 'https://telegram.me/levorules', external: true },

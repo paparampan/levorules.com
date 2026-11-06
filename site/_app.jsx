@@ -217,8 +217,9 @@ function lrLoadServitorsBundle() {
   return window.__LR_SERVITORS_PROMISE__;
 }
 
-function lrRouteAccent(route) {
+function lrRouteAccent(route, slug) {
   if (route === 'servitors' || route === 'servitors-reader') return 'var(--purple)';
+  if (route === 'guide' && slug === 'magic-probability') return 'var(--purple)';
   if (route === 'guides' || route === 'guide') return 'var(--acid-green)';
   if (route === 'who') return 'var(--blood-text)';
   if (route === 'prints' || route === 'print') return 'var(--amber)';
@@ -558,8 +559,8 @@ function App() {
   return (
     <>
       <a className="lr-skip-link" href="#main-content">К содержанию</a>
-      <RouteCut key={routeCutTick} active={routeCutTick > 0} accent={lrRouteAccent(route)} />
-      <Header ritual={ritual} setRitual={setRitual} route={route} setRoute={navigate} />
+      <RouteCut key={routeCutTick} active={routeCutTick > 0} accent={lrRouteAccent(route, routeSlug)} />
+      <Header ritual={ritual} setRitual={setRitual} route={route} setRoute={navigate} guideAccent={route === 'guide' ? lrRouteAccent(route, guideSlug) : undefined} />
       <main
         id="main-content"
         tabIndex={-1}
