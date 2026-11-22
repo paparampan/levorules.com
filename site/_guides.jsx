@@ -3,6 +3,7 @@
 //   #guides                       → landing
 //   #guides/defense-basics        → guide
 //   #guides/magic-probability     → guide
+//   #guides/soul-surgery          → guide
 
 const GUIDES_ACCENT = 'var(--acid-green)';
 
@@ -27,6 +28,17 @@ const GUIDES_INDEX = [
     intro: 'Пять показателей, две формулы и калькулятор вероятности результата по модели Питера Кэрролла.',
     tags: ['Калькулятор', 'Теория', 'Практика'],
     date: '06.11.2026',
+    version: 'v.1',
+    available: true,
+  },
+  {
+    slug: 'soul-surgery',
+    eyebrow: 'Бесплатно · гайд · 18+',
+    title: 'Хирурги души',
+    accent: '#d7ed27',
+    intro: 'Приёмный покой ХОХМы. Выбери знакомое состояние и узнай, к кому из пяти Хирургов попадёт твой талон. По главе Soul Surgery Дэмиена Хорайзонстара.',
+    tags: ['DKMU', 'Магия хаоса', 'PDF'],
+    date: '22.11.2026',
     version: 'v.1',
     available: true,
   },
@@ -182,6 +194,7 @@ function GuideCard({ guide, idx, setRoute }) {
 function GuidePage({ slug, setRoute }) {
   if (slug === 'defense-basics') return <GuideDefenseBasics setRoute={setRoute} />;
   if (slug === 'magic-probability') return <GuideMagicProbability setRoute={setRoute} />;
+  if (slug === 'soul-surgery') return <SoulSurgeryGuide />;
   // Unknown slug — fall back to landing.
   return <GuidesLanding setRoute={setRoute} />;
 }

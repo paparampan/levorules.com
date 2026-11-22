@@ -156,7 +156,7 @@ function lrRouteFromHash(hash = location.hash, path = location.pathname) {
 }
 function lrSectionFromHash(hash = location.hash) {
   const h = lrHashValue(hash);
-  if (/^s-\d+\.\d+$/.test(h) || ['territories','video','content','program','appendices','edition','module-start','practice','selfcheck'].includes(h) || h.startsWith('defense-') || h.startsWith('magic-') || h.startsWith('print-')) return h;
+  if (/^s-\d+\.\d+$/.test(h) || ['territories','video','content','program','appendices','edition','module-start','practice','selfcheck'].includes(h) || h.startsWith('defense-') || h.startsWith('magic-') || h.startsWith('print-') || h.startsWith('soul-')) return h;
   return null;
 }
 function lrGuideSlugFromHash(hash = location.hash, path = location.pathname) {
@@ -220,6 +220,7 @@ function lrLoadServitorsBundle() {
 function lrRouteAccent(route, slug) {
   if (route === 'servitors' || route === 'servitors-reader') return 'var(--purple)';
   if (route === 'guide' && slug === 'magic-probability') return 'var(--purple)';
+  if (route === 'guide' && slug === 'soul-surgery') return '#d7ed27';
   if (route === 'guides' || route === 'guide') return 'var(--acid-green)';
   if (route === 'who') return 'var(--blood-text)';
   if (route === 'prints' || route === 'print') return 'var(--amber)';
@@ -280,7 +281,7 @@ function lrFinishRouteNavigation(sectionId, shouldFocus, shouldScrollTop) {
 
   if (shouldFocus && main) {
     const scope = section || main;
-    const target = scope.querySelector('h1, h2') || main;
+    const target = section?.matches('.ss-file') ? section : (scope.querySelector('h1, h2') || main);
     const temporaryTabIndex = target !== main && !target.hasAttribute('tabindex');
     if (temporaryTabIndex) target.setAttribute('tabindex', '-1');
     try { target.focus({ preventScroll: true }); }
@@ -538,7 +539,9 @@ function App() {
       const link = event.target.closest?.('a[href]');
       if (event.defaultPrevented || !lrPlainClick(event) || !link || link.target || link.hasAttribute('download')) return;
       const url = new URL(link.href);
-      if (url.origin !== location.origin || !/^\/(?:servitors(?:\/\d+)?|guides(?:\/(?:defense-basics|magic-probability))?|who|prints(?:\/[a-z0-9-]+)?)?\/?$/.test(url.pathname)) return;
+      if (url.origin !== location.origin || !/^\/(?:servitors(?:\/\d+)?|guides(?:\/(?:defense-basics|magic-probability|soul-surgery))?|who|prints(?:\/[a-z0-9-]+)?)?\/?$/.test(url.pathname)) return;
+      // Native fragments keep the selected chart addressable, including without JS.
+      if (url.pathname === location.pathname && url.hash.startsWith('#soul-')) return;
       if (url.hash === '#main-content') return;
       event.preventDefault();
       const nextRoute = lrRouteFromHash(url.hash, url.pathname);

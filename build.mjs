@@ -38,6 +38,7 @@ const APP_FILES = [
   "_prints.jsx",
   "_magic-math.js",
   "_magic-guide.jsx",
+  "_soul-surgery.jsx",
   "_app.jsx",
 ];
 
@@ -109,6 +110,7 @@ for (const file of [
   resolve(HERE, "brand", "effects.css"),
   resolve(HERE, "brand", "prints.css"),
   resolve(HERE, "brand", "magic-guide.css"),
+  resolve(HERE, "brand", "soul-surgery.css"),
   resolve(DIST, "app.js"),
   resolve(DIST, "servitors.js"),
 ]) {
@@ -179,7 +181,7 @@ for (const file of ["shorts.json", "telegram.json"]) {
 }
 
 mkdirSync(resolve(PUBLIC, "uploads", "appendices"), { recursive: true });
-for (const file of ["og-image.png", "servitors.pdf"]) {
+for (const file of ["og-image.png", "servitors.pdf", "soul-surgery-portraits.pdf"]) {
   cpSync(resolve(HERE, "uploads", file), resolve(PUBLIC, "uploads", file));
 }
 cpSync(
