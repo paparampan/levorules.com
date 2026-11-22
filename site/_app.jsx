@@ -281,7 +281,7 @@ function lrFinishRouteNavigation(sectionId, shouldFocus, shouldScrollTop) {
 
   if (shouldFocus && main) {
     const scope = section || main;
-    const target = section?.matches('.ss-file') ? section : (scope.querySelector('h1, h2') || main);
+    const target = scope.querySelector('h1, h2') || main;
     const temporaryTabIndex = target !== main && !target.hasAttribute('tabindex');
     if (temporaryTabIndex) target.setAttribute('tabindex', '-1');
     try { target.focus({ preventScroll: true }); }
@@ -540,7 +540,7 @@ function App() {
       if (event.defaultPrevented || !lrPlainClick(event) || !link || link.target || link.hasAttribute('download')) return;
       const url = new URL(link.href);
       if (url.origin !== location.origin || !/^\/(?:servitors(?:\/\d+)?|guides(?:\/(?:defense-basics|magic-probability|soul-surgery))?|who|prints(?:\/[a-z0-9-]+)?)?\/?$/.test(url.pathname)) return;
-      // Native fragments keep the selected chart addressable, including without JS.
+      // Native fragments keep the individual leaves of the zine addressable.
       if (url.pathname === location.pathname && url.hash.startsWith('#soul-')) return;
       if (url.hash === '#main-content') return;
       event.preventDefault();

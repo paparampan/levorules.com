@@ -33,11 +33,11 @@ const GUIDES_INDEX = [
   },
   {
     slug: 'soul-surgery',
-    eyebrow: 'Бесплатно · гайд · 18+',
+    eyebrow: 'Бесплатно · веб-зин · 18+',
     title: 'Хирурги души',
     accent: '#d7ed27',
-    intro: 'Приёмный покой ХОХМы. Выбери знакомое состояние и узнай, к кому из пяти Хирургов попадёт твой талон. По главе Soul Surgery Дэмиена Хорайзонстара.',
-    tags: ['DKMU', 'Магия хаоса', 'PDF'],
+    intro: '24 листа Хирургического отделения хаос-магии. Пройди от приёмного покоя до выписки, рассмотри схемы банишинга и разбери шкатулку Мессы Кошмара.',
+    tags: ['DKMU', 'Магия хаоса', 'Интерактивный гайд'],
     date: '22.11.2026',
     version: 'v.1',
     available: true,
@@ -191,10 +191,35 @@ function GuideCard({ guide, idx, setRoute }) {
 }
 
 // ----------- GUIDE ROUTER ----------
+let soulReaderLoad;
+function GuideSoulReader() {
+  const [attempt,setAttempt] = React.useState(0);
+  const [status,setStatus] = React.useState(() => window.LRSoulSurgery ? 'ready' : 'loading');
+  React.useEffect(() => {
+    if (window.LRSoulSurgery) { setStatus('ready'); return; }
+    let mounted = true;
+    setStatus('loading');
+    if (!soulReaderLoad) {
+      soulReaderLoad = new Promise((resolve,reject) => {
+        const script = document.createElement('script');
+        script.src = '/dist/soul-surgery.js?v=' + encodeURIComponent(window.__LR_ASSET_VERSION__ || '');
+        script.onload = () => window.LRSoulSurgery ? resolve() : reject(new Error('Reader unavailable'));
+        script.onerror = () => {script.remove();reject(new Error('Reader unavailable'));};
+        document.head.appendChild(script);
+      }).catch(error => { soulReaderLoad = null; throw error; });
+    }
+    soulReaderLoad.then(() => { if(mounted) setStatus('ready'); }, () => { if(mounted) setStatus('error'); });
+    return () => { mounted = false; };
+  }, [attempt]);
+  const Reader = window.LRSoulSurgery;
+  if (Reader) return <Reader/>;
+  return <div className="hz-loader" role="status">{status==='error' ? <>Не удалось открыть гайд.<button type="button" onClick={()=>setAttempt(n=>n+1)}>Загрузить ещё раз</button></> : 'Открываем историю болезни…'}</div>;
+}
+
 function GuidePage({ slug, setRoute }) {
   if (slug === 'defense-basics') return <GuideDefenseBasics setRoute={setRoute} />;
   if (slug === 'magic-probability') return <GuideMagicProbability setRoute={setRoute} />;
-  if (slug === 'soul-surgery') return <SoulSurgeryGuide />;
+  if (slug === 'soul-surgery') return <GuideSoulReader />;
   // Unknown slug — fall back to landing.
   return <GuidesLanding setRoute={setRoute} />;
 }

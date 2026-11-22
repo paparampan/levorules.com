@@ -38,7 +38,6 @@ const APP_FILES = [
   "_prints.jsx",
   "_magic-math.js",
   "_magic-guide.jsx",
-  "_soul-surgery.jsx",
   "_app.jsx",
 ];
 
@@ -100,6 +99,13 @@ await buildBundle({
   label: "servitors bundle",
 });
 
+await buildBundle({
+  files: ["_soul-data.js", "_soul-lab.jsx", "_soul-surgery.jsx"],
+  tmpName: "_source-soul-surgery.jsx",
+  outfile: "soul-surgery.js",
+  label: "Soul Surgery reader",
+});
+
 const assetVersionHash = createHash("sha256");
 for (let n = 0; n <= 10; n++) assetVersionHash.update(readFileSync(resolve(DIST, 'course', `${n}.json`)));
 for (const file of [
@@ -112,6 +118,7 @@ for (const file of [
   resolve(HERE, "brand", "magic-guide.css"),
   resolve(HERE, "brand", "soul-surgery.css"),
   resolve(DIST, "app.js"),
+  resolve(DIST, "soul-surgery.js"),
   resolve(DIST, "servitors.js"),
 ]) {
   assetVersionHash.update(readFileSync(file));

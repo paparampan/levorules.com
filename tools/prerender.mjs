@@ -18,7 +18,7 @@ export async function prerender({root, publicDir}) {
     ['/guides/', 'Гайды · Лево Руля', 'Открытые статьи, протоколы и разборы магической практики. Базовые техники защиты и рабочая тетрадь «Паспорт сервитора».'],
     ['/guides/defense-basics/', 'Базовые техники защиты · Лево Руля', 'Бесплатный гайд: две парадигмы защиты, работа с вниманием, сигилы, заземление и проверка ощущения угрозы.'],
     ['/guides/magic-probability/', 'Формула магии · Лево Руля', 'Пять показателей, две формулы и калькулятор вероятности результата по модели Питера Кэрролла.'],
-    ['/guides/soul-surgery/', 'Хирурги души · Лево Руля', 'Приёмный покой ХОХМы. Пять Хирургов из Soul Surgery, цветной разрез, карты отделения и портреты из русского гайда. 18+.', {
+    ['/guides/soul-surgery/', 'Хирурги души · Лево Руля', 'Интерактивный гайд по Soul Surgery. 24 листа от приёмного покоя до выписки, карты Хирургов, схемы банишинга, шкатулка и две версии Мессы. 18+.', {
       image: {src: '/media/soul-surgery/social-cd0cdbf1.webp', width: 1200, height: 675},
       imageAlt: 'Хирурги души. Разорванный портрет с пятью цветными слоями.',
     }],
@@ -35,11 +35,15 @@ export async function prerender({root, publicDir}) {
     vm.createContext(context);
     vm.runInContext(readFileSync(resolve(root,'dist/servitors.js'),'utf8'),context);
     context.SERVITORS_MODULES=modules;
+    if (path === '/guides/soul-surgery/') vm.runInContext(readFileSync(resolve(root,'dist/soul-surgery.js'),'utf8'),context);
     vm.runInContext(readFileSync(resolve(root,'dist/app.js'),'utf8'),context);
     let body=renderToString(React.createElement(context.App));
     // Fallback markup supports navigation without JavaScript too.
     body=body.replace(/href="#home"/g,'href="/"').replace(/href="#servitors"/g,'href="/servitors/"');
     let html=template.replace('<div id="root"></div>',`<div id="root">${body}</div>`);
+    if (path === '/guides/soul-surgery/') {
+      html=html.replace(/<script src="\/dist\/app\.js([^"]*)" defer><\/script>/, '<script src="/dist/soul-surgery.js$1" defer></script>\n$&');
+    }
     const metadata=Object.fromEntries(routes.map(([url,title,description])=>[url,{title,description}]));
     html=html.replace('  window.__TWEAKS__ =',`  window.__LR_PAGE_META__ = ${JSON.stringify(metadata).replaceAll('<','\\u003c')};\n  window.__TWEAKS__ =`);
     html=html.replace(/<title>[^<]*<\/title>/,`<title>${escape(title)}</title>`);

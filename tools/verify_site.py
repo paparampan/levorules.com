@@ -90,6 +90,17 @@ for route,page in pages.items():
             if parts.fragment and parts.fragment not in pages[destination].ids and parts.fragment not in ['home','servitors','guides','who']:errors.append(f'{route}: broken anchor {href}')
         elif not (PUBLIC/destination.lstrip('/')).exists():errors.append(f'{route}: missing target {href}')
 
+# Each print leaf must remain readable and directly addressable on the web.
+soul_route='/guides/soul-surgery/'
+soul=pages[soul_route]
+soul_ids='cover intake consent dictionary route ward mercy mercy-file cruenti cruenti-file blutenfrau blutenfrau-file nichego nichego-file master master-file cross circle star mass box bloodless table edition'.split()
+for slug in soul_ids:
+    leaf='soul-'+slug
+    if leaf not in soul.ids or '#'+leaf not in soul.links:errors.append(f'{soul_route}: missing leaf or link {leaf}')
+if soul_route not in pages['/guides/'].links:errors.append(f'/guides/: missing {soul_route}')
+if not any(src.startswith('/dist/soul-surgery.js') for src in soul.assets):errors.append(f'{soul_route}: missing reader bundle')
+if any(src.startswith('/dist/soul-surgery.js') for src in pages['/'].assets):errors.append('Soul Surgery reader loaded on the home page')
+
 for n,expected in expected_by_module.items():
     visible=normalize(' '.join(pages[f'/servitors/{n}/'].content))
     for item in expected:
